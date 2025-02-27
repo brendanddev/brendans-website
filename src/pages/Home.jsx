@@ -2,6 +2,7 @@
 // Brendan Dileo
 
 import HelpTooltip from "../components/HelpTooltip";
+import ThemeToggler from "../components/ThemeToggler";
 
 
 // Home functional component
@@ -66,6 +67,7 @@ const Home = () => {
                 </form>
             </div>
             <HelpTooltip />
+            <ThemeToggler />
         </div>
     );
 };
