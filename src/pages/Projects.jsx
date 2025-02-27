@@ -2,12 +2,15 @@
 // Projects.jsx
 // Brendan Dileo
 
+import Devtimeline from "../components/DevTimeline";
+
 const Projects = () => {
     return (
         <div className="w-full min-h-screen bg-gray-900 flex flex-col items-center relative">
             {/* Page Title */}
             <h1 className="text-[#00ff00] text-4xl font-mono mt-5 mb-10">Brendan's Projects</h1>
 
+            <Devtimeline />
 
             <div className="grid md:grid-cols-3 gap-6 p-6">
                 
