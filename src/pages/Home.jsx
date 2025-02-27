@@ -11,7 +11,9 @@ const Home = () => {
         <div className="w-full min-h-screen bg-gray-900 flex flex-col items-center relative">
             
             {/* Page Title */}
-            <h1 className="text-[#00ff00] text-4xl font-mono mt-5 mb-10">Brendans Website</h1>
+            <h1 className="text-[#00ff00] text-4xl font-mono mt-5 ">Brendans Website</h1>
+
+            <h3 className="text-white mb-10">Aspiring Full Stack Developer</h3>
             
             {/* Terminal Container */}
             <div className="w-3/5 h-[500px] bg-black rounded-lg shadow-lg flex flex-col border border-gray-700 overflow-hidden font-mono">

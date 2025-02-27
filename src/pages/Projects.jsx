@@ -10,7 +10,7 @@ const Projects = () => {
             {/* Page Title */}
             <h1 className="text-[#00ff00] text-4xl font-mono mt-5 mb-10">Brendan's Projects</h1>
 
-            <Devtimeline />
+            <h3>Here are a list of a few personal projects I have worked on: </h3>
 
             <div className="grid md:grid-cols-3 gap-6 p-6">
                 
