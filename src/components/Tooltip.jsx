@@ -1,3 +1,0 @@
-
-// Tooltip.jsx
-// Brendan Dileo
