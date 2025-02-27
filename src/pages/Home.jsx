@@ -1,6 +1,8 @@
 // Home.jsx
 // Brendan Dileo
 
+import HelpTooltip from "../components/HelpTooltip";
+
 
 // Home functional component
 const Home = () => {
@@ -63,6 +65,7 @@ const Home = () => {
                         />
                 </form>
             </div>
+            <HelpTooltip />
         </div>
     );
 };
