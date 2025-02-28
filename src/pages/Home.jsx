@@ -48,24 +48,21 @@ const Home = () => {
             </div>
         );
 
-        let response = "";
+        let response = "";                                      // Terminal response based on input
         switch(command.toLowerCase()) {
             case "help":
-                response = (
-                    <div className="flex">
-                        <span className="text-white">Help Case</span>
-                    </div>
-                );
+                response = "Help Case"
+                break;
+            case "home":
+                response = "You are home!";
                 break;
             default:
                 response = "Sorry, I dont recognize that command. Try 'help'." 
         }
 
-
         setOutput([...output, newCommandOutput, response]);
         setCommand("");
     }
-
 
     return (
         <div className="w-full min-h-screen bg-gray-900 flex flex-col items-center relative">
@@ -115,7 +112,7 @@ const Home = () => {
                 </div>
 
                 {/* Terminal Input container */}
-                <form className="flex p-3 border-t border-gray-700">
+                <form className="flex p-3 border-t border-gray-700" onSubmit={handleCommandSubmission}>
                         <span className="mr-2">
                             <span className="text-[#00ff00]">brendan@portfolio</span> {/* Need to find out how to include '>>>' */}
                             <span className="text-white">:</span>
@@ -123,8 +120,10 @@ const Home = () => {
                             <span className="text-white">$</span>
                         </span>
                         <input
-                            type="text"
                             className="flex-1 bg-transparent border-none text-white text-lg focus:outline-none"
+                            type="text"
+                            value={command}
+                            onChange={(event) => setCommand(event.target.value)}
                         />
                 </form>
             </div>
