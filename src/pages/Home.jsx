@@ -1,12 +1,38 @@
 // Home.jsx
 // Brendan Dileo
 
+import { useState } from "react";
 import HelpTooltip from "../components/HelpTooltip";
 import ThemeToggler from "../components/ThemeToggler";
 
 
 // Home functional component
 const Home = () => {
+    
+    const defaultOutput = [
+        <div key="1" className="flex">
+            <span className="mr-2">
+                <span className="text-[#00ff00]">brendan@portfolio</span>
+                <span className="text-white">:</span>
+                <span className="text-blue-400">~</span>
+                <span className="text-white">$</span>
+            </span>
+            <span className="text-white">Welcome to Brendan's Terminal!</span>
+        </div>,
+        <div key="2" className="flex">
+            <span className="mr-2">
+                <span className="text-[#00ff00]">brendan@portfolio</span>
+                <span className="text-white">:</span>
+                <span className="text-blue-400">~</span>
+                <span className="text-white">$</span>
+            </span>
+            <span className="text-white">Type a command to start. Ex: 'help' or 'home'</span>
+        </div>
+    ];
+    
+    const [output, setOutput] = useState(defaultOutput);
+
+
     return (
         <div className="w-full min-h-screen bg-gray-900 flex flex-col items-center relative">
             
