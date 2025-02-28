@@ -2,8 +2,7 @@
 // Projects.jsx
 // Brendan Dileo
 
-import { SquareTerminal, Database, PaintBucket, MessageCircle, Bot, Boxes } from "lucide-react";
-import ModIcon from "../assets/mod.png"
+import { SquareTerminal, Database, PaintBucket, MessageCircle, Bot, Boxes, ScrollText } from "lucide-react";
 
 const projects = [
     {
@@ -11,6 +10,7 @@ const projects = [
         desc: "A mock user management system featuring authentication and role-based access control. Built with PHP, JavaScript, and MySQL.",
         icons: ["devicon-php-plain", "devicon-javascript-plain"],
         extraIcon: <Database size={28} />,
+        link: "https://github.com/brendanddev/Full-Stack-Mock-User-Management-System"
     },
     {
         title: "Black Ops 3 Mod Menu",
@@ -19,7 +19,7 @@ const projects = [
         extraIcon: (
             <div style={{ display: "flex", gap: "5px", alignItems: "center" }}>
                 <SquareTerminal size={28} />
-                <img src={ModIcon} alt="Mod Icon" width={28} height={28} style={{ filter: "invert(1)" }} />
+                <ScrollText size={28} />
             </div>
         ),
     },
@@ -46,7 +46,7 @@ const projects = [
     {
         title: "Minecraft Sword Mod",
         desc: "A custom Minecraft mod in Java using the Forge Modding API. Adds a unique sword with abilities, new weapon mechanics, and item registration.",
-        icons: ["devicon-java-plain"],
+        icons: ["devicon-java-plain", "devicon-json-plain"],
         extraIcon: <Boxes size={28} />
     }
 ];
@@ -69,6 +69,13 @@ const Projects = () => {
                                 ))}
                                 {project.extraIcon}
                             </div>
+                            <a 
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mt-4 inline-block bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-600"
+                            >
+                                View Project
+                            </a>
                         </div>
                     </div>
                 ))}
