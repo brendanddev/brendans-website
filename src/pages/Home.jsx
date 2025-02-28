@@ -3,14 +3,13 @@
 
 import { useState } from "react";
 import HelpTooltip from "../components/HelpTooltip";
-import ThemeToggler from "../components/ThemeToggler";
-
+import ThemeToggler from "../components/ThemeToggler"
 
 // Home functional component
 const Home = () => {
     
-    const defaultOutput = [
-        <div key="1" className="flex">
+    const defaultOutput = [                                     // Output shown by default by the terminal, keys for identification
+        <div key="1" className="flex">                          
             <span className="mr-2">
                 <span className="text-[#00ff00]">brendan@portfolio</span>
                 <span className="text-white">:</span>
@@ -30,14 +29,15 @@ const Home = () => {
         </div>
     ];
     
-    const [output, setOutput] = useState(defaultOutput);
-    const [command, setCommand] = useState("");
+    const [output, setOutput] = useState(defaultOutput);        // Output State
+    const [command, setCommand] = useState("");                 // Command State
 
-    const handleCommandSubmission = (event) => {
-        event.preventDefault();
 
-        const newCommandOutput = (
-            <div>
+    const handleCommandSubmission = (event) => {                // Function to handle the event of a command
+        event.preventDefault();                                 // being submitted to the terminal
+
+        const newCommandOutput = (                              // Terminal response including the command entered
+            <div className="flex">                                               
                 <span className="mr-2">
                     <span className="text-[#00ff00]">brendan@portfolio</span>
                     <span className="text-white">:</span>
@@ -48,7 +48,21 @@ const Home = () => {
             </div>
         );
 
-        setOutput([...output, newCommandOutput]);
+        let response = "";
+        switch(command.toLowerCase()) {
+            case "help":
+                response = (
+                    <div className="flex">
+                        <span className="text-white">Help Case</span>
+                    </div>
+                );
+                break;
+            default:
+                response = "Sorry, I dont recognize that command. Try 'help'." 
+        }
+
+
+        setOutput([...output, newCommandOutput, response]);
         setCommand("");
     }
 
@@ -57,9 +71,9 @@ const Home = () => {
         <div className="w-full min-h-screen bg-gray-900 flex flex-col items-center relative">
             
             {/* Page Title */}
-            <h1 className="text-[#00ff00] text-4xl font-mono mt-5 ">Brendans Website</h1>
+            <h1 className="text-6xl font-bold text-[#00ff00] mt-5 mb-6">Brendan's Website</h1>
 
-            <h3 className="text-white mb-10">Aspiring Full Stack Developer</h3>
+            <h3 className="text-white font-mono mb-10">Welcome! Interact with the terminal by entering a command.</h3>
             
             {/* Terminal Container */}
             <div className="w-3/5 h-[500px] bg-black rounded-lg shadow-lg flex flex-col border border-gray-700 overflow-hidden font-mono">
