@@ -31,6 +31,26 @@ const Home = () => {
     ];
     
     const [output, setOutput] = useState(defaultOutput);
+    const [command, setCommand] = useState("");
+
+    const handleCommandSubmission = (event) => {
+        event.preventDefault();
+
+        const newCommandOutput = (
+            <div>
+                <span className="mr-2">
+                    <span className="text-[#00ff00]">brendan@portfolio</span>
+                    <span className="text-white">:</span>
+                    <span className="text-blue-400">~</span>
+                    <span className="text-white">$</span>
+                </span>
+                <span className="text-white">{command}</span>
+            </div>
+        );
+
+        setOutput([...output, newCommandOutput]);
+        setCommand("");
+    }
 
 
     return (
