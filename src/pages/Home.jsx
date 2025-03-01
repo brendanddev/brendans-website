@@ -2,6 +2,7 @@
 // Brendan Dileo
 
 import { useState } from "react";
+import { ReactTyped } from 'react-typed';
 import HelpTooltip from "../components/HelpTooltip";
 import ThemeToggler from "../components/ThemeToggler";
 
@@ -63,6 +64,18 @@ const Home = () => {
                     </div>
                 );
                 break;
+            case "about":
+                break;
+            case "projects":
+                break;
+            case "contact":
+                break;
+            case "greet":
+                break;
+            case "clear":
+                break;
+            case "easterEgg":
+                break;
             default:
                 response = (
                     <div className="flex">
@@ -76,13 +89,23 @@ const Home = () => {
     }
 
     return (
-        <div className="w-full min-h-screen bg-gray-900 flex flex-col items-center relative p-8">
-            <h1 className="text-6xl font-bold text-[#00ff00] mt-5 mb-6">Brendan's Website</h1>
+        <div className="w-full min-h-screen bg-gray-900 flex flex-col items-center">
+            <h1 className="text-5xl font-bold text-[#00ff00] mt-5 mb-6">Brendan's Website</h1>
 
-            <h3 className="text-white font-mono mb-10">Welcome! Interact with the terminal by entering a command.</h3>
+            <div className="w-3/5 text-lg text-[#00ff00] text-center font-mono mb-6">
+                <ReactTyped
+                    strings={[
+                        "Welcome to my website! Checkout the terminal by entering a command!",
+                    ]}
+                    typeSpeed={100}
+                    backSpeed={50}
+                    backDelay={1000}
+                    loop
+                />
+            </div>
             
             {/* Terminal Container */}
-            <div className="w-3/5 h-[500px] bg-black rounded-lg shadow-lg flex flex-col border border-gray-700 overflow-hidden font-mono">
+            <div className="w-3/5 h-[600px] bg-black rounded-lg shadow-lg flex flex-col border border-gray-700 overflow-hidden font-mono">
                 
                 {/* Terminal Header Container */}
                 <div className="h-8 bg-gray-800 flex items-center justify-center relative text-white text-sm font-bold">
