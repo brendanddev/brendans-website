@@ -1,3 +1,5 @@
+
+
 // Home.jsx
 // Brendan Dileo
 
@@ -51,7 +53,7 @@ const Home = () => {
         let response = "";                                      // Terminal response based on input
         switch(command.toLowerCase()) {
             case "help":
-                response = (                                    // NEEDED JSX ***
+                response = (                                    
                     <div className="flex">
                         <span className="text-white">Help Case</span>
                     </div>
@@ -64,7 +66,7 @@ const Home = () => {
                     </div>
                 );
                 break;
-            case "about":
+            case "about":                                       // to implement.. 
                 break;
             case "projects":
                 break;
@@ -93,6 +95,7 @@ const Home = () => {
             <h1 className="text-5xl font-bold text-[#00ff00] mt-5 mb-6">Brendan's Website</h1>
 
             <div className="w-3/5 text-lg text-[#00ff00] text-center font-mono mb-6">
+                {/* ReactTyped to simulate typing */}
                 <ReactTyped
                     strings={[
                         "Welcome to my website! Checkout the terminal by entering a command!",
@@ -109,18 +112,20 @@ const Home = () => {
                 
                 {/* Terminal Header Container */}
                 <div className="h-8 bg-gray-800 flex items-center justify-center relative text-white text-sm font-bold">
+                    
                     {/* Header Buttons */}
                     <div className="absolute left-4 flex gap-2">
                         <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                         <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                         <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                     </div>
+
                     {/* Header text */}
                     <span className="text-center w-full">brendans@website-terminal: ~</span>
                 </div>
 
                 {/* Terminal Body */}
-                <div className="flex-1 p-3 text-white overflow-y-auto">    {/* NEEDED TO RESPOND WITH OUTPUT STATE *** */}
+                <div className="flex-1 p-3 text-white overflow-y-auto">
                     {output}
                 </div>
 

@@ -14,7 +14,7 @@ const projects = [
     },
     {
         title: "Black Ops 3 Mod Menu",
-        desc: "A mod menu for Call of Duty: Black Ops 3, built in GSC. Allows various gameplay customizations.",
+        desc: "A mod menu for Call of Duty: Black Ops 3, built in GSC (Game Script Code). Allows various gameplay customizations.",
         icons: ["devicon-cplusplus-plain"],
         extraIcon: (
             <div style={{ display: "flex", gap: "5px", alignItems: "center" }}>
@@ -55,7 +55,14 @@ const Projects = () => {
     return (
         <div className="w-full min-h-screen bg-gray-900 flex flex-col items-center relative">
             <h1 className="text-6xl font-bold text-[#00ff00] mt-5 mb-6">Brendan's Projects</h1>
-            <h3 className="text-white mb-6">Here are a few personal projects I have worked on:</h3>
+
+            <section className="w-2/4 mb-12">
+                <p className="bg-black text-sm text-green-400 p-4 rounded-md shadow-lg font-mono overflow-x-auto">
+                    {`Over the last few years I have worked on several different projects, between assignments
+                        for school, personal projects to help my learning, or passion projects. Below are a few
+                        with brief descriptions of the projects, the tech stack used, and a link to the project.`}
+                </p>
+            </section>
 
             <div className="grid md:grid-cols-3 gap-6 p-6">
                 {projects.map((project, index) => (
