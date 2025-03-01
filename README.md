@@ -16,3 +16,4 @@ Recognition and Gratitude goes out to the following resources for help and inspi
 - [Tailwind Cards](https://flowbite.com/docs/components/card/)
 - [React Chrono Documentation](https://react-chrono.prabhumurthy.com/features/nested-timelines.html)
 - [Chrono Library Help DHIWise](https://www.dhiwise.com/post/how-to-create-react-horizontal-timeline-a-developer-guide)
+- [ReactTyped - BlogRocket](https://blog.logrocket.com/5-ways-implement-typing-animation-react/)
