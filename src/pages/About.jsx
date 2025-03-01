@@ -3,13 +3,23 @@
 // About.jsx
 // Brendan Dileo
 
+
 import { GraduationCap, FileText } from "lucide-react";
+import Header from "../components/Header";
 
 const About = () => {
   return (
     <div className="relative w-full min-h-screen flex flex-col items-center bg-gradient-to-b from-black to-gray-900 text-white">
-      <div className="relative z-10 w-full max-w-4xl text-center">
-        <h1 className="text-5xl font-bold text-[#00ff00] mt-5 mb-6">About Brendan</h1>
+      <div className="relative z-10 w-full max-w-5xl text-center">
+        <Header 
+                title="About Me" 
+                subtitle="Who am I? Here's a bit about me."
+                typedTexts={[
+                    "I have a deep passion for software development and technology.",
+                    "I enjoy working on projects involving web development, automation, and game modifications.",
+                    "Always eager to learn and improve my skills in programming and problem-solving."
+                ]}
+            />
 
         <section className="w-full mb-12">
          <p className="bg-gray-900 text-sm text-green-400 p-4 rounded-md shadow-lg font-mono overflow-x-auto">

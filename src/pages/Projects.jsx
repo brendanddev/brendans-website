@@ -3,6 +3,7 @@
 // Brendan Dileo
 
 import { SquareTerminal, Database, PaintBucket, MessageCircle, Bot, Boxes, ScrollText } from "lucide-react";
+import Header from "../components/Header";
 
 const projects = [
     {
@@ -54,7 +55,13 @@ const projects = [
 const Projects = () => {
     return (
         <div className="w-full min-h-screen bg-gray-900 flex flex-col items-center relative">
-            <h1 className="text-6xl font-bold text-[#00ff00] mt-5 mb-6">Brendan's Projects</h1>
+           <Header 
+                title="My Projects" 
+                subtitle="A collection of my work and passion projects."
+                typedTexts={[
+                    ""
+                ]}
+            />
 
             <section className="w-2/4 mb-12">
                 <p className="bg-black text-sm text-green-400 p-4 rounded-md shadow-lg font-mono overflow-x-auto">
