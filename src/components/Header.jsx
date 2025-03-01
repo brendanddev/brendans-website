@@ -8,23 +8,15 @@ import { motion } from "framer-motion";
 const Header = () => {
     return (
       
-        <div className="flex flex-col items-center text-center mt-10 mb-10">
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-            >
-                <h1 className="text-3xl font-bold text-[#00ff00]">
-                    Hey! My name is
-                </h1>
-            </motion.div>
+        <div className="flex flex-col items-center justify-center text-center mt-10 mb-10">
+           
 
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
             >
-                <h2 className="text-5xl font-extrabold text-white">
+                <h2 className="text-5xl text-center font-extrabold text-white">
                     Brendan Dileo
                 </h2>
             </motion.div>
@@ -34,8 +26,8 @@ const Header = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
             >
-                <h3 className="text-xl text-gray-400">
-                    Software Developer | Tech Enthusiast | Gamer
+                <h3 className="text-3xl md:text-4xl font-extrabold text-gray-400">
+                    Software Developer | Tech Enthusiast | Designer
                 </h3>
             </motion.div>
 
