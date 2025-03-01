@@ -4,6 +4,8 @@
 // Brendan Dileo
 
 
+import Sidebar from "../components/Sidebar";
+
 import { GraduationCap, FileText } from "lucide-react";
 import Header from "../components/Header";
 
@@ -20,6 +22,7 @@ const About = () => {
                     "Always eager to learn and improve my skills in programming and problem-solving."
                 ]}
             />
+          <Sidebar />
 
         <section className="w-full mb-12">
          <p className="bg-gray-900 text-sm text-green-400 p-4 rounded-md shadow-lg font-mono overflow-x-auto">
@@ -160,7 +163,6 @@ const About = () => {
         </section>
 
       </div>
-
     </div>
   );
 };
