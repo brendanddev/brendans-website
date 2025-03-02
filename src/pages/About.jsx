@@ -17,42 +17,33 @@ const About = () => {
         <Header 
                 title="About Me" 
                 subtitle="Who am I? Here's a bit about me."
-            />
-          <Sidebar />
+        />
+        <Sidebar />
 
-          <motion.div 
-            initial={false} 
-            animate={{ opacity: 1 }} 
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1 }} 
-            className="flex justify-center items-center relative opacity-0"
-        >
-          <motion.section 
-                  initial={{ y: 20, opacity: 0 }} 
-                  animate={{ y: 0, opacity: 1 }} 
-                  transition={{ duration: 1, delay: 0.2 }} 
-                  className="w-3/4 mb-12"
-              >
-                <div className="w-4/5 h-[300px] bg-black rounded-lg shadow-lg flex flex-col border border-white overflow-hidden font-mono">
-                  <div className="h-8 bg-white flex items-center justify-between px-4 text-sm text-black">
-                      <span>Contact-Brendan-2</span>
-                          <div className="flex gap-2">
-                              <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                                  <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                                      <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                                  </div>
-                            </div>
-                              <div className="flex-1 p-4 overflow-y-auto text-white">
-                              {`Over the last few years I have worked on several different projects, between assignments
-                                for school, personal projects to help my learning, or passion projects. Below are a few
-                                with brief descriptions of the projects, the tech stack used, and a link to the project.`}
-                              </div>
-                            </div>
+        <section className="w-full flex justify-center items-center mb-8">
+            <div className="w-3/5 h-[300px] bg-black rounded-lg shadow-lg flex flex-col border border-white overflow-hidden font-mono">
+                <div className="h-8 bg-white flex items-center justify-between px-4 text-sm text-black">
+                <span>About-Brendan</span>
+                <div className="flex gap-2">
 
-              </motion.section>
-          </motion.div>
-       
+                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                        <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                        </div>
+                    </div>
 
+                    <div className="flex-1 p-4 font-semibold text-sm text-white overflow-y-auto leading-relaxed">
+                        Hi, I'm <span className="font-bold text-[#00ff00]">Brendan</span>, a <span className="italic">Software Development</span> student
+                        and <span className="italic">Aspiring Full Stack Developer</span> passionate about 
+                        <span className="font-bold text-[#ff3131]"> technology</span> and <span className="font-bold text-[#00ff00]">creating</span>.
+                        <br /><br />
+
+                        My journey began in the 5th grade, when I got my first personal computer.
+
+                        <br /><br />
+                  </div>
+              </div>
+        </section>
 
         <section className="w-full mb-12 border-[#00ffcc] pb-8">
           <div className="w-full p-6 border rounded-lg shadow-lg bg-gray-800">
@@ -92,8 +83,6 @@ const About = () => {
           </div>
         </section>
 
-
-        {/* Skills */}
         <section className="w-full mb-12 p-6 border rounded-lg shadow-lg bg-gray-800">
           <h2 className="text-3xl font-semibold text-[#00ffcc]">Skills</h2>
           <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
