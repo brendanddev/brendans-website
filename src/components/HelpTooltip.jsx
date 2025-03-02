@@ -8,17 +8,17 @@ const HelpTooltip = () => {
     <Tooltip
       content={
         <div className="w-80">
-          <Typography color="white" className="font-medium">
+          <Typography color="white" className="font-bold text-center">
             Need Help?
           </Typography>
-          <Typography variant="small" color="white" className="font-normal opacity-80">
-            You can interact with the terminal by typing a command, followed by pressing enter.
+          <Typography variant="medium" color="white" className="font-normal opacity-80">
+            Interact with the terminal by typing a command followed by pressing enter. (i.e., 'greet')
           </Typography>
         </div>
       }
       placement="top"
     >
-      <div className="fixed bottom-4 left-4 flex items-center justify-center w-12 h-12 rounded-full bg-blue-500 text-white cursor-pointer shadow-md hover:bg-blue-600">
+      <div className="fixed bottom-4 right-4 flex items-center justify-center w-12 h-12 rounded-full bg-blue-500 text-white cursor-pointer shadow-md hover:bg-blue-600">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
