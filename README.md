@@ -19,3 +19,4 @@ Recognition and Gratitude goes out to the following resources for help and inspi
 - [ReactTyped BlogRocket](https://blog.logrocket.com/5-ways-implement-typing-animation-react/)
 - [Motion React](https://motion.dev/docs/quick-start)
 - [Framer Motion Help](https://motion.dev/docs/framer)
+- [TechCheck Framer Motion Tutorial](https://www.youtube.com/watch?v=Ojk-x-uAyIE)
