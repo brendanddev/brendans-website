@@ -16,7 +16,7 @@ const ThemeToggler = () => {
     return (
         <button 
             onClick={toggleTheme}
-            className="fixed bottom-4 left-20 p-2 rounded-full bg-gray-300 dark:bg-gray-800 text-gray-900 dark:text-white"
+            className="fixed bottom-4 right-20 p-2 rounded-full bg-gray-300 dark:bg-gray-800 text-gray-900 dark:text-white"
         >
             {isDark ? <Sun size={30} /> : <Moon size={30} />}
         </button>

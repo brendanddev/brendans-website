@@ -8,7 +8,7 @@ import { motion } from "framer-motion"
 
 const Contact = () => {
     return (
-        <div className="w-full min-h-screen bg-gray-800 flex flex-col items-center">
+        <div className="w-full min-h-screen bg-gray-900 flex flex-col items-center">
             <Header 
                 title="Contact Brendan" 
                 subtitle="Software Developer | Backend | Tech Enthusiast"
