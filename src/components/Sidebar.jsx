@@ -11,6 +11,7 @@ import { CgMail } from "react-icons/cg";
 
 
 const Sidebar = () => {
+    
     return (
         <motion.div
             initial={{ x: -100, opacity: 0 }}
@@ -51,7 +52,7 @@ const Sidebar = () => {
                     </a>
                 </li>
                 <li>
-                    <a href="brendan.dileo@mohawkcollege.ca" aria-label="Email" rel="noreferrer">
+                    <a href="mailto:brendan.dileo@mohawkcollege.ca" aria-label="Email" rel="noreferrer">
                         <CgMail className="w-8 h-8 text-white hover:text-[#00ff00] transition duration-300 hover:-translate-y-2 hover:text-[#00ff00]" />
                     </a>
                 </li>
