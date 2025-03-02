@@ -1,70 +1,20 @@
 
-// Projects.jsx
-// Brendan Dileo
+/**
+ * @file Projects.jsx
+ * @author Brendan Dileo 
+ * 
+ * 
+*/
+
 
 import { motion } from "framer-motion";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
-
-import { Database, MessageCircle, Boxes } from "lucide-react";
-import { FaFolder, FaPaintBrush, FaRobot } from "react-icons/fa";
-
-import { PiTerminalWindowDuotone } from "react-icons/pi";
-import { MdOutlineGamepad } from "react-icons/md";
+import { projectData } from "../projectData";
 
 
-const projects = [
-    {
-        title: "User Management System",
-        desc: "A mock user management system featuring authentication and role-based access control. Built with PHP, JavaScript, and MySQL.",
-        icons: ["devicon-php-plain", "devicon-javascript-plain"],
-        extraIcon: <Database size={28} />,
-        link: "https://github.com/brendanddev/Full-Stack-Mock-User-Management-System"
-    },
-    {
-        title: "Black Ops 3 Mod Menu",
-        desc: "A mod menu for Call of Duty: Black Ops 3, built in GSC (Game Script Code). Allows various gameplay customizations.",
-        icons: ["devicon-cplusplus-plain"],
-        extraIcon: [
-            <PiTerminalWindowDuotone size={30} />,
-            <MdOutlineGamepad size={28} />
-        ],
-        
-        link: "https://github.com/brendanddev/Black-Ops-3-GSC-Mod-Menu"
-    },
-    {
-        title: "Tadpole Mania",
-        desc: "A 2D side-scrolling game built in Unity using C#. Features sprite animations, collision detection, and scrolling backgrounds.",
-        icons: ["devicon-csharp-plain", "devicon-unity-plain", "devicon-godot-plain"],
-        link: "https://github.com/brendanddev/Tadpole-Mania-Unity-Game"
-    },
-    {
-        title: "Black Ops 1 Camo Pack",
-        desc: "A custom camo pack for Call of Duty: Black Ops 1, using Photoshop/GIMP and game asset conversion tools.",
-        icons: ["devicon-photoshop-plain", "devicon-gimp-plain"],
-        extraIcon: <FaPaintBrush size={28}/>,
-        link: "https://github.com/brendanddev/Black-Ops-1-Camo-Pack"
-    },
-    {
-        title: "FAQ Discord Chat Bot",
-        desc: "An intelligent FAQ Discord bot that responds to user queries using fuzzy matching and heuristic techniques.",
-        icons: ["devicon-python-plain"],
-        extraIcon: (
-            <MessageCircle size={28} />,
-            <FaRobot size={28} />
-        ),
-        link: "https://github.com/brendanddev/FAQ-Bot"
-    },
-    {
-        title: "Minecraft Sword Mod",
-        desc: "A custom Minecraft mod in Java using the Forge Modding API. Adds a unique sword with abilities, new weapon mechanics, and item registration.",
-        icons: ["devicon-java-plain", "devicon-json-plain"],
-        extraIcon: <Boxes size={28} />,
-        link: "_blank"
-    }
-];
 
-// MESSAGE ICON NTO WORKING
+// FIXME: MessageIcon not working for faq bot card
 
 const Projects = () => {
     return (
@@ -87,7 +37,7 @@ const Projects = () => {
                 initial={{ y: 20, opacity: 0 }} 
                 animate={{ y: 0, opacity: 1 }} 
                 transition={{ duration: 1, delay: 0.2 }} 
-                className="w-2/4 mb-12"
+                className="w-2/4 mb-6"
             >
                 <p className="bg-black text-sm text-green-400 p-4 rounded-md shadow-lg font-mono overflow-x-auto">
                     Over the past couple of years, I've worked on a variety of projects, ranging from school assignments to 
@@ -98,7 +48,7 @@ const Projects = () => {
             </motion.section>
 
             <motion.div className="grid md:grid-cols-3 gap-6 p-6">
-                {projects.map((project, index) => (
+                {projectData.map((project, index) => (
                     <motion.div 
                         key={index}
                         initial={{ scale: 0.8, opacity: 0 }}
