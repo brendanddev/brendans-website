@@ -3,9 +3,15 @@
 // Brendan Dileo
 
 import { motion } from "framer-motion";
-import { SquareTerminal, Database, PaintBucket, MessageCircle, Bot, Boxes, ScrollText } from "lucide-react";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
+
+import { Database, MessageCircle, Boxes } from "lucide-react";
+import { FaFolder, FaPaintBrush, FaRobot } from "react-icons/fa";
+
+import { PiTerminalWindowDuotone } from "react-icons/pi";
+import { MdOutlineGamepad } from "react-icons/md";
+
 
 const projects = [
     {
@@ -19,23 +25,25 @@ const projects = [
         title: "Black Ops 3 Mod Menu",
         desc: "A mod menu for Call of Duty: Black Ops 3, built in GSC (Game Script Code). Allows various gameplay customizations.",
         icons: ["devicon-cplusplus-plain"],
-        extraIcon: (
-            <div style={{ display: "flex", gap: "5px", alignItems: "center" }}>
-                <SquareTerminal size={28} />
-                <ScrollText size={28} />
-            </div>
-        ),
+        extraIcon: [
+            <PiTerminalWindowDuotone size={30} />,
+            <MdOutlineGamepad size={28} />
+        ],
+        
+        link: "https://github.com/brendanddev/Black-Ops-3-GSC-Mod-Menu"
     },
     {
         title: "Tadpole Mania",
         desc: "A 2D side-scrolling game built in Unity using C#. Features sprite animations, collision detection, and scrolling backgrounds.",
-        icons: ["devicon-csharp-plain", "devicon-unity-plain", "devicon-godot-plain"]
+        icons: ["devicon-csharp-plain", "devicon-unity-plain", "devicon-godot-plain"],
+        link: "https://github.com/brendanddev/Tadpole-Mania-Unity-Game"
     },
     {
         title: "Black Ops 1 Camo Pack",
         desc: "A custom camo pack for Call of Duty: Black Ops 1, using Photoshop/GIMP and game asset conversion tools.",
         icons: ["devicon-photoshop-plain", "devicon-gimp-plain"],
-        extraIcon: <PaintBucket size={28} />,
+        extraIcon: <FaPaintBrush size={28}/>,
+        link: "https://github.com/brendanddev/Black-Ops-1-Camo-Pack"
     },
     {
         title: "FAQ Discord Chat Bot",
@@ -43,16 +51,20 @@ const projects = [
         icons: ["devicon-python-plain"],
         extraIcon: (
             <MessageCircle size={28} />,
-            <Bot size={28} />
-        )
+            <FaRobot size={28} />
+        ),
+        link: "https://github.com/brendanddev/FAQ-Bot"
     },
     {
         title: "Minecraft Sword Mod",
         desc: "A custom Minecraft mod in Java using the Forge Modding API. Adds a unique sword with abilities, new weapon mechanics, and item registration.",
         icons: ["devicon-java-plain", "devicon-json-plain"],
-        extraIcon: <Boxes size={28} />
+        extraIcon: <Boxes size={28} />,
+        link: "_blank"
     }
 ];
+
+// MESSAGE ICON NTO WORKING
 
 const Projects = () => {
     return (
@@ -78,9 +90,10 @@ const Projects = () => {
                 className="w-2/4 mb-12"
             >
                 <p className="bg-black text-sm text-green-400 p-4 rounded-md shadow-lg font-mono overflow-x-auto">
-                    {`Over the last few years I have worked on several different projects, between assignments
-                    for school, personal projects to help my learning, or passion projects. Below are a few
-                    with brief descriptions of the projects, the tech stack used, and a link to the project.`}
+                    Over the past couple of years, I've worked on a variety of projects, ranging from school assignments to 
+                    personal projects that helped me learn, as well as passion projects. The time and effort I've put into these 
+                    projects has paid off, allowing me to grow as a developer. Below, you'll find a few of my personal and passion 
+                    projects.
                 </p>
             </motion.section>
 
@@ -108,7 +121,7 @@ const Projects = () => {
                                 href={project.link}
                                 className="mt-4 inline-block bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-600"
                             >
-                                View Project
+                                <FaFolder />
                             </a>
                         </div>
                     </motion.div>

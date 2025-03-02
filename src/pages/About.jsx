@@ -18,12 +18,11 @@ const About = () => {
             title="About Me" 
             subtitle="Who am I? Here's a bit about me."
         />
-        <Sidebar />
 
         <section className="w-full flex justify-center items-center mb-8">
         
         <motion.div
-          className="w-3/5 h-[300px] bg-black rounded-lg shadow-lg flex flex-col border border-white overflow-hidden font-mono"
+          className="w-full h-[300px] bg-black rounded-lg shadow-lg flex flex-col border border-white overflow-hidden font-mono"
           initial={{ opacity: 0, x: -500 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -219,8 +218,9 @@ const About = () => {
         Download Resume
       </a>
     </motion.div>
-
     </div>
+    <Sidebar />
+
   </div>
 
   );
