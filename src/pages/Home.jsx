@@ -1,5 +1,4 @@
 
-
 // Home.jsx
 // Brendan Dileo
 
@@ -15,7 +14,7 @@ const Home = () => {
     return (
         <div className="w-full min-h-screen bg-gray-900 flex flex-col items-center">
             <div className="w-full">
-            <Header 
+                <Header 
                 title="Brendan Dileo" 
                 subtitle="Software Developer | Tech Enthusiast | Designer"
                 typedTexts={[
