@@ -20,13 +20,39 @@ const Sidebar = () => {
         >
             <ul className="space-y-6">
                 <li>
-                    <a href="https://github.com/" aria-label="GitHub" target="_blank" rel="noreferrer">
+                    <a href="https://github.com/brendanddev" aria-label="GitHub" target="_blank" rel="noreferrer">
                         <FaGithub className="w-8 h-8 text-white hover:text-[#00ff00] transition duration-300 hover:-translate-y-2 hover:text-[#00ff00]" />
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.linkedin.com/in/" aria-label="LinkedIn" target="_blank" rel="noreferrer">
+                    <a href="https://www.linkedin.com/in/brendan-dileo-bb39b4328/" aria-label="LinkedIn" target="_blank" rel="noreferrer">
                         <FaLinkedin className="w-8 h-8 text-white hover:text-[#00ff00] transition duration-300 hover:-translate-y-2 hover:text-[#00ff00]" />
+                    </a>
+                </li>
+                {/* .drendos */}
+                <li>
+                    <a href="" aria-label="Discord" target="_blank" rel="noreferrer">
+                        <FaDiscord className="w-8 h-8 text-white hover:text-[#00ff00] transition duration-300 hover:-translate-y-2 hover:text-[#00ff00]" />
+                    </a>
+                </li>
+                <li>
+                    <a href="https://stackoverflow.com/users/24895390/brendan-d" aria-label="StackOverflow" rel="noreferrer">
+                        <FaStackOverflow className="w-8 h-8 text-white hover:text-[#00ff00] transition duration-300 hover:-translate-y-2 hover:text-[#00ff00]" />
+                    </a>
+                </li>
+                <li>
+                    <a href="https://gitlab.com/brendandileo" aria-label="Gitlab" rel="noreferrer">
+                        <FaGitlab className="w-8 h-8 text-white hover:text-[#00ff00] transition duration-300 hover:-translate-y-2 hover:text-[#00ff00]" />
+                    </a>
+                </li>
+                <li>
+                    <a href="https://leetcode.com/u/devbrendandileo/" aria-lable="Leetcode" rel="noreferrer">
+                        <SiLeetcode className="w-8 h-8 text-white hover:text-[#00ff00] transition duration-300 hover:-translate-y-2 hover:text-[#00ff00]" />
+                    </a>
+                </li>
+                <li>
+                    <a href="brendan.dileo@mohawkcollege.ca" aria-label="Email" rel="noreferrer">
+                        <CgMail className="w-8 h-8 text-white hover:text-[#00ff00] transition duration-300 hover:-translate-y-2 hover:text-[#00ff00]" />
                     </a>
                 </li>
             </ul>
