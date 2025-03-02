@@ -1,3 +1,7 @@
+
+// Header.jsx
+// Brendan Dileo
+
 import { ReactTyped } from "react-typed";
 import { motion } from "framer-motion";
 
@@ -25,21 +29,23 @@ const Header = ({ title, subtitle, typedTexts }) => {
                 </h3>
             </motion.div>
 
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-            >
-                <p className="text-[#00ff00] max-w-2xl mt-4">
-                    <ReactTyped
-                        strings={typedTexts}
-                        typeSpeed={30}
-                        backSpeed={20}
-                        backDelay={3000}
-                        loop
-                    />
-                </p>
-            </motion.div>
+            {typedTexts && typedTexts.length > 0 && (
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                >
+                    <p className="text-[#00ff00] max-w-2xl mt-4">
+                        <ReactTyped
+                            strings={typedTexts}
+                            typeSpeed={30}
+                            backSpeed={20}
+                            backDelay={3000}
+                            loop
+                        />
+                    </p>
+                </motion.div>
+            )}
         </div>
     );
 };

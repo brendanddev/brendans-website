@@ -8,35 +8,50 @@ import Sidebar from "../components/Sidebar";
 
 import { GraduationCap, FileText } from "lucide-react";
 import Header from "../components/Header";
+import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <div className="relative w-full min-h-screen flex flex-col items-center bg-gradient-to-b from-black to-gray-900 text-white">
+    <div className="relative w-full min-h-screen flex flex-col items-center bg-gray-900 text-white">
       <div className="relative z-10 w-full max-w-5xl text-center">
         <Header 
                 title="About Me" 
                 subtitle="Who am I? Here's a bit about me."
-                typedTexts={[
-                    "I have a deep passion for software development and technology.",
-                    "I enjoy working on projects involving web development, automation, and game modifications.",
-                    "Always eager to learn and improve my skills in programming and problem-solving."
-                ]}
             />
           <Sidebar />
 
-        <section className="w-full mb-12">
-         <p className="bg-gray-900 text-sm text-green-400 p-4 rounded-md shadow-lg font-mono overflow-x-auto">
-            {`Hi, I'm Brendan, a passionate Software Development student and aspiring Full Stack Developer with a deep love for technology.
-            From building and fixing computers to diving into the world of programming, I thrive on exploring and creating solutions with technology.
-            My journey began in 5th grade when I got my first computer and immediately became fascinated with how things work. By 7th grade, I built 
-            my first computer and was already experimenting with hardware. It was in 9th grade, however, when I truly started to develop a passion 
-            for programming, especially when I built my first gaming PC by carefully researching the best components for performance. During my high 
-            school years, I discovered my love for modding through my interest in Call of Duty: Black Ops 1 Zombies. This sparked my curiosity about 
-            programming and game modification, and as I learned more about coding, I found myself diving into platforms like GitHub to share and build
-            upon the work of others. Today, I'm dedicated to continuing my journey in software development, always eager to learn, create, and contribute
-            to the tech world.`}
-          </p>
-        </section>
+          <motion.div 
+            initial={false} 
+            animate={{ opacity: 1 }} 
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }} 
+            className="flex justify-center items-center relative opacity-0"
+        >
+          <motion.section 
+                  initial={{ y: 20, opacity: 0 }} 
+                  animate={{ y: 0, opacity: 1 }} 
+                  transition={{ duration: 1, delay: 0.2 }} 
+                  className="w-3/4 mb-12"
+              >
+                <div className="w-4/5 h-[300px] bg-black rounded-lg shadow-lg flex flex-col border border-white overflow-hidden font-mono">
+                  <div className="h-8 bg-white flex items-center justify-between px-4 text-sm text-black">
+                      <span>Contact-Brendan-2</span>
+                          <div className="flex gap-2">
+                              <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                                  <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                                      <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                                  </div>
+                            </div>
+                              <div className="flex-1 p-4 overflow-y-auto text-white">
+                              {`Over the last few years I have worked on several different projects, between assignments
+                                for school, personal projects to help my learning, or passion projects. Below are a few
+                                with brief descriptions of the projects, the tech stack used, and a link to the project.`}
+                              </div>
+                            </div>
+
+              </motion.section>
+          </motion.div>
+       
 
 
         <section className="w-full mb-12 border-[#00ffcc] pb-8">

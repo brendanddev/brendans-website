@@ -1,11 +1,16 @@
-
-
 // Sidebar.jsx
 // Brendan Dileo
 
+import { motion } from "framer-motion";
+
 const Sidebar = () => {
     return (
-        <div className="fixed left-0 top-0 h-full w-16 flex flex-col items-center justify-center bg-gray-800 shadow-lg z-30">
+        <motion.div
+            initial={{ x: -100, opacity: 0 }} // Start off-screen to the left
+            animate={{ x: 0, opacity: 1 }}   // Slide in to position
+            transition={{ type: "spring", stiffness: 100, damping: 15 }} // Smooth spring effect
+            className="fixed left-0 top-0 h-full w-16 flex flex-col items-center justify-center bg-gray-800 shadow-lg z-30"
+        >
             <ul className="space-y-6">
                 <li>
                     <a href="https://github.com/" aria-label="GitHub" target="_blank" rel="noreferrer">
@@ -44,7 +49,7 @@ const Sidebar = () => {
                     </a>
                 </li>
             </ul>
-        </div>
+        </motion.div>
     );
 };
 

@@ -16,7 +16,7 @@ const Home = () => {
             <div className="w-full">
                 <Header 
                 title="Brendan Dileo" 
-                subtitle="Software Developer | Tech Enthusiast | Designer"
+                subtitle="Software Developer | Tech Enthusiast "
                 typedTexts={[
                     "Welcome to my portfolio-website! Want to know more about me? Enter a command into the terminal!",
                     "I am passionate about technology, coding, and solving complex problems.",

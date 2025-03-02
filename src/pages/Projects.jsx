@@ -2,8 +2,10 @@
 // Projects.jsx
 // Brendan Dileo
 
+import { motion } from "framer-motion";
 import { SquareTerminal, Database, PaintBucket, MessageCircle, Bot, Boxes, ScrollText } from "lucide-react";
 import Header from "../components/Header";
+import Sidebar from "../components/Sidebar";
 
 const projects = [
     {
@@ -54,26 +56,43 @@ const projects = [
 
 const Projects = () => {
     return (
-        <div className="w-full min-h-screen bg-gray-900 flex flex-col items-center relative">
-           <Header 
-                title="My Projects" 
-                subtitle="A collection of my work and passion projects."
-                typedTexts={[
-                    ""
-                ]}
-            />
+        <motion.div 
+            initial={false} 
+            animate={{ opacity: 1 }} 
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }} 
+            className="w-full min-h-screen bg-gray-900 flex flex-col items-center relative opacity-0"
+        >
+            <motion.div 
+                initial={{ y: -20, opacity: 0 }} 
+                animate={{ y: 0, opacity: 1 }} 
+                transition={{ duration: 1 }}
+            >
+                <Header title="My Projects" subtitle="A collection of my work and passion projects." />
+            </motion.div>
 
-            <section className="w-2/4 mb-12">
+            <motion.section 
+                initial={{ y: 20, opacity: 0 }} 
+                animate={{ y: 0, opacity: 1 }} 
+                transition={{ duration: 1, delay: 0.2 }} 
+                className="w-2/4 mb-12"
+            >
                 <p className="bg-black text-sm text-green-400 p-4 rounded-md shadow-lg font-mono overflow-x-auto">
                     {`Over the last few years I have worked on several different projects, between assignments
-                        for school, personal projects to help my learning, or passion projects. Below are a few
-                        with brief descriptions of the projects, the tech stack used, and a link to the project.`}
+                    for school, personal projects to help my learning, or passion projects. Below are a few
+                    with brief descriptions of the projects, the tech stack used, and a link to the project.`}
                 </p>
-            </section>
+            </motion.section>
 
-            <div className="grid md:grid-cols-3 gap-6 p-6">
+            <motion.div className="grid md:grid-cols-3 gap-6 p-6">
                 {projects.map((project, index) => (
-                    <div key={index} className="w-96 min-h-[250px] bg-black border border-green-500 rounded-lg shadow-sm">
+                    <motion.div 
+                        key={index}
+                        initial={{ scale: 0.8, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ duration: 0.5, delay: index * 0.2 }}
+                        className="w-96 min-h-[250px] bg-black border border-green-500 rounded-lg shadow-sm"
+                    >
                         <div className="p-6">
                             <h5 className="mb-2 text-2xl font-bold tracking-tight text-green-400">{project.title}</h5>
                             <p className="mb-4 text-sm font-normal text-gray-400">{project.desc}</p>
@@ -86,15 +105,17 @@ const Projects = () => {
                             <a 
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                href={project.link}
                                 className="mt-4 inline-block bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-600"
                             >
                                 View Project
                             </a>
                         </div>
-                    </div>
+                    </motion.div>
                 ))}
-            </div>
-        </div>
+            </motion.div>
+            <Sidebar />
+        </motion.div>
     );
 };
 

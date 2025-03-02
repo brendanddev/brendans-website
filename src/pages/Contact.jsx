@@ -2,67 +2,23 @@
 // Contact.jsx
 // Brendan Dileo
 
-import { ReactTyped } from 'react-typed';
 import { MdEmail } from "react-icons/md";
 import { SiLeetcode } from "react-icons/si";
 import Header from '../components/Header';
+import Sidebar from "../components/Sidebar";
 
 const Contact = () => {
     return (
         <div className="w-full min-h-screen bg-black flex flex-col items-center p-8">
             <Header 
-             title="Contact Brendan" 
-             subtitle="Software Developer | Tech Enthusiast | Designer"
-             typedTexts={[
-                "Feel free to reach out! I'm always open to collaborating on projects and exploring new opportunities.",
-                "Looking for a developer? I'm open to work and collaborations!",
-                "Have a project in mind? Let's build something great together!"
-             ]}
-             />
-            
-            <h1 className="text-white text-3xl font-bold mb-4">Contact Me</h1>
-
-            <div className="w-3/5 h-[400] bg-gray-800 rounded-lg shadow-lg flex flex-col border border-white overflow-hidden font-mono mb-5">
-                {/* Header */}
-                <div className="h-8 bg-blue-600 flex items-center justify-between px-4 text-sm text-white">
-                    <span>Contact-Brendan-1</span>
-                    <div className="flex gap-2">
-                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                </div>
-            </div>
-
-            <div className="flex-1 p-4 overflow-y-auto text-white flex justify-center gap-6 items-center">
-                <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">
-                    <i className="devicon-github-original colored text-5xl"></i>
-                </a>
-                
-                <p>&lt;br&gt;</p>
-
-                <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">
-                    <i className="devicon-linkedin-plain colored text-5xl"></i>
-                </a>
-                
-                <p>&lt;br&gt;</p>
-
-                <a href="https://stackoverflow.com/users/yourprofile" target="_blank" rel="noopener noreferrer">
-                    <i className="devicon-stackoverflow-plain colored text-5xl"></i> 
-                </a>
-                    
-                <p>&lt;br&gt;</p>
-
-                <a href="mailto:your-email@example.com">
-                    <span className="text-5xl text-[#00ffcc]"><MdEmail /></span>
-                </a>
-                
-                <p>&lt;br&gt;</p>
-
-                <a href="https://leetcode.com/yourprofile" target="_blank" rel="noopener noreferrer">
-                    <span className="text-5xl text-orange-400"><SiLeetcode /></span>
-                </a>
-            </div>
-        </div>
+                title="Contact Brendan" 
+                subtitle="Software Developer | Tech Enthusiast | Designer"
+                typedTexts={[
+                    "Feel free to reach out! I'm always open to collaborating on projects and exploring new opportunities.",
+                    "Looking for a developer? I'm open to work and collaborations!",
+                    "Have a project in mind? Let's build something great together!"
+                ]}
+            />
         
         <div className="w-3/5 h-[600px] bg-gray-800 rounded-lg shadow-lg flex flex-col border border-white overflow-hidden font-mono">
             <div className="h-8 bg-blue-600 flex items-center justify-between px-4 text-sm text-white">
@@ -135,6 +91,7 @@ const Contact = () => {
                     </form>
                 </div>
             </div>
+            <Sidebar />
         </div>
     );
 };
