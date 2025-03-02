@@ -21,12 +21,12 @@ const Sidebar = () => {
             <ul className="space-y-6">
                 <li>
                     <a href="https://github.com/" aria-label="GitHub" target="_blank" rel="noreferrer">
-                        <FaGithub className="w-8 h-8 text-white hover:text-[#00ff00] transition duration-300" />
+                        <FaGithub className="w-8 h-8 text-white hover:text-[#00ff00] transition duration-300 hover:-translate-y-2 hover:text-[#00ff00]" />
                     </a>
                 </li>
                 <li>
                     <a href="https://www.linkedin.com/in/" aria-label="LinkedIn" target="_blank" rel="noreferrer">
-                        <FaLinkedin className="w-8 h-8 text-white hover:text-[#00ff00] transition duration-300" />
+                        <FaLinkedin className="w-8 h-8 text-white hover:text-[#00ff00] transition duration-300 hover:-translate-y-2 hover:text-[#00ff00]" />
                     </a>
                 </li>
             </ul>
