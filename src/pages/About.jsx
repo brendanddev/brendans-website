@@ -1,15 +1,26 @@
 
-
-// About.jsx
-// Brendan Dileo
-
+/**
+ * @file About.jsx
+ * @author Brendan Dileo
+ * 
+ * The About page for my portfolio-website.
+ * The page will consist of a header, four cards, and the sidebar. The four cards consist of a summarizing statement,
+ * education, skills, and resume card. It also makes use of the Lucide React icon library for icons, and the Framer
+ * Motion library for fade in animations with swipe left and right effects.
+*/
 
 import Sidebar from "../components/Sidebar";
 import { GraduationCap, FileText } from "lucide-react";
-import { MdMilitaryTech } from "react-icons/md";
 import Header from "../components/Header";
 import { motion } from "framer-motion";
 
+/**
+ * About functional component
+ * 
+ * This component renders the About page, consisting of the four cards displaying information about me.
+ * 
+ * @returns {JSX.Element} - The JSX that renders the page component.
+ */
 const About = () => {
   return (
     <div className="relative w-full min-h-screen flex flex-col items-center bg-gray-900 text-white">
@@ -20,70 +31,71 @@ const About = () => {
         />
 
         <section className="w-full flex justify-center items-center mb-8">
-        
-        <motion.div
-          className="w-full h-[300px] bg-black rounded-lg shadow-lg flex flex-col border border-white overflow-hidden font-mono"
-          initial={{ opacity: 0, x: -500 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
           
-          <div className="h-8 bg-white flex items-center justify-between px-4 text-sm text-black">
-            <span>About-Brendan</span>
-              <div className="flex gap-2">
-                <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-              </div>
-          </div>
-
           <motion.div
-            className="flex-1 p-4 font-semibold text-sm text-white overflow-y-auto leading-relaxed"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 1 }}
+            className="w-full h-[300px] bg-black rounded-lg shadow-lg flex flex-col border border-white overflow-hidden font-mono"
+            initial={{ opacity: 0, x: -500 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            Hi, I'm <span className="font-bold text-[#00ff00]">Brendan</span>, a{" "}
-            <span className="italic">Software Development</span> student and{" "}
-            <span className="italic">Aspiring Full Stack Developer</span> with a passion for{" "}
-            <span className="font-bold text-[#ff3131]"> technology </span> and{" "}
-            <span className="font-bold text-[#00ff00]">creating</span>.
-            <br />
-            <br />
-            I first fell in love with <span className="font-bold text-[#ff3131]"> technology</span> through{" "}
-            <span className="font-bold text-[#a89b32]"> video games</span>. My first{" "}
-            <span className="font-bold text-[#f24ebe]">console</span> was the{" "}
-            <span className="font-bold text-[#00ff00]">PS2</span>, and around 2006, I got a{" "}
-            <span className="font-bold text-[#00ff00]"> Wii and DS</span>.
-            <br />
-            <br />
-            My journey with <span className="font-bold italic text-[#f7c765]">computers</span> began in the{" "}
-            <span className="italic">5th grade</span>, when I got my first{" "}
-            <span className="font-bold italic text-[#f7c765]"> personal computer</span> for my birthday. I quickly became
-            fascinated with PC gaming, and eventually{" "}
-            <span className="font-bold text-[#09baeb]"> Minecraft modding.</span> I wanted to install the{" "}
-            <span className="font-bold italic text-[#f7c765]">Nodus Modded Client </span> but I struggled to get it
-            working. Determined to figure it out, I watched tutorials and read online documentation, my first real
-            experience with <span className="font-bold text-[#3235e6]"> problem-solving </span>and{" "}
-            <span className="font-bold text-[#5658f5]">troubleshooting</span>.
-            <br />
-            <br />
-            By 7th grade, I built my first custom PC, and ever since, I've been building, fixing, and taking apart
-            computers—whether for fun, personal projects, or helping friends.
-            <br />
-            <br />
-            In 9th grade, I became even more interested in coding, programming, and modding, and by 11th grade, my
-            passion for software development really took off. I wanted to mod Call of Duty: Black Ops 1 Zombies on PC,
-            which led me down a rabbit hole of researching online communities and open-source tools. Without official
-            documentation, I had to analyze decompiled game scripts, which became my first hands-on experience with
-            coding and programming languages.
-            <br />
-            <br />
-            Now, I'm focused on Software Development, Automation, Machine Learning, and creating efficient solutions for
-            complex real-world problems.
+          
+            <div className="h-8 bg-white flex items-center justify-between px-4 text-sm text-black">
+              <span>About-Brendan</span>
+                <div className="flex gap-2">
+                  <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                </div>
+            </div>
+
+            {/* Window styled card with animation */}
+            <motion.div
+              className="flex-1 p-4 font-semibold text-sm text-white overflow-y-auto leading-relaxed"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 1 }}
+            >
+              Hi, I'm <span className="font-bold text-[#00ff00]">Brendan</span>, a{" "}
+              <span className="italic">Software Development</span> student and{" "}
+              <span className="italic">Aspiring Full Stack Developer</span> with a passion for{" "}
+              <span className="font-bold text-[#ff3131]"> technology </span> and{" "}
+              <span className="font-bold text-[#00ff00]">creating</span>.
+              <br />
+              <br />
+              I first fell in love with <span className="font-bold text-[#ff3131]"> technology</span> through{" "}
+              <span className="font-bold text-[#a89b32]"> video games</span>. My first{" "}
+              <span className="font-bold text-[#f24ebe]">console</span> was the{" "}
+              <span className="font-bold text-[#00ff00]">PS2</span>, and around 2006, I got a{" "}
+              <span className="font-bold text-[#00ff00]"> Wii and DS</span>.
+              <br />
+              <br />
+              My journey with <span className="font-bold italic text-[#f7c765]">computers</span> began in the{" "}
+              <span className="italic">5th grade</span>, when I got my first{" "}
+              <span className="font-bold italic text-[#f7c765]"> personal computer</span> for my birthday. I quickly became
+              fascinated with PC gaming, and eventually{" "}
+              <span className="font-bold text-[#09baeb]"> Minecraft modding.</span> I wanted to install the{" "}
+              <span className="font-bold italic text-[#f7c765]">Nodus Modded Client </span> but I struggled to get it
+              working. Determined to figure it out, I watched tutorials and read online documentation, my first real
+              experience with <span className="font-bold text-[#3235e6]"> problem-solving </span>and{" "}
+              <span className="font-bold text-[#5658f5]">troubleshooting</span>.
+              <br />
+              <br />
+              By 7th grade, I built my first custom PC, and ever since, I've been building, fixing, and taking apart
+              computers—whether for fun, personal projects, or helping friends.
+              <br />
+              <br />
+              In 9th grade, I became even more interested in coding, programming, and modding, and by 11th grade, my
+              passion for software development really took off. I wanted to mod Call of Duty: Black Ops 1 Zombies on PC,
+              which led me down a rabbit hole of researching online communities and open-source tools. Without official
+              documentation, I had to analyze decompiled game scripts, which became my first hands-on experience with
+              coding and programming languages.
+              <br />
+              <br />
+              Now, I'm focused on Software Development, Automation, Machine Learning, and creating efficient solutions for
+              complex real-world problems.
+            </motion.div>
           </motion.div>
-        </motion.div>
-      </section>
+        </section>
       
       <section className="w-full mb-12">
         <motion.div
@@ -137,7 +149,6 @@ const About = () => {
       <h2 className="text-4xl font-bold text-center mb-6">Skills</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
     
-        {/* Programming Languages */}
         <div className="text-center p-6 border border-[#00ffcc] rounded-lg shadow-lg bg-gray-800 transition-transform transform hover:scale-105">
           <h3 className="text-2xl font-semibold text-[#00ffcc] mb-4">Programming Languages</h3>
           <div className="flex justify-center flex-wrap gap-6">
@@ -151,7 +162,6 @@ const About = () => {
           </div>
         </div>
 
-        {/* Web Development & Frameworks */}
         <div className="text-center p-6 border border-[#00ffcc] rounded-lg shadow-lg bg-gray-800 transition-transform transform hover:scale-105">
           <h3 className="text-2xl font-semibold text-[#00ffcc] mb-4">Web Development & Frameworks</h3>
           <div className="flex justify-center flex-wrap gap-6">
@@ -164,7 +174,6 @@ const About = () => {
           </div>
         </div>
 
-        {/* Database, Scripting & Game Development */}
         <div className="text-center p-6 border border-[#00ffcc] rounded-lg shadow-lg bg-gray-800 transition-transform transform hover:scale-105">
           <h3 className="text-2xl font-semibold text-[#00ffcc] mb-4">Databases, Scripting & Game Dev</h3>
           <div className="flex justify-center flex-wrap gap-6">
@@ -176,7 +185,6 @@ const About = () => {
           </div>
         </div>
 
-        {/* Tools & Software */}
         <div className="col-span-3 text-center p-6 border border-[#00ffcc] rounded-lg shadow-lg bg-gray-800 transition-transform transform hover:scale-105">
           <h3 className="text-2xl font-semibold text-[#00ffcc] mb-4">Tools & Software</h3>
           <div className="flex justify-center flex-wrap gap-6">
@@ -207,8 +215,8 @@ const About = () => {
       <p className="text-lg mt-2 text-gray-300">Click below to download my resume.</p>
 
       <a
-        href="/Test-Resume.pdf"
-        download="Test-Resume.pdf"
+        href="/BrendanDileo_Resume.pdf"
+        download="BrendanDileo_Resume.pdf"
         className="mt-4 inline-block px-6 py-3 text-lg font-semibold text-black bg-[#00ffcc] rounded-lg 
                   shadow-[0_0_10px_rgba(0,255,204,0.6)] 
                   transition-all duration-300 ease-in-out
@@ -226,4 +234,5 @@ const About = () => {
   );
 };
 
+// Exports the About page component
 export default About;
