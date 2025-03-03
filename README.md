@@ -1,9 +1,6 @@
 # Brendans Portfolio Website
 
 
-
-
-
 This portfolio is built using the following technologies:
 
 - [Vite](https://vitejs.dev/)
@@ -12,6 +9,7 @@ This portfolio is built using the following technologies:
 
 Recognition and Gratitude goes out to the following resources for help and inspiration
 - [Niklas Ziermann Terminal Youtube Video](https://www.youtube.com/watch?app=desktop&v=KCcU15nvFbI&t=0s)
+- [React Terminal UI](https://github.com/jonmbake/react-terminal-ui)
 - [HackerNoon Terminal Tutorials](https://hackernoon.com/creating-a-terminal-emulator-in-react)
 - [Material Tailwind](https://www.material-tailwind.com/docs/react/installation)
 - [Tailwind Cards](https://flowbite.com/docs/components/card/)
