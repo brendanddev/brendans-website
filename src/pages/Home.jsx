@@ -10,7 +10,6 @@
 */
 
 import HelpTooltip from "../components/HelpTooltip";
-import ThemeToggler from "../components/ThemeToggler";
 import Terminal from '../components/Terminal';
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
@@ -41,7 +40,6 @@ const Home = () => {
             {/* Terminal, Tooltip, and Sidebar Components */}
             <Terminal />
             <HelpTooltip />
-            <ThemeToggler />
             <Sidebar />
         </div>
     );

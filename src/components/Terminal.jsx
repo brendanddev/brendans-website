@@ -141,6 +141,9 @@ const Terminal = () => {
                 // Clears the input
                 setCommand("");
                 return;
+            case "greet":
+                response = <div className="flex"><span className="text-white">Hello, welcome to Brendans Portfolio Website!</span></div>
+                break;
             default:
                 response = <div className="flex"><span className="text-white">
                                 Uhhh... I dont know how to respond to that. Try 'help'.

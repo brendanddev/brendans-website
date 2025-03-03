@@ -68,7 +68,6 @@ const About = () => {
               <span className="font-bold text-[#00ff00]">PS2</span>, and around 2006, I got a{" "}
               <span className="font-bold text-[#00ff00]"> Wii and DS</span>.
               <br />
-              <br />
               My journey with <span className="font-bold italic text-[#f7c765]">computers</span> began in the{" "}
               <span className="italic">5th grade</span>, when I got my first{" "}
               <span className="font-bold italic text-[#f7c765]"> personal computer</span> for my birthday. I quickly became
@@ -80,19 +79,23 @@ const About = () => {
               <span className="font-bold text-[#5658f5]">troubleshooting</span>.
               <br />
               <br />
-              By 7th grade, I built my first custom PC, and ever since, I've been building, fixing, and taking apart
-              computers—whether for fun, personal projects, or helping friends.
+              By 7th grade, I built my <span className="font-bold italic text-[#f7c765]"> first custom PC </span>
+              and ever since, I've been building, fixing, and taking apart <span className="font-bold italic text-[#f7c765]"> computers</span>, 
+              whether for fun, personal projects, or helping friends.
               <br />
               <br />
-              In 9th grade, I became even more interested in coding, programming, and modding, and by 11th grade, my
-              passion for software development really took off. I wanted to mod Call of Duty: Black Ops 1 Zombies on PC,
-              which led me down a rabbit hole of researching online communities and open-source tools. Without official
-              documentation, I had to analyze decompiled game scripts, which became my first hands-on experience with
-              coding and programming languages.
+              In 9th grade, I became even more interested in <span className="font-bold text-[#09baeb]">coding</span>,
+              <span className="font-bold italic text-[#f7c765]"> programming</span>, and <span className="font-bold text-[#f24ebe]">modding</span>, 
+              and by 11th grade, my passion for <span className="font-bold italic text-[#00ff00]">software development</span> really took off. I wanted
+              to <span className="font-bold text-[#f24ebe]">mod </span> <span className="font-bold text-[#3235e6]">Call of Duty: Black Ops 1 Zombies </span> 
+              on PC, which led me down a rabbit hole of researching online communities and open-source tools. Without official documentation, I had to analyze
+              <span className="font-bold italic text-[#ffff00]"> decompiled game scripts</span>, which became my first hands-on experience with 
+              <span className="font-bold italic text-[#f7c765]"> coding</span> and <span className="font-bold italic text-[#f7c765]">programming languages</span>.
               <br />
               <br />
-              Now, I'm focused on Software Development, Automation, Machine Learning, and creating efficient solutions for
-              complex real-world problems.
+              Now, I'm focused on <span className="font-bold italic text-[#fc2605]">Software Development</span>, 
+              <span className="font-bold italic text-[#05f4fc]"> Automation</span>, 
+              <span className="font-bold italic text-[#6528bf]"> Machine Learning</span>, and creating efficient solutions for complex real-world problems.
             </motion.div>
           </motion.div>
         </section>
@@ -116,6 +119,7 @@ const About = () => {
           </div>
 
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Grow and glow animation on hover */}
             <div className="p-6 border rounded-lg shadow-lg bg-gray-900 transition-transform duration-300 hover:scale-105 hover:border-[#00ffcc] hover:shadow-[0_0_15px_rgba(0,255,204,0.8)]">
               <h3 className="text-xl font-semibold text-[#00ffcc] mb-4">Achievements</h3>
               <ul className="list-disc list-inside text-gray-300 space-y-2">
@@ -127,6 +131,7 @@ const About = () => {
             </div>
 
             <div className="p-6 border rounded-lg shadow-lg bg-gray-900 transition-transform duration-300 hover:scale-105 hover:border-[#00ffcc] hover:shadow-[0_0_15px_rgba(0,255,204,0.8)]">
+              {/* Grow and glow animation on hover */}
               <h3 className="text-xl font-semibold text-[#00ffcc] mb-4">Honors & Awards</h3>
               <ul className="list-disc list-inside text-gray-300 space-y-2">
                 <li>Dean's Honors List (Every Semester: 2023 & 2024)</li>
@@ -146,11 +151,12 @@ const About = () => {
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
       >
 
-      <h2 className="text-4xl font-bold text-center mb-6">Skills</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-    
+      <h2 className="text-4xl sm:text-3xl font-bold text-center mb-6">Skills</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-3 gap-8">
+        {/* Grow and glow animation on hover */}
         <div className="text-center p-6 border border-[#00ffcc] rounded-lg shadow-lg bg-gray-800 transition-transform transform hover:scale-105">
           <h3 className="text-2xl font-semibold text-[#00ffcc] mb-4">Programming Languages</h3>
+          {/* Each icon, when highlighted will glow its native color */}
           <div className="flex justify-center flex-wrap gap-6">
             <i className="devicon-java-plain text-5xl hover:text-[#ff9900] transition-colors" />
             <i className="devicon-python-plain text-5xl hover:text-[#306998] transition-colors" />
@@ -198,7 +204,6 @@ const About = () => {
             <i className="devicon-linux-plain text-5xl hover:text-[#fcc624] transition-colors" />
           </div>
         </div>
-
       </div>
     </motion.div>
     
@@ -213,7 +218,7 @@ const About = () => {
       </h2>
 
       <p className="text-lg mt-2 text-gray-300">Click below to download my resume.</p>
-
+      {/* Button grow and glow style */}
       <a
         href="/BrendanDileo_Resume.pdf"
         download="BrendanDileo_Resume.pdf"

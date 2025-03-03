@@ -55,7 +55,7 @@ const Sidebar = () => {
             transition={{ type: "spring", stiffness: 100, damping: 15 }} 
             className="fixed left-0 top-0 h-full w-16 flex flex-col items-center justify-center bg-black shadow-lg z-30"
         >
-        
+        {/* Hover effects on icons */}
         <ul className="space-y-6">
             <li>
                 <a href="https://github.com/brendanddev" aria-label="GitHub" target="_blank" rel="noreferrer">
