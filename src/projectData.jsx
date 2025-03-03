@@ -7,15 +7,14 @@
  * I have worked on to be used for the project cards in Projects.jsx.
 */
 
-
 import { Database, Boxes } from "lucide-react";
-import { FaFolder, FaPaintBrush, FaRobot } from "react-icons/fa";
+import { FaPaintBrush, FaRobot } from "react-icons/fa";
 import { PiTerminalWindowDuotone,  PiFilePyThin } from "react-icons/pi";
 import { MdOutlineGamepad } from "react-icons/md";
 
 /**
- * 
- */
+ * Initializes and exports the array of project data. 
+*/
 export const projectData = [
     {
         title: "User Management System",

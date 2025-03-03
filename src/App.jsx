@@ -3,7 +3,7 @@
  * @file App.jsx
  * @author Brendan Dileo
  * 
- * The main entry point of my portfolio-website.
+ * The root of my portfolio-website.
  * This component is responsible for setting up routing between pages with React Router.
  * It renders the navigational component (NavBar) and handles routing to different pages
  * on the site like the Home page, or the About page.

@@ -1,11 +1,27 @@
 
-// Contact.jsx
-// Brendan Dileo
+/**
+ * @file Contact.jsx
+ * @author Brendan Dileo
+ * 
+ * The Contact page for my portfolio website.
+ * This page simulates where the user can submit their name, email, phone number, and a comment.
+ * As of right now, as I do not have any endpoints for handling the submisson, however it will 
+ * be something I expand on.
+*/
 
 import Header from '../components/Header';
 import Sidebar from "../components/Sidebar";
 import { motion } from "framer-motion"
 
+/**
+ * Contact Functional component
+ * 
+ * This component renders the contents of Contact page. The page will consist of a header, sidebar, some text with a
+ * typing effect, and a section designed like a open window. This section will contain the form for contactine me, with
+ * a coding style to it. (See the intentional '<br>')
+ * 
+ * @returns {JSX.Element} - The JSX rendering the Contact page.
+ */
 const Contact = () => {
     return (
         <div className="w-full min-h-screen bg-gray-900 flex flex-col items-center">
@@ -18,6 +34,7 @@ const Contact = () => {
                     "Have a project in mind? Let's build something great together!"
                 ]}
             />
+            {/* Framer motion animation to make the window section grow in size on fade in */}
             <motion.div
                 className="w-3/5 h-[600px] bg-gray-700 rounded-lg shadow-lg flex flex-col border border-white overflow-hidden font-mono"
                 initial={{ scale: 0 }}
@@ -100,4 +117,5 @@ const Contact = () => {
     );
 };
 
+// Exports the Contact page
 export default Contact;

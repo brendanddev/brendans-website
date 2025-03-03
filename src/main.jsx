@@ -1,6 +1,10 @@
 
-// main.jsx
-// Brendan Dileo
+/**
+ * @file main.jsx
+ * @author Brendan Dileo
+ * 
+ * Main entry point to my portfolio website.
+*/
 
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
