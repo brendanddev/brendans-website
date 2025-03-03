@@ -1,7 +1,10 @@
 
-/*
-  index.css
-  Brendan Dileo
+/**
+ * @file index.css
+ * @author Brendan Dileo
+ * 
+ * Imports the TailwindCSS library using Vite's @tailwindcss/vite plugin.
+ * This allows for the use of the TailwindCSS library in my portfolio-website.
 */
 
 @import "tailwindcss";
