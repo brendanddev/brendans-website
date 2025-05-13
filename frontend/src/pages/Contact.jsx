@@ -3,14 +3,46 @@
  * @file Contact.jsx
  * @author Brendan Dileo
  * 
- * The Contact page for my portfolio website
+ * The Contact page for the portfolio website, allowing users to contact me.
 */
 
 import Header from '../components/Header';
 import Sidebar from "../components/Sidebar";
 import { motion } from "framer-motion"
 
+import { submitContactForm } from '../api/contact';
+import { useState } from 'react';
+
 const Contact = () => {
+    
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        comment: '',
+    });
+
+    const [status, setStatus] = useState(null);
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await submitContactForm(formData);
+            console.log('Submission Success: ', response);
+            setStatus('success');
+            setFormData({ name: '', email: '', phone: '', comment: '' });
+        } catch (error) {
+            console.error('Submission Failed: ', error);
+            setStatus('error');
+        }
+    };
+
+
     return (
         <div className="w-full min-h-screen bg-gray-900 flex flex-col items-center">
             <Header 
@@ -39,13 +71,16 @@ const Contact = () => {
                     </div>
 
                     <div className="flex-1 p-4 overflow-y-auto text-white">
-                        <form className="space-y-4">
+
+                        <form className="space-y-4" onSubmit={handleSubmit}>
                             <div>
                                 <label htmlFor="name" className="text-sm">fullName:</label>
                                 <input
                                     type="text"
                                     id="name"
                                     name="name"
+                                    value={formData.name}
+                                    onChange={handleChange}
                                     className="w-full p-2 mt-2 bg-gray-900 text-white border border-gray-600 rounded"
                                     placeholder="Enter your name"
                                 />
@@ -58,6 +93,8 @@ const Contact = () => {
                                     type="email"
                                     id="email"
                                     name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
                                     className="w-full p-2 mt-2 bg-gray-900 text-white border border-gray-600 rounded"
                                     placeholder="Enter your email"
                                 />
@@ -70,6 +107,8 @@ const Contact = () => {
                                     type="tel"
                                     id="phone"
                                     name="phone"
+                                    value={formData.phone}
+                                    onChange={handleChange}
                                     className="w-full p-2 mt-2 bg-gray-900 text-white border border-gray-600 rounded"
                                     placeholder="Enter your phone (optional)"
                                 />
@@ -81,6 +120,8 @@ const Contact = () => {
                                 <textarea
                                     id="comment"
                                     name="comment"
+                                    value={formData.comment}
+                                    onChange={handleChange}
                                     className="w-full p-2 mt-2 bg-gray-900 text-white border border-gray-600 rounded"
                                     rows="6"
                                     placeholder="Type your comment"
@@ -96,6 +137,14 @@ const Contact = () => {
                                     submitForm
                                 </button>
                             </div>
+
+                            {status === 'success' && (
+                                <p className="text-green-400 mt-4 text-center">Thank You! Your message has been sent!</p>
+                            )}
+                            {status === 'error' && (
+                                <p className="text-red-400 mt-4 text-center">Oops! Something went wrong. Please try again.</p>                           
+                            )}
+
                         </form>
                     </div>
                 </motion.div>
