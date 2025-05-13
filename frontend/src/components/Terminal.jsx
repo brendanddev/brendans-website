@@ -11,18 +11,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-/**
- * Terminal Functional Component
- * 
- * This component renders and simulates a terminal onto the home page of the portfolio-website. 
- * It makes use of Reacts 'useState' hook to manage two states, the terminals next output, and
- * the users command. The terminal will support very basic commands and update dynamically based
- * on user input. 
- * 
- * @returns {JSX.Element} - The JSX structure making the Terminal component.
- */
 const Terminal = () => {
-    {/* Array of JSX elements which is the default output shown by the terminal */}
     const defaultOutput = [
         <div key="1" className="flex">
             <span className="mr-2">
@@ -44,27 +33,11 @@ const Terminal = () => {
         </div>
     ];
 
-    // State var and fucntion to manage the terminals output
     const [output, setOutput] = useState(defaultOutput);
-
-    // Manages the command state based on user input
     const [command, setCommand] = useState("");
 
-    /**
-     * Function that is executed when the user submits a command into the terminal.
-     * 
-     * It generates the terminals response depending on what the user has entered.
-     * The response is determined using a switch case, checking if the command is 
-     * valid or not. If the command is valid, a predefined response is set as the
-     * output, otherwise a generic response is set as the output.
-     *
-     * @param {Event} event - The submisson of a command into the terminal.
-     * @returns {void} - Does not return anything, updates the state of the component.
-     */
     const handleCommandSubmission = (event) => {
         event.preventDefault();
-
-        // First the terminal will show the users command simulating a terminal enviroment
         const newCommandOutput = (
             <div className="flex">
                 <span className="mr-2">
@@ -77,7 +50,6 @@ const Terminal = () => {
             </div>
         );
 
-        // Response displayed by the terminal based on the user input
         let response = "";
         switch (command.toLowerCase()) {
             case "help":
@@ -131,9 +103,7 @@ const Terminal = () => {
                             </div>
                 break;
             case "clear":
-                // Clears the terminal output
                 setOutput([]);
-                // Clears the input
                 setCommand("");
                 return;
             case "greet":
@@ -146,15 +116,11 @@ const Terminal = () => {
                             </div>;
         }
 
-        // Appends the command entered and the response to that command
-        // to the current output state
         setOutput([...output, newCommandOutput, response]);
-        // Clears input
         setCommand("");
     };
 
     return (
-        // Framer motion animation to fade in and up when the terminal is rendered
         <motion.div
             initial={{ opacity: 0, y: 20, scale: 0.9 }} 
             animate={{ opacity: 1, y: 0, scale: 1 }}  
@@ -170,7 +136,6 @@ const Terminal = () => {
                 <span className="text-center w-full">brendans@website-terminal: ~</span>
             </div>
             <div className="flex-1 p-3 text-white overflow-y-auto">{output}</div>
-            {/* Calls the 'handleCommandSubmisson' function to handle the command entered */}
             <form className="flex p-3 border-t border-gray-700" onSubmit={handleCommandSubmission}>
                 <span className="mr-2">
                     <span className="text-[#00ff00]">brendan@portfolio</span>
@@ -178,7 +143,6 @@ const Terminal = () => {
                     <span className="text-blue-400">~</span>
                     <span className="text-white">$</span>
                 </span>
-                {/* Updates and stores the command entered into the state var */}
                 <input
                     className="flex-1 bg-transparent border-none text-white text-lg focus:outline-none"
                     type="text"
@@ -190,6 +154,4 @@ const Terminal = () => {
     );
 };
 
-// Exports the Terminal component so it can be used
-// in the home page
 export default Terminal;
