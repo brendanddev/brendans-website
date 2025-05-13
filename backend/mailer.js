@@ -16,22 +16,22 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-// Test send email
-const sendTestEmail = async () => {
+// Sends an email
+const sendEmail = async (name, email, phone, comment) => {
     try {
         const info = await transporter.sendMail({
-            from: `"Test Sender" <${process.env.MAIL_USER}>`, // sender address
-            to: process.env.MAIL_USER, // receiver's email
-            subject: 'Test Email', // Subject line
-            text: 'This is a test email sent from Nodemailer.', // Plain text body
-            html: '<b>This is a test email sent from Nodemailer.</b>', // HTML body
+            from: `"New Submission" <${process.env.MAIL_USER}>`, // Sender's email
+            to: process.env.MAIL_USER, // Receiver's email (can be changed to any recipient)
+            subject: 'New Contact Form Submission', // Subject of the email
+            text: `You have a new submission:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nComment: ${comment}`, // Plain text body
+            html: `<b>You have a new submission:</b><br><br><b>Name:</b> ${name}<br><b>Email:</b> ${email}<br><b>Phone:</b> ${phone}<br><b>Comment:</b> ${comment}`, // HTML body
         });
-        // Validate
-        console.log('Test email sent:', info.messageId);
-        console.log('Preview URL:', nodemailer.getTestMessageUrl(info));
+        console.log('Email Sent Successfully: ', info.messageId);
+        return true;            // Success
     } catch (error) {
-        console.error('Error sending test email:', error.message);
+        console.error('An error occurred while sending the email: ', error.message);
+        return false;           // Fail
     }
 };
 
-sendTestEmail();
+module.exports = { sendEmail };
