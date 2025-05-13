@@ -3,18 +3,14 @@
  * @file projectData.jsx
  * @author Brendan Dileo
  * 
- * This file exports an array of data containing information about some of the projects
- * I have worked on to be used for the project cards in Projects.jsx.
-*/
+ * Exports an array of data containing information about some of my projects
+ */
 
 import { Database, Boxes } from "lucide-react";
 import { FaPaintBrush, FaRobot } from "react-icons/fa";
 import { PiTerminalWindowDuotone,  PiFilePyThin } from "react-icons/pi";
 import { MdOutlineGamepad } from "react-icons/md";
 
-/**
- * Initializes and exports the array of project data. 
-*/
 export const projectData = [
     {
         title: "User Management System",
@@ -66,6 +62,5 @@ export const projectData = [
     }
 ];
 
-// Exports the data to be used in Projects.jsx
 export default projectData;
 

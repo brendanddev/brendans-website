@@ -3,10 +3,7 @@
  * @file About.jsx
  * @author Brendan Dileo
  * 
- * The About page for my portfolio-website.
- * The page will consist of a header, four cards, and the sidebar. The four cards consist of a summarizing statement,
- * education, skills, and resume card. It also makes use of the Lucide React icon library for icons, and the Framer
- * Motion library for fade in animations with swipe left and right effects.
+ * The About page for my portfolio-website
 */
 
 import Sidebar from "../components/Sidebar";
@@ -14,13 +11,6 @@ import { GraduationCap, FileText } from "lucide-react";
 import Header from "../components/Header";
 import { motion } from "framer-motion";
 
-/**
- * About functional component
- * 
- * This component renders the About page, consisting of the four cards displaying information about me.
- * 
- * @returns {JSX.Element} - The JSX that renders the page component.
- */
 const About = () => {
   return (
     <div className="relative w-full min-h-screen flex flex-col items-center bg-gray-900 text-white">
@@ -48,7 +38,6 @@ const About = () => {
                 </div>
             </div>
 
-            {/* Window styled card with animation */}
             <motion.div
               className="flex-1 p-4 font-semibold text-sm text-white overflow-y-auto leading-relaxed"
               initial={{ opacity: 0 }}
@@ -131,7 +120,6 @@ const About = () => {
             </div>
 
             <div className="p-6 border rounded-lg shadow-lg bg-gray-900 transition-transform duration-300 hover:scale-105 hover:border-[#00ffcc] hover:shadow-[0_0_15px_rgba(0,255,204,0.8)]">
-              {/* Grow and glow animation on hover */}
               <h3 className="text-xl font-semibold text-[#00ffcc] mb-4">Honors & Awards</h3>
               <ul className="list-disc list-inside text-gray-300 space-y-2">
                 <li>Dean's Honors List (Every Semester: 2023 & 2024)</li>
@@ -153,10 +141,8 @@ const About = () => {
 
       <h2 className="text-4xl sm:text-3xl font-bold text-center mb-6">Skills</h2>
       <div className="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-3 gap-8">
-        {/* Grow and glow animation on hover */}
         <div className="text-center p-6 border border-[#00ffcc] rounded-lg shadow-lg bg-gray-800 transition-transform transform hover:scale-105">
           <h3 className="text-2xl font-semibold text-[#00ffcc] mb-4">Programming Languages</h3>
-          {/* Each icon, when highlighted will glow its native color */}
           <div className="flex justify-center flex-wrap gap-6">
             <i className="devicon-java-plain text-5xl hover:text-[#ff9900] transition-colors" />
             <i className="devicon-python-plain text-5xl hover:text-[#306998] transition-colors" />
@@ -218,7 +204,6 @@ const About = () => {
       </h2>
 
       <p className="text-lg mt-2 text-gray-300">Click below to download my resume.</p>
-      {/* Button grow and glow style */}
       <a
         href="/BrendanDileo_Resume.pdf"
         download="BrendanDileo_Resume.pdf"
@@ -233,11 +218,8 @@ const About = () => {
     </motion.div>
     </div>
     <Sidebar />
-
   </div>
-
   );
 };
 
-// Exports the About page component
 export default About;

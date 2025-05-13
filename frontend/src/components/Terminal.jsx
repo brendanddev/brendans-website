@@ -4,11 +4,6 @@
  * @author Brendan Dileo
  * 
  * This terminal component acts as the main interactive component for my portfolio-website.
- * It mimics the behaviour of a real terminal in linux or macOS enviroments, allowing users to enter
- * predefined commands and receive a relevant response. The terminal will support basic commands like
- * 'help', or 'home'. Additionally it makes use of the Framer Motion library for fade in effects and
- * animations when the page first loads.
- * 
  * Inspired by https://github.com/jonmbake/react-terminal-ui, but built my own with custom behaviour and styles.
 */
 
