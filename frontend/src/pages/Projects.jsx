@@ -46,7 +46,6 @@ const Projects = () => {
 
             <motion.div className="grid md:grid-cols-3 gap-6 p-6">
                 {projectData.map((project, index) => (
-                    // Applies the animation to the generated card
                     <motion.div 
                         key={index}
                         initial={{ scale: 0.8, opacity: 0 }}
@@ -59,7 +58,15 @@ const Projects = () => {
                             <p className="mb-4 text-sm font-normal text-gray-400">{project.desc}</p>
                             <div className="flex space-x-4 mb-3 text-green-400">
                                 {project.icons.map((icon, i) => (
-                                    <i key={i} className={`${icon} text-3xl`}></i>
+                                    <a
+                                        key={i}
+                                        href={project.link} // or a different link if needed
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="hover:text-green-300 transition-colors"
+                                    >
+                                        <i className={`${icon} text-3xl`}></i>
+                                    </a>                                
                                 ))}
                                 {project.extraIcon}
                             </div>

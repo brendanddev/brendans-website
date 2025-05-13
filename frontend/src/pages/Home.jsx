@@ -19,9 +19,9 @@ const Home = () => {
                 title="Brendan Dileo" 
                 subtitle="Software Developer | Tech Enthusiast "
                 typedTexts={[
-                    "Welcome to my portfolio-website! Want to know more about me? Enter a command into the terminal!",
-                    "I am passionate about technology, coding, and solving complex problems.",
-                    "You can often find me working on personal projects, exploring new frameworks, or playing around with hardware."
+                    "Welcome to my portfolio-website!", 
+                    "Want to know more about me? Enter a command into the terminal!",
+                    "I am passionate about technology, coding, and solving complex problems."
                 ]}
             />
             </div>

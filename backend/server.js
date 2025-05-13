@@ -29,7 +29,6 @@ db.exec(`
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT NOT NULL,
       email TEXT NOT NULL,
-      phone TEXT,
       comment TEXT,
       date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )
@@ -37,17 +36,17 @@ db.exec(`
 
 // Handles form submissions from contact page
 app.post('/submit', async (req, res) => {
-    const { name, email, phone, comment } = req.body;
+    const { name, email, comment } = req.body;
     try {
         const stmt = db.prepare(`
-            INSERT INTO submissions (name, email, phone, comment)
-            VALUES (?, ?, ?, ?)
+            INSERT INTO submissions (name, email, comment)
+            VALUES (?, ?, ?)
         `);
-        const info = stmt.run(name, email, phone, comment);
+        const info = stmt.run(name, email, comment);
         console.log('SUBMISSION SAVED:', { name, email, phone, comment });
 
 
-        const emailSent = await sendEmail(name, email, phone, comment);
+        const emailSent = await sendEmail(name, email, comment);
 
         if (emailSent) {
             res.json({ status: 'CREATE ENTRY SUCCESSFUL & EMAIL SENT', id: info.lastInsertRowid });

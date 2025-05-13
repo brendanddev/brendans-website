@@ -55,7 +55,7 @@ const Contact = () => {
                 ]}
             />
             <motion.div
-                className="w-3/5 h-[600px] bg-gray-700 rounded-lg shadow-lg flex flex-col border border-white overflow-hidden font-mono"
+                className="w-3/5 h-[450px] bg-gray-700 rounded-lg shadow-lg flex flex-col border border-white overflow-hidden font-mono"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }} 
                 transition={{ duration: 1 }}
@@ -84,7 +84,6 @@ const Contact = () => {
                                     className="w-full p-2 mt-2 bg-gray-900 text-white border border-gray-600 rounded"
                                     placeholder="Enter your name"
                                 />
-                                <p>&lt;br&gt;</p>
                             </div>
 
                             <div>
@@ -98,21 +97,6 @@ const Contact = () => {
                                     className="w-full p-2 mt-2 bg-gray-900 text-white border border-gray-600 rounded"
                                     placeholder="Enter your email"
                                 />
-                                <p>&lt;br&gt;</p>
-                            </div>
-
-                            <div>
-                                <label htmlFor="phone" className="text-sm">phoneNumber:</label>
-                                <input
-                                    type="tel"
-                                    id="phone"
-                                    name="phone"
-                                    value={formData.phone}
-                                    onChange={handleChange}
-                                    className="w-full p-2 mt-2 bg-gray-900 text-white border border-gray-600 rounded"
-                                    placeholder="Enter your phone (optional)"
-                                />
-                                <p>&lt;br&gt;</p>
                             </div>
 
                             <div>
@@ -123,16 +107,15 @@ const Contact = () => {
                                     value={formData.comment}
                                     onChange={handleChange}
                                     className="w-full p-2 mt-2 bg-gray-900 text-white border border-gray-600 rounded"
-                                    rows="6"
+                                    rows="4"
                                     placeholder="Type your comment"
                                 />
-                                <p>&lt;br&gt;</p>
                             </div>
 
                             <div className="flex justify-center">
                                 <button
                                     type="submit"
-                                    className="bg-green-500 text-white px-4 py-2 rounded mt-4 hover:bg-green-600 transition"
+                                    className="bg-green-500 text-white px-4 py-2 rounded mt-2 hover:bg-green-600 transition"
                                 >
                                     submitForm
                                 </button>
