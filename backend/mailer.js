@@ -20,11 +20,11 @@ const transporter = nodemailer.createTransport({
 const sendEmail = async (name, email, phone, comment) => {
     try {
         const info = await transporter.sendMail({
-            from: `"New Submission" <${process.env.MAIL_USER}>`, // Sender's email
-            to: process.env.MAIL_USER, // Receiver's email (can be changed to any recipient)
-            subject: 'New Contact Form Submission', // Subject of the email
-            text: `You have a new submission:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nComment: ${comment}`, // Plain text body
-            html: `<b>You have a new submission:</b><br><br><b>Name:</b> ${name}<br><b>Email:</b> ${email}<br><b>Phone:</b> ${phone}<br><b>Comment:</b> ${comment}`, // HTML body
+            from: `"New Submission" <${process.env.MAIL_USER}>`,
+            to: process.env.MAIL_USER,
+            subject: 'New Contact Form Submission',
+            text: `You have a new submission:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nComment: ${comment}`,
+            html: `<b>You have a new submission:</b><br><br><b>Name:</b> ${name}<br><b>Email:</b> ${email}<br><b>Phone:</b> ${phone}<br><b>Comment:</b> ${comment}`,
         });
         console.log('Email Sent Successfully: ', info.messageId);
         return true;            // Success
