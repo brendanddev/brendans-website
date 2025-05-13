@@ -13,6 +13,10 @@ const port = 3001;
 app.use(express.json());
 app.use(cors());
 
+app.get('/', (req, res) => {
+    console.log('GET Route Successful');
+});
+
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
