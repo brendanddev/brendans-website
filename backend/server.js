@@ -33,12 +33,10 @@ db.exec(`
     )
 `);
 
+// TODO: PRODUCES TYPE ERROR FROM BETTER-SQLITE3 !!
 // Handles form submissions from contact page
 app.post('/submit', (req, res) => {
     const { name, email, phone, comment } = req.body;
-    const query = `
-        INSERT INTO submissions (name, email, phone, comment)
-        VALUES (?, ?, ?, ?)`;
     const stmt = db.prepare(query);
     stmt.run(name, email, phone, comment, function(err) {
         if (err) {
