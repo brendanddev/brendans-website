@@ -5,7 +5,6 @@
 const express = require('express');
 const cors = require('cors');
 const betterSqlite3 = require('better-sqlite3');
-const bodyParser = require('body-parser');
 const path = require('path');
 
 const app = express();
@@ -24,7 +23,7 @@ try {
 }
 
 db.exec(`
-    CREATE TABLE IF NOT EXISTS submissons (
+    CREATE TABLE IF NOT EXISTS submissions (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT NOT NULL,
       email TEXT NOT NULL,
@@ -34,8 +33,21 @@ db.exec(`
     )
 `);
 
-app.get('/', (req, res) => {
-    console.log('GET Route Successful');
+// Handles form submissions from contact page
+app.post('/submit', (req, res) => {
+    const { name, email, phone, comment } = req.body;
+    const query = `
+        INSERT INTO submissions (name, email, phone, comment)
+        VALUES (?, ?, ?, ?)`;
+    const stmt = db.prepare(query);
+    stmt.run(name, email, phone, comment, function(err) {
+        if (err) {
+            res.status(500).json({ error: err.message });
+            return;
+        }
+        res.json({ status: 'CREATE ENTRY SUCCESSFUL', id: this.lastID });
+        console.log('SUBMISSION SAVED:', { name, email, phone, comment });
+    });
 });
 
 app.listen(port, () => {
