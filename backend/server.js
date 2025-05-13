@@ -6,6 +6,7 @@ const express = require('express');
 const cors = require('cors');
 const betterSqlite3 = require('better-sqlite3');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const app = express();
 const port = 3001;
@@ -13,14 +14,16 @@ const port = 3001;
 app.use(express.json());
 app.use(cors());
 
-const db = new betterSqlite3.Database('./submissons.db', (err) => {
-    if (err) {
-        console.error('An error occurred while opening the database: ', err.message);
-    }
-    console.log('Connected to the database.');
-});
+let db;
 
-db.run(`
+try {
+    db = betterSqlite3(path.join(__dirname, 'submissions.db'));
+    console.log('Connected to the database.');
+} catch (err) {
+    console.error('Failed to connect to the database:', err.message);
+}
+
+db.exec(`
     CREATE TABLE IF NOT EXISTS submissons (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT NOT NULL,
