@@ -33,19 +33,21 @@ db.exec(`
     )
 `);
 
-// TODO: PRODUCES TYPE ERROR FROM BETTER-SQLITE3 !!
 // Handles form submissions from contact page
 app.post('/submit', (req, res) => {
     const { name, email, phone, comment } = req.body;
-    const stmt = db.prepare(query);
-    stmt.run(name, email, phone, comment, function(err) {
-        if (err) {
-            res.status(500).json({ error: err.message });
-            return;
-        }
-        res.json({ status: 'CREATE ENTRY SUCCESSFUL', id: this.lastID });
+    try {
+        const stmt = db.prepare(`
+            INSERT INTO submissions (name, email, phone, comment)
+            VALUES (?, ?, ?, ?)
+        `);
+        const info = stmt.run(name, email, phone, comment);
+        res.json({ status: 'CREATE ENTRY SUCCESSFUL', id: info.lastInsertRowid });
         console.log('SUBMISSION SAVED:', { name, email, phone, comment });
-    });
+    } catch (err) {
+        console.error('Database insert failed:', err.message);
+        res.status(500).json({ error: err.message });
+    }
 });
 
 app.listen(port, () => {
