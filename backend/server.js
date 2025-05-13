@@ -7,6 +7,8 @@ const cors = require('cors');
 const betterSqlite3 = require('better-sqlite3');
 const path = require('path');
 
+const { sendEmail } = require('./mailer');
+
 const app = express();
 const port = 3001;
 
@@ -34,7 +36,7 @@ db.exec(`
 `);
 
 // Handles form submissions from contact page
-app.post('/submit', (req, res) => {
+app.post('/submit', async (req, res) => {
     const { name, email, phone, comment } = req.body;
     try {
         const stmt = db.prepare(`
@@ -42,8 +44,18 @@ app.post('/submit', (req, res) => {
             VALUES (?, ?, ?, ?)
         `);
         const info = stmt.run(name, email, phone, comment);
-        res.json({ status: 'CREATE ENTRY SUCCESSFUL', id: info.lastInsertRowid });
         console.log('SUBMISSION SAVED:', { name, email, phone, comment });
+
+
+        const emailSent = await sendEmail(name, email, phone, comment);
+
+        if (emailSent) {
+            res.json({ status: 'CREATE ENTRY SUCCESSFUL & EMAIL SENT', id: info.lastInsertRowid });
+        } else {
+            res.json({ status: 'CREATE ENTRY SUCCESSFUL, EMAIL FAILED' });
+        }
+
+
     } catch (err) {
         console.error('Database insert failed:', err.message);
         res.status(500).json({ error: err.message });
