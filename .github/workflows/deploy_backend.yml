@@ -32,4 +32,4 @@ jobs:
       - name: Test server is up
         run: |
           sleep 4
-          curl --fail http://localhost:3000/
+          curl --fail http://localhost:3001/
