@@ -34,6 +34,11 @@ db.exec(`
     )
 `);
 
+// Basic GET route for gh actions testing
+app.get('/', (req, res) => {
+    res.send('Server is running');
+});  
+
 // Handles form submissions from contact page
 app.post('/submit', async (req, res) => {
     const { name, email, comment } = req.body;
