@@ -108,7 +108,6 @@ const About = () => {
           </div>
 
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Grow and glow animation on hover */}
             <div className="p-6 border rounded-lg shadow-lg bg-gray-900 transition-transform duration-300 hover:scale-105 hover:border-[#00ffcc] hover:shadow-[0_0_15px_rgba(0,255,204,0.8)]">
               <h3 className="text-xl font-semibold text-[#00ffcc] mb-4">Achievements</h3>
               <ul className="list-disc list-inside text-gray-300 space-y-2">

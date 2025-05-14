@@ -18,7 +18,6 @@ const Contact = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        phone: '',
         comment: '',
     });
 
@@ -41,7 +40,6 @@ const Contact = () => {
             setStatus('error');
         }
     };
-
 
     return (
         <div className="w-full min-h-screen bg-gray-900 flex flex-col items-center">
