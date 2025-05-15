@@ -47,8 +47,9 @@ const Contact = () => {
                 title="Contact Brendan" 
                 subtitle="Software Developer | Backend | Tech Enthusiast"
                 typedTexts={[
-                    "Feel free to reach out! I'm always open to collaborating on projects and exploring new opportunities.",
-                    "Looking for a developer? I'm open to work and collaborations!",
+                    "Send me a message and I'll get back to you!",
+                    "Feel free to reach out!",
+                    "I'm always open to collaboration and new opportunities.",
                     "Have a project in mind? Let's build something great together!"
                 ]}
             />

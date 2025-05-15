@@ -54,9 +54,7 @@ const Terminal = () => {
             case "help":
                 response = <div className="flex">
                                 <span className="text-white">
-                                    Oh no! You need help?! Have you tried the Tooltip in your bottom left?
-                                    <br />
-                                    Anyways, here is a list of supported commands: 
+                                    Here is a list of supported commands: 
                                     <br />
                                         'help' - Ask for help
                                         <br />
@@ -66,7 +64,7 @@ const Terminal = () => {
                                         <br /> 
                                         'projects' - About the creators projects 
                                         <br />
-                                        'contatct' - Can you contact the creator?
+                                        'contact' - Can you contact the creator?
                                         <br />
                                         'clear' - Clear the terminal 
                                         <br />
