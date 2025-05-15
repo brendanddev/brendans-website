@@ -33,4 +33,3 @@ jobs:
         run: |
           sleep 4
           curl --fail http://localhost:3001/
-

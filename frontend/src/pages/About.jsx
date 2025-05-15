@@ -1,4 +1,3 @@
-
 /**
  * @file About.jsx
  * @author Brendan Dileo
@@ -20,10 +19,10 @@ const About = () => {
             subtitle="Who am I? Here's a bit about me."
         />
 
-        <section className="w-full flex justify-center items-center mb-8">
+        <section className="w-full flex justify-center items-center mb-8 px-4">
           
           <motion.div
-            className="w-full h-[300px] bg-black rounded-lg shadow-lg flex flex-col border border-white overflow-hidden font-mono"
+            className="w-full max-w-4xl h-[300px] bg-black rounded-lg shadow-lg flex flex-col border border-white overflow-hidden font-mono"
             initial={{ opacity: 0, x: -500 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -89,9 +88,9 @@ const About = () => {
           </motion.div>
         </section>
       
-      <section className="w-full mb-12">
+      <section className="w-full mb-12 px-4">
         <motion.div
-          className="w-full p-8 border rounded-lg shadow-[0_4px_12px_rgba(0,255,204,0.5)] bg-black"
+          className="w-full max-w-4xl mx-auto p-4 md:p-8 border rounded-lg shadow-[0_4px_12px_rgba(0,255,204,0.5)] bg-black"
           initial={{ opacity: 0, x: 500 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
@@ -132,14 +131,14 @@ const About = () => {
       </section>
 
       <motion.div
-        className="w-full p-8 border rounded-lg shadow-[0_4px_12px_rgba(0,255,204,0.5)] bg-black mb-10"
+        className="w-full max-w-4xl mx-auto p-4 md:p-8 border rounded-lg shadow-[0_4px_12px_rgba(0,255,204,0.5)] bg-black mb-10"
         initial={{ opacity: 0, x: -500 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
       >
 
       <h2 className="text-4xl sm:text-3xl font-bold text-center mb-6">Skills</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
         <div className="text-center p-6 border border-[#00ffcc] rounded-lg shadow-lg bg-gray-800 transition-transform transform hover:scale-105">
           <h3 className="text-2xl font-semibold text-[#00ffcc] mb-4">Programming Languages</h3>
           <div className="flex justify-center flex-wrap gap-6">
@@ -193,7 +192,7 @@ const About = () => {
     </motion.div>
     
     <motion.div
-      className="w-full p-6 border rounded-lg shadow-lg bg-gray-800 mb-10"
+      className="w-full max-w-4xl mx-auto p-4 md:p-6 border rounded-lg shadow-lg bg-gray-800 mb-10"
       initial={{ opacity: 0, x: 500 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}

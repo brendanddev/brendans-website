@@ -34,7 +34,7 @@ const Projects = () => {
                 initial={{ y: 20, opacity: 0 }} 
                 animate={{ y: 0, opacity: 1 }} 
                 transition={{ duration: 1, delay: 0.2 }} 
-                className="w-2/4 mb-6"
+                className="w-[95%] md:w-4/5 lg:w-2/4 mb-6 px-4"
             >
                 <p className="bg-black text-sm text-green-400 p-4 rounded-md shadow-lg font-mono overflow-x-auto">
                     Over the past couple of years, I've worked on a variety of projects, ranging from school assignments to 
@@ -44,14 +44,14 @@ const Projects = () => {
                 </p>
             </motion.section>
 
-            <motion.div className="grid md:grid-cols-3 gap-6 p-6">
+            <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 md:p-6 w-[95%] md:w-4/5 lg:w-3/4">
                 {projectData.map((project, index) => (
                     <motion.div 
                         key={index}
                         initial={{ scale: 0.8, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         transition={{ duration: 0.5, delay: index * 0.2 }}
-                        className="w-96 min-h-[250px] bg-black border border-green-500 rounded-lg shadow-sm"
+                        className="w-full min-h-[250px] bg-black border border-green-500 rounded-lg shadow-sm"
                     >
                         <div className="p-6">
                             <h5 className="mb-2 text-2xl font-bold tracking-tight text-green-400">{project.title}</h5>

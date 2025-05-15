@@ -53,7 +53,7 @@ const Contact = () => {
                 ]}
             />
             <motion.div
-                className="w-3/5 h-[450px] bg-gray-700 rounded-lg shadow-lg flex flex-col border border-white overflow-hidden font-mono"
+                className="w-[95%] md:w-4/5 lg:w-3/5 h-[450px] bg-gray-700 rounded-lg shadow-lg flex flex-col border border-white overflow-hidden font-mono mx-auto"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }} 
                 transition={{ duration: 1 }}
