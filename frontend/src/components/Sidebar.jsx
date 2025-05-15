@@ -24,10 +24,10 @@ const Sidebar = () => {
         <>
         <button 
             onClick={toggleSidebar}
-            className="fixed top-20 left-4 z-40 text-white bg-black p-2 rounded-full hover:bg-gray-700 transition duration-300"
+            className="fixed top-24 left-4 z-40 text-white bg-black/80 backdrop-blur-sm p-2 rounded-lg hover:bg-gray-800 transition duration-300 shadow-lg border border-gray-700"
         >
             <GiHamburgerMenu
-                className={`transition duration-300 ${isSidebarShown ? 'text-white' : 'text-[#00ff00]'}`}
+                className={`w-6 h-6 transition duration-300 ${isSidebarShown ? 'text-white' : 'text-[#00ff00]'}`}
             />
         </button>
 
@@ -35,7 +35,7 @@ const Sidebar = () => {
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: isSidebarShown ? 0 : -100, opacity: isSidebarShown ? 1 : 0 }}  
             transition={{ type: "spring", stiffness: 100, damping: 15 }} 
-            className="fixed left-0 top-0 h-full w-16 flex flex-col items-center justify-center bg-black shadow-lg z-30"
+            className="fixed left-0 top-0 h-full w-16 flex flex-col items-center justify-center bg-black/90 backdrop-blur-sm shadow-lg z-30 border-r border-gray-700"
         >
         <ul className="space-y-6">
             <li>
