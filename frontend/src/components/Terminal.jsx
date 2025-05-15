@@ -1,4 +1,3 @@
-
 /**
  * @file Terminal.jsx
  * @author Brendan Dileo
@@ -125,7 +124,7 @@ const Terminal = () => {
             initial={{ opacity: 0, y: 20, scale: 0.9 }} 
             animate={{ opacity: 1, y: 0, scale: 1 }}  
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="w-3/5 h-[450px] bg-black rounded-lg shadow-lg flex flex-col border border-gray-700 overflow-hidden font-mono"
+            className="w-[95%] md:w-4/5 lg:w-3/5 h-[450px] bg-black rounded-lg shadow-lg flex flex-col border border-gray-700 overflow-hidden font-mono mx-auto"
         >
             <div className="h-8 bg-gray-800 flex items-center justify-center relative text-white text-sm font-bold">
                 <div className="absolute left-4 flex gap-2">
