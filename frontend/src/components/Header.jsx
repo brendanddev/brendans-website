@@ -17,7 +17,7 @@ const Header = ({ title, subtitle, typedTexts }) => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
             >
-                <h2 className="text-5xl text-center font-extrabold text-white">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl text-center font-extrabold text-white px-4">
                     {title}
                 </h2>
             </motion.div>
@@ -27,7 +27,7 @@ const Header = ({ title, subtitle, typedTexts }) => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
             >
-                <h3 className="text-3xl md:text-4xl font-extrabold text-gray-400">
+                <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-gray-400 px-4">
                     {subtitle}
                 </h3>
             </motion.div>
@@ -38,7 +38,7 @@ const Header = ({ title, subtitle, typedTexts }) => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
                 >
-                    <p className="text-[#00ff00] max-w-2xl mt-4">
+                    <p className="text-[#00ff00] max-w-2xl mt-4 px-4 text-sm sm:text-base md:text-lg">
                         <ReactTyped
                             strings={typedTexts}
                             typeSpeed={30}
