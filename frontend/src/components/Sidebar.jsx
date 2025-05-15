@@ -34,6 +34,7 @@ const Sidebar = () => {
             whileDrag={{ scale: 1.1 }}
             className="fixed top-24 left-4 z-40 text-white bg-black/80 backdrop-blur-sm p-2 rounded-lg hover:bg-gray-800 transition duration-300 shadow-lg border border-gray-700 cursor-move"
         >
+            {/* Toggle button */}
             <GiHamburgerMenu
                 className={`w-6 h-6 transition duration-300 ${isSidebarShown ? 'text-white' : 'text-[#00ff00]'}`}
             />

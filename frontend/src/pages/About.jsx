@@ -139,53 +139,53 @@ const About = () => {
 
       <h2 className="text-4xl sm:text-3xl font-bold text-center mb-6">Skills</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
-        <div className="text-center p-6 border border-[#00ffcc] rounded-lg shadow-lg bg-gray-800 transition-transform transform hover:scale-105">
-          <h3 className="text-2xl font-semibold text-[#00ffcc] mb-4">Programming Languages</h3>
-          <div className="flex justify-center flex-wrap gap-6">
-            <i className="devicon-java-plain text-5xl hover:text-[#ff9900] transition-colors" />
-            <i className="devicon-python-plain text-5xl hover:text-[#306998] transition-colors" />
-            <i className="devicon-javascript-plain text-5xl hover:text-[#f7df1e] transition-colors" />
-            <i className="devicon-csharp-plain text-5xl hover:text-[#9b4f96] transition-colors" />
-            <i className="devicon-dot-net-plain text-5xl hover:text-[#512bd4] transition-colors" />
-            <i className="devicon-php-plain text-5xl hover:text-[#777bb3] transition-colors" />
-            <i className="devicon-swift-plain text-5xl hover:text-[#fa7343] transition-colors" />
+        <div className="text-center p-4 md:p-6 border border-[#00ffcc] rounded-lg shadow-lg bg-gray-800 transition-transform transform hover:scale-105">
+          <h3 className="text-xl md:text-2xl font-semibold text-[#00ffcc] mb-4">Programming Languages</h3>
+          <div className="flex justify-center flex-wrap gap-4 md:gap-6">
+            <i className="devicon-java-plain text-4xl md:text-5xl hover:text-[#ff9900] transition-colors" />
+            <i className="devicon-python-plain text-4xl md:text-5xl hover:text-[#306998] transition-colors" />
+            <i className="devicon-javascript-plain text-4xl md:text-5xl hover:text-[#f7df1e] transition-colors" />
+            <i className="devicon-csharp-plain text-4xl md:text-5xl hover:text-[#9b4f96] transition-colors" />
+            <i className="devicon-dot-net-plain text-4xl md:text-5xl hover:text-[#512bd4] transition-colors" />
+            <i className="devicon-php-plain text-4xl md:text-5xl hover:text-[#777bb3] transition-colors" />
+            <i className="devicon-swift-plain text-4xl md:text-5xl hover:text-[#fa7343] transition-colors" />
           </div>
         </div>
 
-        <div className="text-center p-6 border border-[#00ffcc] rounded-lg shadow-lg bg-gray-800 transition-transform transform hover:scale-105">
-          <h3 className="text-2xl font-semibold text-[#00ffcc] mb-4">Web Development & Frameworks</h3>
-          <div className="flex justify-center flex-wrap gap-6">
-            <i className="devicon-react-original text-5xl hover:text-[#61dafb] transition-colors" />
-            <i className="devicon-nodejs-plain-wordmark text-5xl hover:text-[#68a063] transition-colors" />
-            <i className="devicon-bootstrap-plain text-5xl hover:text-[#563d7c] transition-colors" />
-            <i className="devicon-tailwindcss-original text-5xl hover:text-[#38b2ac] transition-colors" />
-            <i className="devicon-html5-plain text-5xl hover:text-[#e34c26] transition-colors" />
-            <i className="devicon-css3-plain text-5xl hover:text-[#1572b6] transition-colors" />
+        <div className="text-center p-4 md:p-6 border border-[#00ffcc] rounded-lg shadow-lg bg-gray-800 transition-transform transform hover:scale-105">
+          <h3 className="text-xl md:text-2xl font-semibold text-[#00ffcc] mb-4">Web Development & Frameworks</h3>
+          <div className="flex justify-center flex-wrap gap-4 md:gap-6">
+            <i className="devicon-react-original text-4xl md:text-5xl hover:text-[#61dafb] transition-colors" />
+            <i className="devicon-nodejs-plain-wordmark text-4xl md:text-5xl hover:text-[#68a063] transition-colors" />
+            <i className="devicon-bootstrap-plain text-4xl md:text-5xl hover:text-[#563d7c] transition-colors" />
+            <i className="devicon-tailwindcss-original text-4xl md:text-5xl hover:text-[#38b2ac] transition-colors" />
+            <i className="devicon-html5-plain text-4xl md:text-5xl hover:text-[#e34c26] transition-colors" />
+            <i className="devicon-css3-plain text-4xl md:text-5xl hover:text-[#1572b6] transition-colors" />
           </div>
         </div>
 
-        <div className="text-center p-6 border border-[#00ffcc] rounded-lg shadow-lg bg-gray-800 transition-transform transform hover:scale-105">
-          <h3 className="text-2xl font-semibold text-[#00ffcc] mb-4">Databases, Scripting & Game Dev</h3>
-          <div className="flex justify-center flex-wrap gap-6">
-            <i className="devicon-microsoftsqlserver-plain text-5xl hover:text-[#cc2927] transition-colors" />
-            <i className="devicon-mysql-plain text-5xl hover:text-[#00758f] transition-colors" />
-            <i className="devicon-bash-plain text-5xl hover:text-[#4eaa25] transition-colors" />
-            <i className="devicon-unity-plain text-5xl hover:text-[#ffffff] transition-colors" />
-            <i className="devicon-godot-plain text-5xl hover:text-[#478cbf] transition-colors" />
+        <div className="text-center p-4 md:p-6 border border-[#00ffcc] rounded-lg shadow-lg bg-gray-800 transition-transform transform hover:scale-105">
+          <h3 className="text-xl md:text-2xl font-semibold text-[#00ffcc] mb-4">Databases, Scripting & Game Dev</h3>
+          <div className="flex justify-center flex-wrap gap-4 md:gap-6">
+            <i className="devicon-microsoftsqlserver-plain text-4xl md:text-5xl hover:text-[#cc2927] transition-colors" />
+            <i className="devicon-mysql-plain text-4xl md:text-5xl hover:text-[#00758f] transition-colors" />
+            <i className="devicon-bash-plain text-4xl md:text-5xl hover:text-[#4eaa25] transition-colors" />
+            <i className="devicon-unity-plain text-4xl md:text-5xl hover:text-[#ffffff] transition-colors" />
+            <i className="devicon-godot-plain text-4xl md:text-5xl hover:text-[#478cbf] transition-colors" />
           </div>
         </div>
 
-        <div className="col-span-3 text-center p-6 border border-[#00ffcc] rounded-lg shadow-lg bg-gray-800 transition-transform transform hover:scale-105">
-          <h3 className="text-2xl font-semibold text-[#00ffcc] mb-4">Tools & Software</h3>
-          <div className="flex justify-center flex-wrap gap-6">
-            <i className="devicon-git-plain text-5xl hover:text-[#f34f29] transition-colors" />
-            <i className="devicon-vscode-plain text-5xl hover:text-[#007acc] transition-colors" />
-            <i className="devicon-pycharm-plain text-5xl hover:text-[#21d789] transition-colors" />
-            <i className="devicon-json-plain text-5xl hover:text-[#f7df1e] transition-colors" />
-            <i className="devicon-intellij-plain text-5xl hover:text-[#000000] transition-colors" />
-            <i className="devicon-gimp-plain text-5xl hover:text-[#5c5543] transition-colors" />
-            <i className="devicon-xcode-plain text-5xl hover:text-[#1575f3] transition-colors" />
-            <i className="devicon-linux-plain text-5xl hover:text-[#fcc624] transition-colors" />
+        <div className="col-span-1 sm:col-span-2 lg:col-span-3 text-center p-4 md:p-6 border border-[#00ffcc] rounded-lg shadow-lg bg-gray-800 transition-transform transform hover:scale-105">
+          <h3 className="text-xl md:text-2xl font-semibold text-[#00ffcc] mb-4">Tools & Software</h3>
+          <div className="flex justify-center flex-wrap gap-4 md:gap-6">
+            <i className="devicon-git-plain text-4xl md:text-5xl hover:text-[#f34f29] transition-colors" />
+            <i className="devicon-vscode-plain text-4xl md:text-5xl hover:text-[#007acc] transition-colors" />
+            <i className="devicon-pycharm-plain text-4xl md:text-5xl hover:text-[#21d789] transition-colors" />
+            <i className="devicon-json-plain text-4xl md:text-5xl hover:text-[#f7df1e] transition-colors" />
+            <i className="devicon-intellij-plain text-4xl md:text-5xl hover:text-[#000000] transition-colors" />
+            <i className="devicon-gimp-plain text-4xl md:text-5xl hover:text-[#5c5543] transition-colors" />
+            <i className="devicon-xcode-plain text-4xl md:text-5xl hover:text-[#1575f3] transition-colors" />
+            <i className="devicon-linux-plain text-4xl md:text-5xl hover:text-[#fcc624] transition-colors" />
           </div>
         </div>
       </div>
