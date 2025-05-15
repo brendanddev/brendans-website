@@ -11,12 +11,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 const Terminal = () => {
-    const [history, setHistory] = useState([]);
-    const [historyIndex, setHistoryIndex] = useState(null);
     
-
-
-
+    // Default output when terminal is loaded
     const defaultOutput = [
         <div key="1" className="flex">
             <span className="mr-2">
@@ -38,6 +34,8 @@ const Terminal = () => {
         </div>
     ];
 
+    const [history, setHistory] = useState([]);
+    const [historyIndex, setHistoryIndex] = useState(null);
     const [output, setOutput] = useState(defaultOutput);
     const [command, setCommand] = useState("");
 
@@ -120,7 +118,29 @@ const Terminal = () => {
         }
 
         setOutput([...output, newCommandOutput, response]);
+        setHistory([command, ...history]);
+        setHistoryIndex(null);
         setCommand("");
+    };
+
+    const handleKeyDown = (event) => {
+        if (event.key === "ArrowUp") {
+            if (history.length > 0) {
+                const newIndex = historyIndex === null ? 0 : Math.min(historyIndex + 1, history.length - 1);
+                setHistoryIndex(newIndex);
+                setCommand(history[newIndex]);
+            }
+        } else if (event.key === "ArrowDown") {
+            event.preventDefault();
+            const newIndex = historyIndex - 1;
+            if (newIndex >= 0) {
+                setHistoryIndex(newIndex);
+                setCommand(history[newIndex]);
+            } else {
+                setHistoryIndex(null);
+                setCommand("");
+            }
+        }
     };
 
     return (
@@ -151,6 +171,7 @@ const Terminal = () => {
                     type="text"
                     value={command}
                     onChange={(event) => setCommand(event.target.value)}
+                    onKeyDown={handleKeyDown}
                 />
             </form>
         </motion.div>
