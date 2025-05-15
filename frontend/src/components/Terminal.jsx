@@ -11,6 +11,12 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 const Terminal = () => {
+    const [history, setHistory] = useState([]);
+    const [historyIndex, setHistoryIndex] = useState(null);
+    
+
+
+
     const defaultOutput = [
         <div key="1" className="flex">
             <span className="mr-2">
