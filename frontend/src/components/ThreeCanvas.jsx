@@ -6,7 +6,6 @@
 
 import { useRef, useEffect } from 'react';
 import * as THREE from 'three';
-import GUI from 'lil-gui';
 
 const ThreeCanvas = () => {
   const canvasRef = useRef();
@@ -72,6 +71,7 @@ const ThreeCanvas = () => {
     desktop.add(keyboard);
 
     desktop.scale.set(1.5, 1.5, 1.5);
+    desktop.position.y = 1;
     scene.add(desktop);
 
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
@@ -81,27 +81,9 @@ const ThreeCanvas = () => {
     pointLight.position.set(10, 10, 10);
     scene.add(pointLight);
 
-    // GUI Controls
-    const gui = new GUI();
-    const config = {
-      screenColor: '#111111',
-      overlayVisible: true,
-      rotationSpeed: 0.01,
-    };
-
-    const screenFolder = gui.addFolder('Screen');
-    screenFolder.addColor(config, 'screenColor').onChange((val) => {
-      screen.material.color.set(val);
-    });
-    screenFolder.add(config, 'overlayVisible').onChange((visible) => {
-      overlay.visible = visible;
-    });
-    screenFolder.add(config, 'rotationSpeed', 0, 0.1).step(0.001);
-    screenFolder.open();
-
     const animate = () => {
       requestAnimationFrame(animate);
-      desktop.rotation.y += config.rotationSpeed;
+      desktop.rotation.y += 0.01;
       renderer.render(scene, camera);
     };
 
@@ -118,7 +100,6 @@ const ThreeCanvas = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
       renderer.dispose();
-      gui.destroy();
     };
   }, []);
 
