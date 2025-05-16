@@ -55,34 +55,19 @@ const NavBar = () => {
         </button>
       </div>
 
-      <ul className="flex gap-5 text-lg">
-        <li className="hover:text-[#00ff00]">
-          <span className="text-[#00ff00]">[</span>
-          <Link to="/" className="text-[#00ff00] hover:text-[#00ff00]">home</Link>
-          <span className="text-[#00ff00]">]</span>
-        </li>
-        <li className="hover:text-[#00ff00]">
-          <span className="text-[#00ff00]">[</span>
-          <Link to="/about" className="text-[#00ff00] hover:text-[#00ff00]">about</Link>
-          <span className="text-[#00ff00]">]</span>
-        </li>
-        <li className="hover:text-[#00ff00]">
-          <span className="text-[#00ff00]">[</span>
-          <Link to="/projects" className="text-[#00ff00] hover:text-[#00ff00]">projects</Link>
-          <span className="text-[#00ff00]">]</span>
-        </li>
-        <li className="hover:text-[#00ff00]">
-          <span className="text-[#00ff00]">[</span>
-          <Link to="/contact" className="text-[#00ff00] hover:text-[#00ff00]">contact</Link>
-          <span className="text-[#00ff00]">]</span>
-        </li>
-
-        <li className="hover:text-[#00ff00]">
-          <span className="text-[#00ff00]">[</span>
-          <Link to="/me" className="text-[#00ff00] hover:text-[#00ff00]">me</Link>
-          <span className="text-[#00ff00]">]</span>
-        </li>
+      <ul className="hidden md:flex gap-5 text-lg mt-4 md:mt-0">
+        {renderLinks()}
       </ul>
+
+      <ul
+        className={`md:hidden flex-col gap-3 text-lg mt-4 transition-all duration-300 ${
+          isOpen ? "flex" : "hidden"
+        }`}
+      >
+        {renderLinks(true)}
+      </ul>
+
+      
     </nav>
   );
 };
