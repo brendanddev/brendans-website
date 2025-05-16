@@ -7,8 +7,19 @@
 */
 
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 const NavBar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  
+  
+  
+  
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <nav className="w-full bg-black border-b border-gray-700 p-4 font-mono text-[#00ff00] flex items-center justify-between z-40 relative">
       <div>
