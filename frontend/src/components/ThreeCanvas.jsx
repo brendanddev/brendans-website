@@ -48,10 +48,18 @@ const ThreeCanvas = () => {
     base.position.y = -4;
     scene.add(base);
 
+    // Open window overlay
+    const overlayGeometry = new THREE.BoxGeometry(5.5, 3.5, 0.05);
+    const overlayMaterial = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
+    const overlay = new THREE.Mesh(overlayGeometry, overlayMaterial);
+    overlay.position.set(0, 0, 0.28);
+
     const desktop = new THREE.Group();
     desktop.add(screen);
     desktop.add(stand);
     desktop.add(base);
+    desktop.add(overlay);
+    desktop.scale.set(1.5, 1.5, 1.5);
     scene.add(desktop);
 
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
