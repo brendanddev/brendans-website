@@ -1,3 +1,4 @@
+
 /**
  * @file ThreeCanvas.jsx
  * @author Brendan Dileo
@@ -70,6 +71,16 @@ const ThreeCanvas = () => {
     // Icons
     const iconGeometry = new THREE.BoxGeometry(0.3, 0.3, 0.05);
     const iconMaterial = new THREE.MeshBasicMaterial({ color: 0x3399ff });
+
+    const iconPositions = [
+      [-2.3, -1.45], [-1.8, -1.45], [-1.4, -1.45],
+    ];
+
+    iconPositions.forEach(([x, y]) => {
+      const icon = new THREE.Mesh(iconGeometry, iconMaterial);
+      icon.position.set(x, y, 0.05);
+      homeScreen.add(icon);
+    });
 
     // Taskbar
     const taskbarGeometry = new THREE.PlaneGeometry(5.4, 0.4);
