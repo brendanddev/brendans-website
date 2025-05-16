@@ -22,6 +22,7 @@ const NavBar = () => {
     { to: "/me", label: "me" },
   ];
 
+  // Render react router links
   const renderLinks = (closeMenu = false) =>
     links.map(({ to, label }) => (
       <li key={label}>
@@ -36,13 +37,7 @@ const NavBar = () => {
         <span>]</span>
       </li>
     ));
-  
-  
-  
-  
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+
 
   return (
     <nav className="w-full bg-black border-b border-gray-700 p-4 font-mono text-[#00ff00] flex items-center justify-between z-40 relative">
@@ -50,6 +45,14 @@ const NavBar = () => {
         <span className="font-semibold text-xl tracking-tight text-[#00ff00]">
           Brendan Dileo
         </span>
+
+        <button
+          className="md:hidden text-[#00ff00]"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
 
       <ul className="flex gap-5 text-lg">
