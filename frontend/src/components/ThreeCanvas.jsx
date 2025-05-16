@@ -22,6 +22,7 @@ const ThreeCanvas = () => {
     );
     camera.position.z = 10;
 
+    // Renderer
     const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
@@ -49,13 +50,31 @@ const ThreeCanvas = () => {
     const overlayMaterial = new THREE.MeshStandardMaterial({
       color: 0xffffff,
       transparent: true,
-      opacity: 0.9
+      opacity: 0.9,
+      side: THREE.DoubleSide,
+      blending: THREE.AdditiveBlending
     });
-    overlayMaterial.side = THREE.DoubleSide;
-    overlayMaterial.blending = THREE.AdditiveBlending;
-
     const overlay = new THREE.Mesh(overlayGeometry, overlayMaterial);
     overlay.position.set(0, 0, 0.28);
+
+    // Mock OS Overlay
+    const homeScreen = new THREE.Group();
+
+    // Background
+    const homeBGGeometry = new THREE.PlaneGeometry(5.4, 3.4);
+    const homeBGMaterial = new THREE.MeshBasicMaterial({ color: 0x1e1e2f });
+    const homeBG = new THREE.Mesh(homeBGGeometry, homeBGMaterial);
+    homeBG.position.z = 0.03;
+    homeScreen.add(homeBG);
+
+    // Taskbar
+    const taskbarGeometry = new THREE.PlaneGeometry(5.4, 0.4);
+    const taskbarMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+    const taskbar = new THREE.Mesh(taskbarGeometry, taskbarMaterial);
+    taskbar.position.set(0, -1.45, 0.04);
+    homeScreen.add(taskbar);
+
+    overlay.add(homeScreen);
 
     // Keyboard
     const keyboardGeometry = new THREE.BoxGeometry(4, 0.3, 1.2);
@@ -63,6 +82,7 @@ const ThreeCanvas = () => {
     const keyboard = new THREE.Mesh(keyboardGeometry, keyboardMaterial);
     keyboard.position.set(0, -4.3, 1.5);
 
+    //Component group
     const desktop = new THREE.Group();
     desktop.add(screen);
     desktop.add(stand);
@@ -74,6 +94,7 @@ const ThreeCanvas = () => {
     desktop.position.y = 1;
     scene.add(desktop);
 
+    // Lighting
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
     scene.add(ambientLight);
 
@@ -81,6 +102,7 @@ const ThreeCanvas = () => {
     pointLight.position.set(10, 10, 10);
     scene.add(pointLight);
 
+    //Animation
     const animate = () => {
       requestAnimationFrame(animate);
       desktop.rotation.y += 0.01;
@@ -89,6 +111,7 @@ const ThreeCanvas = () => {
 
     animate();
 
+    //Window resize
     const handleResize = () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
