@@ -6,6 +6,8 @@
  * The NavBar component for my portfolio-website
 */
 
+// TODO: FINISH PAGE
+
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
@@ -44,6 +46,7 @@ const NavBar = () => {
         Brendan Dileo
       </div>
 
+      {/* Toggle menu button for smaller screens */}
       <button
         className="md:hidden text-[#00ff00] z-50"
         onClick={() => setIsOpen(!isOpen)}
@@ -55,7 +58,8 @@ const NavBar = () => {
       <ul className="hidden md:flex gap-5 text-lg">
         {renderLinks()}
       </ul>
-
+     
+      {/* Dropdown */}
       <ul
         className={`absolute top-full left-0 w-full bg-black border-t border-gray-700 flex-col text-lg font-mono transition-all duration-300 ease-in-out overflow-hidden ${
           isOpen ? "flex opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
