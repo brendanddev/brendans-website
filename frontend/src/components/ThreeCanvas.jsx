@@ -26,10 +26,18 @@ const ThreeCanvas = () => {
     const screen = new THREE.Mesh(screenGeometry, screenMaterial);
     scene.add(screen);
 
+    // Stand
+    const standGeometry = new THREE.BoxGeometry(0.5, 2, 0.5);
+    const standMaterial = new THREE.MeshStandardMaterial({ color: 0x555555 });
+    const stand = new THREE.Mesh(standGeometry, standMaterial);
+    stand.position.y = -3;
+    scene.add(stand);
+
 
     // Group all parts
     const desktop = new THREE.Group();
     desktop.add(screen);
+    desktop.add(stand);
     scene.add(desktop);
 
     // Lighting
