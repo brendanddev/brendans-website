@@ -67,6 +67,10 @@ const ThreeCanvas = () => {
     homeBG.position.z = 0.03;
     homeScreen.add(homeBG);
 
+    // Icons
+    const iconGeometry = new THREE.BoxGeometry(0.3, 0.3, 0.05);
+    const iconMaterial = new THREE.MeshBasicMaterial({ color: 0x3399ff });
+
     // Taskbar
     const taskbarGeometry = new THREE.PlaneGeometry(5.4, 0.4);
     const taskbarMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
