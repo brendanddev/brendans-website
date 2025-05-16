@@ -12,6 +12,30 @@ import { Menu, X } from "lucide-react";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  // Routes
+  const links = [
+    { to: "/", label: "home" },
+    { to: "/about", label: "about" },
+    { to: "/projects", label: "projects" },
+    { to: "/contact", label: "contact" },
+    { to: "/me", label: "me" },
+  ];
+
+  const renderLinks = (closeMenu = false) =>
+    links.map(({ to, label }) => (
+      <li key={label}>
+        <span>[</span>
+        <Link
+          to={to}
+          onClick={closeMenu ? () => setIsOpen(false) : undefined}
+          className="hover:text-[#00ff00] transition"
+        >
+          {label}
+        </Link>
+        <span>]</span>
+      </li>
+    ));
   
   
   
