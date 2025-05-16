@@ -175,6 +175,18 @@ const About = () => {
           </div>
         </div>
 
+        <div className="text-center p-4 md:p-6 border border-[#00ffcc] rounded-lg shadow-lg bg-gray-800 transition-transform transform hover:scale-105">
+          <h3 className="text-xl md:text-2xl font-semibold text-[#00ffcc] mb-4">Databases, Scripting & Game Dev</h3>
+          <div className="flex justify-center flex-wrap gap-4 md:gap-6">
+            <i className="devicon-microsoftsqlserver-plain text-4xl md:text-5xl hover:text-[#cc2927] transition-colors" />
+            <i className="devicon-mysql-plain text-4xl md:text-5xl hover:text-[#00758f] transition-colors" />
+            <i className="devicon-bash-plain text-4xl md:text-5xl hover:text-[#4eaa25] transition-colors" />
+            <i className="devicon-unity-plain text-4xl md:text-5xl hover:text-[#ffffff] transition-colors" />
+            <i className="devicon-godot-plain text-4xl md:text-5xl hover:text-[#478cbf] transition-colors" />
+          </div>
+        </div>
+
+
         <div className="col-span-1 sm:col-span-2 lg:col-span-3 text-center p-4 md:p-6 border border-[#00ffcc] rounded-lg shadow-lg bg-gray-800 transition-transform transform hover:scale-105">
           <h3 className="text-xl md:text-2xl font-semibold text-[#00ffcc] mb-4">Tools & Software</h3>
           <div className="flex justify-center flex-wrap gap-4 md:gap-6">

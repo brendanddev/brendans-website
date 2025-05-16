@@ -38,6 +38,12 @@ const NavBar = () => {
           <Link to="/contact" className="text-[#00ff00] hover:text-[#00ff00]">contact</Link>
           <span className="text-[#00ff00]">]</span>
         </li>
+
+        <li className="hover:text-[#00ff00]">
+          <span className="text-[#00ff00]">[</span>
+          <Link to="/me" className="text-[#00ff00] hover:text-[#00ff00]">me</Link>
+          <span className="text-[#00ff00]">]</span>
+        </li>
       </ul>
     </nav>
   );
