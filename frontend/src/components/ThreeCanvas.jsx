@@ -1,3 +1,10 @@
+
+/**
+ * @file ThreeCanvas.jsx
+ * @author Brendan Dileo
+ * @date 2025
+ */
+
 import { useRef, useEffect } from 'react';
 import * as THREE from 'three';
 
@@ -21,6 +28,7 @@ const ThreeCanvas = () => {
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setClearColor(0xffffff);
 
+    // Screen
     const screenGeometry = new THREE.BoxGeometry(6, 4, 0.5);
     const screenMaterial = new THREE.MeshStandardMaterial({ color: 0x111111 });
     const screen = new THREE.Mesh(screenGeometry, screenMaterial);
@@ -33,14 +41,19 @@ const ThreeCanvas = () => {
     stand.position.y = -3;
     scene.add(stand);
 
+    // Base
+    const baseGeometry = new THREE.BoxGeometry(3, 0.2, 2);
+    const baseMaterial = new THREE.MeshStandardMaterial({ color: 0x333333 });
+    const base = new THREE.Mesh(baseGeometry, baseMaterial);
+    base.position.y = -4;
+    scene.add(base);
 
-    // Group all parts
     const desktop = new THREE.Group();
     desktop.add(screen);
     desktop.add(stand);
+    desktop.add(base);
     scene.add(desktop);
 
-    // Lighting
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
     scene.add(ambientLight);
 
