@@ -1,4 +1,3 @@
-
 import { useRef, useEffect } from 'react';
 import * as THREE from 'three';
 
@@ -15,23 +14,28 @@ const ThreeCanvas = () => {
       0.1,
       1000
     );
-    camera.position.z = 5;
+    camera.position.z = 10;
 
     const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setClearColor(0xffffff);
 
-    // Add a basic cube
-    const geometry = new THREE.BoxGeometry();
-    const material = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
-    const cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
+    const screenGeometry = new THREE.BoxGeometry(6, 4, 0.5);
+    const screenMaterial = new THREE.MeshStandardMaterial({ color: 0x111111 });
+    const screen = new THREE.Mesh(screenGeometry, screenMaterial);
+    scene.add(screen);
+
+    // Lighting
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+    scene.add(ambientLight);
+
+    const pointLight = new THREE.PointLight(0xffffff, 1);
+    pointLight.position.set(10, 10, 10);
+    scene.add(pointLight);
 
     const animate = () => {
       requestAnimationFrame(animate);
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
       renderer.render(scene, camera);
     };
 
