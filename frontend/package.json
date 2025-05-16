@@ -19,6 +19,7 @@
     "devicon": "^2.16.0",
     "framer-motion": "^12.4.7",
     "gsap": "^3.13.0",
+    "lil-gui": "^0.20.0",
     "lucide-react": "^0.476.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

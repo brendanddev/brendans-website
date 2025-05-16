@@ -1,4 +1,3 @@
-
 /**
  * @file ThreeCanvas.jsx
  * @author Brendan Dileo
@@ -7,6 +6,7 @@
 
 import { useRef, useEffect } from 'react';
 import * as THREE from 'three';
+import GUI from 'lil-gui';
 
 const ThreeCanvas = () => {
   const canvasRef = useRef();
@@ -32,46 +32,76 @@ const ThreeCanvas = () => {
     const screenGeometry = new THREE.BoxGeometry(6, 4, 0.5);
     const screenMaterial = new THREE.MeshStandardMaterial({ color: 0x111111 });
     const screen = new THREE.Mesh(screenGeometry, screenMaterial);
-    scene.add(screen);
 
     // Stand
     const standGeometry = new THREE.BoxGeometry(0.5, 2, 0.5);
-    const standMaterial = new THREE.MeshStandardMaterial({ color: 0x555555 });
+    const standMaterial = new THREE.MeshStandardMaterial({ color: 0x666666 });
     const stand = new THREE.Mesh(standGeometry, standMaterial);
     stand.position.y = -3;
-    scene.add(stand);
 
     // Base
     const baseGeometry = new THREE.BoxGeometry(3, 0.2, 2);
-    const baseMaterial = new THREE.MeshStandardMaterial({ color: 0x333333 });
+    const baseMaterial = new THREE.MeshStandardMaterial({ color: 0x888888 });
     const base = new THREE.Mesh(baseGeometry, baseMaterial);
     base.position.y = -4;
-    scene.add(base);
 
-    // Open window overlay
+    // Overlay Window
     const overlayGeometry = new THREE.BoxGeometry(5.5, 3.5, 0.05);
-    const overlayMaterial = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
+    const overlayMaterial = new THREE.MeshStandardMaterial({
+      color: 0xffffff,
+      transparent: true,
+      opacity: 0.9
+    });
+    overlayMaterial.side = THREE.DoubleSide;
+    overlayMaterial.blending = THREE.AdditiveBlending;
+
     const overlay = new THREE.Mesh(overlayGeometry, overlayMaterial);
     overlay.position.set(0, 0, 0.28);
+
+    // Keyboard
+    const keyboardGeometry = new THREE.BoxGeometry(4, 0.3, 1.2);
+    const keyboardMaterial = new THREE.MeshStandardMaterial({ color: 0x2a2a72 });
+    const keyboard = new THREE.Mesh(keyboardGeometry, keyboardMaterial);
+    keyboard.position.set(0, -4.3, 1.5);
 
     const desktop = new THREE.Group();
     desktop.add(screen);
     desktop.add(stand);
     desktop.add(base);
     desktop.add(overlay);
+    desktop.add(keyboard);
+
     desktop.scale.set(1.5, 1.5, 1.5);
     scene.add(desktop);
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
     scene.add(ambientLight);
 
     const pointLight = new THREE.PointLight(0xffffff, 1);
     pointLight.position.set(10, 10, 10);
     scene.add(pointLight);
 
+    // GUI Controls
+    const gui = new GUI();
+    const config = {
+      screenColor: '#111111',
+      overlayVisible: true,
+      rotationSpeed: 0.01,
+    };
+
+    const screenFolder = gui.addFolder('Screen');
+    screenFolder.addColor(config, 'screenColor').onChange((val) => {
+      screen.material.color.set(val);
+    });
+    screenFolder.add(config, 'overlayVisible').onChange((visible) => {
+      overlay.visible = visible;
+    });
+    screenFolder.add(config, 'rotationSpeed', 0, 0.1).step(0.001);
+    screenFolder.open();
+
     const animate = () => {
       requestAnimationFrame(animate);
-      desktop.rotation.y += 0.01;
+      desktop.rotation.y += config.rotationSpeed;
       renderer.render(scene, camera);
     };
 
@@ -88,6 +118,7 @@ const ThreeCanvas = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
       renderer.dispose();
+      gui.destroy();
     };
   }, []);
 
