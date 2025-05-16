@@ -38,36 +38,31 @@ const NavBar = () => {
       </li>
     ));
 
-
   return (
     <nav className="w-full bg-black border-b border-gray-700 p-4 font-mono text-[#00ff00] flex items-center justify-between z-40 relative">
-      <div>
-        <span className="font-semibold text-xl tracking-tight text-[#00ff00]">
-          Brendan Dileo
-        </span>
-
-        <button
-          className="md:hidden text-[#00ff00]"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+      <div className="font-semibold text-xl tracking-tight text-[#00ff00]">
+        Brendan Dileo
       </div>
 
-      <ul className="hidden md:flex gap-5 text-lg mt-4 md:mt-0">
+      <button
+        className="md:hidden text-[#00ff00] z-50"
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label="Toggle menu"
+      >
+        {isOpen ? <X size={24} /> : <Menu size={24} />}
+      </button>
+
+      <ul className="hidden md:flex gap-5 text-lg">
         {renderLinks()}
       </ul>
 
       <ul
-        className={`md:hidden flex-col gap-3 text-lg mt-4 transition-all duration-300 ${
-          isOpen ? "flex" : "hidden"
+        className={`absolute top-full left-0 w-full bg-black border-t border-gray-700 flex-col text-lg font-mono transition-all duration-300 ease-in-out overflow-hidden ${
+          isOpen ? "flex opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
         }`}
       >
         {renderLinks(true)}
       </ul>
-
-      
     </nav>
   );
 };
