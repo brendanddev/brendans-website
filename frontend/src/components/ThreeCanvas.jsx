@@ -26,6 +26,12 @@ const ThreeCanvas = () => {
     const screen = new THREE.Mesh(screenGeometry, screenMaterial);
     scene.add(screen);
 
+
+    // Group all parts
+    const desktop = new THREE.Group();
+    desktop.add(screen);
+    scene.add(desktop);
+
     // Lighting
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
     scene.add(ambientLight);
@@ -36,6 +42,7 @@ const ThreeCanvas = () => {
 
     const animate = () => {
       requestAnimationFrame(animate);
+      desktop.rotation.y += 0.01;
       renderer.render(scene, camera);
     };
 
