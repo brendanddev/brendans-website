@@ -9,10 +9,15 @@ import Sidebar from "../components/Sidebar";
 import { GraduationCap, FileText } from "lucide-react";
 import Header from "../components/Header";
 import { motion } from "framer-motion";
+import { useTheme } from "../context/ThemeContext";
+import ThemeToggle from "../components/ThemeToggle";
 
 const About = () => {
+  const { isDarkMode } = useTheme();
+  
   return (
-    <div className="relative w-full min-h-screen flex flex-col items-center bg-gray-900 text-white">
+    <div className={`relative w-full min-h-screen flex flex-col items-center ${isDarkMode ? 'bg-gray-900' : 'bg-gray-100'} text-white transition-colors duration-300`}>
+      <ThemeToggle />
       <div className="relative z-10 w-full max-w-5xl text-center">
         <Header 
             title="About Me" 

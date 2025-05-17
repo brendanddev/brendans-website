@@ -1,4 +1,3 @@
-
 /**
  * @file Contact.jsx
  * @author Brendan Dileo
@@ -9,9 +8,11 @@
 import Header from '../components/Header';
 import Sidebar from "../components/Sidebar";
 import { motion } from "framer-motion"
+import { useState } from "react";
+import { useTheme } from "../context/ThemeContext";
+import ThemeToggle from "../components/ThemeToggle";
 
 import { submitContactForm } from '../api/contact';
-import { useState } from 'react';
 
 const Contact = () => {
     
@@ -23,6 +24,7 @@ const Contact = () => {
     });
 
     const [status, setStatus] = useState(null);
+    const { isDarkMode } = useTheme();
 
     // Form input change handler
     const handleChange = (e) => {
@@ -45,17 +47,14 @@ const Contact = () => {
     };
 
     return (
-        <div className="w-full min-h-screen bg-gray-900 flex flex-col items-center">
-            <Header 
-                title="Contact Brendan" 
-                subtitle="Software Developer | Backend | Tech Enthusiast"
-                typedTexts={[
-                    "Send me a message and I'll get back to you!",
-                    "Feel free to reach out!",
-                    "I'm always open to collaboration and new opportunities.",
-                    "Have a project in mind? Let's build something great together!"
-                ]}
-            />
+        <div className={`w-full min-h-screen flex flex-col items-center ${isDarkMode ? 'bg-gray-900' : 'bg-gray-100'} transition-colors duration-300`}>
+            <ThemeToggle />
+            <div className="w-full max-w-5xl text-center">
+                <Header 
+                    title="Contact Me" 
+                    subtitle="Let's get in touch!"
+                />
+            </div>
             <motion.div
                 className="w-[95%] md:w-4/5 lg:w-3/5 h-[450px] bg-gray-700 rounded-lg shadow-lg flex flex-col border border-white overflow-hidden font-mono mx-auto"
                 initial={{ scale: 0 }}

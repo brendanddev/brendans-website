@@ -1,4 +1,3 @@
-
 /**
  * @file Projects.jsx
  * @author Brendan Dileo 
@@ -10,18 +9,22 @@ import { motion } from "framer-motion";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import { projectData } from "../projectData";
-
+import { useTheme } from "../context/ThemeContext";
+import ThemeToggle from "../components/ThemeToggle";
 import { FaFolder } from "react-icons/fa";
 
 const Projects = () => {
+    const { isDarkMode } = useTheme();
+
     return (
         <motion.div 
             initial={false} 
             animate={{ opacity: 1 }} 
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }} 
-            className="w-full min-h-screen bg-gray-900 flex flex-col items-center relative opacity-0"
+            className={`w-full min-h-screen flex flex-col items-center relative ${isDarkMode ? 'bg-gray-900' : 'bg-gray-100'} transition-colors duration-300`}
         >
+            <ThemeToggle />
             <motion.div 
                 initial={{ y: -20, opacity: 0 }} 
                 animate={{ y: 0, opacity: 1 }} 
