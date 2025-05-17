@@ -10,8 +10,12 @@ import HelpTooltip from "../components/HelpTooltip";
 import Terminal from '../components/Terminal';
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
+import ThemeToggle from "../components/ThemeToggle";
+
+import { useState } from "react";
 
 const Home = () => {
+    const { isDarkMode, setIsDarkMode } = useState(false);
     return (
         <div className="w-full min-h-screen bg-gray-900 flex flex-col items-center">
             <div className="w-full max-w-7xl mx-auto px-4">
@@ -30,6 +34,7 @@ const Home = () => {
             </div>
             <HelpTooltip />
             <Sidebar />
+            <ThemeToggle />
         </div>
     );
 };
