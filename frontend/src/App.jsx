@@ -17,21 +17,26 @@ import Me from './pages/Me';
 import './App.css'
 import "devicon/devicon.min.css";
 
+import { ThemeProvider } from './context/ThemeContext';
+
 /**
  * Sets up the routing of the portfolio-website.
  */
 function App() {
   return (
-    <Router>
-      <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/me" element={<Me />} />
-        </Routes>
-    </Router>
+    <ThemeProvider>
+
+      <Router>
+        <NavBar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/me" element={<Me />} />
+          </Routes>
+      </Router>
+    </ThemeProvider>
   )
 }
 
