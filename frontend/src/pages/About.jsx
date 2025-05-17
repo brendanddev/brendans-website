@@ -19,74 +19,8 @@ const About = () => {
             subtitle="Who am I? Here's a bit about me."
         />
 
-        <section className="w-full flex justify-center items-center mb-8 px-4">
           
-          <motion.div
-            className="w-full max-w-4xl h-[300px] bg-black rounded-lg shadow-lg flex flex-col border border-white overflow-hidden font-mono"
-            initial={{ opacity: 0, x: -500 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-          
-            <div className="h-8 bg-white flex items-center justify-between px-4 text-sm text-black">
-              <span>About-Brendan</span>
-                <div className="flex gap-2">
-                  <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                </div>
-            </div>
-
-            <motion.div
-              className="flex-1 p-4 font-semibold text-sm text-white overflow-y-auto leading-relaxed"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5, duration: 1 }}
-            >
-              Hi, I'm <span className="font-bold text-[#00ff00]">Brendan</span>, a{" "}
-              <span className="italic">Software Development</span> student and{" "}
-              <span className="italic">Aspiring Full Stack Developer</span> with a passion for{" "}
-              <span className="font-bold text-[#ff3131]"> technology </span> and{" "}
-              <span className="font-bold text-[#00ff00]">creating</span>.
-              <br />
-              <br />
-              I first fell in love with <span className="font-bold text-[#ff3131]"> technology</span> through{" "}
-              <span className="font-bold text-[#a89b32]"> video games</span>. My first{" "}
-              <span className="font-bold text-[#f24ebe]">console</span> was the{" "}
-              <span className="font-bold text-[#00ff00]">PS2</span>, and around 2006, I got a{" "}
-              <span className="font-bold text-[#00ff00]"> Wii and DS</span>.
-              <br />
-              My journey with <span className="font-bold italic text-[#f7c765]">computers</span> began in the{" "}
-              <span className="italic">5th grade</span>, when I got my first{" "}
-              <span className="font-bold italic text-[#f7c765]"> personal computer</span> for my birthday. I quickly became
-              fascinated with PC gaming, and eventually{" "}
-              <span className="font-bold text-[#09baeb]"> Minecraft modding.</span> I wanted to install the{" "}
-              <span className="font-bold italic text-[#f7c765]">Nodus Modded Client </span> but I struggled to get it
-              working. Determined to figure it out, I watched tutorials and read online documentation, my first real
-              experience with <span className="font-bold text-[#3235e6]"> problem-solving </span>and{" "}
-              <span className="font-bold text-[#5658f5]">troubleshooting</span>.
-              <br />
-              <br />
-              By 7th grade, I built my <span className="font-bold italic text-[#f7c765]"> first custom PC </span>
-              and ever since, I've been building, fixing, and taking apart <span className="font-bold italic text-[#f7c765]"> computers</span>, 
-              whether for fun, personal projects, or helping friends.
-              <br />
-              <br />
-              In 9th grade, I became even more interested in <span className="font-bold text-[#09baeb]">coding</span>,
-              <span className="font-bold italic text-[#f7c765]"> programming</span>, and <span className="font-bold text-[#f24ebe]">modding</span>, 
-              and by 11th grade, my passion for <span className="font-bold italic text-[#00ff00]">software development</span> really took off. I wanted
-              to <span className="font-bold text-[#f24ebe]">mod </span> <span className="font-bold text-[#3235e6]">Call of Duty: Black Ops 1 Zombies </span> 
-              on PC, which led me down a rabbit hole of researching online communities and open-source tools. Without official documentation, I had to analyze
-              <span className="font-bold italic text-[#ffff00]"> decompiled game scripts</span>, which became my first hands-on experience with 
-              <span className="font-bold italic text-[#f7c765]"> coding</span> and <span className="font-bold italic text-[#f7c765]">programming languages</span>.
-              <br />
-              <br />
-              Now, I'm focused on <span className="font-bold italic text-[#fc2605]">Software Development</span>, 
-              <span className="font-bold italic text-[#05f4fc]"> Automation</span>, 
-              <span className="font-bold italic text-[#6528bf]"> Machine Learning</span>, and creating efficient solutions for complex real-world problems.
-            </motion.div>
-          </motion.div>
-        </section>
+         
       
       <section className="w-full mb-12 px-4">
         <motion.div
