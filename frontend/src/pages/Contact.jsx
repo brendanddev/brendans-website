@@ -15,6 +15,7 @@ import { useState } from 'react';
 
 const Contact = () => {
     
+    // Form data
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -23,11 +24,13 @@ const Contact = () => {
 
     const [status, setStatus] = useState(null);
 
+    // Form input change handler
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
+    // Form submission handler
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
