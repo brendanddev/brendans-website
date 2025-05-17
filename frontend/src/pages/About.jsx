@@ -18,6 +18,16 @@ const About = () => {
             title="About Me" 
             subtitle="Who am I? Here's a bit about me."
         />
+        
+        <a
+          href="/about.txt"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block px-6 py-3 mt-6 mb-6 text-lg font-semibold text-black bg-[#00ffcc] rounded-full shadow-[0_0_10px_#00ffcc] hover:bg-[#00e6b8] hover:shadow-[0_0_20px_#00ffcc] transition duration-300"
+        >
+          Read My Story
+        </a>
+
 
           
          

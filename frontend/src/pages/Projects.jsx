@@ -30,19 +30,14 @@ const Projects = () => {
                 <Header title="My Projects" subtitle="A collection of my work and passion projects." />
             </motion.div>
 
-            <motion.section 
-                initial={{ y: 20, opacity: 0 }} 
-                animate={{ y: 0, opacity: 1 }} 
-                transition={{ duration: 1, delay: 0.2 }} 
-                className="w-[95%] md:w-4/5 lg:w-2/4 mb-6 px-4"
-            >
-                <p className="bg-black text-sm text-green-400 p-4 rounded-md shadow-lg font-mono overflow-x-auto">
-                    Over the past couple of years, I've worked on a variety of projects, ranging from school assignments to 
-                    personal projects that helped me learn, as well as passion projects. The time and effort I've put into these 
-                    projects has paid off, allowing me to grow as a developer. Below, you'll find a few of my personal and passion 
-                    projects.
-                </p>
-            </motion.section>
+            <a
+          href="/about.txt"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block px-6 py-3 mt-6 mb-6 text-lg font-semibold text-black bg-[#00ffcc] rounded-full shadow-[0_0_10px_#00ffcc] hover:bg-[#00e6b8] hover:shadow-[0_0_20px_#00ffcc] transition duration-300"
+        >
+          Read About My Projects
+        </a>
 
             <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 md:p-6 w-[95%] md:w-4/5 lg:w-3/4">
                 {projectData.map((project, index) => (
