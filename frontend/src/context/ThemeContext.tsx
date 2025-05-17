@@ -12,13 +12,32 @@ interface ThemeContextType {
    isDarkMode: boolean;
    setIsDarkMode: (value: boolean) => void;
    theme: {
+        // Background colors
         background: string;
-        text: string;
-        primary: string;
-        secondary: string;
-        accent: string;
         card: string;
+        cardHover: string;
+
+        // Text
+        text: string;
+        textSecondary: string;
+        heading: string;
+
+        // Accents
+        primary: string;
+        primaryHover: string;
+        secondary: string;
+        secondaryHover: string;
+
+        // Borders
         border: string;
+        borderHover: string;
+
+        // Other
+        terminal: string;
+        terminalHeader: string;
+        button: string;
+        buttonHover: string;
+        buttonText: string;
    };
 }
 
