@@ -60,7 +60,7 @@ const Projects = () => {
                                 {project.icons.map((icon, i) => (
                                     <a
                                         key={i}
-                                        href={project.link} // or a different link if needed
+                                        href={project.link}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="hover:text-green-300 transition-colors"
