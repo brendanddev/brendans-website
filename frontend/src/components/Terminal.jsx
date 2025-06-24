@@ -1,3 +1,4 @@
+
 /**
  * @file Terminal.jsx
  * @author Brendan Dileo
@@ -16,7 +17,7 @@ const Terminal = () => {
     const defaultOutput = [
         <div key="1" className="flex">
             <span className="mr-2">
-                <span className="text-[#00ff00]">brendan@portfolio</span>
+                <span className="text-green-400">brendan@portfolio</span>
                 <span className="text-white">:</span>
                 <span className="text-blue-400">~</span>
                 <span className="text-white">$</span>
@@ -25,7 +26,7 @@ const Terminal = () => {
         </div>,
         <div key="2" className="flex">
             <span className="mr-2">
-                <span className="text-[#00ff00]">brendan@portfolio</span>
+                <span className="text-green-400">brendan@portfolio</span>
                 <span className="text-white">:</span>
                 <span className="text-blue-400">~</span>
                 <span className="text-white">$</span>
@@ -44,7 +45,7 @@ const Terminal = () => {
         const newCommandOutput = (
             <div className="flex">
                 <span className="mr-2">
-                    <span className="text-[#00ff00]">brendan@portfolio</span>
+                    <span className="text-green-400">brendan@portfolio</span>
                     <span className="text-white">:</span>
                     <span className="text-blue-400">~</span>
                     <span className="text-white">$</span>
@@ -56,24 +57,19 @@ const Terminal = () => {
         let response = "";
         switch (command.toLowerCase()) {
             case "help":
-                response = <div className="flex">
-                                <span className="text-white">
-                                    Here is a list of supported commands: 
-                                    <br />
-                                        'help' - Ask for help
-                                        <br />
-                                        'home' - Are you home?
-                                        <br />
-                                        'about' - About the creator
-                                        <br /> 
-                                        'projects' - About the creators projects 
-                                        <br />
-                                        'contact' - Can you contact the creator?
-                                        <br />
-                                        'clear' - Clear the terminal 
-                                        <br />
-                                </span>
-                            </div>;
+                response = (
+                    <div className="text-white">
+                        <p className="mb-2">Here is a list of supported commands:</p>
+                        <ul className="list-inside list-disc pl-2">
+                            <li><span className="font-bold text-green-400 w-20 inline-block">help</span> - Ask for help</li>
+                            <li><span className="font-bold text-green-400 w-20 inline-block">home</span> - Are you home?</li>
+                            <li><span className="font-bold text-green-400 w-20 inline-block">about</span> - About the creator</li>
+                            <li><span className="font-bold text-green-400 w-20 inline-block">projects</span> - About the creators projects</li>
+                            <li><span className="font-bold text-green-400 w-20 inline-block">contact</span> - Can you contact the creator?</li>
+                            <li><span className="font-bold text-green-400 w-20 inline-block">clear</span> - Clear the terminal</li>
+                        </ul>
+                    </div>
+                );
                 break;
             case "home":
                 response = <div className="flex"><span className="text-white">You are Home!</span></div>;
@@ -148,9 +144,9 @@ const Terminal = () => {
             initial={{ opacity: 0, y: 20, scale: 0.9 }} 
             animate={{ opacity: 1, y: 0, scale: 1 }}  
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="w-[95%] md:w-4/5 lg:w-3/5 h-[450px] bg-black rounded-lg shadow-lg flex flex-col border border-gray-700 overflow-hidden font-mono mx-auto"
+            className="w-[95%] md:w-4/5 lg:w-3/5 h-[450px] bg-slate-900/80 backdrop-blur-sm rounded-lg shadow-[0_0_20px_rgba(120,119,198,0.25)] flex flex-col border border-slate-700 overflow-hidden font-mono mx-auto"
         >
-            <div className="h-8 bg-gray-800 flex items-center justify-center relative text-white text-sm font-bold">
+            <div className="h-8 bg-slate-800 flex items-center justify-center relative text-white text-sm font-bold">
                 <div className="absolute left-4 flex gap-2">
                     <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                     <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
@@ -159,9 +155,9 @@ const Terminal = () => {
                 <span className="text-center w-full">brendans@website-terminal: ~</span>
             </div>
             <div className="flex-1 p-3 text-white overflow-y-auto">{output}</div>
-            <form className="flex p-3 border-t border-gray-700" onSubmit={handleCommandSubmission}>
+            <form className="flex p-3 border-t border-slate-700" onSubmit={handleCommandSubmission}>
                 <span className="mr-2">
-                    <span className="text-[#00ff00]">brendan@portfolio</span>
+                    <span className="text-green-400">brendan@portfolio</span>
                     <span className="text-white">:</span>
                     <span className="text-blue-400">~</span>
                     <span className="text-white">$</span>
