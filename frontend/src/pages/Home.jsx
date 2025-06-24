@@ -1,4 +1,3 @@
-
 /**
  * @file Home.jsx
  * @author Brendan Dileo 
@@ -13,20 +12,21 @@ import Sidebar from "../components/Sidebar";
 
 const Home = () => {
     return (
-        <div className="w-full min-h-screen bg-gray-900 flex flex-col items-center">
-            <div className="w-full max-w-7xl mx-auto px-4">
+        <div className="relative w-full min-h-screen bg-slate-900 text-white flex flex-col items-center p-4">
+            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+            <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
                 <Header 
                     title="Brendan Dileo" 
-                    subtitle="Software Developer | Tech Enthusiast "
+                    subtitle="Software Developer | Tech Enthusiast"
                     typedTexts={[
                         "Welcome to my portfolio-website!", 
                         "Want to know more about me? Enter a command into the terminal!",
                         "I am passionate about technology, coding, and solving complex problems."
                     ]}
                 />
-            </div>
-            <div className="w-full flex justify-center px-4">
-                <Terminal />
+                <div className="w-full flex justify-center mt-8">
+                    <Terminal />
+                </div>
             </div>
             <HelpTooltip />
             <Sidebar />
