@@ -1,0 +1,12 @@
+
+name: Portfolio Workflow
+
+on: [push]
+
+jobs:
+    build:
+        # Only runs if the commit msg contains '[test]'
+        if: contains(github.event.head_commit.message, '[test]')
+
+        steps:
+            
