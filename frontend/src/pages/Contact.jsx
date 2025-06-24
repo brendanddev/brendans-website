@@ -10,36 +10,9 @@ import Header from '../components/Header';
 import Sidebar from "../components/Sidebar";
 import { motion } from "framer-motion"
 
-import { submitContactForm } from '../api/contact';
-import { useState } from 'react';
+// import { useState } from 'react';
 
 const Contact = () => {
-    
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        comment: '',
-    });
-
-    const [status, setStatus] = useState(null);
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prev) => ({ ...prev, [name]: value }));
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await submitContactForm(formData);
-            console.log('Submission Success: ', response);
-            setStatus('success');
-            setFormData({ name: '', email: '', phone: '', comment: '' });
-        } catch (error) {
-            console.error('Submission Failed: ', error);
-            setStatus('error');
-        }
-    };
 
     return (
         <div className="relative w-full min-h-screen bg-slate-900 flex flex-col items-center p-4 text-white">
@@ -74,15 +47,13 @@ const Contact = () => {
 
                     <div className="flex-1 p-6 overflow-y-auto text-white">
 
-                        <form className="space-y-4" onSubmit={handleSubmit}>
+                        <form className="space-y-4">
                             <div>
                                 <label htmlFor="name" className="text-sm text-green-400">fullName:</label>
                                 <input
                                     type="text"
                                     id="name"
                                     name="name"
-                                    value={formData.name}
-                                    onChange={handleChange}
                                     className="w-full p-2 mt-1 bg-slate-800/50 text-white border border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400/50 focus:border-green-400 transition-colors"
                                     placeholder="Enter your name"
                                     required
@@ -95,8 +66,6 @@ const Contact = () => {
                                     type="email"
                                     id="email"
                                     name="email"
-                                    value={formData.email}
-                                    onChange={handleChange}
                                     className="w-full p-2 mt-1 bg-slate-800/50 text-white border border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400/50 focus:border-green-400 transition-colors"
                                     placeholder="Enter your email"
                                     required
@@ -108,8 +77,6 @@ const Contact = () => {
                                 <textarea
                                     id="comment"
                                     name="comment"
-                                    value={formData.comment}
-                                    onChange={handleChange}
                                     className="w-full p-2 mt-1 bg-slate-800/50 text-white border border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400/50 focus:border-green-400 transition-colors"
                                     rows="4"
                                     placeholder="Type your comment"
@@ -125,13 +92,6 @@ const Contact = () => {
                                     submitForm
                                 </button>
                             </div>
-
-                            {status === 'success' && (
-                                <p className="text-green-400 mt-4 text-center">Thank You! Your message has been sent!</p>
-                            )}
-                            {status === 'error' && (
-                                <p className="text-red-400 mt-4 text-center">Oops! Something went wrong. Please try again.</p>                           
-                            )}
 
                         </form>
                     </div>
