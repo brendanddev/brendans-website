@@ -1,3 +1,4 @@
+
 /**
  * @file About.jsx
  * @author Brendan Dileo
@@ -12,7 +13,8 @@ import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <div className="relative w-full min-h-screen flex flex-col items-center bg-gray-900 text-white">
+    <div className="relative w-full min-h-screen flex flex-col items-center bg-slate-900 text-white p-4">
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
       <div className="relative z-10 w-full max-w-5xl text-center">
         <Header 
             title="About Me" 
@@ -23,18 +25,13 @@ const About = () => {
           href="/about.txt"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block px-6 py-3 mt-6 mb-6 text-lg font-semibold text-black bg-[#00ffcc] rounded-full shadow-[0_0_10px_#00ffcc] hover:bg-[#00e6b8] hover:shadow-[0_0_20px_#00ffcc] transition duration-300"
+          className="inline-block px-8 py-3 mt-6 mb-6 text-lg font-semibold text-slate-900 bg-green-400 rounded-lg shadow-[0_0_15px_rgba(50,205,50,0.5)] hover:bg-green-500 hover:shadow-[0_0_25px_rgba(50,205,50,0.7)] transition-all duration-300 transform hover:scale-105"
         >
           Read My Story
         </a>
-
-
-          
-         
-      
       <section className="w-full mb-12 px-4">
         <motion.div
-          className="w-full max-w-4xl mx-auto p-4 md:p-8 border rounded-lg shadow-[0_4px_12px_rgba(0,255,204,0.5)] bg-black"
+          className="w-full max-w-4xl mx-auto p-4 md:p-8 border rounded-lg shadow-[0_0_20px_rgba(120,119,198,0.25)] bg-slate-900/80 backdrop-blur-sm border-slate-700"
           initial={{ opacity: 0, x: 500 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
@@ -51,8 +48,8 @@ const About = () => {
           </div>
 
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="p-6 border rounded-lg shadow-lg bg-gray-900 transition-transform duration-300 hover:scale-105 hover:border-[#00ffcc] hover:shadow-[0_0_15px_rgba(0,255,204,0.8)]">
-              <h3 className="text-xl font-semibold text-[#00ffcc] mb-4">Achievements</h3>
+            <div className="p-6 border rounded-lg shadow-lg bg-slate-800/50 transition-transform duration-300 hover:scale-105 hover:border-green-400 hover:shadow-[0_0_15px_rgba(50,205,50,0.8)] border-slate-700">
+              <h3 className="text-xl font-semibold text-green-400 mb-4">Achievements</h3>
               <ul className="list-disc list-inside text-gray-300 space-y-2">
                 <li><span className="font-bold">GPA:</span> 93.5</li>
                 <li><span className="font-bold">99%</span> in Programming in Java</li>
@@ -61,8 +58,8 @@ const About = () => {
               </ul>
             </div>
 
-            <div className="p-6 border rounded-lg shadow-lg bg-gray-900 transition-transform duration-300 hover:scale-105 hover:border-[#00ffcc] hover:shadow-[0_0_15px_rgba(0,255,204,0.8)]">
-              <h3 className="text-xl font-semibold text-[#00ffcc] mb-4">Honors & Awards</h3>
+            <div className="p-6 border rounded-lg shadow-lg bg-slate-800/50 transition-transform duration-300 hover:scale-105 hover:border-green-400 hover:shadow-[0_0_15px_rgba(50,205,50,0.8)] border-slate-700">
+              <h3 className="text-xl font-semibold text-green-400 mb-4">Honors & Awards</h3>
               <ul className="list-disc list-inside text-gray-300 space-y-2">
                 <li>Dean's Honors List (Every Semester: 2023 & 2024)</li>
                 <li>Ontario Scholar Award (2021)</li>
@@ -75,7 +72,7 @@ const About = () => {
       </section>
 
       <motion.div
-        className="w-full max-w-4xl mx-auto p-4 md:p-8 border rounded-lg shadow-[0_4px_12px_rgba(0,255,204,0.5)] bg-black mb-10"
+        className="w-full max-w-4xl mx-auto p-4 md:p-8 border rounded-lg shadow-[0_0_20px_rgba(120,119,198,0.25)] bg-slate-900/80 backdrop-blur-sm border-slate-700 mb-10"
         initial={{ opacity: 0, x: -500 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
@@ -83,8 +80,8 @@ const About = () => {
 
       <h2 className="text-4xl sm:text-3xl font-bold text-center mb-6">Skills</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
-        <div className="text-center p-4 md:p-6 border border-[#00ffcc] rounded-lg shadow-lg bg-gray-800 transition-transform transform hover:scale-105">
-          <h3 className="text-xl md:text-2xl font-semibold text-[#00ffcc] mb-4">Programming Languages</h3>
+        <div className="text-center p-4 md:p-6 border border-green-400 rounded-lg shadow-lg bg-slate-800 transition-transform transform hover:scale-105">
+          <h3 className="text-xl md:text-2xl font-semibold text-green-400 mb-4">Programming Languages</h3>
           <div className="flex justify-center flex-wrap gap-4 md:gap-6">
             <i className="devicon-java-plain text-4xl md:text-5xl hover:text-[#ff9900] transition-colors" />
             <i className="devicon-python-plain text-4xl md:text-5xl hover:text-[#306998] transition-colors" />
@@ -96,8 +93,8 @@ const About = () => {
           </div>
         </div>
 
-        <div className="text-center p-4 md:p-6 border border-[#00ffcc] rounded-lg shadow-lg bg-gray-800 transition-transform transform hover:scale-105">
-          <h3 className="text-xl md:text-2xl font-semibold text-[#00ffcc] mb-4">Web Development & Frameworks</h3>
+        <div className="text-center p-4 md:p-6 border border-green-400 rounded-lg shadow-lg bg-slate-800 transition-transform transform hover:scale-105">
+          <h3 className="text-xl md:text-2xl font-semibold text-green-400 mb-4">Web Development & Frameworks</h3>
           <div className="flex justify-center flex-wrap gap-4 md:gap-6">
             <i className="devicon-react-original text-4xl md:text-5xl hover:text-[#61dafb] transition-colors" />
             <i className="devicon-nodejs-plain-wordmark text-4xl md:text-5xl hover:text-[#68a063] transition-colors" />
@@ -108,8 +105,8 @@ const About = () => {
           </div>
         </div>
 
-        <div className="text-center p-4 md:p-6 border border-[#00ffcc] rounded-lg shadow-lg bg-gray-800 transition-transform transform hover:scale-105">
-          <h3 className="text-xl md:text-2xl font-semibold text-[#00ffcc] mb-4">Databases, Scripting & Game Dev</h3>
+        <div className="text-center p-4 md:p-6 border border-green-400 rounded-lg shadow-lg bg-slate-800 transition-transform transform hover:scale-105">
+          <h3 className="text-xl md:text-2xl font-semibold text-green-400 mb-4">Databases, Scripting & Game Dev</h3>
           <div className="flex justify-center flex-wrap gap-4 md:gap-6">
             <i className="devicon-microsoftsqlserver-plain text-4xl md:text-5xl hover:text-[#cc2927] transition-colors" />
             <i className="devicon-mysql-plain text-4xl md:text-5xl hover:text-[#00758f] transition-colors" />
@@ -119,20 +116,8 @@ const About = () => {
           </div>
         </div>
 
-        <div className="text-center p-4 md:p-6 border border-[#00ffcc] rounded-lg shadow-lg bg-gray-800 transition-transform transform hover:scale-105">
-          <h3 className="text-xl md:text-2xl font-semibold text-[#00ffcc] mb-4">Databases, Scripting & Game Dev</h3>
-          <div className="flex justify-center flex-wrap gap-4 md:gap-6">
-            <i className="devicon-microsoftsqlserver-plain text-4xl md:text-5xl hover:text-[#cc2927] transition-colors" />
-            <i className="devicon-mysql-plain text-4xl md:text-5xl hover:text-[#00758f] transition-colors" />
-            <i className="devicon-bash-plain text-4xl md:text-5xl hover:text-[#4eaa25] transition-colors" />
-            <i className="devicon-unity-plain text-4xl md:text-5xl hover:text-[#ffffff] transition-colors" />
-            <i className="devicon-godot-plain text-4xl md:text-5xl hover:text-[#478cbf] transition-colors" />
-          </div>
-        </div>
-
-
-        <div className="col-span-1 sm:col-span-2 lg:col-span-3 text-center p-4 md:p-6 border border-[#00ffcc] rounded-lg shadow-lg bg-gray-800 transition-transform transform hover:scale-105">
-          <h3 className="text-xl md:text-2xl font-semibold text-[#00ffcc] mb-4">Tools & Software</h3>
+        <div className="col-span-1 sm:col-span-2 lg:col-span-3 text-center p-4 md:p-6 border border-green-400 rounded-lg shadow-lg bg-slate-800 transition-transform transform hover:scale-105">
+          <h3 className="text-xl md:text-2xl font-semibold text-green-400 mb-4">Tools & Software</h3>
           <div className="flex justify-center flex-wrap gap-4 md:gap-6">
             <i className="devicon-git-plain text-4xl md:text-5xl hover:text-[#f34f29] transition-colors" />
             <i className="devicon-vscode-plain text-4xl md:text-5xl hover:text-[#007acc] transition-colors" />
@@ -148,12 +133,12 @@ const About = () => {
     </motion.div>
     
     <motion.div
-      className="w-full max-w-4xl mx-auto p-4 md:p-6 border rounded-lg shadow-lg bg-gray-800 mb-10"
+      className="w-full max-w-4xl mx-auto p-4 md:p-6 border rounded-lg shadow-lg bg-slate-800/50 border-slate-700 mb-10"
       initial={{ opacity: 0, x: 500 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
     >
-      <h2 className="text-3xl font-semibold text-[#00ffcc] flex items-center justify-center gap-2">
+      <h2 className="text-3xl font-semibold text-green-400 flex items-center justify-center gap-2">
         <FileText size={28} /> Resume
       </h2>
 
@@ -161,11 +146,7 @@ const About = () => {
       <a
         href="/BrendanDileo_Resume.pdf"
         download="BrendanDileo_Resume.pdf"
-        className="mt-4 inline-block px-6 py-3 text-lg font-semibold text-black bg-[#00ffcc] rounded-lg 
-                  shadow-[0_0_10px_rgba(0,255,204,0.6)] 
-                  transition-all duration-300 ease-in-out
-                  hover:bg-[#00ddaa] hover:scale-105 hover:shadow-[0_0_20px_rgba(0,255,204,0.9)]
-                  active:scale-95"
+        className="mt-4 inline-block px-8 py-3 text-lg font-semibold text-slate-900 bg-green-400 rounded-lg shadow-[0_0_15px_rgba(50,205,50,0.5)] hover:bg-green-500 hover:shadow-[0_0_25px_rgba(50,205,50,0.7)] transition-all duration-300 transform hover:scale-105 active:scale-95"
       >
         Download Resume
       </a>
