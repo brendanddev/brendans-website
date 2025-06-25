@@ -27,16 +27,22 @@ const Contact = () => {
 
     // Handle submissons
     const handleSubmit = async (e) => {
-
         e.preventDefault();
         setStatus("loading");
 
         try {
-            const { data } = await axios.post
+            const { data } = await axios.post('/api/connect', {
+                name: form.name,
+                email: form.email,
+                message: form.message,
+            });
+            setStatus("success");
+            setForm({ name: '', email: '', message: '' });
+            console.log('Message sent!', data);
+        } catch (error) {
+            console.error('Error submitting the form: ', error);
+            setStatus("error");
         }
-
-
-
     }
 
     return (
