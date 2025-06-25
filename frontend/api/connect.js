@@ -1,5 +1,6 @@
 
 // connect.js
+// Defines the backend function that receives user messages
 // Brendan Dileo, June 2025
 
 import supabase from './client';
