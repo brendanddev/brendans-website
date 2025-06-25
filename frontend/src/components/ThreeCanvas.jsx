@@ -2,7 +2,8 @@
 /**
  * @file ThreeCanvas.jsx
  * @author Brendan Dileo
- * @date 2025
+ * 
+ * Unused... In progress..
  */
 
 import { useRef, useEffect } from 'react';

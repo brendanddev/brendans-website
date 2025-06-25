@@ -6,8 +6,6 @@
  * The NavBar component for my portfolio-website
 */
 
-// TODO: FINISH PAGE
-
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";

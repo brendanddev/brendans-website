@@ -10,9 +10,20 @@ import Header from '../components/Header';
 import Sidebar from "../components/Sidebar";
 import { motion } from "framer-motion"
 
-// import { useState } from 'react';
+import { useState } from 'react';
+import axios from 'axios';
 
 const Contact = () => {
+    const [form, setForm] = useState({ name: '', email: '', message: '' });
+    const [status, setStatus] = useState(null);
+
+    // Handle input changes for state
+    const handleChange = e => {
+    }
+
+    // Handle submissons
+    const handleSubmit = async e => {
+    }
 
     return (
         <div className="relative w-full min-h-screen bg-slate-900 flex flex-col items-center p-4 text-white">
@@ -47,13 +58,15 @@ const Contact = () => {
 
                     <div className="flex-1 p-6 overflow-y-auto text-white">
 
-                        <form className="space-y-4">
+                        <form className="space-y-4" onSubmit={handleSubmit}>
                             <div>
                                 <label htmlFor="name" className="text-sm text-green-400">fullName:</label>
                                 <input
                                     type="text"
                                     id="name"
                                     name="name"
+                                    value={form.name}
+                                    onChange={handleChange}
                                     className="w-full p-2 mt-1 bg-slate-800/50 text-white border border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400/50 focus:border-green-400 transition-colors"
                                     placeholder="Enter your name"
                                     required
@@ -66,6 +79,8 @@ const Contact = () => {
                                     type="email"
                                     id="email"
                                     name="email"
+                                    value={form.email}
+                                    onChange={handleChange}
                                     className="w-full p-2 mt-1 bg-slate-800/50 text-white border border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400/50 focus:border-green-400 transition-colors"
                                     placeholder="Enter your email"
                                     required
@@ -73,13 +88,15 @@ const Contact = () => {
                             </div>
 
                             <div>
-                                <label htmlFor="comment" className="text-sm text-green-400">extraComment:</label>
+                                <label htmlFor="message" className="text-sm text-green-400">extraMessage:</label>
                                 <textarea
-                                    id="comment"
-                                    name="comment"
+                                    id="message"
+                                    name="message"
+                                    value={form.message}
+                                    onChange={handleChange}
                                     className="w-full p-2 mt-1 bg-slate-800/50 text-white border border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400/50 focus:border-green-400 transition-colors"
                                     rows="4"
-                                    placeholder="Type your comment"
+                                    placeholder="Type your message"
                                     required
                                 />
                             </div>
