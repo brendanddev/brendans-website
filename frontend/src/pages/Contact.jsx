@@ -18,11 +18,25 @@ const Contact = () => {
     const [status, setStatus] = useState(null);
 
     // Handle input changes for state
-    const handleChange = e => {
+    const handleChange = (e) => {
+        setForm((prevForm) => ({
+            ...prevForm,
+            [e.target.name]: e.target.value,
+        }));
     }
 
     // Handle submissons
-    const handleSubmit = async e => {
+    const handleSubmit = async (e) => {
+
+        e.preventDefault();
+        setStatus("loading");
+
+        try {
+            const { data } = await axios.post
+        }
+
+
+
     }
 
     return (
