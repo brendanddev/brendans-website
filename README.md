@@ -7,6 +7,14 @@ This portfolio is built using the following technologies:
 - [React](https://reactjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
 
+## Version History
+
+| Version | Date       | Description                        |
+|---------|------------|------------------------------------|
+| 1.0.0   | 2025-03-15 | Initial release of portfolio site. |
+| 1.5.0   | 2025-05-15 | Big changes to design.             |
+| 2.0.0   | 2025-06-25 | Deployed to Vercel.                |
+
 Recognition and Gratitude goes out to the following resources for help and inspiration
 - [Niklas Ziermann Terminal Youtube Video](https://www.youtube.com/watch?app=desktop&v=KCcU15nvFbI&t=0s)
 - [React Terminal UI](https://github.com/jonmbake/react-terminal-ui)
