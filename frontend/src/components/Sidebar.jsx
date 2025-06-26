@@ -1,4 +1,3 @@
-
 /**
  * @file Sidebar.jsx
  * @Brendan Dileo
@@ -14,11 +13,9 @@ import { SiLeetcode } from "react-icons/si";
 import { CgMail } from "react-icons/cg";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
-import { BsSun, BsMoon } from "react-icons/bs";
 
 const Sidebar = () => {
     const [isSidebarShown, setIsSidebarShown] = useState(false);
-    const [isDarkMode, setIsDarkMode] = useState(true);
     const [activeTooltip, setActiveTooltip] = useState(null);
     const [isMobile, setIsMobile] = useState(false);
     const sidebarRef = useRef(null);
@@ -65,7 +62,6 @@ const Sidebar = () => {
     }, [isSidebarShown]);
 
     const toggleSidebar = () => setIsSidebarShown(!isSidebarShown);
-    const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
 
     const socialLinks = [
         {
@@ -189,14 +185,12 @@ const Sidebar = () => {
                 whileTap={{ scale: 0.95 }}
                 className={`
                     fixed bottom-4 left-4 z-50 
-                    ${isDarkMode 
-                        ? 'bg-gray-900/90 text-white border-gray-700' 
-                        : 'bg-white/90 text-gray-800 border-gray-300'
-                    }
+                    bg-gray-900/90 text-white border-gray-700
                     backdrop-blur-md p-3 rounded-xl 
                     hover:shadow-lg transition-all duration-300 
                     shadow-lg border cursor-move
                     focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
+                    focus:ring-offset-gray-900
                     ${isMobile ? 'cursor-pointer' : ''}
                 `}
                 aria-label={isSidebarShown ? "Close sidebar" : "Open sidebar"}
@@ -240,10 +234,7 @@ const Sidebar = () => {
                         className={`
                             fixed left-0 top-0 h-full z-50
                             ${isMobile ? 'w-80' : 'w-20'}
-                            ${isDarkMode 
-                                ? 'bg-gray-900/95 border-gray-700' 
-                                : 'bg-white/95 border-gray-300'
-                            }
+                            bg-gray-900/95 border-gray-700
                             backdrop-blur-md shadow-2xl border-r
                             flex flex-col
                         `}
@@ -254,53 +245,10 @@ const Sidebar = () => {
                         <div className="flex items-center justify-between p-4 border-b border-gray-700/50">
                             <motion.h2 
                                 variants={itemVariants}
-                                className={`
-                                    font-semibold text-lg
-                                    ${isDarkMode ? 'text-white' : 'text-gray-800'}
-                                `}
+                                className="font-semibold text-lg text-white"
                             >
                                 {isMobile ? 'Connect' : ''}
                             </motion.h2>
-                            
-                            {/* Dark mode toggle */}
-                            <motion.button
-                                variants={itemVariants}
-                                onClick={toggleDarkMode}
-                                className={`
-                                    p-2 rounded-lg transition-all duration-300
-                                    ${isDarkMode 
-                                        ? 'bg-gray-800 text-yellow-400 hover:bg-gray-700' 
-                                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                                    }
-                                    focus:outline-none focus:ring-2 focus:ring-blue-500
-                                `}
-                                aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
-                                title={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
-                            >
-                                <AnimatePresence mode="wait">
-                                    {isDarkMode ? (
-                                        <motion.div
-                                            key="sun"
-                                            initial={{ rotate: -90, opacity: 0 }}
-                                            animate={{ rotate: 0, opacity: 1 }}
-                                            exit={{ rotate: 90, opacity: 0 }}
-                                            transition={{ duration: 0.2 }}
-                                        >
-                                            <BsSun className="w-5 h-5" />
-                                        </motion.div>
-                                    ) : (
-                                        <motion.div
-                                            key="moon"
-                                            initial={{ rotate: 90, opacity: 0 }}
-                                            animate={{ rotate: 0, opacity: 1 }}
-                                            exit={{ rotate: -90, opacity: 0 }}
-                                            transition={{ duration: 0.2 }}
-                                        >
-                                            <BsMoon className="w-5 h-5" />
-                                        </motion.div>
-                                    )}
-                                </AnimatePresence>
-                            </motion.button>
                         </div>
 
                         {/* Social links */}
@@ -309,7 +257,7 @@ const Sidebar = () => {
                                 space-y-4
                                 ${isMobile ? 'w-full px-4' : 'space-y-6'}
                             `}>
-                                {socialLinks.map((link, index) => (
+                                {socialLinks.map((link) => (
                                     <motion.li
                                         key={link.name}
                                         variants={itemVariants}
@@ -325,13 +273,10 @@ const Sidebar = () => {
                                                     ? 'p-3 rounded-xl transition-all duration-300' 
                                                     : 'p-2 rounded-lg transition-all duration-300'
                                                 }
-                                                ${isDarkMode 
-                                                    ? 'hover:bg-gray-800/50' 
-                                                    : 'hover:bg-gray-100/50'
-                                                }
+                                                hover:bg-gray-800/50
                                                 ${link.bgColor}
                                                 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
-                                                ${isDarkMode ? 'focus:ring-offset-gray-900' : 'focus:ring-offset-white'}
+                                                focus:ring-offset-gray-900
                                             `}
                                             onMouseEnter={() => setActiveTooltip(link.name)}
                                             onMouseLeave={() => setActiveTooltip(null)}
@@ -347,10 +292,7 @@ const Sidebar = () => {
                                                 `} 
                                             />
                                             {isMobile && (
-                                                <span className={`
-                                                    font-medium
-                                                    ${isDarkMode ? 'text-white' : 'text-gray-800'}
-                                                `}>
+                                                <span className="font-medium text-white">
                                                     {link.name}
                                                 </span>
                                             )}
@@ -364,12 +306,8 @@ const Sidebar = () => {
                                                 exit={{ opacity: 0, x: -10 }}
                                                 className={`
                                                     absolute left-full ml-2 px-2 py-1 rounded-md text-sm font-medium
-                                                    ${isDarkMode 
-                                                        ? 'bg-gray-800 text-white' 
-                                                        : 'bg-white text-gray-800'
-                                                    }
-                                                    shadow-lg border
-                                                    ${isDarkMode ? 'border-gray-700' : 'border-gray-300'}
+                                                    bg-gray-800 text-white
+                                                    shadow-lg border border-gray-700
                                                     whitespace-nowrap z-10
                                                 `}
                                             >
@@ -387,10 +325,7 @@ const Sidebar = () => {
                                 variants={itemVariants}
                                 className="p-4 border-t border-gray-700/50"
                             >
-                                <p className={`
-                                    text-sm text-center
-                                    ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}
-                                `}>
+                                <p className="text-sm text-center text-gray-400">
                                     Press ESC to close
                                 </p>
                             </motion.div>
