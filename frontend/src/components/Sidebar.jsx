@@ -6,86 +6,399 @@
  * The Sidebar component for my portfolio-website.
 */
 
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 import { FaGithub, FaDiscord, FaLinkedin, FaStackOverflow, FaGitlab } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 import { CgMail } from "react-icons/cg";
 import { GiHamburgerMenu } from "react-icons/gi";
-
+import { IoClose } from "react-icons/io5";
+import { BsSun, BsMoon } from "react-icons/bs";
 
 const Sidebar = () => {
-    const [ isSidebarShown, setIsSidebarShown ] = useState(true);      
-    const toggleSidebar = () => {setIsSidebarShown(!isSidebarShown);} 
+    const [isSidebarShown, setIsSidebarShown] = useState(false);
+    const [isDarkMode, setIsDarkMode] = useState(true);
+    const [activeTooltip, setActiveTooltip] = useState(null);
+    const [isMobile, setIsMobile] = useState(false);
+    const sidebarRef = useRef(null);
+    const toggleButtonRef = useRef(null);
+
+    // Check if device is mobile
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+        
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    // Close sidebar when clicking outside on mobile
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (isMobile && isSidebarShown && 
+                sidebarRef.current && 
+                !sidebarRef.current.contains(event.target) &&
+                toggleButtonRef.current &&
+                !toggleButtonRef.current.contains(event.target)) {
+                setIsSidebarShown(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, [isMobile, isSidebarShown]);
+
+    // Keyboard navigation
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+            if (event.key === 'Escape' && isSidebarShown) {
+                setIsSidebarShown(false);
+            }
+        };
+
+        document.addEventListener('keydown', handleKeyDown);
+        return () => document.removeEventListener('keydown', handleKeyDown);
+    }, [isSidebarShown]);
+
+    const toggleSidebar = () => setIsSidebarShown(!isSidebarShown);
+    const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
+
+    const socialLinks = [
+        {
+            name: "GitHub",
+            icon: FaGithub,
+            href: "https://github.com/brendanddev",
+            color: "hover:text-white",
+            bgColor: "hover:bg-gray-800"
+        },
+        {
+            name: "LinkedIn",
+            icon: FaLinkedin,
+            href: "https://www.linkedin.com/in/brendan-dileo-bb39b4328/",
+            color: "hover:text-[#0077b5]",
+            bgColor: "hover:bg-blue-900/20"
+        },
+        {
+            name: "Discord",
+            icon: FaDiscord,
+            href: "",
+            color: "hover:text-[#7289da]",
+            bgColor: "hover:bg-indigo-900/20"
+        },
+        {
+            name: "Stack Overflow",
+            icon: FaStackOverflow,
+            href: "https://stackoverflow.com/users/24895390/brendan-d",
+            color: "hover:text-[#f48024]",
+            bgColor: "hover:bg-orange-900/20"
+        },
+        {
+            name: "GitLab",
+            icon: FaGitlab,
+            href: "https://gitlab.com/brendandileo",
+            color: "hover:text-[#fc6d26]",
+            bgColor: "hover:bg-red-900/20"
+        },
+        {
+            name: "LeetCode",
+            icon: SiLeetcode,
+            href: "https://leetcode.com/u/devbrendandileo/",
+            color: "hover:text-[#f8a200]",
+            bgColor: "hover:bg-yellow-900/20"
+        },
+        {
+            name: "Email",
+            icon: CgMail,
+            href: "mailto:brendan.dileo@mohawkcollege.ca",
+            color: "hover:text-[#d44638]",
+            bgColor: "hover:bg-red-900/20"
+        }
+    ];
+
+    const sidebarVariants = {
+        hidden: { 
+            x: isMobile ? -300 : -100, 
+            opacity: 0 
+        },
+        visible: { 
+            x: 0, 
+            opacity: 1,
+            transition: {
+                type: "spring",
+                stiffness: 100,
+                damping: 20,
+                staggerChildren: 0.1
+            }
+        },
+        exit: {
+            x: isMobile ? -300 : -100,
+            opacity: 0,
+            transition: {
+                duration: 0.2
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { x: -20, opacity: 0 },
+        visible: { x: 0, opacity: 1 }
+    };
+
+    const overlayVariants = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1 },
+        exit: { opacity: 0 }
+    };
 
     return (
         <>
-        {/* Draggable toggle sidebar button */}
-        <motion.button 
-            onClick={toggleSidebar}
-            // Makes the button draggable
-            drag
-            dragConstraints={{ top: 0, bottom: window.innerHeight - 50, left: 0, right: window.innerWidth - 50 }}
-            dragMomentum={false}
-            dragTransition={{ bounceStiffness: 600, bounceDamping: 10 }}
-            dragElastic={0.1}
-            whileDrag={{ scale: 1.1 }}
-            className="fixed bottom-4 left-4 z-40 text-white bg-black/80 backdrop-blur-sm p-2 rounded-lg hover:bg-gray-800 transition duration-300 shadow-lg border border-gray-700 cursor-move"
-        >
-            {/* Toggle button */}
-            <GiHamburgerMenu
-                className={`w-6 h-6 transition duration-300 ${isSidebarShown ? 'text-white' : 'text-[#00ff00]'}`}
-            />
-        </motion.button>
+            {/* Mobile overlay */}
+            <AnimatePresence>
+                {isMobile && isSidebarShown && (
+                    <motion.div
+                        variants={overlayVariants}
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                        className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
+                        onClick={() => setIsSidebarShown(false)}
+                    />
+                )}
+            </AnimatePresence>
 
-        <motion.div
-            initial={{ x: -100, opacity: 0 }}
-            animate={{ x: isSidebarShown ? 0 : -100, opacity: isSidebarShown ? 1 : 0 }}  
-            transition={{ type: "spring", stiffness: 100, damping: 15 }} 
-            className="fixed left-0 top-0 h-full w-16 flex flex-col items-center justify-center bg-black/90 backdrop-blur-sm shadow-lg z-30 border-r border-gray-700"
-        >
-        <ul className="space-y-6">
-            <li>
-                <a href="https://github.com/brendanddev" aria-label="GitHub" target="_blank" rel="noreferrer">
-                    <FaGithub className="w-8 h-8 text-[#00ff00] hover:text-white transition duration-300 hover:-translate-y-2" />
-                </a>
-            </li>
-            
-            <li>
-                <a href="https://www.linkedin.com/in/brendan-dileo-bb39b4328/" aria-label="LinkedIn" target="_blank" rel="noreferrer">
-                    <FaLinkedin className="w-8 h-8 text-[#00ff00] hover:text-[#0077b5] transition duration-300 hover:-translate-y-2" />
-                </a>
-            </li>
-            <li>
-                <a href="" aria-label="Discord" target="_blank" rel="noreferrer">
-                    <FaDiscord className="w-8 h-8 text-[#00ff00] hover:text-[#7289da] transition duration-300 hover:-translate-y-2" />
-                </a>
-            </li>
-            
-            <li>
-                <a href="https://stackoverflow.com/users/24895390/brendan-d" aria-label="StackOverflow" rel="noreferrer">
-                    <FaStackOverflow className="w-8 h-8 text-[#00ff00] hover:text-[#f48024] transition duration-300 hover:-translate-y-2" />
-                </a>
-            </li>
-            <li>
-                <a href="https://gitlab.com/brendandileo" aria-label="Gitlab" rel="noreferrer">
-                    <FaGitlab className="w-8 h-8 text-[#00ff00] hover:text-[#fc6d26] transition duration-300 hover:-translate-y-2" />
-                </a>
-            </li>
-            <li>
-                <a href="https://leetcode.com/u/devbrendandileo/" aria-label="Leetcode" rel="noreferrer">
-                    <SiLeetcode className="w-8 h-8 text-[#00ff00] hover:text-[#f8a200] transition duration-300 hover:-translate-y-2" />
-                </a>
-            </li>
-            <li>
-                <a href="mailto:brendan.dileo@mohawkcollege.ca" aria-label="Email" rel="noreferrer">
-                    <CgMail className="w-8 h-8 text-[#00ff00] hover:text-[#d44638] transition duration-300 hover:-translate-y-2" />
-                </a>
-            </li>
-        </ul>
-      </motion.div>
-    </>
+            {/* Draggable toggle button */}
+            <motion.button 
+                ref={toggleButtonRef}
+                onClick={toggleSidebar}
+                drag={!isMobile}
+                dragConstraints={{ 
+                    top: 0, 
+                    bottom: window.innerHeight - 60, 
+                    left: 0, 
+                    right: window.innerWidth - 60 
+                }}
+                dragMomentum={false}
+                dragTransition={{ bounceStiffness: 600, bounceDamping: 10 }}
+                dragElastic={0.1}
+                whileDrag={{ scale: 1.05 }}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className={`
+                    fixed bottom-4 left-4 z-50 
+                    ${isDarkMode 
+                        ? 'bg-gray-900/90 text-white border-gray-700' 
+                        : 'bg-white/90 text-gray-800 border-gray-300'
+                    }
+                    backdrop-blur-md p-3 rounded-xl 
+                    hover:shadow-lg transition-all duration-300 
+                    shadow-lg border cursor-move
+                    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
+                    ${isMobile ? 'cursor-pointer' : ''}
+                `}
+                aria-label={isSidebarShown ? "Close sidebar" : "Open sidebar"}
+                aria-expanded={isSidebarShown}
+                title={isSidebarShown ? "Close sidebar" : "Open sidebar"}
+            >
+                <AnimatePresence mode="wait">
+                    {isSidebarShown ? (
+                        <motion.div
+                            key="close"
+                            initial={{ rotate: -90, opacity: 0 }}
+                            animate={{ rotate: 0, opacity: 1 }}
+                            exit={{ rotate: 90, opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                        >
+                            <IoClose className="w-6 h-6" />
+                        </motion.div>
+                    ) : (
+                        <motion.div
+                            key="menu"
+                            initial={{ rotate: 90, opacity: 0 }}
+                            animate={{ rotate: 0, opacity: 1 }}
+                            exit={{ rotate: -90, opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                        >
+                            <GiHamburgerMenu className="w-6 h-6" />
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </motion.button>
+
+            {/* Sidebar */}
+            <AnimatePresence>
+                {isSidebarShown && (
+                    <motion.div
+                        ref={sidebarRef}
+                        variants={sidebarVariants}
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                        className={`
+                            fixed left-0 top-0 h-full z-50
+                            ${isMobile ? 'w-80' : 'w-20'}
+                            ${isDarkMode 
+                                ? 'bg-gray-900/95 border-gray-700' 
+                                : 'bg-white/95 border-gray-300'
+                            }
+                            backdrop-blur-md shadow-2xl border-r
+                            flex flex-col
+                        `}
+                        role="navigation"
+                        aria-label="Social media links"
+                    >
+                        {/* Header */}
+                        <div className="flex items-center justify-between p-4 border-b border-gray-700/50">
+                            <motion.h2 
+                                variants={itemVariants}
+                                className={`
+                                    font-semibold text-lg
+                                    ${isDarkMode ? 'text-white' : 'text-gray-800'}
+                                `}
+                            >
+                                {isMobile ? 'Connect' : ''}
+                            </motion.h2>
+                            
+                            {/* Dark mode toggle */}
+                            <motion.button
+                                variants={itemVariants}
+                                onClick={toggleDarkMode}
+                                className={`
+                                    p-2 rounded-lg transition-all duration-300
+                                    ${isDarkMode 
+                                        ? 'bg-gray-800 text-yellow-400 hover:bg-gray-700' 
+                                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                    }
+                                    focus:outline-none focus:ring-2 focus:ring-blue-500
+                                `}
+                                aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
+                                title={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
+                            >
+                                <AnimatePresence mode="wait">
+                                    {isDarkMode ? (
+                                        <motion.div
+                                            key="sun"
+                                            initial={{ rotate: -90, opacity: 0 }}
+                                            animate={{ rotate: 0, opacity: 1 }}
+                                            exit={{ rotate: 90, opacity: 0 }}
+                                            transition={{ duration: 0.2 }}
+                                        >
+                                            <BsSun className="w-5 h-5" />
+                                        </motion.div>
+                                    ) : (
+                                        <motion.div
+                                            key="moon"
+                                            initial={{ rotate: 90, opacity: 0 }}
+                                            animate={{ rotate: 0, opacity: 1 }}
+                                            exit={{ rotate: -90, opacity: 0 }}
+                                            transition={{ duration: 0.2 }}
+                                        >
+                                            <BsMoon className="w-5 h-5" />
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </motion.button>
+                        </div>
+
+                        {/* Social links */}
+                        <nav className="flex-1 flex items-center justify-center">
+                            <ul className={`
+                                space-y-4
+                                ${isMobile ? 'w-full px-4' : 'space-y-6'}
+                            `}>
+                                {socialLinks.map((link, index) => (
+                                    <motion.li
+                                        key={link.name}
+                                        variants={itemVariants}
+                                        className="relative"
+                                    >
+                                        <a
+                                            href={link.href}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            className={`
+                                                group flex items-center
+                                                ${isMobile 
+                                                    ? 'p-3 rounded-xl transition-all duration-300' 
+                                                    : 'p-2 rounded-lg transition-all duration-300'
+                                                }
+                                                ${isDarkMode 
+                                                    ? 'hover:bg-gray-800/50' 
+                                                    : 'hover:bg-gray-100/50'
+                                                }
+                                                ${link.bgColor}
+                                                focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
+                                                ${isDarkMode ? 'focus:ring-offset-gray-900' : 'focus:ring-offset-white'}
+                                            `}
+                                            onMouseEnter={() => setActiveTooltip(link.name)}
+                                            onMouseLeave={() => setActiveTooltip(null)}
+                                            onFocus={() => setActiveTooltip(link.name)}
+                                            onBlur={() => setActiveTooltip(null)}
+                                            aria-label={link.name}
+                                        >
+                                            <link.icon 
+                                                className={`
+                                                    ${isMobile ? 'w-6 h-6 mr-3' : 'w-8 h-8'}
+                                                    text-emerald-400 transition-all duration-300
+                                                    group-hover:scale-110 ${link.color}
+                                                `} 
+                                            />
+                                            {isMobile && (
+                                                <span className={`
+                                                    font-medium
+                                                    ${isDarkMode ? 'text-white' : 'text-gray-800'}
+                                                `}>
+                                                    {link.name}
+                                                </span>
+                                            )}
+                                        </a>
+
+                                        {/* Tooltip for desktop */}
+                                        {!isMobile && activeTooltip === link.name && (
+                                            <motion.div
+                                                initial={{ opacity: 0, x: -10 }}
+                                                animate={{ opacity: 1, x: 0 }}
+                                                exit={{ opacity: 0, x: -10 }}
+                                                className={`
+                                                    absolute left-full ml-2 px-2 py-1 rounded-md text-sm font-medium
+                                                    ${isDarkMode 
+                                                        ? 'bg-gray-800 text-white' 
+                                                        : 'bg-white text-gray-800'
+                                                    }
+                                                    shadow-lg border
+                                                    ${isDarkMode ? 'border-gray-700' : 'border-gray-300'}
+                                                    whitespace-nowrap z-10
+                                                `}
+                                            >
+                                                {link.name}
+                                            </motion.div>
+                                        )}
+                                    </motion.li>
+                                ))}
+                            </ul>
+                        </nav>
+
+                        {/* Footer */}
+                        {isMobile && (
+                            <motion.div 
+                                variants={itemVariants}
+                                className="p-4 border-t border-gray-700/50"
+                            >
+                                <p className={`
+                                    text-sm text-center
+                                    ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}
+                                `}>
+                                    Press ESC to close
+                                </p>
+                            </motion.div>
+                        )}
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </>
     );
 };
 
