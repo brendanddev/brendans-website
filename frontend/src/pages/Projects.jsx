@@ -1,18 +1,20 @@
+
 /**
  * @file Projects.jsx
  * @author Brendan Dileo 
  * 
  * The projects page for my portfolio-website
-*/
+ */
 
-import { motion } from "framer-motion";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import { projectData } from "../projectData";
 
-import { FaFolder, FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { FaFolder, FaExternalLinkAlt } from "react-icons/fa";
 
 const Projects = () => {
+
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -25,34 +27,27 @@ const Projects = () => {
     };
 
     const itemVariants = {
-        hidden: { 
-            y: 30, 
-            opacity: 0,
-            scale: 0.95
-        },
+        hidden: { y: 30, opacity: 0 },
         visible: { 
             y: 0, 
             opacity: 1,
-            scale: 1,
             transition: {
                 type: "spring",
-                stiffness: 100,
-                damping: 15
+                stiffness: 80,
+                damping: 18
             }
         }
     };
 
     return (
         <div className="relative w-full min-h-screen bg-slate-900 flex flex-col items-center p-4 text-white overflow-hidden">
-            {/* Background gradient */}
             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
             
-            {/* Header Section */}
             <motion.div 
                 initial={{ y: -20, opacity: 0 }} 
                 animate={{ y: 0, opacity: 1 }} 
                 transition={{ duration: 0.8, ease: "easeOut" }}
-                className="relative z-10 w-full max-w-6xl mx-auto"
+                className="relative z-10 w-full max-w-6xl my-5 mx-auto"
             >
                 <Header 
                     title="My Projects" 
@@ -66,7 +61,6 @@ const Projects = () => {
                 />
             </motion.div>
 
-            {/* Projects Info Button */}
             <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -92,7 +86,6 @@ const Projects = () => {
                 </a>
             </motion.div>
 
-            {/* Projects Grid */}
             <motion.div 
                 variants={containerVariants}
                 initial="hidden"
@@ -103,33 +96,29 @@ const Projects = () => {
                     {projectData.map((project, index) => (
                         <motion.div 
                             key={index}
+                            layout="position"
                             variants={itemVariants}
+                            whileHover={{ scale: 1.02 }}
+                            transition={{ type: "spring", stiffness: 100 }}
                             className="
                                 group relative
                                 bg-gradient-to-br from-slate-800/90 to-slate-900/90 
                                 backdrop-blur-sm border border-slate-600/50 
                                 rounded-2xl shadow-[0_0_25px_rgba(120,119,198,0.15)] 
-                                transition-all duration-500 
-                                hover:scale-[1.02] hover:shadow-[0_0_35px_rgba(0,255,0,0.2)]
-                                hover:border-[#00ff00]/30
                                 overflow-hidden
                             "
                         >
-                            {/* Hover overlay effect */}
                             <div className="absolute inset-0 bg-gradient-to-br from-[#00ff00]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                             
                             <div className="relative p-6 lg:p-8 flex flex-col h-full">
-                                {/* Project Title */}
                                 <h3 className="mb-4 text-2xl lg:text-3xl font-bold tracking-tight text-[#00ff00] group-hover:text-emerald-300 transition-colors duration-300">
                                     {project.title}
                                 </h3>
                                 
-                                {/* Project Description */}
                                 <p className="mb-6 text-sm lg:text-base font-normal text-gray-300 leading-relaxed flex-grow">
                                     {project.desc}
                                 </p>
                                 
-                                {/* Technology Icons */}
                                 <div className="mb-6">
                                     <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
                                         Technologies Used
@@ -162,7 +151,6 @@ const Projects = () => {
                                     </div>
                                 </div>
                                 
-                                {/* Project Link */}
                                 <a 
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -189,9 +177,7 @@ const Projects = () => {
                 </div>
             </motion.div>
 
-            {/* Bottom Spacing */}
             <div className="h-20"></div>
-            
             <Sidebar />
         </div>
     );
