@@ -153,7 +153,7 @@ const Sidebar = () => {
 
     return (
         <>
-            {/* Mobile overlay */}
+
             <AnimatePresence>
                 {isMobile && isSidebarShown && (
                     <motion.div
@@ -185,9 +185,9 @@ const Sidebar = () => {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 className={`
-                    fixed bottom-4 left-4 z-50 
+                    fixed bottom-4 right-6 z-50
                     bg-gray-900/90 text-white border-gray-700
-                    backdrop-blur-md p-3 rounded-xl 
+                    backdrop-blur-md p-2 rounded-xl 
                     hover:shadow-lg transition-all duration-300 
                     shadow-lg border cursor-move
                     focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
@@ -197,7 +197,7 @@ const Sidebar = () => {
                 aria-label={isSidebarShown ? "Close sidebar" : "Open sidebar"}
                 aria-expanded={isSidebarShown}
                 title={isSidebarShown ? "Close sidebar" : "Open sidebar"}
-            >
+            >   
                 <AnimatePresence mode="wait">
                     {isSidebarShown ? (
                         <motion.div
@@ -299,7 +299,6 @@ const Sidebar = () => {
                                             )}
                                         </a>
 
-                                        {/* Tooltip for desktop */}
                                         {!isMobile && activeTooltip === link.name && (
                                             <motion.div
                                                 initial={{ opacity: 0, x: -10 }}
@@ -320,7 +319,6 @@ const Sidebar = () => {
                             </ul>
                         </nav>
 
-                        {/* Footer */}
                         {isMobile && (
                             <motion.div 
                                 variants={itemVariants}
