@@ -16,5 +16,13 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - name:
-              uses: 
+            - name: Site Health Test
+              run: |
+                STATUS_CODE=$(curl -o /dev/null -s -w "%{http_code}" https://brendans-website.vercel.app/)
+                echo "Status code: $STATUS_CODE"
+                if [ "$STATUS_CODE" -ne 200 ]; then
+                    echo "Site is down or unhealthy!"
+                    exit 1
+                else
+                    echo "Site is healthy."
+                fi
