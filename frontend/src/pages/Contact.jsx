@@ -10,13 +10,31 @@ import Header from '../components/Header';
 import Sidebar from "../components/Sidebar";
 import { motion } from "framer-motion"
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Contact = () => {
     const [form, setForm] = useState({ name: '', email: '', message: '' });
     const [status, setStatus] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
 
+    useEffect(() => {
+        // Simulatiton but will be implemented
+        const timer = setTimeout(() => setIsLoading(false), 500);
+            return () => clearTimeout(timer);
+          }, []);
+        
+          if (isLoading) {
+            return (
+              <div className="relative w-full min-h-screen flex items-center justify-center bg-slate-900 text-white">
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  className="w-16 h-16 border-4 border-[#00ff00] border-t-transparent rounded-full animate-spin"
+                />
+              </div>
+        );
+    }
     // Handle input changes for state
     const handleChange = (e) => {
         setForm((prevForm) => ({
