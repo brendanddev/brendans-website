@@ -15,7 +15,7 @@ const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
-  // Routes
+  // List of links for the nav bar
   const links = [
     { to: "/", label: "home" },
     { to: "/about", label: "about" },
@@ -23,12 +23,14 @@ const NavBar = () => {
     { to: "/contact", label: "contact" },
   ];
 
-  // Close mobile menu when route changes
+  // Closes mobile menu when route changes
+  // Prevents mobile menu from staying open when navigating to a new page
   useEffect(() => {
     setIsOpen(false);
   }, [location.pathname]);
 
   // Close mobile menu on escape key
+  // Allows them menu to be closed with escape key
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === 'Escape' && isOpen) {
@@ -40,7 +42,7 @@ const NavBar = () => {
     return () => document.removeEventListener('keydown', handleEscape);
   }, [isOpen]);
 
-  // Render react router links
+  // Renders the links in nav
   const renderLinks = (closeMenu = false, isMobile = false) =>
     links.map(({ to, label }, index) => {
       const isActive = location.pathname === to;
@@ -81,6 +83,7 @@ const NavBar = () => {
       );
     });
 
+  // Different animation variants for mobile menu
   const mobileMenuVariants = {
     hidden: { 
       opacity: 0,
@@ -116,7 +119,8 @@ const NavBar = () => {
     >
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between">
-          {/* Logo/Brand */}
+          
+          {/* Logo */}
           <motion.div 
             className="font-semibold text-xl tracking-tight text-[#00ff00]"
             whileHover={{ scale: 1.05 }}
@@ -127,12 +131,12 @@ const NavBar = () => {
             </Link>
           </motion.div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Links */}
           <ul className="hidden md:flex gap-5 text-lg">
             {renderLinks()}
           </ul>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile menu button */}
           <motion.button
             className="md:hidden text-[#00ff00] p-2 rounded-lg hover:bg-gray-800/50 focus:outline-none focus:ring-2 focus:ring-[#00ff00]/50 transition-colors duration-200"
             onClick={() => setIsOpen(!isOpen)}

@@ -35,6 +35,7 @@ const Terminal = () => {
         </div>
     ];
 
+    // Tracks history of commands entered, output, and current command
     const [history, setHistory] = useState([]);
     const [historyIndex, setHistoryIndex] = useState(null);
     const [output, setOutput] = useState(defaultOutput);
@@ -119,6 +120,7 @@ const Terminal = () => {
         setCommand("");
     };
 
+    // Command history navigation
     const handleKeyDown = (event) => {
         if (event.key === "ArrowUp") {
             if (history.length > 0) {

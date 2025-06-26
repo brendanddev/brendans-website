@@ -1,3 +1,4 @@
+
 /**
  * @file Sidebar.jsx
  * @Brendan Dileo

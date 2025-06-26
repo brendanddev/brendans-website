@@ -9,6 +9,8 @@
 import { ReactTyped } from "react-typed";
 import { motion } from "framer-motion";
 
+// Takes title to be displayed, a subtitle, and an array of strings to be typed out 
+// with typing effect in header
 const Header = ({ title, subtitle, typedTexts }) => {
     return (
         <div className="flex flex-col items-center justify-center text-center mt-10 mb-0">
@@ -40,6 +42,7 @@ const Header = ({ title, subtitle, typedTexts }) => {
                     className="w-full"
                 >
                     <p className="text-green-400 max-w-2xl mx-auto mt-6 px-4 text-sm sm:text-base md:text-lg">
+                        {/* Uses react typed for typing effect */}
                         <ReactTyped
                             strings={typedTexts}
                             typeSpeed={30}

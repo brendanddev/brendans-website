@@ -6,11 +6,11 @@
  * The tooltip component for the home page
 */
 
-
 import { Tooltip, Typography } from "@material-tailwind/react";
 
 const HelpTooltip = () => {
   return (
+    // Tooltip that appears on the bottom right of the screen
     <Tooltip
       content={
         <div className="w-80">
