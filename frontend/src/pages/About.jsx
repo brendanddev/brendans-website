@@ -7,7 +7,7 @@
 */
 
 import Sidebar from "../components/Sidebar";
-import { GraduationCap, FileText } from "lucide-react";
+import { GraduationCap, FileText, Code, Brain } from "lucide-react";
 import Header from "../components/Header";
 import { motion } from "framer-motion";
 
@@ -71,6 +71,8 @@ const About = () => {
         </motion.div>
       </section>
 
+      
+
       <motion.div
         className="w-full max-w-4xl mx-auto p-4 md:p-8 border rounded-lg shadow-[0_0_20px_rgba(120,119,198,0.25)] bg-slate-900/80 backdrop-blur-sm border-slate-700 mb-10"
         initial={{ opacity: 0, x: -500 }}
@@ -115,6 +117,18 @@ const About = () => {
             <i className="devicon-godot-plain text-4xl md:text-5xl hover:text-[#478cbf] transition-colors" />
           </div>
         </div>
+        <div className="text-center p-4 md:p-6 border border-green-400 rounded-lg shadow-lg bg-slate-800 transition-transform transform hover:scale-105">
+          <h3 className="text-xl md:text-2xl font-semibold text-green-400 mb-4">Containerization & Orchestration</h3>
+          <div className="flex justify-center flex-wrap gap-4 md:gap-6">
+            <i className="devicon-kubernetes-plain text-4xl md:text-5xl hover:text-[#326ce5] transition-colors" />
+            <i className="devicon-docker-plain text-4xl md:text-5xl hover:text-[#2496ed] transition-colors" />
+            <i className="devicon-jenkins-plain text-4xl md:text-5xl hover:text-[#d24939] transition-colors" />
+            <i className="devicon-jira-plain text-4xl md:text-5xl hover:text-[#2684ff] transition-colors" />
+            <i className="devicon-groovy-plain text-4xl md:text-5xl hover:text-[#4298b8] transition-colors" />
+            <i className="devicon-confluence-plain text-4xl md:text-5xl hover:text-[#1b4d] transition-colors" />
+          </div>
+
+        </div>
 
         <div className="col-span-1 sm:col-span-2 lg:col-span-3 text-center p-4 md:p-6 border border-green-400 rounded-lg shadow-lg bg-slate-800 transition-transform transform hover:scale-105">
           <h3 className="text-xl md:text-2xl font-semibold text-green-400 mb-4">Tools & Software</h3>
@@ -129,8 +143,11 @@ const About = () => {
             <i className="devicon-linux-plain text-4xl md:text-5xl hover:text-[#fcc624] transition-colors" />
           </div>
         </div>
+        
       </div>
     </motion.div>
+
+    
     
     <motion.div
       className="w-full max-w-4xl mx-auto p-4 md:p-6 border rounded-lg shadow-lg bg-slate-800/50 border-slate-700 mb-10"
