@@ -120,7 +120,6 @@ const NavBar = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between">
           
-          {/* Logo */}
           <motion.div 
             className="font-semibold text-xl tracking-tight text-[#00ff00]"
             whileHover={{ scale: 1.05 }}

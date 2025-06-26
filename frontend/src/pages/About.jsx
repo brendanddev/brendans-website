@@ -7,7 +7,7 @@
 */
 
 import Sidebar from "../components/Sidebar";
-import { GraduationCap, FileText, Code, Brain } from "lucide-react";
+import { GraduationCap, FileText } from "lucide-react";
 import Header from "../components/Header";
 import { motion } from "framer-motion";
 

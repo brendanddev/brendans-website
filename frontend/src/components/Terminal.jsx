@@ -7,7 +7,6 @@
  * Inspired by https://github.com/jonmbake/react-terminal-ui, but built my own with custom behaviour and styles.
 */
 
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 
@@ -15,14 +14,17 @@ const Terminal = () => {
     
     // Default output when terminal is loaded
     const defaultOutput = [
-        <div key="1" className="flex">
+        <div key="1" className="flex" >
             <span className="mr-2">
                 <span className="text-green-400">brendan@portfolio</span>
                 <span className="text-white">:</span>
                 <span className="text-blue-400">~</span>
                 <span className="text-white">$</span>
             </span>
-            <span className="text-white">Welcome to Brendan's Terminal!</span>
+            <span className="text-white inline-block overflow-x-auto max-w-full">Welcome to Brendan's Terminal!</span>
+            
+            
+
         </div>,
         <div key="2" className="flex">
             <span className="mr-2">
@@ -154,7 +156,11 @@ const Terminal = () => {
                     <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                     <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                 </div>
-                <span className="text-center w-full">brendans@website-terminal: ~</span>
+                <span className="text-center w-full">
+                    <span className="hidden sm:inline">brendans@website-terminal: ~</span>
+                    <span className="inline sm:hidden">b-terminal ~</span>
+                </span>
+
             </div>
             <div className="flex-1 p-3 text-white overflow-y-auto">{output}</div>
             <form className="flex p-3 border-t border-slate-700" onSubmit={handleCommandSubmission}>
