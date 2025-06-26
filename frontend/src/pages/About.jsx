@@ -3,16 +3,16 @@
  * @file About.jsx
  * @author Brendan Dileo
  * 
- * The About page for my portfolio-website
+ * The About page for my portfolio website
 */
 
 import { useState, useEffect } from "react";
 import Sidebar from "../components/Sidebar";
-import { GraduationCap, Download, ExternalLink } from "lucide-react";
+import { GraduationCap, Download, ExternalLink, Star, Award, BookOpen, Code } from "lucide-react";
 import Header from "../components/Header";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-// Custom hook for scroll-based animations
+// Custom hoo for scroll-based animations
 const useScrollAnimation = () => {
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
@@ -57,14 +57,14 @@ const About = () => {
 
   useEffect(() => {
 
-    // Simulatiton but will be implemented
+    // Simulate loading for smoother animations
     const timer = setTimeout(() => setIsLoading(false), 500);
     return () => clearTimeout(timer);
   }, []);
 
   if (isLoading) {
     return (
-      <div className="relative w-full min-h-screen flex items-center justify-center bg-slate-900 text-white">
+      <div className="relative w-full min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
@@ -105,6 +105,19 @@ const About = () => {
             ease: "easeInOut"
           }}
         />
+        {/* Floating elements */}
+        <motion.div 
+          className="absolute top-1/3 right-1/3 w-32 h-32 bg-gradient-to-r from-[#00ff00]/5 to-transparent rounded-full blur-2xl"
+          animate={{
+            y: [0, -30, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
       </div>
 
       <motion.div 
@@ -127,28 +140,28 @@ const About = () => {
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="relative z-10 flex flex-wrap gap-4 justify-center mb-8"
+        className="relative z-10 flex flex-wrap gap-4 justify-center mb-12"
       >
         <motion.a
           href="/about.txt"
           target="_blank"
           rel="noopener noreferrer"
-          whileHover={{ scale: 1.05 }}
+          whileHover={{ scale: 1.05, y: -2 }}
           whileTap={{ scale: 0.95 }}
-          className="inline-flex items-center gap-2 px-6 py-3 text-lg font-semibold text-slate-900 bg-gradient-to-r from-[#00ff00] to-emerald-400 rounded-xl shadow-[0_0_20px_rgba(0,255,0,0.4)] hover:shadow-[0_0_30px_rgba(0,255,0,0.6)] transition-all duration-300"
+          className="group inline-flex items-center gap-3 px-8 py-4 text-lg font-bold text-slate-900 bg-gradient-to-r from-[#00ff00] to-emerald-400 rounded-2xl shadow-[0_0_25px_rgba(0,255,0,0.4)] hover:shadow-[0_0_35px_rgba(0,255,0,0.6)] transition-all duration-300 border-2 border-transparent hover:border-[#00ff00]/20"
         >
-          <ExternalLink size={20} />
+          <ExternalLink size={22} className="group-hover:rotate-12 transition-transform duration-300" />
           Read My Story
         </motion.a>
         
         <motion.a
           href="/BrendanDileo_Resume.pdf"
           download="BrendanDileo_Resume.pdf"
-          whileHover={{ scale: 1.05 }}
+          whileHover={{ scale: 1.05, y: -2 }}
           whileTap={{ scale: 0.95 }}
-          className="inline-flex items-center gap-2 px-6 py-3 text-lg font-semibold text-white bg-slate-700/50 hover:bg-slate-600/50 border border-slate-600/50 rounded-xl transition-all duration-300"
+          className="group inline-flex items-center gap-3 px-8 py-4 text-lg font-bold text-white bg-slate-700/60 hover:bg-slate-600/60 border-2 border-slate-600/50 hover:border-[#00ff00]/30 rounded-2xl transition-all duration-300 backdrop-blur-sm"
         >
-          <Download size={20} />
+          <Download size={22} className="group-hover:translate-y-1 transition-transform duration-300" />
           Download Resume
         </motion.a>
       </motion.div>
@@ -157,72 +170,86 @@ const About = () => {
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.3 }}
-        className="relative z-10 w-full max-w-5xl mb-12 px-4"
+        className="relative z-10 w-full max-w-6xl mb-16 px-4"
       >
         <motion.div
-          className="w-full p-6 md:p-8 border rounded-2xl shadow-[0_0_30px_rgba(120,119,198,0.25)] bg-slate-800/80 backdrop-blur-sm border-slate-600/50"
-          whileHover={{ scale: 1.02 }}
+          className="w-full p-8 md:p-10 border-2 border-slate-600/30 rounded-3xl shadow-[0_0_40px_rgba(120,119,198,0.2)] bg-slate-800/90 backdrop-blur-md"
+          whileHover={{ scale: 1.01 }}
           transition={{ duration: 0.3 }}
         >
-          <h2 className="text-4xl font-bold flex items-center justify-center gap-3 mb-6">
-            <GraduationCap size={32} className="text-[#00ff00]" /> 
-            Education
-          </h2>
-
-          <div className="text-center mb-8">
-            <p className="text-xl font-semibold text-white mb-2">
-              Advanced Ontario Diploma in Software Development
-            </p>
-            <p className="text-gray-400">Mohawk College | Expected Graduation: May 2026</p>
+          <div className="flex items-center justify-center gap-4 mb-8">
+            <div className="p-3 bg-gradient-to-r from-[#00ff00]/20 to-emerald-400/20 rounded-2xl">
+              <GraduationCap size={36} className="text-[#00ff00]" /> 
+            </div>
+            <h2 className="text-5xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+              Education
+            </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="text-center mb-10">
+            <p className="text-2xl font-bold text-white mb-3">
+              Advanced Ontario Diploma in Software Development
+            </p>
+            <p className="text-lg text-gray-300 font-medium">Mohawk College | Expected Graduation: May 2026</p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <motion.div 
-              className="p-6 border rounded-xl shadow-lg bg-slate-700/50 transition-all duration-300 hover:border-[#00ff00] hover:shadow-[0_0_20px_rgba(0,255,0,0.3)] border-slate-600/50"
-              whileHover={{ scale: 1.05 }}
+              className="group p-8 border-2 border-slate-600/30 rounded-2xl shadow-lg bg-slate-700/40 transition-all duration-500 hover:border-[#00ff00]/50 hover:shadow-[0_0_30px_rgba(0,255,0,0.2)] hover:bg-slate-700/60"
+              whileHover={{ scale: 1.02, y: -5 }}
             >
-              <h3 className="text-xl font-semibold text-[#00ff00] mb-4">Academic Achievements</h3>
-              <ul className="space-y-3 text-gray-300">
-                <li className="flex justify-between items-center">
-                  <span>GPA:</span>
-                  <span className="font-bold text-[#00ff00]">93.5</span>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2 bg-gradient-to-r from-[#00ff00]/20 to-emerald-400/20 rounded-xl">
+                  <Star size={24} className="text-[#00ff00]" />
+                </div>
+                <h3 className="text-2xl font-bold text-[#00ff00]">Academic Achievements</h3>
+              </div>
+              <ul className="space-y-4 text-gray-300">
+                <li className="flex justify-between items-center p-3 bg-slate-600/30 rounded-xl hover:bg-slate-600/50 transition-colors duration-300">
+                  <span className="font-medium">GPA:</span>
+                  <span className="font-bold text-2xl text-[#00ff00]">93.5</span>
                 </li>
-                <li className="flex justify-between items-center">
-                  <span>Programming in Java:</span>
-                  <span className="font-bold text-[#00ff00]">99%</span>
+                <li className="flex justify-between items-center p-3 bg-slate-600/30 rounded-xl hover:bg-slate-600/50 transition-colors duration-300">
+                  <span className="font-medium">Programming in Java:</span>
+                  <span className="font-bold text-xl text-[#00ff00]">99%</span>
                 </li>
-                <li className="flex justify-between items-center">
-                  <span>Systems Analysis & Design:</span>
-                  <span className="font-bold text-[#00ff00]">100%</span>
+                <li className="flex justify-between items-center p-3 bg-slate-600/30 rounded-xl hover:bg-slate-600/50 transition-colors duration-300">
+                  <span className="font-medium">Systems Analysis & Design:</span>
+                  <span className="font-bold text-xl text-[#00ff00]">100%</span>
                 </li>
-                <li className="flex justify-between items-center">
-                  <span>Programming in C#.NET:</span>
-                  <span className="font-bold text-[#00ff00]">96%</span>
+                <li className="flex justify-between items-center p-3 bg-slate-600/30 rounded-xl hover:bg-slate-600/50 transition-colors duration-300">
+                  <span className="font-medium">Programming in C#.NET:</span>
+                  <span className="font-bold text-xl text-[#00ff00]">96%</span>
                 </li>
               </ul>
             </motion.div>
 
             <motion.div 
-              className="p-6 border rounded-xl shadow-lg bg-slate-700/50 transition-all duration-300 hover:border-[#00ff00] hover:shadow-[0_0_20px_rgba(0,255,0,0.3)] border-slate-600/50"
-              whileHover={{ scale: 1.05 }}
+              className="group p-8 border-2 border-slate-600/30 rounded-2xl shadow-lg bg-slate-700/40 transition-all duration-500 hover:border-[#00ff00]/50 hover:shadow-[0_0_30px_rgba(0,255,0,0.2)] hover:bg-slate-700/60"
+              whileHover={{ scale: 1.02, y: -5 }}
             >
-              <h3 className="text-xl font-semibold text-[#00ff00] mb-4">Honors & Awards</h3>
-              <ul className="space-y-3 text-gray-300">
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-[#00ff00] rounded-full"></div>
-                  Dean's Honors List (Every Semester: 2023 & 2024)
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2 bg-gradient-to-r from-[#00ff00]/20 to-emerald-400/20 rounded-xl">
+                  <Award size={24} className="text-[#00ff00]" />
+                </div>
+                <h3 className="text-2xl font-bold text-[#00ff00]">Honors & Awards</h3>
+              </div>
+              <ul className="space-y-4 text-gray-300">
+                <li className="flex items-center gap-4 p-3 bg-slate-600/30 rounded-xl hover:bg-slate-600/50 transition-colors duration-300">
+                  <div className="w-3 h-3 bg-gradient-to-r from-[#00ff00] to-emerald-400 rounded-full shadow-[0_0_10px_rgba(0,255,0,0.5)]"></div>
+                  <span className="font-medium">Dean's Honors List (Every Semester: 2023 & 2024)</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-[#00ff00] rounded-full"></div>
-                  Ontario Scholar Award (2021)
+                <li className="flex items-center gap-4 p-3 bg-slate-600/30 rounded-xl hover:bg-slate-600/50 transition-colors duration-300">
+                  <div className="w-3 h-3 bg-gradient-to-r from-[#00ff00] to-emerald-400 rounded-full shadow-[0_0_10px_rgba(0,255,0,0.5)]"></div>
+                  <span className="font-medium">Ontario Scholar Award (2021)</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-[#00ff00] rounded-full"></div>
-                  TA Blakelock Honor Roll
+                <li className="flex items-center gap-4 p-3 bg-slate-600/30 rounded-xl hover:bg-slate-600/50 transition-colors duration-300">
+                  <div className="w-3 h-3 bg-gradient-to-r from-[#00ff00] to-emerald-400 rounded-full shadow-[0_0_10px_rgba(0,255,0,0.5)]"></div>
+                  <span className="font-medium">TA Blakelock Honor Roll</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-[#00ff00] rounded-full"></div>
-                  TA Blakelock Tiger Award
+                <li className="flex items-center gap-4 p-3 bg-slate-600/30 rounded-xl hover:bg-slate-600/50 transition-colors duration-300">
+                  <div className="w-3 h-3 bg-gradient-to-r from-[#00ff00] to-emerald-400 rounded-full shadow-[0_0_10px_rgba(0,255,0,0.5)]"></div>
+                  <span className="font-medium">TA Blakelock Tiger Award</span>
                 </li>
               </ul>
             </motion.div>
@@ -234,61 +261,74 @@ const About = () => {
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.4 }}
-        className="relative z-10 w-full max-w-6xl px-4 mb-12"
+        className="relative z-10 w-full max-w-7xl px-4 mb-16"
       >
         <motion.div
-          className="w-full p-6 md:p-8 border rounded-2xl shadow-[0_0_30px_rgba(120,119,198,0.25)] bg-slate-800/80 backdrop-blur-sm border-slate-600/50"
-          whileHover={{ scale: 1.02 }}
+          className="w-full p-8 md:p-10 border-2 border-slate-600/30 rounded-3xl shadow-[0_0_40px_rgba(120,119,198,0.2)] bg-slate-800/90 backdrop-blur-md"
+          whileHover={{ scale: 1.01 }}
           transition={{ duration: 0.3 }}
         >
-          <h2 className="text-4xl font-bold text-center mb-8">Technical Skills</h2>
+          <div className="flex items-center justify-center gap-4 mb-10">
+            <div className="p-3 bg-gradient-to-r from-[#00ff00]/20 to-emerald-400/20 rounded-2xl">
+              <Code size={36} className="text-[#00ff00]" />
+            </div>
+            <h2 className="text-5xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+              Technical Skills
+            </h2>
+          </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            {/* Programming Languages */}
             <motion.div 
-              className="p-6 border border-slate-600/50 rounded-xl shadow-lg bg-slate-700/50 transition-all duration-300 hover:border-[#00ff00] hover:shadow-[0_0_20px_rgba(0,255,0,0.3)]"
-              whileHover={{ scale: 1.05 }}
+              className="group p-8 border-2 border-slate-600/30 rounded-2xl shadow-lg bg-slate-700/40 transition-all duration-500 hover:border-[#00ff00]/50 hover:shadow-[0_0_30px_rgba(0,255,0,0.2)] hover:bg-slate-700/60"
+              whileHover={{ scale: 1.03, y: -5 }}
             >
-              <h3 className="text-xl font-semibold text-[#00ff00] mb-4 text-center">Programming Languages</h3>
-              <div className="flex justify-center flex-wrap gap-4">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2 bg-gradient-to-r from-[#00ff00]/20 to-emerald-400/20 rounded-xl">
+                  <BookOpen size={20} className="text-[#00ff00]" />
+                </div>
+                <h3 className="text-xl font-bold text-[#00ff00]">Programming Languages</h3>
+              </div>
+              <div className="flex justify-center flex-wrap gap-6">
                 <motion.i 
-                  className="devicon-java-plain text-4xl hover:text-[#ff9900] transition-colors cursor-pointer"
+                  className="devicon-java-plain text-5xl hover:text-[#ff9900] transition-all duration-300 cursor-pointer hover:scale-110"
                   variants={skillVariants}
                   custom={0}
                   whileHover="hover"
-                  onHoverStart={() => setHoveredSkill('Java')}
+                  onHoverStart={() => setHoveredSkill('Java - Advanced')}
                   onHoverEnd={() => setHoveredSkill(null)}
                 />
                 <motion.i 
-                  className="devicon-python-plain text-4xl hover:text-[#306998] transition-colors cursor-pointer"
+                  className="devicon-python-plain text-5xl hover:text-[#306998] transition-all duration-300 cursor-pointer hover:scale-110"
                   variants={skillVariants}
                   custom={1}
                   whileHover="hover"
-                  onHoverStart={() => setHoveredSkill('Python')}
+                  onHoverStart={() => setHoveredSkill('Python - Intermediate')}
                   onHoverEnd={() => setHoveredSkill(null)}
                 />
                 <motion.i 
-                  className="devicon-javascript-plain text-4xl hover:text-[#f7df1e] transition-colors cursor-pointer"
+                  className="devicon-javascript-plain text-5xl hover:text-[#f7df1e] transition-all duration-300 cursor-pointer hover:scale-110"
                   variants={skillVariants}
                   custom={2}
                   whileHover="hover"
-                  onHoverStart={() => setHoveredSkill('JavaScript')}
+                  onHoverStart={() => setHoveredSkill('JavaScript - Advanced')}
                   onHoverEnd={() => setHoveredSkill(null)}
                 />
                 <motion.i 
-                  className="devicon-csharp-plain text-4xl hover:text-[#9b4f96] transition-colors cursor-pointer"
+                  className="devicon-csharp-plain text-5xl hover:text-[#9b4f96] transition-all duration-300 cursor-pointer hover:scale-110"
                   variants={skillVariants}
                   custom={3}
                   whileHover="hover"
-                  onHoverStart={() => setHoveredSkill('C#')}
+                  onHoverStart={() => setHoveredSkill('C# - Advanced')}
                   onHoverEnd={() => setHoveredSkill(null)}
                 />
                 <motion.i 
-                  className="devicon-php-plain text-4xl hover:text-[#777bb3] transition-colors cursor-pointer"
+                  className="devicon-php-plain text-5xl hover:text-[#777bb3] transition-all duration-300 cursor-pointer hover:scale-110"
                   variants={skillVariants}
                   custom={4}
                   whileHover="hover"
-                  onHoverStart={() => setHoveredSkill('PHP')}
+                  onHoverStart={() => setHoveredSkill('PHP - Intermediate')}
                   onHoverEnd={() => setHoveredSkill(null)}
                 />
               </div>
@@ -296,102 +336,142 @@ const About = () => {
                 <motion.p 
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-center text-sm text-gray-400 mt-2"
+                  className="text-center text-sm font-medium text-gray-300 mt-4 p-2 bg-slate-600/30 rounded-lg"
                 >
                   {hoveredSkill}
                 </motion.p>
               )}
             </motion.div>
 
+            {/* Web Development */}
             <motion.div 
-              className="p-6 border border-slate-600/50 rounded-xl shadow-lg bg-slate-700/50 transition-all duration-300 hover:border-[#00ff00] hover:shadow-[0_0_20px_rgba(0,255,0,0.3)]"
-              whileHover={{ scale: 1.05 }}
+              className="group p-8 border-2 border-slate-600/30 rounded-2xl shadow-lg bg-slate-700/40 transition-all duration-500 hover:border-[#00ff00]/50 hover:shadow-[0_0_30px_rgba(0,255,0,0.2)] hover:bg-slate-700/60"
+              whileHover={{ scale: 1.03, y: -5 }}
             >
-              <h3 className="text-xl font-semibold text-[#00ff00] mb-4 text-center">Web Development</h3>
-              <div className="flex justify-center flex-wrap gap-4">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2 bg-gradient-to-r from-[#00ff00]/20 to-emerald-400/20 rounded-xl">
+                  <Code size={20} className="text-[#00ff00]" />
+                </div>
+                <h3 className="text-xl font-bold text-[#00ff00]">Web Development</h3>
+              </div>
+              <div className="flex justify-center flex-wrap gap-6">
                 <motion.i 
-                  className="devicon-react-original text-4xl hover:text-[#61dafb] transition-colors cursor-pointer"
+                  className="devicon-react-original text-5xl hover:text-[#61dafb] transition-all duration-300 cursor-pointer hover:scale-110"
                   variants={skillVariants}
                   custom={0}
                   whileHover="hover"
+                  onHoverStart={() => setHoveredSkill('React - Advanced')}
+                  onHoverEnd={() => setHoveredSkill(null)}
                 />
                 <motion.i 
-                  className="devicon-nodejs-plain-wordmark text-4xl hover:text-[#68a063] transition-colors cursor-pointer"
+                  className="devicon-nodejs-plain-wordmark text-5xl hover:text-[#68a063] transition-all duration-300 cursor-pointer hover:scale-110"
                   variants={skillVariants}
                   custom={1}
                   whileHover="hover"
+                  onHoverStart={() => setHoveredSkill('Node.js - Intermediate')}
+                  onHoverEnd={() => setHoveredSkill(null)}
                 />
                 <motion.i 
-                  className="devicon-tailwindcss-original text-4xl hover:text-[#38b2ac] transition-colors cursor-pointer"
+                  className="devicon-tailwindcss-original text-5xl hover:text-[#38b2ac] transition-all duration-300 cursor-pointer hover:scale-110"
                   variants={skillVariants}
                   custom={2}
                   whileHover="hover"
+                  onHoverStart={() => setHoveredSkill('Tailwind CSS - Advanced')}
+                  onHoverEnd={() => setHoveredSkill(null)}
                 />
                 <motion.i 
-                  className="devicon-html5-plain text-4xl hover:text-[#e34c26] transition-colors cursor-pointer"
+                  className="devicon-html5-plain text-5xl hover:text-[#e34c26] transition-all duration-300 cursor-pointer hover:scale-110"
                   variants={skillVariants}
                   custom={3}
                   whileHover="hover"
+                  onHoverStart={() => setHoveredSkill('HTML5 - Advanced')}
+                  onHoverEnd={() => setHoveredSkill(null)}
                 />
                 <motion.i 
-                  className="devicon-css3-plain text-4xl hover:text-[#1572b6] transition-colors cursor-pointer"
+                  className="devicon-css3-plain text-5xl hover:text-[#1572b6] transition-all duration-300 cursor-pointer hover:scale-110"
                   variants={skillVariants}
                   custom={4}
                   whileHover="hover"
+                  onHoverStart={() => setHoveredSkill('CSS3 - Advanced')}
+                  onHoverEnd={() => setHoveredSkill(null)}
                 />
               </div>
             </motion.div>
 
+            {/* Databases & Game Dev */}
             <motion.div 
-              className="p-6 border border-slate-600/50 rounded-xl shadow-lg bg-slate-700/50 transition-all duration-300 hover:border-[#00ff00] hover:shadow-[0_0_20px_rgba(0,255,0,0.3)]"
-              whileHover={{ scale: 1.05 }}
+              className="group p-8 border-2 border-slate-600/30 rounded-2xl shadow-lg bg-slate-700/40 transition-all duration-500 hover:border-[#00ff00]/50 hover:shadow-[0_0_30px_rgba(0,255,0,0.2)] hover:bg-slate-700/60"
+              whileHover={{ scale: 1.03, y: -5 }}
             >
-              <h3 className="text-xl font-semibold text-[#00ff00] mb-4 text-center">Databases & Game Dev</h3>
-              <div className="flex justify-center flex-wrap gap-4">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2 bg-gradient-to-r from-[#00ff00]/20 to-emerald-400/20 rounded-xl">
+                  <Code size={20} className="text-[#00ff00]" />
+                </div>
+                <h3 className="text-xl font-bold text-[#00ff00]">Databases & Game Dev</h3>
+              </div>
+              <div className="flex justify-center flex-wrap gap-6">
                 <motion.i 
-                  className="devicon-mysql-plain text-4xl hover:text-[#00758f] transition-colors cursor-pointer"
+                  className="devicon-mysql-plain text-5xl hover:text-[#00758f] transition-all duration-300 cursor-pointer hover:scale-110"
                   variants={skillVariants}
                   custom={0}
                   whileHover="hover"
+                  onHoverStart={() => setHoveredSkill('MySQL - Intermediate')}
+                  onHoverEnd={() => setHoveredSkill(null)}
                 />
                 <motion.i 
-                  className="devicon-unity-plain text-4xl hover:text-[#ffffff] transition-colors cursor-pointer"
+                  className="devicon-unity-plain text-5xl hover:text-[#ffffff] transition-all duration-300 cursor-pointer hover:scale-110"
                   variants={skillVariants}
                   custom={1}
                   whileHover="hover"
+                  onHoverStart={() => setHoveredSkill('Unity - Intermediate')}
+                  onHoverEnd={() => setHoveredSkill(null)}
                 />
                 <motion.i 
-                  className="devicon-godot-plain text-4xl hover:text-[#478cbf] transition-colors cursor-pointer"
+                  className="devicon-godot-plain text-5xl hover:text-[#478cbf] transition-all duration-300 cursor-pointer hover:scale-110"
                   variants={skillVariants}
                   custom={2}
                   whileHover="hover"
+                  onHoverStart={() => setHoveredSkill('Godot - Beginner')}
+                  onHoverEnd={() => setHoveredSkill(null)}
                 />
               </div>
             </motion.div>
 
+            {/* DevOps & Tools */}
             <motion.div 
-              className="p-6 border border-slate-600/50 rounded-xl shadow-lg bg-slate-700/50 transition-all duration-300 hover:border-[#00ff00] hover:shadow-[0_0_20px_rgba(0,255,0,0.3)]"
-              whileHover={{ scale: 1.05 }}
+              className="group p-8 border-2 border-slate-600/30 rounded-2xl shadow-lg bg-slate-700/40 transition-all duration-500 hover:border-[#00ff00]/50 hover:shadow-[0_0_30px_rgba(0,255,0,0.2)] hover:bg-slate-700/60"
+              whileHover={{ scale: 1.03, y: -5 }}
             >
-              <h3 className="text-xl font-semibold text-[#00ff00] mb-4 text-center">DevOps & Tools</h3>
-              <div className="flex justify-center flex-wrap gap-4">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2 bg-gradient-to-r from-[#00ff00]/20 to-emerald-400/20 rounded-xl">
+                  <Code size={20} className="text-[#00ff00]" />
+                </div>
+                <h3 className="text-xl font-bold text-[#00ff00]">DevOps & Tools</h3>
+              </div>
+              <div className="flex justify-center flex-wrap gap-6">
                 <motion.i 
-                  className="devicon-docker-plain text-4xl hover:text-[#2496ed] transition-colors cursor-pointer"
+                  className="devicon-docker-plain text-5xl hover:text-[#2496ed] transition-all duration-300 cursor-pointer hover:scale-110"
                   variants={skillVariants}
                   custom={0}
                   whileHover="hover"
+                  onHoverStart={() => setHoveredSkill('Docker - Beginner')}
+                  onHoverEnd={() => setHoveredSkill(null)}
                 />
                 <motion.i 
-                  className="devicon-git-plain text-4xl hover:text-[#f34f29] transition-colors cursor-pointer"
+                  className="devicon-git-plain text-5xl hover:text-[#f34f29] transition-all duration-300 cursor-pointer hover:scale-110"
                   variants={skillVariants}
                   custom={1}
                   whileHover="hover"
+                  onHoverStart={() => setHoveredSkill('Git - Advanced')}
+                  onHoverEnd={() => setHoveredSkill(null)}
                 />
                 <motion.i 
-                  className="devicon-vscode-plain text-4xl hover:text-[#007acc] transition-colors cursor-pointer"
+                  className="devicon-vscode-plain text-5xl hover:text-[#007acc] transition-all duration-300 cursor-pointer hover:scale-110"
                   variants={skillVariants}
                   custom={2}
                   whileHover="hover"
+                  onHoverStart={() => setHoveredSkill('VS Code - Advanced')}
+                  onHoverEnd={() => setHoveredSkill(null)}
                 />
               </div>
             </motion.div>
