@@ -1,3 +1,4 @@
+
 /**
  * @file Home.jsx
  * @author Brendan Dileo 
@@ -5,7 +6,6 @@
  * The home page to my portfolio-website
 */
 
-import HelpTooltip from "../components/HelpTooltip";
 import Terminal from '../components/Terminal';
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
@@ -28,7 +28,6 @@ const Home = () => {
                     <Terminal />
                 </div>
             </div>
-            <HelpTooltip />
             <Sidebar />
         </div>
     );
