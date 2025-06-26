@@ -1,1 +1,20 @@
+
 # 
+
+name: Site Health Test Workflow
+
+on:
+    push:
+        branches:
+            - main
+    workflow_dispatch:
+
+
+jobs:
+    health-test:
+        if: contains(github.event.head_commit.message, '[test]')
+        runs-on: ubuntu-latest
+
+        steps:
+            - name:
+              uses: 
