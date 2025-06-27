@@ -10,33 +10,47 @@ import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import ProjectModal from "../components/ProjectModal";
 import { projectData } from "../projectData";
-
-import { motion } from "framer-motion";
-import { FaFolder, FaExternalLinkAlt, FaCalendar, FaStar, FaCode, FaGamepad, FaRobot, FaPalette, FaDatabase } from "react-icons/fa";
-
+import { motion, AnimatePresence } from "framer-motion";
+import { FaFolder, FaExternalLinkAlt, FaCalendar, FaStar, FaCode } from "react-icons/fa";
 import { useState, useEffect } from 'react';
 
 const Projects = () => {
-
     const [isLoading, setIsLoading] = useState(true);
     const [selectedProject, setSelectedProject] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isReady, setIsReady] = useState(false);
+    const [backgroundReady, setBackgroundReady] = useState(false);
     
     useEffect(() => {
-        // Simulatiton but will be implemented
-        const timer = setTimeout(() => setIsLoading(false), 500);
+
+        // Ensure DOM is ready before starting animations
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+            // Small delay to ensure smooth transition
+            setTimeout(() => setIsReady(true), 100);
+        }, 500);
         return () => clearTimeout(timer);
     }, []);
+
+    useEffect(() => {
+        if (isReady) {
+            const bgTimer = setTimeout(() => setBackgroundReady(true), 1000);
+            return () => clearTimeout(bgTimer);
+        } else {
+            setBackgroundReady(false);
+        }
+    }, [isReady]);
         
     if (isLoading) {
         return (
             <div className="relative w-full min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
                 <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
                   className="w-16 h-16 border-4 border-[#00ff00] border-t-transparent rounded-full animate-spin"
                 />
-              </div>
+            </div>
         );
     }
 
@@ -55,251 +69,290 @@ const Projects = () => {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.1,
-                delayChildren: 0.3
+                duration: 0.6,
+                ease: "easeOut",
+                staggerChildren: 0.08,
+                delayChildren: 0.2
             }
         }
     };
 
     const itemVariants = {
-        hidden: { y: 30, opacity: 0 },
-        visible: { 
-            y: 0, 
+        hidden: {
+            opacity: 0,
+            y: 40,
+            scale: 0.96
+        },
+        visible: {
             opacity: 1,
+            y: 0,
+            scale: 1,
             transition: {
-                type: "spring",
-                stiffness: 80,
-                damping: 18
+                duration: 0.7,
+                ease: [0.22, 1, 0.36, 1]
+            }
+        }
+    };
+
+    const backgroundVariants = {
+        animate: {
+            x: [0, 50, 0],
+            y: [0, -25, 0],
+            scale: [1, 1.1, 1],
+            transition: {
+                duration: 20,
+                repeat: Infinity,
+                ease: "easeInOut"
             }
         }
     };
 
     return (
-        <div className="relative w-full min-h-screen flex flex-col items-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white p-4 overflow-hidden">
-            <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
-                <motion.div 
-                  className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-[#00ff00]/10 to-emerald-400/10 rounded-full blur-3xl"
-                  animate={{
-                    x: [0, 100, 0],
-                    y: [0, -50, 0],
-                    scale: [1, 1.2, 1],
-                  }}
-                  transition={{
-                    duration: 20,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                />
-                <motion.div 
-                  className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl"
-                  animate={{
-                    x: [0, -80, 0],
-                    y: [0, 60, 0],
-                    scale: [1, 0.8, 1],
-                  }}
-                  transition={{
-                    duration: 25,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                />
-                {/* Floating elements */}
-                <motion.div 
-                  className="absolute top-1/3 right-1/3 w-32 h-32 bg-gradient-to-r from-[#00ff00]/5 to-transparent rounded-full blur-2xl"
-                  animate={{
-                    y: [0, -30, 0],
-                    scale: [1, 1.1, 1],
-                  }}
-                  transition={{
-                    duration: 15,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                />
-            </div>
-            
+        <AnimatePresence mode="wait">
             <motion.div 
-                initial={{ y: -20, opacity: 0 }} 
-                animate={{ y: 0, opacity: 1 }} 
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="relative z-10 w-full max-w-6xl my-5 mx-auto"
+                key="projects-page"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+                className="relative w-full min-h-screen flex flex-col items-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white p-4 overflow-hidden"
             >
-                <Header 
-                    title="My Projects" 
-                    subtitle="A collection of my work and passion projects." 
-                    typedTexts={[
-                        "Building innovative solutions...",
-                        "Creating meaningful experiences...",
-                        "Exploring new technologies...",
-                        "Turning ideas into reality..."
-                    ]}
-                />
-            </motion.div>
-
-            <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative z-10 mb-12"
-            >
-                <a
-                    href="/projects.txt"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="
-                        inline-flex items-center px-8 py-4 
-                        text-lg font-semibold text-slate-900 
-                        bg-gradient-to-r from-[#00ff00] to-emerald-400
-                        rounded-xl shadow-[0_0_20px_rgba(0,255,0,0.4)] 
-                        hover:shadow-[0_0_30px_rgba(0,255,0,0.6)] 
-                        transition-all duration-300 transform hover:scale-105
-                        focus:outline-none focus:ring-2 focus:ring-[#00ff00]/50 focus:ring-offset-2 focus:ring-offset-slate-900
-                    "
+                {/* Only animate elements if the background is ready */}
+                <div className="absolute inset-0 overflow-hidden will-change-transform">
+                    <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] will-change-opacity"></div>
+                    
+                    {backgroundReady && (
+                        <>
+                            <motion.div 
+                                className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-[#00ff00]/10 to-emerald-400/10 rounded-full blur-3xl will-change-transform"
+                                variants={backgroundVariants}
+                                animate="animate"
+                            />
+                            <motion.div 
+                                className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl will-change-transform"
+                                animate={{
+                                    x: [0, -40, 0],
+                                    y: [0, 30, 0],
+                                    scale: [1, 0.9, 1],
+                                }}
+                                transition={{
+                                    duration: 25,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                }}
+                            />
+                            <motion.div 
+                                className="absolute top-1/3 right-1/3 w-32 h-32 bg-gradient-to-r from-[#00ff00]/5 to-transparent rounded-full blur-2xl will-change-transform"
+                                animate={{
+                                    y: [0, -15, 0],
+                                    scale: [1, 1.05, 1],
+                                }}
+                                transition={{
+                                    duration: 15,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                }}
+                            />
+                        </>
+                    )}
+                </div>
+                
+                {/* Header */}
+                <motion.div 
+                    initial={{ y: -30, opacity: 0 }} 
+                    animate={{ y: 0, opacity: 1 }} 
+                    transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+                    className="relative z-10 w-full max-w-6xl my-5 mx-auto"
                 >
-                    <FaExternalLinkAlt className="mr-2" />
-                    Read About My Projects
-                </a>
-            </motion.div>
+                    <Header 
+                        title="My Projects" 
+                        subtitle="A collection of my work and passion projects." 
+                        typedTexts={[
+                            "Building innovative solutions...",
+                            "Creating meaningful experiences...",
+                            "Exploring new technologies...",
+                            "Turning ideas into reality..."
+                        ]}
+                    />
+                </motion.div>
 
-            <motion.div 
-                variants={containerVariants}
-                initial="hidden"
-                animate="visible"
-                className="relative z-10 w-full max-w-7xl mx-auto px-4"
-            >
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
-                    {projectData.map((project, index) => (
-                        <motion.div 
-                            key={index}
-                            layout="position"
-                            variants={itemVariants}
-                            whileHover={{ scale: 1.02, y: -5 }}
-                            transition={{ type: "spring", stiffness: 100 }}
-                            className="
-                                group relative cursor-pointer
-                                bg-gradient-to-br from-slate-800/90 to-slate-900/90 
-                                backdrop-blur-sm border border-slate-600/50 
-                                rounded-2xl shadow-[0_0_25px_rgba(120,119,198,0.15)] 
-                                overflow-hidden hover:shadow-[0_0_40px_rgba(120,119,198,0.25)]
-                                transition-all duration-500
-                            "
-                            onClick={() => handleProjectClick(project)}
-                        >
-                            {/* Hover Overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-[#00ff00]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                            
-                            <div className="relative p-6 lg:p-8 flex flex-col h-full">
-                                {/* Project Header */}
-                                <div className="mb-4">
-                                    <h3 className="text-2xl lg:text-3xl font-bold tracking-tight text-[#00ff00] group-hover:text-emerald-300 transition-colors duration-300 mb-2">
-                                        {project.title}
-                                    </h3>
-                                    <div className="flex items-center gap-4 text-sm text-gray-400">
-                                        <div className="flex items-center gap-1">
-                                            <FaCalendar size={14} />
-                                            <span>{project.completionDate}</span>
-                                        </div>
-                                        <div className="flex items-center gap-1">
-                                            <FaStar size={14} />
-                                            <span>{project.status.charAt(0).toUpperCase() + project.status.slice(1)}</span>
+                {/* Project info button */}
+                <motion.div
+                    initial={{ y: 30, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+                    className="relative z-10 mb-12"
+                >
+                    <a
+                        href="/projects.txt"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="
+                            inline-flex items-center px-8 py-4 
+                            text-lg font-semibold text-slate-900 
+                            bg-gradient-to-r from-[#00ff00] to-emerald-400
+                            rounded-xl shadow-[0_0_20px_rgba(0,255,0,0.4)] 
+                            hover:shadow-[0_0_30px_rgba(0,255,0,0.6)] 
+                            transition-all duration-300 transform hover:scale-105
+                            focus:outline-none focus:ring-2 focus:ring-[#00ff00]/50 focus:ring-offset-2 focus:ring-offset-slate-900
+                        "
+                    >
+                        <FaExternalLinkAlt className="mr-2" />
+                        Read About My Projects
+                    </a>
+                </motion.div>
+
+                {/* Projects grid */}
+                <div className="relative z-10 w-full max-w-7xl mx-auto px-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
+                        {projectData.map((project, index) => (
+                            <motion.div 
+                                key={`project-${index}`}
+                                layoutId={`project-card-${index}`}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{
+                                    duration: 0.45,
+                                    ease: "easeOut",
+                                    delay: 0.1 + index * 0.07
+                                }}
+                                whileHover={{ 
+                                    scale: 1.02, 
+                                    y: -5,
+                                    transition: { duration: 0.2, ease: "easeOut" }
+                                }}
+                                whileTap={{ scale: 0.98 }}
+                                className="
+                                    group relative cursor-pointer
+                                    bg-gradient-to-br from-slate-800/90 to-slate-900/90 
+                                    backdrop-blur-sm border border-slate-600/50 
+                                    rounded-2xl shadow-[0_0_25px_rgba(120,119,198,0.15)] 
+                                    overflow-hidden hover:shadow-[0_0_40px_rgba(120,119,198,0.25)]
+                                    transition-all duration-500
+                                    will-change-transform will-change-opacity
+                                "
+                                onClick={() => handleProjectClick(project)}
+                            >
+                                {/* Hover overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-br from-[#00ff00]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                
+                                <div className="relative p-6 lg:p-8 flex flex-col h-full">
+                                    
+                                    {/* Project headr */}
+                                    <div className="mb-4">
+                                        <h3 className="text-2xl lg:text-3xl font-bold tracking-tight text-[#00ff00] group-hover:text-emerald-300 transition-colors duration-300 mb-2">
+                                            {project.title}
+                                        </h3>
+                                        <div className="flex items-center gap-4 text-sm text-gray-400">
+                                            <div className="flex items-center gap-1">
+                                                <FaCalendar size={14} />
+                                                <span>{project.completionDate}</span>
+                                            </div>
+                                            <div className="flex items-center gap-1">
+                                                <FaStar size={14} />
+                                                <span>{project.status.charAt(0).toUpperCase() + project.status.slice(1)}</span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                
-                                {/* Project Description */}
-                                <p className="mb-6 text-sm lg:text-base font-normal text-gray-300 leading-relaxed flex-grow">
-                                    {project.desc}
-                                </p>
-                                
-                                {/* Technologies Section */}
-                                <div className="mb-6">
-                                    <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3 flex items-center gap-2">
-                                        <FaCode size={12} />
-                                        Technologies Used
-                                    </h4>
-                                    <div className="flex items-center flex-wrap gap-2">
-                                        {project.icons.map((icon, i) => (
-                                            <div 
-                                                key={i} 
-                                                className="
+                                    
+                                    {/* Project description */}
+                                    <p className="mb-6 text-sm lg:text-base font-normal text-gray-300 leading-relaxed flex-grow">
+                                        {project.desc}
+                                    </p>
+                                    
+                                    {/* Technologies */}
+                                    <div className="mb-6">
+                                        <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3 flex items-center gap-2">
+                                            <FaCode size={12} />
+                                            Technologies Used
+                                        </h4>
+                                        <div className="flex items-center flex-wrap gap-2">
+                                            {project.icons.map((icon, i) => (
+                                                <div 
+                                                    key={i} 
+                                                    className="
+                                                        p-2 rounded-lg bg-slate-700/50 
+                                                        text-[#00ff00] hover:text-emerald-300 
+                                                        transition-all duration-300 hover:scale-110
+                                                        group-hover:bg-slate-600/50 border border-slate-600/30
+                                                        hover:border-[#00ff00]/30
+                                                    "
+                                                    title={`Technology ${i + 1}`}
+                                                >
+                                                    <i className={`${icon} text-xl`}></i>
+                                                </div>                                
+                                            ))}
+                                            {project.extraIcon && (
+                                                <div className="
                                                     p-2 rounded-lg bg-slate-700/50 
                                                     text-[#00ff00] hover:text-emerald-300 
                                                     transition-all duration-300 hover:scale-110
                                                     group-hover:bg-slate-600/50 border border-slate-600/30
                                                     hover:border-[#00ff00]/30
-                                                "
-                                                title={`Technology ${i + 1}`}
-                                            >
-                                                <i className={`${icon} text-xl`}></i>
-                                            </div>                                
-                                        ))}
-                                        {project.extraIcon && (
-                                            <div className="
-                                                p-2 rounded-lg bg-slate-700/50 
-                                                text-[#00ff00] hover:text-emerald-300 
-                                                transition-all duration-300 hover:scale-110
-                                                group-hover:bg-slate-600/50 border border-slate-600/30
-                                                hover:border-[#00ff00]/30
-                                            ">
-                                                {project.extraIcon}
-                                            </div>
-                                        )}
+                                                ">
+                                                    {project.extraIcon}
+                                                </div>
+                                            )}
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div className="mb-6">
-                                    <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
-                                        Key Features
-                                    </h4>
-                                    <div className="flex flex-wrap gap-1">
-                                        {project.features.slice(0, 3).map((feature, index) => (
-                                            <span
-                                                key={index}
-                                                className="px-2 py-1 text-xs bg-slate-700/30 text-gray-300 rounded-md border border-slate-600/30"
-                                            >
-                                                {feature}
-                                            </span>
-                                        ))}
-                                        {project.features.length > 3 && (
-                                            <span className="px-2 py-1 text-xs bg-slate-700/30 text-gray-400 rounded-md border border-slate-600/30">
-                                                +{project.features.length - 3} more
-                                            </span>
-                                        )}
+                                    <div className="mb-6">
+                                        <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
+                                            Key Features
+                                        </h4>
+                                        <div className="flex flex-wrap gap-1">
+                                            {project.features.slice(0, 3).map((feature, index) => (
+                                                <span
+                                                    key={index}
+                                                    className="px-2 py-1 text-xs bg-slate-700/30 text-gray-300 rounded-md border border-slate-600/30"
+                                                >
+                                                    {feature}
+                                                </span>
+                                            ))}
+                                            {project.features.length > 3 && (
+                                                <span className="px-2 py-1 text-xs bg-slate-700/30 text-gray-400 rounded-md border border-slate-600/30">
+                                                    +{project.features.length - 3} more
+                                                </span>
+                                            )}
+                                        </div>
                                     </div>
+                                    
+                                    <motion.div 
+                                        className="
+                                            mt-auto group/link
+                                            inline-flex items-center justify-center 
+                                            bg-gradient-to-r from-[#00ff00] to-emerald-500
+                                            text-slate-900 font-bold py-3 px-6 
+                                            rounded-xl hover:from-emerald-400 hover:to-[#00ff00]
+                                            transition-all duration-300 transform hover:scale-105
+                                            shadow-[0_0_15px_rgba(0,255,0,0.3)] 
+                                            hover:shadow-[0_0_25px_rgba(0,255,0,0.5)]
+                                            focus:outline-none focus:ring-2 focus:ring-[#00ff00]/50 focus:ring-offset-2 focus:ring-offset-slate-800
+                                        "
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                    >
+                                        <FaFolder className="mr-2 group-hover/link:scale-110 transition-transform duration-300" />
+                                        View Details
+                                        <FaExternalLinkAlt className="ml-2 text-sm opacity-70 group-hover/link:opacity-100 transition-opacity duration-300" />
+                                    </motion.div>
                                 </div>
-                                
-                                <div className="
-                                    mt-auto group/link
-                                    inline-flex items-center justify-center 
-                                    bg-gradient-to-r from-[#00ff00] to-emerald-500
-                                    text-slate-900 font-bold py-3 px-6 
-                                    rounded-xl hover:from-emerald-400 hover:to-[#00ff00]
-                                    transition-all duration-300 transform hover:scale-105
-                                    shadow-[0_0_15px_rgba(0,255,0,0.3)] 
-                                    hover:shadow-[0_0_25px_rgba(0,255,0,0.5)]
-                                    focus:outline-none focus:ring-2 focus:ring-[#00ff00]/50 focus:ring-offset-2 focus:ring-offset-slate-800
-                                ">
-                                    <FaFolder className="mr-2 group-hover/link:scale-110 transition-transform duration-300" />
-                                    View Details
-                                    <FaExternalLinkAlt className="ml-2 text-sm opacity-70 group-hover/link:opacity-100 transition-opacity duration-300" />
-                                </div>
-                            </div>
-                        </motion.div>
-                    ))}
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
+
+                {/* Project modal */}
+                <ProjectModal 
+                    project={selectedProject}
+                    isOpen={isModalOpen}
+                    onClose={handleCloseModal}
+                />
+
+                <div className="h-20"></div>
+                <Sidebar />
             </motion.div>
-
-            {/* Project Modal */}
-            <ProjectModal 
-                project={selectedProject}
-                isOpen={isModalOpen}
-                onClose={handleCloseModal}
-            />
-
-            <div className="h-20"></div>
-            <Sidebar />
-        </div>
+        </AnimatePresence>
     );
 };
 
