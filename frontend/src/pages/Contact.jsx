@@ -9,6 +9,7 @@
 import Header from '../components/Header';
 import Sidebar from "../components/Sidebar";
 import { motion } from "framer-motion"
+import { FaMapMarkerAlt, FaEnvelope } from "react-icons/fa";
 
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -129,14 +130,27 @@ const Contact = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7 }}
                   >
-                    <div className="bg-slate-800/60 text-green-300 border border-green-400/30 px-5 py-2 rounded-lg backdrop-blur-md hover:scale-105 transition-all duration-300 shadow-md">
+                    <div className="
+                      flex items-center gap-2
+                      bg-slate-800/60 text-green-300 border border-green-400/30 
+                      px-5 py-2 rounded-lg backdrop-blur-md 
+                      hover:scale-105 transition-all duration-300 shadow-md
+                    ">
+                      <FaMapMarkerAlt className="text-green-400" />
                       Ontario, Canada
                     </div>
+                    
                     <a
                       href="mailto:brendandileo@gmail.com"
-                      className="bg-slate-800/60 text-green-300 border border-green-400/30 px-5 py-2 rounded-lg backdrop-blur-md hover:scale-105 transition-all duration-300 shadow-md"
+                      className="
+                        flex items-center gap-2
+                        bg-slate-800/60 text-green-300 border border-green-400/30 
+                        px-5 py-2 rounded-lg backdrop-blur-md 
+                        hover:scale-105 transition-all duration-300 shadow-md
+                      "
                     >
-                    brendandileo@gmail.com
+                      <FaEnvelope className="text-green-400" />
+                      brendandileo@gmail.com
                     </a>
                   </motion.div>
                 </div>
