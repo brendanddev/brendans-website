@@ -125,7 +125,7 @@ const Contact = () => {
 
                   {/* Location and email buttons */}
                   <motion.div
-                    className="w-full flex flex-wrap justify-center items-center gap-4 mt-12 mb-6 z-10"
+                    className="w-full flex flex-wrap justify-center items-center gap-4 mt-10 mb-4 z-10"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7 }}
