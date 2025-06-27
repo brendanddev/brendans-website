@@ -192,6 +192,30 @@ const Contact = () => {
                         </form>
                     </div>
                 </motion.div>
+                {/* Added: Social Links and Find Me Here section */}
+                <motion.div
+                  className="relative z-10 w-[95%] md:w-4/5 lg:w-3/5 flex flex-col md:flex-row justify-between items-center mt-8 gap-8 mx-auto"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7 }}
+                >
+                  <div className="flex flex-col items-center md:items-start space-y-4">
+                    <div className="text-green-400 font-bold text-lg">Find Me Here</div>
+                    <div className="text-slate-300">📍 Toronto, Canada</div>
+                    <div className="text-slate-300">✉️ brendandileo@gmail.com</div>
+                  </div>
+                  <div className="flex flex-row gap-6 items-center">
+                    <a href="https://github.com/brendanddev" target="_blank" rel="noopener noreferrer" title="GitHub">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" className="h-8 w-8 hover:scale-110 transition-transform" />
+                    </a>
+                    <a href="https://linkedin.com/in/brendandileo" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" className="h-8 w-8 hover:scale-110 transition-transform" />
+                    </a>
+                    <a href="mailto:brendandileo@gmail.com" title="Email">
+                      <svg className="h-8 w-8 text-green-400 hover:scale-110 transition-transform" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" d="M16 12H8m8 0a4 4 0 11-8 0 4 4 0 018 0zm8 0a12 12 0 11-24 0 12 12 0 0124 0z"></path></svg>
+                    </a>
+                  </div>
+                </motion.div>
             <Sidebar />
         </div>
     );
