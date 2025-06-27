@@ -122,7 +122,7 @@ const About = () => {
 
       <motion.div 
         style={{ y, opacity }}
-        className="relative z-10 w-full max-w-6xl text-center"
+        className="relative z-10 w-full mb-6 max-w-6xl text-center"
       >
         <Header 
           title="About Me" 
