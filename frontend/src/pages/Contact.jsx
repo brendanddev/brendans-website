@@ -93,6 +93,7 @@ const Contact = () => {
                     ease: "easeInOut"
                   }}
                 />
+
                 {/* Floating elements */}
                 <motion.div 
                   className="absolute top-1/3 right-1/3 w-32 h-32 bg-gradient-to-r from-[#00ff00]/5 to-transparent rounded-full blur-2xl"
@@ -108,16 +109,37 @@ const Contact = () => {
                 />
             </div>
             <div className='relative z-10 w-full'>
-                <Header 
-                    title="Contact Brendan" 
-                    subtitle="Software Developer | Backend | Tech Enthusiast"
-                    typedTexts={[
-                        "Send me a message and I'll get back to you!",
-                        "Feel free to reach out!",
-                        "I'm always open to collaboration and new opportunities.",
-                        "Have a project in mind? Let's build something great together!"
-                    ]}
-                />
+
+                <div>
+                  <Header 
+                      title="Contact Brendan" 
+                      subtitle="Software Developer | Backend | Tech Enthusiast"
+                      typedTexts={[
+                          "Send me a message and I'll get back to you!",
+                          "Feel free to reach out!",
+                          "I'm always open to collaboration and new opportunities.",
+                          "Have a project in mind? Let's build something great together!"
+                      ]}
+                  />
+
+                  {/* Location and email buttons */}
+                  <motion.div
+                    className="w-full flex flex-wrap justify-center items-center gap-4 mt-12 mb-6 z-10"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7 }}
+                  >
+                    <div className="bg-slate-800/60 text-green-300 border border-green-400/30 px-5 py-2 rounded-lg backdrop-blur-md hover:scale-105 transition-all duration-300 shadow-md">
+                      Ontario, Canada
+                    </div>
+                    <a
+                      href="mailto:brendandileo@gmail.com"
+                      className="bg-slate-800/60 text-green-300 border border-green-400/30 px-5 py-2 rounded-lg backdrop-blur-md hover:scale-105 transition-all duration-300 shadow-md"
+                    >
+                    brendandileo@gmail.com
+                    </a>
+                  </motion.div>
+                </div>
             </div>
             <motion.div
                 className="relative z-10 w-[95%] md:w-4/5 lg:w-3/5 min-h-[480px] bg-slate-900/80 backdrop-blur-sm rounded-lg shadow-[0_0_20px_rgba(120,119,198,0.25)] flex flex-col border border-slate-700 overflow-hidden font-mono mx-auto mt-8"
@@ -125,7 +147,6 @@ const Contact = () => {
                 animate={{ opacity: 1, scale: 1 }} 
                 transition={{ duration: 0.5, ease: "easeOut" }}
             >
-        
                 <div className="h-8 bg-slate-800 flex items-center justify-center relative text-white text-sm font-bold">
                     <div className="absolute left-4 flex gap-2">
                         <div className="w-3 h-3 bg-red-500 rounded-full"></div>
@@ -134,88 +155,58 @@ const Contact = () => {
                     </div>
                     <span>contact-form.sh</span>
                 </div>
-
-                    <div className="flex-1 p-6 overflow-y-auto text-white">
-
-                        <form className="space-y-4" onSubmit={handleSubmit}>
-                            <div>
-                                <label htmlFor="name" className="text-sm text-green-400">fullName:</label>
-                                <input
-                                    type="text"
-                                    id="name"
-                                    name="name"
-                                    value={form.name}
-                                    onChange={handleChange}
-                                    className="w-full p-2 mt-1 bg-slate-800/50 text-white border border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400/50 focus:border-green-400 transition-colors"
-                                    placeholder="Enter your name"
-                                    required
-                                />
-                            </div>
-
-                            <div>
-                                <label htmlFor="email" className="text-sm text-green-400">emailAddress:</label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    value={form.email}
-                                    onChange={handleChange}
-                                    className="w-full p-2 mt-1 bg-slate-800/50 text-white border border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400/50 focus:border-green-400 transition-colors"
-                                    placeholder="Enter your email"
-                                    required
-                                />
-                            </div>
-
-                            <div>
-                                <label htmlFor="message" className="text-sm text-green-400">extraMessage:</label>
-                                <textarea
-                                    id="message"
-                                    name="message"
-                                    value={form.message}
-                                    onChange={handleChange}
-                                    className="w-full p-2 mt-1 bg-slate-800/50 text-white border border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400/50 focus:border-green-400 transition-colors"
-                                    rows="4"
-                                    placeholder="Type your message"
-                                    required
-                                />
-                            </div>
-
-                            <div className="flex justify-center pt-2">
-                                <button
-                                    type="submit"
-                                    className="bg-green-400 text-slate-900 font-bold px-6 py-2 rounded-lg hover:bg-green-500 transition-all duration-300 transform hover:scale-105 shadow-[0_0_15px_rgba(50,205,50,0.5)]"
-                                >
-                                    submitForm
-                                </button>
-                            </div>
-
-                        </form>
-                    </div>
-                </motion.div>
-                {/* Added: Social Links and Find Me Here section */}
-                <motion.div
-                  className="relative z-10 w-[95%] md:w-4/5 lg:w-3/5 flex flex-col md:flex-row justify-between items-center mt-8 gap-8 mx-auto"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.7 }}
-                >
-                  <div className="flex flex-col items-center md:items-start space-y-4">
-                    <div className="text-green-400 font-bold text-lg">Find Me Here</div>
-                    <div className="text-slate-300">📍 Toronto, Canada</div>
-                    <div className="text-slate-300">✉️ brendandileo@gmail.com</div>
-                  </div>
-                  <div className="flex flex-row gap-6 items-center">
-                    <a href="https://github.com/brendanddev" target="_blank" rel="noopener noreferrer" title="GitHub">
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" className="h-8 w-8 hover:scale-110 transition-transform" />
-                    </a>
-                    <a href="https://linkedin.com/in/brendandileo" target="_blank" rel="noopener noreferrer" title="LinkedIn">
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" className="h-8 w-8 hover:scale-110 transition-transform" />
-                    </a>
-                    <a href="mailto:brendandileo@gmail.com" title="Email">
-                      <svg className="h-8 w-8 text-green-400 hover:scale-110 transition-transform" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" d="M16 12H8m8 0a4 4 0 11-8 0 4 4 0 018 0zm8 0a12 12 0 11-24 0 12 12 0 0124 0z"></path></svg>
-                    </a>
-                  </div>
-                </motion.div>
+                <div className="flex-1 p-6 overflow-y-auto text-white">
+                    <form className="space-y-4" onSubmit={handleSubmit}>
+                        <div>
+                            <label htmlFor="name" className="text-sm text-green-400">fullName:</label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                value={form.name}
+                                onChange={handleChange}
+                                className="w-full p-2 mt-1 bg-slate-800/50 text-white border border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400/50 focus:border-green-400 transition-colors"
+                                placeholder="Enter your name"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="email" className="text-sm text-green-400">emailAddress:</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                value={form.email}
+                                onChange={handleChange}
+                                className="w-full p-2 mt-1 bg-slate-800/50 text-white border border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400/50 focus:border-green-400 transition-colors"
+                                placeholder="Enter your email"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="message" className="text-sm text-green-400">extraMessage:</label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                value={form.message}
+                                onChange={handleChange}
+                                className="w-full p-2 mt-1 bg-slate-800/50 text-white border border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400/50 focus:border-green-400 transition-colors"
+                                rows="4"
+                                placeholder="Type your message"
+                                required
+                            />
+                        </div>
+                        <div className="flex justify-center pt-2">
+                            <button
+                                type="submit"
+                                className="bg-green-400 text-slate-900 font-bold px-6 py-2 rounded-lg hover:bg-green-500 transition-all duration-300 transform hover:scale-105 shadow-[0_0_15px_rgba(50,205,50,0.5)]"
+                            >
+                                submitForm
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </motion.div>
             <Sidebar />
         </div>
     );
