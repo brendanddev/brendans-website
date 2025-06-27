@@ -117,7 +117,7 @@ const Projects = () => {
                 transition={{ duration: 0.5 }}
                 className="relative w-full min-h-screen flex flex-col items-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white p-4 overflow-hidden"
             >
-                {/* Only animate elements if the background is ready */}
+
                 <div className="absolute inset-0 overflow-hidden will-change-transform">
                     <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] will-change-opacity"></div>
                     
@@ -209,13 +209,6 @@ const Projects = () => {
                             <motion.div 
                                 key={`project-${index}`}
                                 layoutId={`project-card-${index}`}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{
-                                    duration: 0.45,
-                                    ease: "easeOut",
-                                    delay: 0.1 + index * 0.07
-                                }}
                                 whileHover={{ 
                                     scale: 1.02, 
                                     y: -5,
