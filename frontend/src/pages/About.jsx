@@ -12,7 +12,7 @@ import { GraduationCap, Download, ExternalLink, Star, Award, BookOpen, Code } fr
 import Header from "../components/Header";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-// Custom hoo for scroll-based animations
+// Custom hook for scroll-based animations
 const useScrollAnimation = () => {
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
@@ -105,6 +105,7 @@ const About = () => {
             ease: "easeInOut"
           }}
         />
+
         {/* Floating elements */}
         <motion.div 
           className="absolute top-1/3 right-1/3 w-32 h-32 bg-gradient-to-r from-[#00ff00]/5 to-transparent rounded-full blur-2xl"
@@ -398,7 +399,7 @@ const About = () => {
               </div>
             </motion.div>
 
-            {/* Databases & Game Dev */}
+            {/* Databases & Scripting */}
             <motion.div 
               className="group p-8 border-2 border-slate-600/30 rounded-2xl shadow-lg bg-slate-700/40 transition-all duration-500 hover:border-[#00ff00]/50 hover:shadow-[0_0_30px_rgba(0,255,0,0.2)] hover:bg-slate-700/60"
               whileHover={{ scale: 1.03, y: -5 }}
@@ -407,7 +408,7 @@ const About = () => {
                 <div className="p-2 bg-gradient-to-r from-[#00ff00]/20 to-emerald-400/20 rounded-xl">
                   <Code size={20} className="text-[#00ff00]" />
                 </div>
-                <h3 className="text-xl font-bold text-[#00ff00]">Databases & Game Dev</h3>
+                <h3 className="text-xl font-bold text-[#00ff00]">Databases & Scripting</h3>
               </div>
               <div className="flex justify-center flex-wrap gap-6">
                 <motion.i 
@@ -475,6 +476,24 @@ const About = () => {
                 />
               </div>
             </motion.div>
+            
+            {/* Miscellaneous skills */}
+            <motion.div 
+              className="group p-8 border-2 border-slate-600/30 rounded-2xl shadow-lg bg-slate-700/40 transition-all duration-500 hover:border-[#00ff00]/50 hover:shadow-[0_0_30px_rgba(0,255,0,0.2)] hover:bg-slate-700/60"
+              whileHover={{ scale: 1.03, y: -5 }}
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2 bg-gradient-to-r from-[#00ff00]/20 to-emerald-400/20 rounded-xl">
+                  <Code size={20} className="text-[#00ff00]" />
+                </div>
+                <h3 className="text-xl font-bold text-[#00ff00]">Miscellaneous</h3>
+              </div>
+              <div className="flex justify-center flex-wrap gap-6">
+                
+              </div>
+            </motion.div>
+
+
           </div>
         </motion.div>
       </motion.section>
