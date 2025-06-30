@@ -6,7 +6,6 @@
  * The NavBar component for my portfolio-website
 */
 
-// TODO: FINISH PAGE
 
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -21,7 +20,6 @@ const NavBar = () => {
     { to: "/about", label: "about" },
     { to: "/projects", label: "projects" },
     { to: "/contact", label: "contact" },
-    { to: "/me", label: "me" },
   ];
 
   // Render react router links

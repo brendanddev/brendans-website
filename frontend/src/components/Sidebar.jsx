@@ -9,7 +9,6 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-
 import { FaGithub, FaDiscord, FaLinkedin, FaStackOverflow, FaGitlab } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 import { CgMail } from "react-icons/cg";
@@ -32,7 +31,7 @@ const Sidebar = () => {
             dragTransition={{ bounceStiffness: 600, bounceDamping: 10 }}
             dragElastic={0.1}
             whileDrag={{ scale: 1.1 }}
-            className="fixed bottom-4 left-4 z-40 text-white bg-black/80 backdrop-blur-sm p-2 rounded-lg hover:bg-gray-800 transition duration-300 shadow-lg border border-gray-700 cursor-move"
+            className="fixed bottom-4 right-4 z-40 text-white bg-black/80 backdrop-blur-sm p-2 rounded-lg hover:bg-gray-800 transition duration-300 shadow-lg border border-gray-700 cursor-move"
         >
             {/* Toggle button */}
             <GiHamburgerMenu
