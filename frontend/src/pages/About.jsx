@@ -8,7 +8,7 @@
 
 import Sidebar from "../components/Sidebar/Sidebar";
 import { GraduationCap, FileText } from "lucide-react";
-import Header from "../components/Header";
+import Header from "../components/Header/Header";
 import { motion } from "framer-motion";
 
 const About = () => {

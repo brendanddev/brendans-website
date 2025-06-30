@@ -7,7 +7,7 @@
 */
 
 import { motion } from "framer-motion";
-import Header from "../components/Header";
+import Header from "../components/Header/Header";
 import Sidebar from "../components/Sidebar/Sidebar";
 import { projectData } from "../projectData";
 
