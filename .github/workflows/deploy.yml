@@ -1,4 +1,7 @@
 
+# Vercel deployment pipeline
+# Brendan Dileo, June 2025
+
 name: Vercel Deployment Workflow
 
 on:
