@@ -13,19 +13,23 @@ import NavLogo from "./NavLogo";
 import NavLinks from './NavLinks';
 
 const NavBar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
-
-  useEffect(() => setIsOpen(false), [location.pathname]);
-
-  useEffect(() => {
-    const handleEscape = (e) => {
-      if (e.key === "Escape" && isOpen) setIsOpen(false);
-    };
-
-    document.addEventListener("keydown", handleEscape);
-    return () => document.removeEventListener("keydown", handleEscape);
-  }, [isOpen]);
+    const [isOpen, setIsOpen] = useState(false);
+    const location = useLocation();
+    
+    // Closes navbar when a link is clicked
+    useEffect(() => setIsOpen(false), [location.pathname]);
+    
+    // Closes navbar when escape key is pressed
+    useEffect(() => {
+        const handleEscape = (e) => {
+            if (e.key === "Escape" && isOpen) setIsOpen(false);
+        };
+        
+        // Adds event listener to listen for escape key presses
+        // When escape key pressed, navbar closes
+        document.addEventListener("keydown", handleEscape);
+        return () => document.removeEventListener("keydown", handleEscape);
+    }, [isOpen]);
 
   return (
     <nav
@@ -35,8 +39,10 @@ const NavBar = () => {
     >
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between">
+          {/* Logo that brings back to home page */}
           <NavLogo />
           <ul className="hidden md:flex gap-5 text-lg">
+            {/* Renders the links in the navbar */}
             <NavLinks />
           </ul>
         </div>
