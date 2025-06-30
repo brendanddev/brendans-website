@@ -3,7 +3,7 @@
 // Serverless api route to receive messages and securely store in supabase
 // Brendan Dileo, June 2025
 
-import supabase from "./client.js";
+const supabase = require('./client.js');
 
 export default async function handler(req, res) {
 
