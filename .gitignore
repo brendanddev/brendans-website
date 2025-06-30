@@ -30,3 +30,6 @@ submissions.db
 *.njsproj
 *.sln
 *.sw?
+
+# Temporarily - Icon for website
+test.ico
