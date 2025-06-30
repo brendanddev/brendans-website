@@ -7,7 +7,7 @@
  * Each link points to a different page within the website.
  */
 
-export const navLinks = [
+export const navBarLinks = [
     { to: "/", label: "home" },
     { to: "/about", label: "about" },
     { to: "/projects", label: "projects" },
