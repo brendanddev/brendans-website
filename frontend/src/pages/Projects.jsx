@@ -8,7 +8,7 @@
 
 import { motion } from "framer-motion";
 import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../components/Sidebar/Sidebar";
 import { projectData } from "../projectData";
 
 import { FaFolder } from "react-icons/fa";

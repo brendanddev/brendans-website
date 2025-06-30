@@ -6,7 +6,7 @@
  * The About page for my portfolio-website
 */
 
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../components/Sidebar/Sidebar";
 import { GraduationCap, FileText } from "lucide-react";
 import Header from "../components/Header";
 import { motion } from "framer-motion";

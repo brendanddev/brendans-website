@@ -8,7 +8,7 @@
 
 import Terminal from '../components/Terminal';
 import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../components/Sidebar/Sidebar";
 
 const Home = () => {
     return (
