@@ -23,16 +23,13 @@ export default async function handler(req, res) {
             .from('messages')
             .insert([{ name, email, message: message }]);
         
+        // If supabase throws error, throw for catch block
         if (error) throw error;
 
         return res.status(200).json({ message: 'Message received successfully', data });
-
-
     } catch (error) {
         console.error('An error occurred!')
         return res.status(500).json({ error: error.message || 'Internal server error' })
 
     }
-
-
 }
