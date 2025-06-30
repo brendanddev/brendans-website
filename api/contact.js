@@ -11,7 +11,6 @@ export default async function handler(req, res) {
     if (req.method !== 'POST') 
         return res.status(405).json({ message: 'Method not allowed. Expected POST.' });
         
-
     const { name, email, message } = req.body;
 
     if (!name || !email || !message)
@@ -30,6 +29,5 @@ export default async function handler(req, res) {
     } catch (error) {
         console.error('An error occurred!')
         return res.status(500).json({ error: error.message || 'Internal server error' })
-
     }
 }
