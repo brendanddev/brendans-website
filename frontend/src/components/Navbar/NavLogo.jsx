@@ -3,7 +3,7 @@
  * @file NavLogo.jsx
  * @author Brendan Dileo, June 2025
  * 
- * 
+ * Renders the "logo" for the navbar which acts as a link to the home page.
  */
 
 import { motion } from 'framer-motion';
