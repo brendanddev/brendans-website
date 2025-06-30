@@ -7,12 +7,8 @@
  */
 
 import { motion } from "framer-motion";
+import { itemVariants } from "../../utils/variants";
 
-// Defines the animation variants for the social link items
-const itemVariants = {
-    hidden: { x: -20, opacity: 0 },
-    visible: { x: 0, opacity: 1 }
-};
 
 const SidebarSocialLink = ({ link, isMobile, activeTooltip, setActiveTooltip }) => (
     <motion.li

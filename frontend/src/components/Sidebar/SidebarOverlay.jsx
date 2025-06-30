@@ -7,13 +7,8 @@
  */
 
 import { motion, AnimatePresence } from "framer-motion";
+import { overlayVariants } from "../../utils/variants";
 
-// Overlay variants that define the animation states
-const overlayVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-    exit: { opacity: 0 }
-};
 
 const SidebarOverlay = ({ isMobile, isSidebarShown, onClick }) => (
     // Overlay that appears behind the sidebar on mobile devices

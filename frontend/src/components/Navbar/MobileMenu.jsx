@@ -9,7 +9,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import NavLinks from "./NavLinks";
-import { mobileMenuVariants } from "./variants";
+import { mobileMenuVariants } from "../../utils/variants";
 
 const MobileMenu = ({ isOpen, closeMenu }) => (
     // Mobile menu that appears when the hamburger icon is clicked
@@ -21,7 +21,8 @@ const MobileMenu = ({ isOpen, closeMenu }) => (
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                className="md:hidden border-t border-gray-700 bg-black mt-4"
+                className="md:hidden border-t border-gray-700 bg-black mt-4 overflow-hidden"
+                style={{ originY: 0 }}
             >
                 <ul className="py-4 space-y-2 font-mono text-lg">
                 <NavLinks isMobile={true} closeMenu={closeMenu} />
