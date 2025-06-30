@@ -6,47 +6,55 @@
  * Defines the different framer motion animation states used throughout the website.
  */
 
-// Item variantrs that define the animation states for each social link
+
+// Animation for individual list items
 const itemVariants = {
   hidden: { x: -20, opacity: 0 },
   visible: { x: 0, opacity: 1 }
 }
 
-// Overlay variants that define the animation states
+// Animation for backdrop overlays
 const overlayVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
     exit: { opacity: 0 }
 };
 
-export const mobileMenuVariants = {
-  hidden: {
+// Animation for the mobile navigation dropdown menu
+const mobileMenuVariants = {
+  hidden: { 
     opacity: 0,
-    scaleY: 0,
-    transformOrigin: "top",
-    pointerEvents: "none",
-    willChange: "opacity, transform",
-    transition: { type: "spring", stiffness: 200, damping: 22, duration: 0.22 }
+    height: 0,
+    scale: 0.95,
+    transition: {
+      when: "afterChildren",
+      staggerChildren: 0.05,
+      staggerDirection: -1,
+    }
   },
-  
-  visible: {
+  visible: { 
     opacity: 1,
-    scaleY: 1,
-    transformOrigin: "top",
-    pointerEvents: "auto",
-    willChange: "opacity, transform",
-    transition: { type: "spring", stiffness: 200, damping: 22 }
+    height: "auto",
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 20,
+      staggerChildren: 0.1,
+      when: "beforeChildren",
+    }
   },
-
   exit: {
     opacity: 0,
-    scaleY: 0,
-    transformOrigin: "top",
-    pointerEvents: "none",
-    willChange: "opacity, transform",
-    transition: { type: "spring", stiffness: 200, damping: 22, duration: 0.22 }
+    height: 0,
+    scale: 0.95,
+    transition: {
+      duration: 0.2,
+      when: "afterChildren",
+      staggerChildren: 0.05,
+      staggerDirection: -1,
+    }
   }
-
 };
 
 export { itemVariants, overlayVariants, mobileMenuVariants };

@@ -1,4 +1,3 @@
-
 /**
  * @file MobileMenu.jsx
  * @author Brendan Dileo, June 2025
@@ -25,7 +24,7 @@ const MobileMenu = ({ isOpen, closeMenu }) => (
                 style={{ originY: 0 }}
             >
                 <ul className="py-4 space-y-2 font-mono text-lg">
-                <NavLinks isMobile={true} closeMenu={closeMenu} />
+                    <NavLinks isMobile={true} closeMenu={closeMenu} />
                 </ul>
             </motion.div>
         )}
