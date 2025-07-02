@@ -6,14 +6,21 @@
  * The projects page for my portfolio-website
 */
 
-import { motion } from "framer-motion";
 import Header from "../components/Header/Header";
 import Sidebar from "../components/Sidebar/Sidebar";
-import { projectData } from "../projectData";
 
+import LoadingSpinner from '../components/Spinner/LoadingSpinner';
+import useLoading from '../hooks/useLoading';
+
+import { motion } from "framer-motion";
+import { projectData } from "../projectData";
 import { FaFolder } from "react-icons/fa";
 
 const Projects = () => {
+
+    const isLoading = useLoading(500);
+    if (isLoading) return <LoadingSpinner />;
+
     return (
         <div 
             className="relative w-full min-h-screen bg-slate-900 flex flex-col items-center p-4 text-white"

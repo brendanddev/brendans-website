@@ -6,12 +6,20 @@
  * The About page for my portfolio-website
 */
 
-import Sidebar from "../components/Sidebar/Sidebar";
-import { GraduationCap, FileText } from "lucide-react";
 import Header from "../components/Header/Header";
+import Sidebar from "../components/Sidebar/Sidebar";
+
+import { GraduationCap, FileText } from "lucide-react";
 import { motion } from "framer-motion";
 
+import LoadingSpinner from '../components/Spinner/LoadingSpinner';
+import useLoading from '../hooks/useLoading';
+
 const About = () => {
+
+  const isLoading = useLoading(500);
+  if (isLoading) return <LoadingSpinner />;
+
   return (
     <div className="relative w-full min-h-screen flex flex-col items-center bg-slate-900 text-white p-4">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
