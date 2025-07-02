@@ -6,7 +6,7 @@
  * The home page to my portfolio-website
 */
 
-import Terminal from '../components/Terminal';
+import Terminal from '../components/Terminal/Terminal';
 import Header from "../components/Header/Header";
 import Sidebar from "../components/Sidebar/Sidebar";
 
