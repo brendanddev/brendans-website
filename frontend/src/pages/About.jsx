@@ -8,6 +8,8 @@
 
 import Header from "../components/Header/Header";
 import Sidebar from "../components/Sidebar/Sidebar";
+import PageWrapper from "../components/common/PageWrapper";
+import Button from "../components/common/Button";
 
 import { GraduationCap, FileText } from "lucide-react";
 import { motion } from "framer-motion";
@@ -21,22 +23,21 @@ const About = () => {
   if (isLoading) return <LoadingSpinner />;
 
   return (
-    <div className="relative w-full min-h-screen flex flex-col items-center bg-slate-900 text-white p-4">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+    <PageWrapper>
       <div className="relative z-10 w-full max-w-5xl text-center">
         <Header 
             title="About Me" 
             subtitle="Who am I? Here's a bit about me."
         />
-        
-        <a
+        <Button
+          as="a"
           href="/about.txt"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block px-8 py-3 mt-6 mb-6 text-lg font-semibold text-slate-900 bg-green-400 rounded-lg shadow-[0_0_15px_rgba(50,205,50,0.5)] hover:bg-green-500 hover:shadow-[0_0_25px_rgba(50,205,50,0.7)] transition-all duration-300 transform hover:scale-105"
+          className="inline-block px-8 py-3 mt-6 mb-6 text-lg font-semibold"
         >
           Read My Story
-        </a>
+        </Button>
       <section className="w-full mb-12 px-4">
         <motion.div
           className="w-full max-w-4xl mx-auto p-4 md:p-8 border rounded-lg shadow-[0_0_20px_rgba(120,119,198,0.25)] bg-slate-900/80 backdrop-blur-sm border-slate-700"
@@ -151,17 +152,17 @@ const About = () => {
       </h2>
 
       <p className="text-lg mt-2 text-gray-300">Click below to download my resume.</p>
-      <a
+      <Button
+        as="a"
         href="/BrendanDileo_Resume.pdf"
         download="BrendanDileo_Resume.pdf"
-        className="mt-4 inline-block px-8 py-3 text-lg font-semibold text-slate-900 bg-green-400 rounded-lg shadow-[0_0_15px_rgba(50,205,50,0.5)] hover:bg-green-500 hover:shadow-[0_0_25px_rgba(50,205,50,0.7)] transition-all duration-300 transform hover:scale-105 active:scale-95"
+        className="mt-4 inline-block px-8 py-3 text-lg font-semibold"
       >
         Download Resume
-      </a>
+      </Button>
     </motion.div>
     </div>
-    <Sidebar />
-  </div>
+    </PageWrapper>
   );
 };
 

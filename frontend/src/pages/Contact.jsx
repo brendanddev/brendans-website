@@ -14,6 +14,7 @@ import LoadingSpinner from '../components/Spinner/LoadingSpinner';
 import useLoading from '../hooks/useLoading';
 
 import { motion } from "framer-motion"
+import PageWrapper from "../components/common/PageWrapper";
 
 
 const Contact = () => {
@@ -22,8 +23,7 @@ const Contact = () => {
     if (isLoading) return <LoadingSpinner />;
 
     return (
-        <div className="relative w-full min-h-screen bg-slate-900 flex flex-col items-center p-4 text-white">
-            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+        <PageWrapper>
             <div className='relative z-10 w-full'>
                 <Header 
                     title="Contact Brendan" 
@@ -42,7 +42,6 @@ const Contact = () => {
                 animate={{ opacity: 1, scale: 1 }} 
                 transition={{ duration: 0.5, ease: "easeOut" }}
             >
-        
                 <div className="h-8 bg-slate-800 flex items-center justify-center relative text-white text-sm font-bold">
                     <div className="absolute left-4 flex gap-2">
                         <div className="w-3 h-3 bg-red-500 rounded-full"></div>
@@ -53,8 +52,7 @@ const Contact = () => {
                 </div>
                 <ContactForm />
             </motion.div>
-            <Sidebar />
-        </div>
+        </PageWrapper>
     );
 };
 

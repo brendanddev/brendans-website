@@ -6,6 +6,8 @@
  * A reusable styled contact form, used to allow message submissons to be stored in a database
  */
 
+import Button from "../common/Button";
+
 const ContactForm = () => {
     return (
         <div className="flex-1 p-6 overflow-y-auto text-white">
@@ -47,12 +49,12 @@ const ContactForm = () => {
                 </div>
 
                 <div className="flex justify-center pt-2">
-                    <button
+                    <Button
                         type="submit"
                         className="bg-green-400 text-slate-900 font-bold px-6 py-2 rounded-lg hover:bg-green-500 transition-all duration-300 transform hover:scale-105 shadow-[0_0_15px_rgba(50,205,50,0.5)]"
                     >
                         submitForm
-                    </button>
+                    </Button>
                 </div>
             </form>
         </div>

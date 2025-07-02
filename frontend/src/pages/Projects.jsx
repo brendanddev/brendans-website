@@ -8,6 +8,8 @@
 
 import Header from "../components/Header/Header";
 import Sidebar from "../components/Sidebar/Sidebar";
+import PageWrapper from "../components/common/PageWrapper";
+import Button from "../components/common/Button";
 
 import LoadingSpinner from '../components/Spinner/LoadingSpinner';
 import useLoading from '../hooks/useLoading';
@@ -22,10 +24,7 @@ const Projects = () => {
     if (isLoading) return <LoadingSpinner />;
 
     return (
-        <div 
-            className="relative w-full min-h-screen bg-slate-900 flex flex-col items-center p-4 text-white"
-        >
-            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+        <PageWrapper>
             <motion.div 
                 initial={{ y: -20, opacity: 0 }} 
                 animate={{ y: 0, opacity: 1 }} 
@@ -34,16 +33,15 @@ const Projects = () => {
             >
                 <Header title="My Projects" subtitle="A collection of my work and passion projects." />
             </motion.div>
-
-            <a
+            <Button
+                as="a"
                 href="/projects.txt"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative z-10 inline-block px-8 py-3 mt-6 mb-6 text-lg font-semibold text-slate-900 bg-green-400 rounded-lg shadow-[0_0_15px_rgba(50,205,50,0.5)] hover:bg-green-500 hover:shadow-[0_0_25px_rgba(50,205,50,0.7)] transition-all duration-300 transform hover:scale-105"
+                className="relative z-10 inline-block px-8 py-3 mt-6 mb-6 text-lg font-semibold"
             >
                 Read About My Projects
-            </a>
-
+            </Button>
             <motion.div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-4 md:p-6 w-full max-w-7xl mx-auto">
                 {projectData.map((project, index) => (
                     <motion.div 
@@ -80,8 +78,7 @@ const Projects = () => {
                     </motion.div>
                 ))}
             </motion.div>
-            <Sidebar />
-        </div>
+        </PageWrapper>
     );
 };
 
