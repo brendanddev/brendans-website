@@ -7,7 +7,7 @@
  */
 
 import ProjectCard from "./ProjectCard";
-import projectData from "../../projectData";
+import projectData from "../../data/projectData";
 
 import { containerVariants, gridItemVariants } from "../../utils/variants";
 import { motion } from "framer-motion";
