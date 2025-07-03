@@ -25,12 +25,15 @@ const Projects = () => {
         <Header title="My Projects" subtitle="A collection of my work and passion projects." />
       </motion.div>
 
-      <Button
-        onClick={() => setModalOpen(true)}
-        className="relative z-10 inline-block px-8 py-3 mt-6 mb-6 text-lg font-semibold"
-      >
-        Read About My Projects
-      </Button>
+     <div className="flex justify-center">
+        <Button
+            onClick={() => setModalOpen(true)}
+            className="relative z-10 px-8 py-3 mt-6 mb-6 text-lg font-semibold"
+        >
+            Read About My Projects
+        </Button>
+    </div>
+
 
       <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
         <h2 className="text-2xl font-bold text-green-400 mb-4">Projects</h2>

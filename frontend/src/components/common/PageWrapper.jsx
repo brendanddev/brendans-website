@@ -6,13 +6,15 @@
  * A reusable wrapper component for the websites pages
  */
 
+
 import Sidebar from "../Sidebar/Sidebar";
 
 
 const PageWrapper = ({ children }) => (
   <div className="relative w-full min-h-screen bg-slate-900 text-white flex flex-col items-center p-4 overflow-hidden">
     
-    {/* main gradient */}
+    
+    {/* Main gradient background */}
     <div
       className="absolute top-0 left-0 w-full h-full"
       style={{
@@ -27,7 +29,7 @@ const PageWrapper = ({ children }) => (
       }}
     />
     
-    {/* Orb effect */}
+    {/* Floating orbs effect */}
     <div
       className="absolute top-0 left-0 w-full h-full overflow-hidden"
       style={{
@@ -36,38 +38,38 @@ const PageWrapper = ({ children }) => (
       }}
     >
       <div
-        className="absolute w-96 h-96 rounded-full opacity-20 animate-pulse"
+        className="absolute w-96 h-96 rounded-full opacity-20"
         style={{
           background: "radial-gradient(circle, rgba(99, 102, 241, 0.3), transparent)",
           top: "10%",
           left: "10%",
-          animation: "float1 20s ease-in-out infinite",
+          animation: "float 20s ease-in-out infinite",
         }}
       />
 
       <div
-        className="absolute w-64 h-64 rounded-full opacity-15 animate-pulse"
+        className="absolute w-64 h-64 rounded-full opacity-15"
         style={{
           background: "radial-gradient(circle, rgba(168, 85, 247, 0.2), transparent)",
           top: "60%",
           right: "15%",
-          animation: "float2 25s ease-in-out infinite",
+          animation: "float 25s ease-in-out infinite reverse",
         }}
       />
 
       <div
-        className="absolute w-80 h-80 rounded-full opacity-10 animate-pulse"
+        className="absolute w-80 h-80 rounded-full opacity-10"
         style={{
           background: "radial-gradient(circle, rgba(34, 197, 94, 0.15), transparent)",
           bottom: "20%",
           left: "20%",
-          animation: "float3 30s ease-in-out infinite",
+          animation: "float 30s ease-in-out infinite",
         }}
       />
 
     </div>
 
-    {/* Texture overlauy */}
+    {/* Texture overlay */}
     <div
       className="absolute top-0 left-0 w-full h-full opacity-5"
       style={{
@@ -77,33 +79,27 @@ const PageWrapper = ({ children }) => (
       }}
     />
 
-    {/* Actual content / */}
+    {/* Content container */}
     <div className="relative z-10 w-full max-w-7xl">
       {children}
     </div>
     
     <Sidebar />
     
-    {/* Inline styles for animation effects */}
-    <style dangerouslySetInnerHTML={{
-      __html: `
-        @keyframes float1 {
-          0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
-          33% { transform: translateY(-20px) translateX(10px) rotate(120deg); }
-          66% { transform: translateY(10px) translateX(-5px) rotate(240deg); }
+    {/* Inline css animations */}
+    <style jsx>{`
+      @keyframes float {
+        0%, 100% {
+          transform: translateY(0px) rotate(0deg);
         }
-        @keyframes float2 {
-          0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
-          33% { transform: translateY(15px) translateX(-15px) rotate(-120deg); }
-          66% { transform: translateY(-10px) translateX(10px) rotate(-240deg); }
+        33% {
+          transform: translateY(-20px) rotate(120deg);
         }
-        @keyframes float3 {
-          0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
-          33% { transform: translateY(-15px) translateX(-10px) rotate(90deg); }
-          66% { transform: translateY(20px) translateX(15px) rotate(180deg); }
+        66% {
+          transform: translateY(10px) rotate(240deg);
         }
-      `
-    }} />
+      }
+    `}</style>
   </div>
 );
 
