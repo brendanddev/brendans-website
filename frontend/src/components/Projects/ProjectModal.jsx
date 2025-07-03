@@ -1,4 +1,3 @@
-
 /**
  * @file ProjectModal.jsx
  * @author Brendan Dileo, July 2025
@@ -57,6 +56,24 @@ const ProjectModal = ({
                         className="relative w-full max-w-6xl max-h-[95vh] overflow-y-auto bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl border border-slate-600/50 shadow-2xl"
                         onClick={(e) => e.stopPropagation()}
                     >
+                        {/* Header for the modal */}
+                        <div className="sticky top-0 z-10 bg-slate-800/95 backdrop-blur-sm border-b border-slate-600/50 p-6 rounded-t-2xl">
+                            <div className="flex items-center justify-between">
+                                
+                                {/* Project title and status besdie it */}
+                                <div className="flex items-center gap-4">
+                                    <h2 className="text-3xl font-bold text-[#00ff00]">
+                                        {project.title}
+                                    </h2>
+                                    <div className="flex items-center gap-2">
+                                        <div className={`px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r ${status.color} text-white`}>
+                                            {status.name}
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
                     </motion.div>
                 </motion.div>
             )}
