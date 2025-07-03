@@ -37,7 +37,12 @@ const ProjectCard = ({ project, onClick = () => {}, index = 0, viewMode = "grid"
             </span>
           )}
         </div>
+
+        {/* Long desc */}
         <p className="mb-4 text-sm font-normal text-gray-400 flex-grow">{project.desc}</p>
+        {project.longDesc && (
+          <p className="mb-4 text-xs text-gray-300 italic">{project.longDesc}</p>
+        )}
         
         {/* Icons */}
         <div className="flex items-center space-x-4 mb-4 text-green-400">
