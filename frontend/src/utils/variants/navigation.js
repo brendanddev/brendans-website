@@ -6,7 +6,7 @@
  * Animation variants for the mobile menu, overlays and list items used by the nav bar
  */
 
-// Animation for individual lit items
+// Animation for individual list items
 export const itemVariants = {
   hidden: { x: -20, opacity: 0 },
   visible: { x: 0, opacity: 1 }
@@ -27,7 +27,6 @@ export const mobileMenuVariants = {
     opacity: 0,
     height: 0,
     scale: 0.95,
-    
     // Transition for when menu is hidden
     transition: {
       when: "afterChildren",
@@ -36,13 +35,11 @@ export const mobileMenuVariants = {
     }
 
   },
-
   // Menu is visible with spring animation
   visible: { 
     opacity: 1,
     height: "auto",
     scale: 1,
-
     // Transition for when menu is visible
     // Uses spring and staggered children for smoother entrance
     transition: {
