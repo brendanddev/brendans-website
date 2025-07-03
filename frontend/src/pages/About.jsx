@@ -9,14 +9,18 @@
 import Header from "../components/Header/Header";
 import PageWrapper from "../components/common/PageWrapper";
 import Button from "../components/common/Button";
+import Modal from "../components/common/Modal";
 
 import { GraduationCap, Download } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 import LoadingSpinner from '../components/Spinner/LoadingSpinner';
 import useLoading from '../hooks/useLoading';
 
 const About = () => {
+
+  const [modalOpen, setModalOpen] = useState(false); 
   
   const isLoading = useLoading(500);
   if (isLoading) return <LoadingSpinner />;
@@ -30,11 +34,10 @@ const About = () => {
         />
 
         <div className="flex flex-col sm:flex-row justify-center gap-8 mt-6 mb-6">
+          
+          {/* Triggers modal */}
           <Button
-            as="a"
-            href="/about.txt"
-            target="_blank"
-            rel="noopener noreferrer"
+            onClick={() => setModalOpen(true)}
             className="px-8 py-3 text-lg font-semibold"
           >
             Read My Story
@@ -51,6 +54,14 @@ const About = () => {
           </Button>
 
         </div>
+
+        {/* Modal rendering */}
+        <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
+          <h2 className="text-2xl font-bold text-green-400 mb-4">My Story</h2>
+          <p className="text-gray-300">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </p>
+        </Modal>
 
         {/* Education Section */}
         <section className="w-full mb-12 px-4">
