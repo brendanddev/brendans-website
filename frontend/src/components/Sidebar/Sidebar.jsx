@@ -11,7 +11,7 @@ import SidebarToggleButton from "./SidebarToggleButton";
 import SidebarOverlay from "./SidebarOverlay";
 import SidebarContent from "./SidebarContent";
 import { socialLinks } from "./socialLinks";
-import useIsMobile from "./useIsMobile";
+import useIsMobile from "../../hooks/useIsMobile";
 
 const Sidebar = () => {
     const [isSidebarShown, setIsSidebarShown] = useState(false);
