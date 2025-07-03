@@ -10,9 +10,10 @@ import { motion } from "framer-motion";
 import { FaFolder } from "react-icons/fa";
 
 import { cardVariants } from "../../utils/variants";
+import { projectStatus } from "../../data/projectMeta";
 
-const ProjectCard = ({ project }) => {
-
+const ProjectCard = ({ project, onClick = () => {}, index = 0, viewMode = "grid", isInView = true }) => {
+  const status = projectStatus[project.status];
 
   return (
     <motion.div 
@@ -24,11 +25,18 @@ const ProjectCard = ({ project }) => {
         willChange: "transform",
         transform: "translate3d(0, 0, 0)"
       }}
+      onClick={() => onClick(project)}
     >
-
       {/* Card content */}
       <div className="p-6 flex flex-col h-full">
-        <h5 className="mb-2 text-2xl font-bold tracking-tight text-green-400">{project.title}</h5>
+        <div className="flex items-center justify-between mb-2">
+          <h5 className="text-2xl font-bold tracking-tight text-green-400">{project.title}</h5>
+          {status && (
+            <span className={`px-2 py-1 rounded-full text-xs font-medium bg-gradient-to-r ${status.color} text-white ml-2`}>
+              {status.name}
+            </span>
+          )}
+        </div>
         <p className="mb-4 text-sm font-normal text-gray-400 flex-grow">{project.desc}</p>
         
         {/* Icons */}
