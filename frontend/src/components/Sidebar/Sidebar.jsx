@@ -10,7 +10,7 @@ import { useState, useEffect, useRef } from "react";
 import SidebarToggleButton from "./SidebarToggleButton";
 import SidebarOverlay from "./SidebarOverlay";
 import SidebarContent from "./SidebarContent";
-import { socialLinks } from "./socialLinks";
+import { socialLinks } from '../../data/socialLinks';
 import useIsMobile from "../../hooks/useIsMobile";
 
 const Sidebar = () => {
