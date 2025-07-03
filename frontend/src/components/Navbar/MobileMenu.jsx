@@ -1,3 +1,4 @@
+
 /**
  * @file MobileMenu.jsx
  * @author Brendan Dileo, June 2025
@@ -8,7 +9,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import NavLinks from "./NavLinks";
-import { mobileMenuVariants } from "../../utils/variants";
+import { mobileMenuVariants } from "../../utils/variants/navigation.js";
 
 const MobileMenu = ({ isOpen, closeMenu }) => (
     // Mobile menu that appears when the hamburger icon is clicked

@@ -7,7 +7,7 @@
  */
 
 import { motion } from "framer-motion";
-import { itemVariants } from "../../utils/variants";
+import { itemVariants } from "../../utils/variants/navigation.js";
 
 
 const SidebarSocialLink = ({ link, isMobile, activeTooltip, setActiveTooltip }) => (

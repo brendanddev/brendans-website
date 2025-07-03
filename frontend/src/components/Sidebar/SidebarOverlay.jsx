@@ -7,7 +7,7 @@
  */
 
 import { motion, AnimatePresence } from "framer-motion";
-import { overlayVariants } from "../../utils/variants";
+import { overlayVariants } from "../../utils/variants/navigation.js";
 
 
 const SidebarOverlay = ({ isMobile, isSidebarShown, onClick }) => (
