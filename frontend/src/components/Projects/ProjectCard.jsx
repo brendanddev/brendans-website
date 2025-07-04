@@ -7,90 +7,175 @@
  */
 
 import { motion } from "framer-motion";
-import { FaFolder } from "react-icons/fa";
-
-import { cardVariants } from "../../utils/variants";
+import { FaEye, FaGithub, FaCode } from "react-icons/fa";
 import { projectStatus } from "../../data/projectMeta";
+import { 
+    hoverVariants, 
+    contentVariants, 
+    techContainerVariants, 
+    techItemVariants 
+} from "../../utils/variants/projects.js";
 
-const ProjectCard = ({ project, onClick = () => {}, index = 0, viewMode = "grid", isInView = true }) => {
-  const status = projectStatus[project.status];
+const ProjectCard = ({ 
+    project, 
+    onClick
+}) => {
+    const status = projectStatus[project.status];
 
-  return (
-    <motion.div 
-      variants={cardVariants}
-      initial="initial"
-      whileHover="hover"
-      className="w-full min-h-[250px] bg-slate-900/80 backdrop-blur-sm border border-slate-700 rounded-lg shadow-[0_0_20px_rgba(120,119,198,0.25)] transition-all duration-300 hover:border-green-400"
-      style={{
-        willChange: "transform",
-        transform: "translate3d(0, 0, 0)"
-      }}
-      onClick={() => onClick(project)}
-    >
-      {/* Card content */}
-      <div className="p-6 flex flex-col h-full">
-        <div className="flex items-center justify-between mb-2">
-          <h5 className="text-2xl font-bold tracking-tight text-green-400">{project.title}</h5>
-          {status && (
-            <span className={`px-2 py-1 rounded-full text-xs font-medium bg-gradient-to-r ${status.color} text-white ml-2`}>
-              {status.name}
-            </span>
-          )}
-        </div>
-
-        {/* Long desc */}
-        <p className="mb-4 text-sm font-normal text-gray-400 flex-grow">{project.desc}</p>
-        {project.longDesc && (
-          <p className="mb-4 text-xs text-gray-300 italic">{project.longDesc}</p>
-        )}
-        
-        {/* Icons */}
-        <div className="flex items-center space-x-4 mb-4 text-green-400">
-          
-          {project.icons.map((icon, i) => (
-            <div 
-              key={i} 
-              className="hover:text-green-300 transition-colors duration-200"
-              style={{ willChange: "color" }}
+    // Grid view mode, uses vertical layout for better aesthetics
+    return (
+        <motion.div
+            whileHover="hover"
+            variants={hoverVariants}
+            className="
+                group relative cursor-pointer
+                bg-gradient-to-br from-slate-800/90 to-slate-900/90 
+                backdrop-blur-sm border border-slate-600/50 
+                rounded-2xl shadow-[0_0_25px_rgba(120,119,198,0.15)] 
+                overflow-hidden hover:shadow-[0_0_40px_rgba(0,255,0,0.2)]
+                transition-all duration-500
+            "
+            onClick={() => onClick(project)}
+        >            
+            
+            {/* Main content container */}
+            <motion.div 
+                variants={contentVariants}
+                initial="hidden"
+                animate="visible"
+                className="relative p-6 lg:p-8 flex flex-col h-full"
             >
-              <i className={`${icon} text-3xl`} />
-            </div>
-          ))}
+                {/* Header  */}
+                <div className="flex items-start justify-between mb-4">
+                    <div className="flex-1">
+                        {/* Project title */}
+                        <h3 className="text-2xl lg:text-3xl font-bold tracking-tight text-[#00ff00] group-hover:text-emerald-300 transition-colors duration-300 mb-2">
+                            {project.title}
+                        </h3>
+                        
+                        {/* Status and metadata badges */}
+                        <div className="flex items-center gap-2 flex-wrap">
 
-          {project.extraIcon && (
-            <div 
-              className="hover:text-green-300 transition-colors duration-200"
-              style={{ willChange: "color" }}
-            >
-              {project.extraIcon}
-            </div>
-          )}
-        </div>
-        
-        {/* Link to project */}
-        <motion.a 
-          target="_blank"
-          rel="noopener noreferrer"
-          href={project.link}
-          className="mt-auto inline-flex items-center justify-center bg-green-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-600 transition-colors w-full"
-          whileHover={{ 
-            scale: 1.02,
-            transition: { duration: 0.15 }
-          }}
-          whileTap={{ 
-            scale: 0.98,
-            transition: { duration: 0.1 }
-          }}
-          style={{
-            willChange: "transform",
-            transform: "translate3d(0, 0, 0)"
-          }}
-        >
-          <FaFolder className="mr-2" /> View Project
-        </motion.a>
-      </div>
-    </motion.div>
-  );
+                            <div className={`px-2 py-1 rounded-full text-xs font-medium bg-gradient-to-r ${status.color} text-white`}>
+                                {status.name}
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    {/* View icon indicator */}
+                    <FaEye className="text-gray-400 group-hover:text-[#00ff00] transition-colors duration-300 mt-1" />
+                </div>
+                
+                {/* Project description */}
+                <p className="mb-6 text-sm lg:text-base font-normal text-gray-300 leading-relaxed flex-grow">
+                    {project.desc}
+                </p>
+                
+                {/* Technologies section */}
+                <div className="mb-6">
+                    <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3 flex items-center gap-2">
+                        <FaCode size={12} />
+                        Technologies
+                    </h4>
+                    
+                    {/* Technology icons container with staggered animations */}
+                    <motion.div 
+                        variants={techContainerVariants}
+                        initial="hidden"
+                        animate="visible"
+                        className="flex items-center flex-wrap gap-3"
+                    >
+                        {/* Map through technology icons */}
+                        {project.icons.map((icon, i) => (
+                            <motion.div 
+                                key={i}
+                                variants={techItemVariants}
+                                whileHover="hover"
+                                className="
+                                    p-2 rounded-lg bg-slate-700/50 
+                                    text-[#00ff00] hover:text-emerald-300 
+                                    transition-all duration-300
+                                    group-hover:bg-slate-600/50
+                                    shadow-lg hover:shadow-xl
+                                "
+                                title={`Technology ${i + 1}`}
+                            >
+                                <i className={`${icon} text-2xl`}></i>
+                            </motion.div>                                
+                        ))}
+                        
+                        {/* Extra icon if any */}
+                        {project.extraIcon && (
+                            <motion.div 
+                                variants={techItemVariants}
+                                whileHover="hover"
+                                className="
+                                    p-2 rounded-lg bg-slate-700/50 
+                                    text-[#00ff00] hover:text-emerald-300 
+                                    transition-all duration-300
+                                    group-hover:bg-slate-600/50
+                                    shadow-lg hover:shadow-xl
+                                "
+                            >
+                                {project.extraIcon}
+                            </motion.div>
+                        )}
+                    </motion.div>
+                </div>
+
+                
+                
+                {/* Action buttons section */}
+                <div className="flex gap-3 mt-auto">
+                    {/* View Details button with gradient and hover effects */}
+                    <motion.button 
+                        onClick={(e) => {
+                            e.stopPropagation(); // Prevent card click event
+                            onClick(project);
+                        }}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="
+                            flex-1 group/btn
+                            inline-flex items-center justify-center 
+                            bg-gradient-to-r from-[#00ff00] to-emerald-500
+                            text-slate-900 font-bold py-3 px-4 
+                            rounded-xl hover:from-emerald-400 hover:to-[#00ff00]
+                            transition-all duration-300
+                            shadow-[0_0_15px_rgba(0,255,0,0.3)] 
+                            hover:shadow-[0_0_25px_rgba(0,255,0,0.5)]
+                            focus:outline-none focus:ring-2 focus:ring-[#00ff00]/50 focus:ring-offset-2 focus:ring-offset-slate-800
+                        "
+                    >
+                        <FaEye className="mr-2 group-hover/btn:scale-110 transition-transform duration-300" />
+                        View Details
+                    </motion.button>
+                    
+                    {/* GitHub link button */}
+                    <motion.a 
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()} // Prevent card click event
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="
+                            group/link
+                            inline-flex items-center justify-center 
+                            bg-slate-700/50 hover:bg-slate-600/50
+                            text-white font-bold py-3 px-4 
+                            rounded-xl border border-slate-600/50
+                            transition-all duration-300
+                            focus:outline-none focus:ring-2 focus:ring-[#00ff00]/50 focus:ring-offset-2 focus:ring-offset-slate-800
+                        "
+                    >
+                        <FaGithub className="group-hover/link:scale-110 transition-transform duration-300" />
+                    </motion.a>
+                </div>
+            </motion.div>
+        </motion.div>
+    );
 };
 
 export default ProjectCard;
