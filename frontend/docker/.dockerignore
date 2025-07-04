@@ -1,0 +1,15 @@
+
+# Docker ignore configuration
+
+# Docker related files
+Dockerfile
+.dockerignore
+
+# Dependencies
+node_modules
+
+# Build related files
+dist
+
+# Advanced routing config
+nginx.conf
