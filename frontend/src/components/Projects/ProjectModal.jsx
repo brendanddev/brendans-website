@@ -7,7 +7,7 @@
  */
 
 import { motion, AnimatePresence } from "framer-motion";
-import { FaPlay, FaPause } from "react-icons/fa";
+import { FaPlay, FaPause, FaCode, FaGithub, FaArrowRight } from "react-icons/fa";
 import { X } from "lucide-react";
 import { projectStatus } from "../../data/projectMeta";
 import projectData from "../../data/projectData";
@@ -87,6 +87,58 @@ const ProjectModal = ({
                                 </div>
                             </div>
                         </div>
+
+                        {/* Modal content area */}
+                        <motion.div 
+                            variants={contentVariants}
+                            className="p-6"
+                        >
+                            {/* Overlay content area container, defines the grid layout */}
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+                                {/* Left side of overlay */}
+                                <div className="space-y-6">
+                                    {/* About section with short or long desc */}
+                                    <div>
+                                        <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+                                            <FaCode size={20} />
+                                            About This Project
+                                        </h3>
+                                        <p className="text-gray-300 leading-relaxed">
+                                            {project.longDesc || project.desc}
+                                        </p>
+                                    </div>
+                                    
+                                    {/* What technologies were used when building the project */}
+                                    <div>
+                                        <h4 className="text-lg font-semibold text-white mb-4">Technologies Used</h4>
+                                        <div className="flex flex-wrap gap-3">
+                                            {project.icons.map((icon, i) => (
+                                                <motion.div 
+                                                    key={i}
+                                                    custom={i}
+                                                    variants={techVariants}
+                                                    whileHover="hover"
+                                                    className="p-3 bg-slate-700/50 rounded-xl text-[#00ff00] hover:bg-slate-600/50 transition-colors"
+                                                >
+                                                    <i className={`${icon} text-2xl`}></i>
+                                                </motion.div>
+                                            ))}
+                                            {project.extraIcon && (
+                                                <motion.div 
+                                                    custom={project.icons.length}
+                                                    variants={techVariants}
+                                                    whileHover="hover"
+                                                    className="p-3 bg-slate-700/50 rounded-xl text-[#00ff00] hover:bg-slate-600/50 transition-colors"
+                                                >
+                                                    {project.extraIcon}
+                                                </motion.div>
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
                     </motion.div>
                 </motion.div>
             )}
