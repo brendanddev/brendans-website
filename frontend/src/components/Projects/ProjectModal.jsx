@@ -238,10 +238,32 @@ const ProjectModal = ({
                                     </div>
 
 
-
-
+                                    {/* Related Projects */}
+                                    <div className="bg-slate-700/30 rounded-xl p-6 border border-slate-600/30">
+                                        <h4 className="text-lg font-semibold text-white mb-4">Related Projects</h4>
+                                        <div className="space-y-2">
+                                            {projectData
+                                                .filter(p => p.title !== project.title)
+                                                .slice(0, 3)
+                                                .map((relatedProject) => (
+                                                    <div 
+                                                        key={relatedProject.title}
+                                                        className="flex items-center justify-between p-3 bg-slate-600/30 rounded-lg hover:bg-slate-600/50 transition-colors cursor-pointer"
+                                                        onClick={() => {
+                                                            console.log("Navigate to:", relatedProject.title);
+                                                            // You could pass a callback here to load the selected project
+                                                        }}
+                                                    >
+                                                        <div>
+                                                            <div className="font-medium text-white">{relatedProject.title}</div>
+                                                            <div className="text-sm text-gray-400">{relatedProject.desc?.substring(0, 50)}...</div>
+                                                        </div>
+                                                        <FaArrowRight size={16} className="text-gray-400" />
+                                                    </div>
+                                                ))}
+                                        </div>
+                                    </div>
                                 </div>
-                                
                             </div>
                         </motion.div>
                     </motion.div>
