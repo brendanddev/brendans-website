@@ -6,30 +6,62 @@
  * Project modal header component with title, status, and controls
  */
 
-import { FaPlay, FaPause } from "react-icons/fa";
+import { FaPlay, FaPause, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { X } from "lucide-react";
+import { motion } from "framer-motion";
 import { projectStatus } from "../../../data/projectMeta";
+import projectData from "../../../data/projectData";
 
 const ProjectHeader = ({ 
     project, 
     isAutoPlaying, 
     onToggleAutoPlay, 
-    onClose 
+    onClose,
+    onNext,
+    onPrev,
+    currentIndex
 }) => {
     const status = projectStatus[project.status];
+    const isFirstProject = currentIndex === 0;
+    const isLastProject = currentIndex === projectData.length - 1;
 
     return (
         <div className="sticky top-0 z-10 bg-slate-800/95 backdrop-blur-sm border-b border-slate-600/50 p-6 rounded-t-2xl">
             <div className="flex items-center justify-between">
                 
+                {/* Navigation arrows */}
+                <div className="flex items-center gap-2">
+                    <motion.button
+                        onClick={onPrev}
+                        disabled={isFirstProject}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className={`
+                            p-2 rounded-lg transition-all duration-300
+                            ${isFirstProject 
+                                ? 'text-gray-500 cursor-not-allowed' 
+                                : 'text-gray-300 hover:text-[#00ff00] hover:bg-slate-700'
+                            }
+                        `}
+                        title="Previous Project"
+                    >
+                        <FaChevronLeft size={16} />
+                    </motion.button>
+                </div>
+
                 {/* Project title and status */}
-                <div className="flex items-center gap-4">
-                    <h2 className="text-3xl font-bold text-[#00ff00]">
-                        {project.title}
-                    </h2>
-                    <div className="flex items-center gap-2">
-                        <div className={`px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r ${status.color} text-white`}>
-                            {status.name}
+                <div className="flex items-center gap-4 flex-1 justify-center">
+                    <div className="text-center">
+                        <h2 className="text-3xl font-bold text-[#00ff00]">
+                            {project.title}
+                        </h2>
+                        <div className="flex items-center justify-center gap-2 mt-1">
+                            <div className={`px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r ${status.color} text-white`}>
+                                {status.name}
+                            </div>
+                            <div className="text-xs text-gray-400">
+                                {currentIndex + 1} of {projectData.length}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -53,6 +85,24 @@ const ProjectHeader = ({
                     >
                         <X size={24} />
                     </button>
+
+                    {/* Navigation arrows */}
+                    <motion.button
+                        onClick={onNext}
+                        disabled={isLastProject}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className={`
+                            p-2 rounded-lg transition-all duration-300
+                            ${isLastProject 
+                                ? 'text-gray-500 cursor-not-allowed' 
+                                : 'text-gray-300 hover:text-[#00ff00] hover:bg-slate-700'
+                            }
+                        `}
+                        title="Next Project"
+                    >
+                        <FaChevronRight size={16} />
+                    </motion.button>
                 </div>
             </div>
         </div>
