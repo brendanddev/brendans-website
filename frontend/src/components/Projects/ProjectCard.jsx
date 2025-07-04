@@ -7,7 +7,7 @@
  */
 
 import { motion } from "framer-motion";
-import { FaEye, FaGithub, FaCode } from "react-icons/fa";
+import { FaEye, FaGithub, FaStar, FaCode } from "react-icons/fa";
 import { projectStatus } from "../../data/projectMeta";
 import { 
     hoverVariants, 
@@ -124,7 +124,35 @@ const ProjectCard = ({
                     </motion.div>
                 </div>
 
-                
+                {/* Features section */}
+                {project.features && (
+                    <div className="mb-6">
+                        <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
+                            Key Features
+                        </h4>
+                        
+                        {/* Feature tags with overflow handling */}
+                        <div className="flex flex-wrap gap-1">
+                            
+                            {/* Display first 2 features */}
+                            {project.features.slice(0, 2).map((feature, i) => (
+                                <span 
+                                    key={i}
+                                    className="text-xs bg-slate-700/30 text-gray-300 px-2 py-1 rounded-full"
+                                >
+                                    {feature}
+                                </span>
+                            ))}
+                            
+                            {/* Shows count of remaining features if more than 2 */}
+                            {project.features.length > 2 && (
+                                <span className="text-xs bg-slate-700/30 text-gray-300 px-2 py-1 rounded-full">
+                                    +{project.features.length - 3} more
+                                </span>
+                            )}
+                        </div>
+                    </div>
+                )}
                 
                 {/* Action buttons section */}
                 <div className="flex gap-3 mt-auto">
