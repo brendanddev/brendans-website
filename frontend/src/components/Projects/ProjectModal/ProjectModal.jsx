@@ -9,6 +9,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
 import { modalVariants, contentVariants } from "../../../utils/variants/projects";
+import { useEffect } from "react";
 
 // Import modular components
 import ProjectHeader from "./ProjectHeader";
@@ -27,9 +28,14 @@ const ProjectModal = ({
     onClose,
     isAutoPlaying = false,
     onToggleAutoPlay,
-    onProjectSelect
+    onProjectSelect,
+    onNext,
+    onPrev,
+    currentIndex
 }) => {
     if (!project) return null;
+
+    
 
     return (
         <AnimatePresence>
@@ -61,6 +67,9 @@ const ProjectModal = ({
                             isAutoPlaying={isAutoPlaying}
                             onToggleAutoPlay={onToggleAutoPlay}
                             onClose={onClose}
+                            onNext={onNext}
+                            onPrev={onPrev}
+                            currentIndex={currentIndex}
                         />
 
                         {/* Modal Content */}
