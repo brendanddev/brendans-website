@@ -25,7 +25,13 @@ export const projectData = [
             "CRUD operations for user data"
         ],
         extraIcon: <Database size={28} />,
-        link: "https://github.com/brendanddev/Full-Stack-Mock-User-Management-System"
+        link: "https://github.com/brendanddev/Full-Stack-Mock-User-Management-System",
+        techBreakdown: [
+            { name: "PHP", value: 45, color: "#777BB4" },
+            { name: "JavaScript", value: 25, color: "#F7DF1E" },
+            { name: "HTML/CSS", value: 15, color: "#E34F26" },
+            { name: "MySQL", value: 15, color: "#4479A1" }
+        ]
     },
     {
         title: "Black Ops 3 Mod Menu",
@@ -43,8 +49,11 @@ export const projectData = [
             <PiTerminalWindowDuotone size={30} />,
             <MdOutlineGamepad size={28} />
         ],
-        
-        link: "https://github.com/brendanddev/Black-Ops-3-GSC-Mod-Menu"
+        link: "https://github.com/brendanddev/Black-Ops-3-GSC-Mod-Menu",
+        techBreakdown: [
+            { name: "GSC", value: 90, color: "#00ff00" },
+            { name: "C", value: 10, color: "#00599C" }
+        ]
     },
     {
         title: "Tadpole Mania",
@@ -58,7 +67,11 @@ export const projectData = [
             "Collision detection",
             "Parallax scrolling backgrounds"
         ],
-        link: "https://github.com/brendanddev/Tadpole-Mania-Unity-Game"
+        link: "https://github.com/brendanddev/Tadpole-Mania-Unity-Game",
+        techBreakdown: [
+            { name: "C#", value: 90, color: "#178600" },
+            { name: "Godot", value: 10, color: "#478CBF" }
+        ]
     },
     {
         title: "Black Ops 1 Camo Pack",
@@ -73,7 +86,12 @@ export const projectData = [
             "Visual enhancements for Black Ops 1"
         ],
         extraIcon: <FaPaintBrush size={28}/>,
-        link: "https://github.com/brendanddev/Black-Ops-1-Camo-Pack"
+        link: "https://github.com/brendanddev/Black-Ops-1-Camo-Pack",
+        techBreakdown: [
+            { name: "Photoshop", value: 60, color: "#31A8FF" },
+            { name: "GIMP", value: 25, color: "#5C5543" },
+            { name: "Asset Tools", value: 15, color: "#FF6B35" }
+        ]
     },
     {
         title: "FAQ Discord Chat Bot",
@@ -91,7 +109,12 @@ export const projectData = [
             <PiFilePyThin size={28} />,
             <FaRobot size={28} />
         ],
-        link: "https://github.com/brendanddev/FAQ-Bot"
+        link: "https://github.com/brendanddev/FAQ-Bot",
+        techBreakdown: [
+            { name: "Python", value: 80, color: "#3776AB" },
+            { name: "Discord API", value: 15, color: "#5865F2" },
+            { name: "Fuzzy Logic", value: 5, color: "#FFD700" }
+        ]
     },
     {
         title: "Minecraft Sword Mod",
@@ -106,7 +129,12 @@ export const projectData = [
             "JSON asset configuration"
         ],
         extraIcon: <Boxes size={28} />,
-        link: "_blank"
+        link: "_blank",
+        techBreakdown: [
+            { name: "Java", value: 70, color: "#ED8B00" },
+            { name: "Forge API", value: 20, color: "#E04E14" },
+            { name: "JSON", value: 10, color: "#000000" }
+        ]
     }
 ];
 
