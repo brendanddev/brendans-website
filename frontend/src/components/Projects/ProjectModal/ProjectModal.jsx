@@ -11,7 +11,6 @@ import { FaGithub } from "react-icons/fa";
 import { modalVariants, contentVariants } from "../../../utils/variants/projects";
 import { useEffect } from "react";
 
-// Import modular components
 import ProjectHeader from "./ProjectHeader";
 import ProjectAbout from "./ProjectAbout";
 import ProjectTechnologies from "./ProjectTechnologies";
@@ -35,7 +34,32 @@ const ProjectModal = ({
 }) => {
     if (!project) return null;
 
-    
+    // Keyboard navigation
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+            if (!isOpen) return;
+            
+            switch (event.key) {
+                case 'ArrowLeft':
+                    event.preventDefault();
+                    if (onPrev) onPrev();
+                    break;
+                case 'ArrowRight':
+                    event.preventDefault();
+                    if (onNext) onNext();
+                    break;
+                case 'Escape':
+                    event.preventDefault();
+                    if (onClose) onClose();
+                    break;
+                default:
+                    break;
+            }
+        };
+
+        document.addEventListener('keydown', handleKeyDown);
+        return () => document.removeEventListener('keydown', handleKeyDown);
+    }, [isOpen, onNext, onPrev, onClose]);
 
     return (
         <AnimatePresence>
