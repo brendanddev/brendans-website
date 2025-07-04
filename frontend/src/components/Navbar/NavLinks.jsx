@@ -8,7 +8,7 @@
 
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { navBarLinks } from './navBarLinks';
+import { navBarLinks } from '../../data/navBarLinks';
 
 const linkVariants = {
     hidden: { opacity: 0, x: -20 },
