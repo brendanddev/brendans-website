@@ -186,10 +186,9 @@ const ProjectModal = ({
                                 {/* Right side of overlay */}
                                 <div className="space-y-6">
 
-                                    
+
                                     {/* Project Preview */}
                                     <div className="relative">
-
                                         <div className="bg-slate-700/50 rounded-xl p-8 h-64 flex items-center justify-center border border-slate-600/30">
                                             <div className="text-center">
                                                 <div className="w-24 h-24 bg-gradient-to-br from-[#00ff00]/20 to-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -199,8 +198,47 @@ const ProjectModal = ({
                                                 <p className="text-gray-500 text-sm mt-1">Interactive showcase coming soon</p>
                                             </div>
                                         </div>
-
                                     </div>
+
+                                    {/* Project Stats */}
+                                    <div className="bg-slate-700/30 rounded-xl p-6 border border-slate-600/30">
+                                        
+                                        <h4 className="text-lg font-semibold text-white mb-4">Project Statistics</h4>
+                                        {/* Organizes the stats in a grid layout */}
+                                        <div className="grid grid-cols-2 gap-4">
+                                            <div className="text-center">
+                                                {/* Displays the number of technologies used in the project */}
+                                                <div className="text-2xl font-bold text-[#00ff00]">
+                                                    {project.icons?.length || 0}
+                                                </div>
+                                                <div className="text-sm text-gray-400">Technologies</div>
+                                            </div>
+                                            <div className="text-center">
+                                                {/* Displays the number of features in the project */}
+                                                <div className="text-2xl font-bold text-[#00ff00]">
+                                                    {project.features?.length || 0}
+                                                </div>
+                                                <div className="text-sm text-gray-400">Features</div>
+                                            </div>
+                                            <div className="text-center">
+                                                {/* Displays the number of github stars the project repo has gotten */}
+                                                <div className="text-2xl font-bold text-[#00ff00]">
+                                                    {project.githubStars || 0}
+                                                </div>
+                                                <div className="text-sm text-gray-400">GitHub Stars</div>
+                                            </div>
+                                            <div className="text-center">
+                                                {/* Displays the current status of the project */}
+                                                <div className="text-2xl font-bold text-[#00ff00]">
+                                                    {status.name}
+                                                </div>
+                                                <div className="text-sm text-gray-400">Status</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
 
                                 </div>
                                 
