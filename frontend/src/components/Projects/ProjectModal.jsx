@@ -7,7 +7,7 @@
  */
 
 import { motion, AnimatePresence } from "framer-motion";
-import { FaPlay, FaPause, FaCode, FaGithub, FaArrowRight } from "react-icons/fa";
+import { FaPlay, FaPause, FaCode, FaGithub, FaArrowRight, FaCheckCircle } from "react-icons/fa";
 import { X } from "lucide-react";
 import { projectStatus } from "../../data/projectMeta";
 import projectData from "../../data/projectData";
@@ -135,6 +135,51 @@ const ProjectModal = ({
                                                 </motion.div>
                                             )}
                                         </div>
+                                    </div>
+
+                                    {/* Features */}
+                                    {project.features && (
+                                        <div>
+                                            <h4 className="text-lg font-semibold text-white mb-4">Key Features</h4>
+                                            <div className="space-y-2">
+                                                
+                                                {/* Maps thrrough each feature per project and renders it */}
+                                                {project.features.map((feature, i) => (
+                                                    <motion.div 
+                                                        key={i}
+                                                        custom={i}
+                                                        variants={featureVariants}
+                                                        className="flex items-center gap-3 text-gray-300"
+                                                    >
+                                                        <FaCheckCircle className="text-[#00ff00] flex-shrink-0" size={16} />
+                                                        <span>{feature}</span>
+                                                    </motion.div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {/* Action Buttons */}
+                                    <div className="flex gap-4 pt-4">
+                                        <motion.a
+                                            href={project.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            whileHover={{ scale: 1.05 }}
+                                            whileTap={{ scale: 0.95 }}
+                                            className="
+                                                flex items-center gap-2 px-6 py-3
+                                                bg-gradient-to-r from-[#00ff00] to-emerald-500
+                                                text-slate-900 font-bold rounded-xl
+                                                hover:from-emerald-400 hover:to-[#00ff00]
+                                                transition-all duration-300
+                                                shadow-lg hover:shadow-xl
+                                            "
+                                        >
+                                            <FaGithub />
+                                            View on GitHub
+                                        </motion.a>
+                                        
                                     </div>
                                 </div>
                             </div>
