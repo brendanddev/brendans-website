@@ -122,6 +122,9 @@ const ProjectsGrid = () => {
         isAutoPlaying={isAutoPlaying}
         onToggleAutoPlay={handleToggleAutoPlay}
         onProjectSelect={handleProjectSelect}
+        onNext={handleNext}
+        onPrev={handlePrev}
+        currentIndex={currentIndex}
       />
     </>
   );
