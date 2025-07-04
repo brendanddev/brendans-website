@@ -37,6 +37,13 @@ const ProjectsGrid = () => {
     setIsAutoPlaying(false);
   };
 
+  // Project selection handler for related projects
+  const handleProjectSelect = (project) => {
+    const index = projectData.findIndex(p => p.title === project.title);
+    setCurrentIndex(index);
+    setSelectedProject(project);
+  };
+
   // Navigation handlers
   const handleNext = () => {
     if (currentIndex < projectData.length - 1) {
@@ -65,7 +72,9 @@ const ProjectsGrid = () => {
     if (isAutoPlaying && isModalOpen) {
       const interval = setInterval(() => {
         if (currentIndex < projectData.length - 1) {
-          handleNext();
+          const nextIndex = currentIndex + 1;
+          setCurrentIndex(nextIndex);
+          setSelectedProject(projectData[nextIndex]);
         } else {
           setCurrentIndex(0);
           setSelectedProject(projectData[0]);
@@ -110,11 +119,9 @@ const ProjectsGrid = () => {
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         project={selectedProject}
-        currentIndex={currentIndex}
-        onNext={handleNext}
-        onPrev={handlePrev}
         isAutoPlaying={isAutoPlaying}
         onToggleAutoPlay={handleToggleAutoPlay}
+        onProjectSelect={handleProjectSelect}
       />
     </>
   );
