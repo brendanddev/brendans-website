@@ -7,7 +7,7 @@
  */
 
 import { motion } from "framer-motion";
-import { FaEye, FaGithub, FaStar, FaCode } from "react-icons/fa";
+import { FaEye, FaGithub, FaStar, FaCalendar, FaCode } from "react-icons/fa";
 import { projectStatus } from "../../data/projectMeta";
 import { 
     hoverVariants, 
@@ -18,7 +18,8 @@ import {
 
 const ProjectCard = ({ 
     project, 
-    onClick
+    onClick, 
+    viewMode = "grid",
 }) => {
     const status = projectStatus[project.status];
 
@@ -36,7 +37,7 @@ const ProjectCard = ({
                 transition-all duration-500
             "
             onClick={() => onClick(project)}
-        >            
+        >
             
             {/* Main content container */}
             <motion.div 
@@ -45,21 +46,20 @@ const ProjectCard = ({
                 animate="visible"
                 className="relative p-6 lg:p-8 flex flex-col h-full"
             >
-                {/* Header  */}
+                {/* Header section */}
                 <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
-                        {/* Project title */}
+                        {/* Project title with hover color transition */}
                         <h3 className="text-2xl lg:text-3xl font-bold tracking-tight text-[#00ff00] group-hover:text-emerald-300 transition-colors duration-300 mb-2">
                             {project.title}
                         </h3>
                         
                         {/* Status and metadata badges */}
                         <div className="flex items-center gap-2 flex-wrap">
-
+                            {/* Project status badge */}
                             <div className={`px-2 py-1 rounded-full text-xs font-medium bg-gradient-to-r ${status.color} text-white`}>
                                 {status.name}
                             </div>
-                            
                         </div>
                     </div>
                     
@@ -133,7 +133,7 @@ const ProjectCard = ({
                         
                         {/* Feature tags with overflow handling */}
                         <div className="flex flex-wrap gap-1">
-                            
+
                             {/* Display first 2 features */}
                             {project.features.slice(0, 2).map((feature, i) => (
                                 <span 
@@ -144,22 +144,23 @@ const ProjectCard = ({
                                 </span>
                             ))}
                             
-                            {/* Shows count of remaining features if more than 2 */}
+                            {/* Show count of remaining features if more than 2 */}
                             {project.features.length > 2 && (
                                 <span className="text-xs bg-slate-700/30 text-gray-300 px-2 py-1 rounded-full">
-                                    +{project.features.length - 3} more
+                                    +{project.features.length - 2} more
                                 </span>
                             )}
                         </div>
                     </div>
                 )}
                 
-                {/* Action buttons section */}
+                {/* Button container for view details button and github button */}
                 <div className="flex gap-3 mt-auto">
+
                     {/* View Details button with gradient and hover effects */}
                     <motion.button 
                         onClick={(e) => {
-                            e.stopPropagation(); // Prevent card click event
+                            e.stopPropagation();
                             onClick(project);
                         }}
                         whileHover={{ scale: 1.05 }}
@@ -180,12 +181,13 @@ const ProjectCard = ({
                         View Details
                     </motion.button>
                     
-                    {/* GitHub link button */}
+                    {/* Github link button */}
                     <motion.a 
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()} // Prevent card click event
+                        // Prevents the card click event when clicking the github link
+                        onClick={(e) => e.stopPropagation()}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className="
