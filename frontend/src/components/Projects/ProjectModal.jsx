@@ -251,7 +251,7 @@ const ProjectModal = ({
                                                         className="flex items-center justify-between p-3 bg-slate-600/30 rounded-lg hover:bg-slate-600/50 transition-colors cursor-pointer"
                                                         onClick={() => {
                                                             console.log("Navigate to:", relatedProject.title);
-                                                            // You could pass a callback here to load the selected project
+                                                            // Could pass a callback here to load the selected project
                                                         }}
                                                     >
                                                         <div>
