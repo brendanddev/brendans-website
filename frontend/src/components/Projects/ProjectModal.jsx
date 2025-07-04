@@ -1,3 +1,4 @@
+
 /**
  * @file ProjectModal.jsx
  * @author Brendan Dileo, July 2025
@@ -6,20 +7,8 @@
  */
 
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-    FaGithub, 
-    FaExternalLinkAlt, 
-    FaStar, 
-    FaCalendar, 
-    FaCode, 
-    FaCheckCircle,
-    FaTimes,
-    FaArrowLeft,
-    FaArrowRight,
-    FaPlay,
-    FaPause
-} from "react-icons/fa";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { FaPlay, FaPause } from "react-icons/fa";
+import { X } from "lucide-react";
 import { projectStatus } from "../../data/projectMeta";
 import projectData from "../../data/projectData";
 import { modalVariants, contentVariants, techVariants, featureVariants } from "../../utils/variants/projects";
@@ -27,10 +16,7 @@ import { modalVariants, contentVariants, techVariants, featureVariants } from ".
 const ProjectModal = ({ 
     project, 
     isOpen, 
-    onClose, 
-    onNext, 
-    onPrev,
-    currentIndex = 0,
+    onClose,
     isAutoPlaying = false,
     onToggleAutoPlay 
 }) => {
@@ -41,13 +27,19 @@ const ProjectModal = ({
     return (
         <AnimatePresence>
             {isOpen && (
+                // Model overlay, a click on the overlay will close the modal
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
                     onClick={onClose}
-                >
+                >   
+                    {/* 
+                        Modal container
+                        Prevents clicks inside the modal content from bubbling up
+                        to the overlay and closing the modal
+                    */}
                     <motion.div
                         variants={modalVariants}
                         initial="hidden"
@@ -71,6 +63,27 @@ const ProjectModal = ({
                                         </div>
                                     </div>
 
+                                </div>
+
+                                <div className="flex items-center gap-2">
+                                    
+                                    {/* Button to toggle auto-play */}
+                                    <button
+                                        onClick={onToggleAutoPlay}
+                                        className="p-2 hover:bg-slate-700 rounded-lg transition-colors text-gray-300 hover:text-[#00ff00]"
+                                        title={isAutoPlaying ? "Pause Auto-play" : "Start Auto-play"}
+                                    >
+                                        {/* Toggle icon dependening on prop passed from parent */}
+                                        {isAutoPlaying ? <FaPause size={16} /> : <FaPlay size={16} />}
+                                    </button>
+
+                                    {/* Exit modal button */}
+                                    <button
+                                        onClick={onClose}
+                                        className="p-2 hover:bg-slate-700 rounded-lg transition-colors"
+                                    >
+                                        <X size={24} />
+                                    </button>
                                 </div>
                             </div>
                         </div>
