@@ -1,3 +1,4 @@
+
 /**
  * @file ProjectsGrid.jsx
  * @author Brendan Dileo, July 2025
