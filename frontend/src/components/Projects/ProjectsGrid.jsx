@@ -1,4 +1,3 @@
-
 /**
  * @file ProjectsGrid.jsx
  * @author Brendan Dileo, July 2025
@@ -14,20 +13,21 @@ import useProjectHandlers from "../../hooks/useProjectHandlers.js";
 import { projectGridVariants, projectCardItemVariants } from "../../utils/variants/cards.js";
 import { motion } from "framer-motion";
 
-const {
-  selectedProject,
-  isModalOpen,
-  currentIndex,
-  isAutoPlaying,
-  handleProjectClick,
-  handleCloseModal,
-  handleProjectSelect,
-  handleNext,
-  handlePrev,
-  handleToggleAutoPlay
-} = useProjectHandlers();
-
 const ProjectsGrid = () => {
+
+  // Custom hook to manage project modal state and handlers
+  const {
+    selectedProject,
+    isModalOpen,
+    currentIndex,
+    isAutoPlaying,
+    handleProjectClick,
+    handleCloseModal,
+    handleProjectSelect,
+    handleNext,
+    handlePrev,
+    handleToggleAutoPlay
+  } = useProjectHandlers();
 
   return (
     <>
