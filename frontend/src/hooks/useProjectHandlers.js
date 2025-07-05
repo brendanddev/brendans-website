@@ -15,6 +15,7 @@ const useProjectHandlers = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isAutoPlaying, setIsAutoPlaying] = useState(false);
+    const [viewMode, setViewMode] = useState("grid");
     
     
     // Open handler
@@ -64,6 +65,11 @@ const useProjectHandlers = () => {
         setIsAutoPlaying(!isAutoPlaying);
     };
 
+    // Handles view mode change for project cards grid
+    const handleViewModeChange = (mode) => {
+        setViewMode(mode);
+    };
+
     // Auto-play effect
     useEffect(() => {
         if (isAutoPlaying && isModalOpen) {
@@ -87,14 +93,17 @@ const useProjectHandlers = () => {
         isModalOpen,
         currentIndex,
         isAutoPlaying,
+        viewMode,
+        setViewMode,
         handleProjectClick,
         handleCloseModal,
         handleProjectSelect,
         handleNext,
         handlePrev,
-        handleToggleAutoPlay
+        handleToggleAutoPlay,
+        handleViewModeChange
     };
-    
+
 }
 
 export default useProjectHandlers;
