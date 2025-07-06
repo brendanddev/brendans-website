@@ -17,11 +17,26 @@ const useProjectHandlers = () => {
     const [isAutoPlaying, setIsAutoPlaying] = useState(false);
     const [viewMode, setViewMode] = useState("grid");
     const [sortBy, setSortBy] = useState("newest");
+    const [searchQuery, setSearchQuery] = useState("");
     
-    // Sort projects based on current sort criteria
+    // Filter and sort projects based on current criteria
     const sortedProjects = useMemo(() => {
-        return sortProjects(projectData, sortBy);
-    }, [sortBy]);
+        let filteredProjects = projectData;
+        
+        // Apply search filter
+        if (searchQuery.trim()) {
+            const query = searchQuery.toLowerCase().trim();
+            filteredProjects = projectData.filter(project => 
+                project.title.toLowerCase().includes(query) ||
+                project.desc.toLowerCase().includes(query) ||
+                project.technologies?.some(tech => tech.toLowerCase().includes(query)) ||
+                project.features?.some(feature => feature.toLowerCase().includes(query))
+            );
+        }
+        
+        // Apply sorting
+        return sortProjects(filteredProjects, sortBy);
+    }, [sortBy, searchQuery]);
     
     // Open handler
     const handleProjectClick = (project) => {
@@ -75,6 +90,11 @@ const useProjectHandlers = () => {
         setViewMode(mode);
     };
 
+    // Handles search query changes
+    const handleSearchChange = (query) => {
+        setSearchQuery(query);
+    };
+
     // Auto-play effect
     useEffect(() => {
         if (isAutoPlaying && isModalOpen) {
@@ -105,6 +125,7 @@ const useProjectHandlers = () => {
         isAutoPlaying,
         viewMode,
         sortBy,
+        searchQuery,
         sortedProjects,
         handleProjectClick,
         handleCloseModal,
@@ -113,7 +134,8 @@ const useProjectHandlers = () => {
         handlePrev,
         handleToggleAutoPlay,
         handleViewModeChange,
-        handleSortChange
+        handleSortChange,
+        handleSearchChange
     };
 };
 
