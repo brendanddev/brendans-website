@@ -10,10 +10,10 @@
 import { FaSortAlphaUp, FaSortAlphaDown, FaClock, FaCalendarAlt } from "react-icons/fa";
 
 const sortOptions = [
-    { value: "newest", label: "Newest First", icon: <FaClock /> },
-    { value: "oldest", label: "Oldest First", icon: <FaCalendarAlt /> },
-    { value: "name-asc", label: "A - Z", icon: <FaSortAlphaDown /> },
-    { value: "name-desc", label: "Z - A", icon: <FaSortAlphaUp /> },
+    { value: "newest", label: "Newest First", icon: FaClock },
+    { value: "oldest", label: "Oldest First", icon: FaCalendarAlt },
+    { value: "name-asc", label: "A - Z", icon: FaSortAlphaDown },
+    { value: "name-desc", label: "Z - A", icon: FaSortAlphaUp },
 ];
 
 export default sortOptions;
