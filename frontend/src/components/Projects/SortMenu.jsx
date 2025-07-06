@@ -6,7 +6,7 @@
  * A dropdown menu component that allows the user to select a sorting option for the project cards
  */
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaChevronDown, FaSort } from "react-icons/fa";
 
@@ -16,13 +16,30 @@ const SortMenu = ({ sortBy, onSortChange }) => {
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
 
+    // Close dropdown when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setIsOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+
+    // Handle option click
+    const handleOptionClick = (option) => {
+        onSortChange(option.value);
+        setIsOpen(false);
+    };
+
     // Find currently selected option
     // Defaults to first option if sortBy is not found
     const currentOption = sortOptions.find(option => option.value === sortBy) || sortOptions[0];
 
     return (
         <div className="relative" ref={dropdownRef}>
-
             {/* Sort button */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
@@ -69,30 +86,33 @@ const SortMenu = ({ sortBy, onSortChange }) => {
                     >
                         <div className="p-2">
                             {/* Maps each of the dropdown items as a button */}
-                            {sortOptions.map((option) => (
-                                <button
-                                    key={option.value}
-                                    onClick={() => handleOptionClick(option)}
-                                    className={`
-                                        w-full flex items-center gap-3 px-3 py-2 rounded-lg
-                                        text-sm font-medium transition-all duration-200
-                                        ${sortBy === option.value
-                                            ? "bg-[#00ff00]/20 text-[#00ff00]"
-                                            : "text-gray-300 hover:text-white hover:bg-slate-700/50"
-                                        }
-                                    `}
-                                >
-                                    <span className="text-base">{option.icon}</span>
-                                    <span>{option.label}</span>
-                                    {sortBy === option.value && (
-                                        <motion.div
-                                            initial={{ scale: 0 }}
-                                            animate={{ scale: 1 }}
-                                            className="ml-auto w-2 h-2 bg-[#00ff00] rounded-full"
-                                        />
-                                    )}
-                                </button>
-                            ))}
+                            {sortOptions.map((option) => {
+                                const IconComponent = option.icon;
+                                return (
+                                    <button
+                                        key={option.value}
+                                        onClick={() => handleOptionClick(option)}
+                                        className={`
+                                            w-full flex items-center gap-3 px-3 py-2 rounded-lg
+                                            text-sm font-medium transition-all duration-200
+                                            ${sortBy === option.value
+                                                ? "bg-[#00ff00]/20 text-[#00ff00]"
+                                                : "text-gray-300 hover:text-white hover:bg-slate-700/50"
+                                            }
+                                        `}
+                                    >
+                                        <IconComponent size={16} />
+                                        <span>{option.label}</span>
+                                        {sortBy === option.value && (
+                                            <motion.div
+                                                initial={{ scale: 0 }}
+                                                animate={{ scale: 1 }}
+                                                className="ml-auto w-2 h-2 bg-[#00ff00] rounded-full"
+                                            />
+                                        )}
+                                    </button>
+                                );
+                            })}
                         </div>
                     </motion.div>
                 )}

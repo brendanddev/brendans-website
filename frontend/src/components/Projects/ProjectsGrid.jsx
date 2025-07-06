@@ -16,6 +16,7 @@ import { projectGridVariants, projectCardItemVariants } from "../../utils/varian
 import { motion } from "framer-motion";
 
 const ProjectsGrid = () => {
+
   // Custom hook to manage project modal state and handlers
   const {
     selectedProject,
@@ -34,6 +35,7 @@ const ProjectsGrid = () => {
     handleViewModeChange,
     handleSortChange
   } = useProjectHandlers();
+  
 
   return (
     <>

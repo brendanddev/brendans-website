@@ -75,11 +75,6 @@ const useProjectHandlers = () => {
         setViewMode(mode);
     };
 
-    // Handles the change of the selected sort option
-    const handleSortChange = (value) => {
-        setSortBy(value);
-    };
-
     // Auto-play effect
     useEffect(() => {
         if (isAutoPlaying && isModalOpen) {
@@ -97,6 +92,11 @@ const useProjectHandlers = () => {
             return () => clearInterval(interval);
         }
     }, [isAutoPlaying, currentIndex, isModalOpen]);
+
+    // Handles the change of the selected sort option
+    const handleSortChange = (value) => {
+        setSortBy(value);
+    };
 
     return {
         selectedProject,
