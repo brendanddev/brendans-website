@@ -6,9 +6,9 @@
  * Custom hook for managing project modal state, handlers, and navigation
  */
 
-
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import projectData from "../data/projectData";
+import { sortProjects } from "../utils/sortProjects.js";
 
 const useProjectHandlers = () => {
     const [selectedProject, setSelectedProject] = useState(null);
@@ -16,7 +16,12 @@ const useProjectHandlers = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isAutoPlaying, setIsAutoPlaying] = useState(false);
     const [viewMode, setViewMode] = useState("grid");
+    const [sortBy, setSortBy] = useState("newest");
     
+    // Sort projects based on current sort criteria
+    const sortedProjects = useMemo(() => {
+        return sortProjects(projectData, sortBy);
+    }, [sortBy]);
     
     // Open handler
     const handleProjectClick = (project) => {
@@ -70,6 +75,11 @@ const useProjectHandlers = () => {
         setViewMode(mode);
     };
 
+    // Handles the change of the selected sort option
+    const handleSortChange = (value) => {
+        setSortBy(value);
+    };
+
     // Auto-play effect
     useEffect(() => {
         if (isAutoPlaying && isModalOpen) {
@@ -94,16 +104,17 @@ const useProjectHandlers = () => {
         currentIndex,
         isAutoPlaying,
         viewMode,
-        setViewMode,
+        sortBy,
+        sortedProjects,
         handleProjectClick,
         handleCloseModal,
         handleProjectSelect,
         handleNext,
         handlePrev,
         handleToggleAutoPlay,
-        handleViewModeChange
+        handleViewModeChange,
+        handleSortChange
     };
-
-}
+};
 
 export default useProjectHandlers;

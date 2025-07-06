@@ -11,7 +11,7 @@ import { FaTh, FaList } from "react-icons/fa";
 
 const ViewModeToggle = ({ viewMode, onViewModeChange }) => {
     return (
-        <div className="flex items-center justify-center mb-8">
+        <div className="flex items-center justify-center">
             <div className="
                 relative bg-slate-800/50 backdrop-blur-sm 
                 border border-slate-600/50 rounded-xl p-1
