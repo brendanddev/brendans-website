@@ -10,7 +10,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaChevronDown, FaSort } from "react-icons/fa";
 
-import sortOptions from '../../data/projectSortOptions';
+import sortOptions from '../../../data/projectSortOptions';
 
 const SortMenu = ({ sortBy, onSortChange }) => {
     const [isOpen, setIsOpen] = useState(false);
