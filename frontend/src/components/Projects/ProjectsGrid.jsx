@@ -8,8 +8,7 @@
 
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
-import ViewModeToggle from "./ViewModeToggle";
-import SortMenu from "./SortMenu";
+import FilterMenu from "./ProjectsMenu/FilterMenu.jsx";
 import useProjectHandlers from "../../hooks/useProjectHandlers.js";
 
 import { projectGridVariants, projectCardItemVariants } from "../../utils/variants/cards.js";
@@ -25,6 +24,7 @@ const ProjectsGrid = () => {
     isAutoPlaying,
     viewMode,
     sortBy,
+    searchQuery,
     sortedProjects,
     handleProjectClick,
     handleCloseModal,
@@ -33,24 +33,22 @@ const ProjectsGrid = () => {
     handlePrev,
     handleToggleAutoPlay,
     handleViewModeChange,
-    handleSortChange
+    handleSortChange,
+    handleSearchChange
   } = useProjectHandlers();
-  
 
   return (
     <>
-      {/* Controls Section */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 px-4 md:px-6">
-        {/* View Mode Toggle */}
-        <ViewModeToggle 
-          viewMode={viewMode} 
-          onViewModeChange={handleViewModeChange} 
-        />
-
-        {/* Sort Menu */}
-        <SortMenu 
-          sortBy={sortBy} 
-          onSortChange={handleSortChange} 
+      {/* Filter Menu */}
+      <div className="mb-8 px-4 md:px-6">
+        <FilterMenu 
+          viewMode={viewMode}
+          onViewModeChange={handleViewModeChange}
+          projectCount={sortedProjects.length}
+          sortBy={sortBy}
+          onSortChange={handleSortChange}
+          searchQuery={searchQuery}
+          onSearch={handleSearchChange}
         />
       </div>
 
