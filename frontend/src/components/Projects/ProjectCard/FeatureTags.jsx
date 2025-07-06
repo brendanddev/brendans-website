@@ -14,19 +14,23 @@ const FeatureTags = ({ features }) => {
     if (!features || features.length === 0) return null;
 
     return (
-        <div className="mb-6">
-            <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
+        <div>
+            <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">
                 Key Features
             </h4>
             
             {/* Feature tags */}
-            <div className="flex flex-wrap gap-1">
-
+            <div className="flex flex-wrap gap-2">
                 {/* Display first 2 features */}
                 {features.slice(0, 2).map((feature, i) => (
                     <span 
                         key={i}
-                        className="text-xs bg-slate-700/30 text-gray-300 px-2 py-1 rounded-full"
+                        className="
+                            text-xs bg-slate-700/40 text-slate-300 
+                            px-3 py-1.5 rounded-full font-medium
+                            border border-slate-600/30
+                            backdrop-blur-sm
+                        "
                     >
                         {feature}
                     </span>
@@ -34,11 +38,15 @@ const FeatureTags = ({ features }) => {
                 
                 {/* Show count of remaining features if more than 2 */}
                 {features.length > 2 && (
-                    <span className="text-xs bg-slate-700/30 text-gray-300 px-2 py-1 rounded-full">
+                    <span className="
+                        text-xs bg-slate-600/40 text-slate-400 
+                        px-3 py-1.5 rounded-full font-medium
+                        border border-slate-500/30
+                        backdrop-blur-sm
+                    ">
                         +{features.length - 2} more
                     </span>
                 )}
-                
             </div>
         </div>
     );
