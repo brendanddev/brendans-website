@@ -3,7 +3,6 @@
  * @file TechIcons.jsx
  * @author Brendan Dileo, July 2025
  * 
- * 
  * A component for displaying tech icons with framer motion animations to display the tech stack used in a project
  */
 
@@ -13,11 +12,10 @@ import { techContainerVariants, techItemVariants } from "../../../utils/variants
 
 const TechIcons = ({ icons, extraIcon }) => {
     return (
-        <div className="mb-6">
-
+        <div>
             {/* Section title with tech icon */}
-            <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3 flex items-center gap-2">
-                <FaCode size={12} />
+            <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4 flex items-center gap-2">
+                <FaCode size={12} className="text-slate-500" />
                 Technologies
             </h4>
             
@@ -26,9 +24,8 @@ const TechIcons = ({ icons, extraIcon }) => {
                 variants={techContainerVariants}
                 initial="hidden"
                 animate="visible"
-                className="flex items-center flex-wrap gap-3"
+                className="flex items-center flex-wrap gap-2"
             >
-
                 {/* Map through technology icons */}
                 {icons.map((icon, i) => (
                     <motion.div 
@@ -36,15 +33,17 @@ const TechIcons = ({ icons, extraIcon }) => {
                         variants={techItemVariants}
                         whileHover="hover"
                         className="
-                            p-2 rounded-lg bg-slate-700/50 
+                            p-2.5 rounded-xl bg-slate-700/30 
                             text-[#00ff00] hover:text-emerald-300 
-                            transition-all duration-300
-                            group-hover:bg-slate-600/50
-                            shadow-lg hover:shadow-xl
+                            transition-all duration-300 ease-out
+                            group-hover:bg-slate-600/40
+                            shadow-sm hover:shadow-md
+                            border border-slate-600/20 hover:border-slate-500/40
+                            backdrop-blur-sm
                         "
                         title={`Technology ${i + 1}`}
                     >
-                        <i className={`${icon} text-2xl`}></i>
+                        <i className={`${icon} text-lg`}></i>
                     </motion.div>                                
                 ))}
                 
@@ -54,11 +53,13 @@ const TechIcons = ({ icons, extraIcon }) => {
                         variants={techItemVariants}
                         whileHover="hover"
                         className="
-                            p-2 rounded-lg bg-slate-700/50 
+                            p-2.5 rounded-xl bg-slate-700/30 
                             text-[#00ff00] hover:text-emerald-300 
-                            transition-all duration-300
-                            group-hover:bg-slate-600/50
-                            shadow-lg hover:shadow-xl
+                            transition-all duration-300 ease-out
+                            group-hover:bg-slate-600/40
+                            shadow-sm hover:shadow-md
+                            border border-slate-600/20 hover:border-slate-500/40
+                            backdrop-blur-sm
                         "
                     >
                         {extraIcon}
