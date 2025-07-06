@@ -12,11 +12,11 @@ import { FaChevronDown, FaSort } from "react-icons/fa";
 
 import sortOptions from '../../data/projectSortOptions';
 
-const SortMenu = ({ sortBy }) => {
+const SortMenu = ({ sortBy, onSortChange }) => {
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
 
-    // Find currentlyy selected option
+    // Find currently selected option
     // Defaults to first option if sortBy is not found
     const currentOption = sortOptions.find(option => option.value === sortBy) || sortOptions[0];
 
@@ -50,12 +50,25 @@ const SortMenu = ({ sortBy }) => {
                 </motion.div>
             </button>
 
-            {/* Dropdown menu */}
+            {/* Dropdown menu section */}
             <AnimatePresence>
-                
-                        <div className="p-2">
 
-                            {/* Maps each of the dropdown items */}
+                {/* Only render dropdown if open */}
+                {isOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                        transition={{ duration: 0.2 }}
+                        className="
+                            absolute top-full mt-2 right-0 z-50
+                            bg-slate-800/95 backdrop-blur-sm 
+                            border border-slate-600/50 rounded-xl
+                            shadow-2xl min-w-[200px]
+                        "
+                    >
+                        <div className="p-2">
+                            {/* Maps each of the dropdown items as a button */}
                             {sortOptions.map((option) => (
                                 <button
                                     key={option.value}
@@ -69,8 +82,6 @@ const SortMenu = ({ sortBy }) => {
                                         }
                                     `}
                                 >
-
-
                                     <span className="text-base">{option.icon}</span>
                                     <span>{option.label}</span>
                                     {sortBy === option.value && (
@@ -83,6 +94,8 @@ const SortMenu = ({ sortBy }) => {
                                 </button>
                             ))}
                         </div>
+                    </motion.div>
+                )}
             </AnimatePresence>
         </div>
     );
