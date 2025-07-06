@@ -6,18 +6,16 @@
  * A responsive grid layout that displays the project cards with optimized animations
  */
 
-import { useState } from "react";
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
 import ViewModeToggle from "./ViewModeToggle";
-import projectData from "../../data/projectData";
+import SortMenu from "./SortMenu";
 import useProjectHandlers from "../../hooks/useProjectHandlers.js";
 
 import { projectGridVariants, projectCardItemVariants } from "../../utils/variants/cards.js";
 import { motion } from "framer-motion";
 
 const ProjectsGrid = () => {
-
   // Custom hook to manage project modal state and handlers
   const {
     selectedProject,
@@ -25,24 +23,34 @@ const ProjectsGrid = () => {
     currentIndex,
     isAutoPlaying,
     viewMode,
-    setViewMode,
+    sortBy,
+    sortedProjects,
     handleProjectClick,
     handleCloseModal,
     handleProjectSelect,
     handleNext,
     handlePrev,
     handleToggleAutoPlay,
-    handleViewModeChange
+    handleViewModeChange,
+    handleSortChange
   } = useProjectHandlers();
 
   return (
     <>
+      {/* Controls Section */}
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 px-4 md:px-6">
+        {/* View Mode Toggle */}
+        <ViewModeToggle 
+          viewMode={viewMode} 
+          onViewModeChange={handleViewModeChange} 
+        />
 
-      {/* View Mode Toggle */}
-      <ViewModeToggle 
-        viewMode={viewMode} 
-        onViewModeChange={handleViewModeChange} 
-      />
+        {/* Sort Menu */}
+        <SortMenu 
+          sortBy={sortBy} 
+          onSortChange={handleSortChange} 
+        />
+      </div>
 
       <motion.div 
         className={`
@@ -61,7 +69,7 @@ const ProjectsGrid = () => {
       >
 
         {/* Maps each project to a card component */}
-        {projectData.map((project, index) => (
+        {sortedProjects.map((project, index) => (
           <motion.div
             key={project.title}
             variants={projectCardItemVariants}
