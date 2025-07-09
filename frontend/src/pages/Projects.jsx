@@ -37,14 +37,12 @@ const Projects = () => {
 
       <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
         <h2 className="text-2xl font-bold text-green-400 mb-4">Projects</h2>
-        <pre className="whitespace-pre-wrap text-gray-300 text-sm max-h-[60vh] overflow-y-auto">
-        {`This is placeholder project content.
-
-            • Project 1:
-        
-        More details coming soon...
-        `}
-        </pre>
+        <p className="text-gray-300 text-sm leading-relaxed max-h-[60vh] overflow-y-auto">
+          Over the past couple of years, I've worked on a variety of projects, ranging from
+          school assignments to personal projects that helped me learn, as well as passion projects.
+          The time and effort I've put into these projects has paid off, allowing me to grow as a developer.
+          Below, you'll find a few of my personal and passion projects.
+        </p>
       </Modal>
 
       <ProjectsGrid />

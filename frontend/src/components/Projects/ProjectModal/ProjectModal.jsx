@@ -56,14 +56,15 @@ const ProjectModal = ({
                     break;
             }
         };
-
+        
+        // Add event listener to listen for keydown event
         document.addEventListener('keydown', handleKeyDown);
         return () => document.removeEventListener('keydown', handleKeyDown);
     }, [isOpen, onNext, onPrev, onClose]);
 
     return (
         <AnimatePresence>
-
+            {/* Conditionally render the modal based on if user chooses to open */}
             {isOpen && (
 
                 // Modal overlay
@@ -140,7 +141,8 @@ const ProjectModal = ({
 
                                 {/* Right Column */}
                                 <div className="space-y-6">
-                                    {/* Technology Breakdown Chart */}
+
+                                    {/* Techn Breakdown Chart */}
                                     <TechBreakdownChart techBreakdown={project.techBreakdown} />
 
                                     {/* Project Preview */}

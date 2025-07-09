@@ -59,7 +59,7 @@ const About = () => {
         <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
           <h2 className="text-2xl font-bold text-green-400 mb-4">My Story</h2>
           <p className="text-gray-300">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Hi, I'm a Software Development student and Aspiring Full Stack Developer with a passion for technology and creating.
           </p>
         </Modal>
 
