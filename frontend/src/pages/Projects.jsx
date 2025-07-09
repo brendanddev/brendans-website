@@ -34,7 +34,6 @@ const Projects = () => {
         </Button>
     </div>
 
-
       <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
         <h2 className="text-2xl font-bold text-green-400 mb-4">Projects</h2>
         <p className="text-gray-300 text-sm leading-relaxed max-h-[60vh] overflow-y-auto">
