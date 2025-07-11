@@ -1,3 +1,12 @@
+
+/**
+ * @file Projects.jsx
+ * @author Brendan Dileo, July 2025
+ * 
+ * The projects page for my portfolio website, showcasing my work and 
+ * passion projects
+ */
+
 import { useState } from "react";
 import Header from "../components/Header/Header";
 import PageWrapper from "../components/common/PageWrapper";
@@ -12,6 +21,7 @@ const Projects = () => {
   const isLoading = useLoading(500);
   const [modalOpen, setModalOpen] = useState(false);
 
+  // Shows the loading spinner if the page is loading
   if (isLoading) return <LoadingSpinner />;
 
   return (
@@ -26,6 +36,7 @@ const Projects = () => {
       </motion.div>
 
      <div className="flex justify-center">
+        {/* Button to trigger modal */}
         <Button
             onClick={() => setModalOpen(true)}
             className="relative z-10 px-8 py-3 mt-6 mb-6 text-lg font-semibold"
@@ -34,6 +45,7 @@ const Projects = () => {
         </Button>
     </div>
 
+      {/* Displays the modal and its content */}
       <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
         <h2 className="text-2xl font-bold text-green-400 mb-4">Projects</h2>
         <p className="text-gray-300 text-sm leading-relaxed max-h-[60vh] overflow-y-auto">

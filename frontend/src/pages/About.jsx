@@ -47,13 +47,14 @@ const About = () => {
 
         {/* Content sections */}
         <div className="space-y-16">
+
           {/* Education section */}
           <EducationCard />
-
           {/* Skills section */}
           <SkillsCard />
-
+          {/* Dotted grid section for personal highlights */}
           <DottedGridSection />
+          
         </div>
 
         {/* Story modal triggered by button */}
