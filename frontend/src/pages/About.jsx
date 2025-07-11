@@ -26,7 +26,7 @@ const About = () => {
 
   return (
     <PageWrapper>
-      <div className="relative z-10 w-full max-w-5xl text-center">
+      <div className="relative z-10 w-full max-w-5xl mx-auto text-center">
         <Header
           title="About Me"
           subtitle="Who am I? Here's a bit about me."
