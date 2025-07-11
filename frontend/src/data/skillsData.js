@@ -7,6 +7,7 @@
  * SkillsCard component on the about page
  */
 
+import { Code, Globe, Database, Wrench } from "lucide-react";
 
 // Defines the programming skills objects
 const programmingLanguages = [
@@ -48,3 +49,42 @@ const toolsAndSoftware = [
     { className: "devicon-xcode-plain", hoverColor: "#1575f3" },
     { className: "devicon-linux-plain", hoverColor: "#fcc624" }
 ];
+
+// Defines the different skill categories
+const skillCategories = [
+    {
+      title: "Programming Languages",
+      icons: programmingLanguages,
+      icon: Code,
+      color: "text-blue-400",
+      bgColor: "bg-blue-400/10",
+      borderColor: "border-blue-400/20"
+    },
+    {
+      title: "Web Development & Frameworks",
+      icons: webDevelopment,
+      icon: Globe,
+      color: "text-green-400",
+      bgColor: "bg-green-400/10",
+      borderColor: "border-green-400/20"
+    },
+    {
+      title: "Databases, Scripting & Game Dev",
+      icons: databasesAndGameDev,
+      icon: Database,
+      color: "text-purple-400",
+      bgColor: "bg-purple-400/10",
+      borderColor: "border-purple-400/20"
+    },
+    {
+      title: "Tools & Software",
+      icons: toolsAndSoftware,
+      icon: Wrench,
+      color: "text-orange-400",
+      bgColor: "bg-orange-400/10",
+      borderColor: "border-orange-400/20",
+      className: "col-span-1 sm:col-span-2 lg:col-span-3"
+    }
+];
+
+export { skillCategories };
