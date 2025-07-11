@@ -40,8 +40,8 @@ const SkillsCard = () => {
 
         {/* Card description */}
         <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-          A comprehensive toolkit spanning multiple programming paradigms, frameworks, and development tools. 
-          Each technology represents hands-on experience and continuous learning.
+            A well-rounded toolkit built through real-world experience across different programming languages, frameworks, 
+            and tools. Each technology reflects my curiosity, growth, and commitment to learning.        
         </p>
       </motion.div>
 
@@ -65,7 +65,6 @@ const SkillsCard = () => {
             />
           </motion.div>
         ))}
-        
       </div>
     </motion.div>
   );
