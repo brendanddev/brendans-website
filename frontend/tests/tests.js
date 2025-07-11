@@ -10,10 +10,6 @@
 
 import { Builder, By, until } from 'selenium-webdriver';
 import firefox from 'selenium-webdriver/firefox.js';
-import dotenv from 'dotenv';
-
-dotenv.config();
-const devUrl = process.env.DEV_URL;
 
 (async() => {
     
@@ -31,7 +27,11 @@ const devUrl = process.env.DEV_URL;
 
     try {
         // Instructs driver to navigate to url
-        await driver.get(devUrl);
+        await driver.get('http://localhost:5173/');
+
+        const pageTitle = await driver.getTitle();
+        console.log(`Page title is: ${pageTitle}`);
+
     } catch (error) {
         console.error("Error navigating to the development URL:", error);
     }
