@@ -50,6 +50,11 @@ import firefox from 'selenium-webdriver/firefox.js';
         const headerText = await headerElement.getText();
         console.log(`Header text: ${headerText}`);
 
+        // Validate test
+        if (headerText.includes("Brendan Dileo")) {
+            console.log("PASSED: Header text is correct.");
+        }
+
     } catch (error) {
         console.error("Error navigating to the development URL:", error);
     } finally {
