@@ -1,7 +1,7 @@
 
 /**
  * @file StoryModal.jsx
- * @author Brendan Dileo
+ * @author Brendan Dileo, July 2025
  * 
  * Enhanced modal component for telling my personal story with rich content
 */

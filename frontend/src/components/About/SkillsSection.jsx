@@ -1,7 +1,7 @@
 
 /**
  * @file SkillSection.jsx
- * @author Brendan Dileo
+ * @author Brendan Dileo, July 2025
  * 
  * A reusable component for the skills section on the about page that
  * displays a section of my skills with icons

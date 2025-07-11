@@ -1,9 +1,9 @@
 
 /**
  * @file IntroActions.jsx
- * @author Brendan Dileo
+ * @author Brendan Dileo, July 2025
  * 
- * Enhanced component for the intro action buttons on the About page
+ * Component for the intro action buttons on the about page
 */
 
 import Button from "../common/Button";
@@ -65,7 +65,7 @@ const IntroActions = ({ onReadStory }) => {
             <span>Download Resume</span>
           </div>
         </Button>
-        
+
       </motion.div>
     </motion.div>
   );

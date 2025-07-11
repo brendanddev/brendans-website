@@ -1,7 +1,7 @@
 
 /**
  * @file EducationCard.jsx
- * @author Brendan Dileo
+ * @author Brendan Dileo, July 2025
  * 
  * Compnent for displaying details about education, achievements, and honors
  * on the about page of my portfolio website

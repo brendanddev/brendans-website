@@ -1,7 +1,7 @@
 
 /**
  * @file About.jsx
- * @author Brendan Dileo
+ * @author Brendan Dileo, July 2025
  * 
  * The About page for my portfolio-website
 */

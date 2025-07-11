@@ -1,7 +1,7 @@
 
 /**
  * @file SkillsCard.jsx
- * @author Brendan Dileo
+ * @author Brendan Dileo, July 2025
  * 
  * Component for the skills section on the About page
 */
