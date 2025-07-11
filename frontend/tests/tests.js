@@ -29,8 +29,20 @@ import firefox from 'selenium-webdriver/firefox.js';
         // Instructs driver to navigate to url
         await driver.get('http://localhost:5173/');
 
+        // Check page title
         const pageTitle = await driver.getTitle();
         console.log(`Page title is: ${pageTitle}`);
+
+        // Wait for the header element to be present
+        // and locate by css selector
+        const headerElement = await driver.wait(
+            until.elementLocated(By.css('h2.text-4xl')),            
+            10000
+        );
+        
+        // Retrieve the text content of the header element
+        const headerText = await headerElement.getText();
+        console.log(`Header text: ${headerText}`);
 
     } catch (error) {
         console.error("Error navigating to the development URL:", error);
