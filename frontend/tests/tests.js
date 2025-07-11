@@ -8,8 +8,12 @@
  */
 
 
-import { Builder } from 'selenium-webdriver';
+import { Builder, By, until } from 'selenium-webdriver';
 import firefox from 'selenium-webdriver/firefox.js';
+import dotenv from 'dotenv';
+
+dotenv.config();
+const devUrl = process.env.DEV_URL;
 
 (async() => {
     
@@ -24,4 +28,11 @@ import firefox from 'selenium-webdriver/firefox.js';
         .build();
     
     console.log("Starting Selenium test...");
+
+    try {
+        // Instructs driver to navigate to url
+        await driver.get(devUrl);
+    } catch (error) {
+        console.error("Error navigating to the development URL:", error);
+    }
 })();
