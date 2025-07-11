@@ -16,7 +16,7 @@ const achievements = [
 
 // Data for honors section
 const honors = [
-    "Dean's Honors List (Every Semester: 2023 & 2024)",
+    "Dean's Honors List (2023, 2024, 2025)",
     "Ontario Scholar Award (2021)",
     "TA Blakelock Honor Roll",
     "TA Blakelock Tiger Award"
