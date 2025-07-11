@@ -34,5 +34,9 @@ import firefox from 'selenium-webdriver/firefox.js';
 
     } catch (error) {
         console.error("Error navigating to the development URL:", error);
+    } finally {
+        // Quit the driver to close the browser
+        await driver.quit();
+        console.log("Selenium test completed.");
     }
 })();
