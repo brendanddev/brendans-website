@@ -11,22 +11,9 @@ import { GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
 import AwardBox from "./AwardBox";
 
+import { achievements, honors } from "../../data/educationData";
 
 const EducationCard = () => {
-  
-  const achievements = [
-    "GPA: 93.5",
-    "99% in Programming in Java",
-    "100% in Systems Analysis & Design",
-    "96% in Programming in C#.NET"
-  ];
-
-  const honors = [
-    "Dean's Honors List (Every Semester: 2023 & 2024)",
-    "Ontario Scholar Award (2021)",
-    "TA Blakelock Honor Roll",
-    "TA Blakelock Tiger Award"
-  ];
 
   return (
     <section className="w-full mb-12 px-4">
