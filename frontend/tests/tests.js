@@ -39,7 +39,13 @@ import firefox from 'selenium-webdriver/firefox.js';
             until.elementLocated(By.css('h2.text-4xl')),            
             10000
         );
-        
+
+        // Wait until the text in the header is fully rendered
+        await driver.wait(async () => {
+            const text = await headerElement.getText();
+            return text.trim().length > 0;
+        }, 10000);
+
         // Retrieve the text content of the header element
         const headerText = await headerElement.getText();
         console.log(`Header text: ${headerText}`);
