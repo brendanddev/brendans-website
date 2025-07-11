@@ -9,9 +9,9 @@
 
 import { GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
-import AwardBox from "./AwardBox";
-
 import { achievements, honors } from "../../data/educationData";
+
+import AwardBox from "./AwardBox";
 
 const EducationCard = () => {
 
