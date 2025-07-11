@@ -1,37 +1,66 @@
 
 /**
- * @file SkillSection.jsx
+ * @file SkillsSection.jsx
  * @author Brendan Dileo, July 2025
  * 
  * A reusable component for the skills section on the about page that
  * displays a section of my skills with icons
 */
 
-const SkillSection = ({ title, icons, className = "" }) => {
+import { motion } from "framer-motion";
+
+
+const SkillSection = ({ 
+  title, 
+  icons, 
+  icon: IconComponent,
+  color = "text-green-400",
+  bgColor = "bg-green-400/10",
+  borderColor = "border-green-400/20",
+  className = "" 
+}) => {
   return (
 
-    // Main container for the section
-    <div className={`text-center p-4 md:p-6 border border-green-400 rounded-lg shadow-lg bg-slate-800 transition-transform transform hover:scale-105 ${className}`}>
-    
-      {/* Sections title */}
-      <h3 className="text-xl md:text-2xl font-semibold text-green-400 mb-4">{title}</h3>
+    // Main container for the skills section
+    <motion.div
+      className={`group text-center p-6 border rounded-xl shadow-lg bg-gradient-to-br from-slate-800/60 to-slate-700/60 backdrop-blur-sm transition-all duration-500 hover:scale-105 ${borderColor} ${className}`}
+      whileHover={{ y: -5 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+    >
+
+      {/* Header area with optional category icon and title*/}
+      <div className="flex items-center justify-center gap-3 mb-6">
+        
+        {/* Conditional rendering of the icon if provided */}
+        {IconComponent && (
+          <div className={`w-10 h-10 ${bgColor} rounded-lg flex items-center justify-center`}>
+            <IconComponent size={20} className={color} />
+          </div>
+        )}
+
+        <h3 className={`text-xl font-semibold ${color}`}>{title}</h3>
+      </div>
       
-      {/* Container for the icons */}
+      {/* Icons grid */}
       <div className="flex justify-center flex-wrap gap-4 md:gap-6">
-    
-        {/* Map through each of the icons and render them */}
+        {/* Map each of the icons */}
         {icons.map((icon, index) => (
-          // Each of the icons, with a unique key and their icon defined by their class name
-          <i 
+          // Wraps each icon in a motion component for animations
+          <motion.i 
             key={index}
-            className={`${icon.className} text-4xl md:text-5xl transition-colors`}
-            // Add handlers to change icon color on hover
-            onMouseEnter={(e) => { e.target.style.color = icon.hoverColor; }}
-            onMouseLeave={(e) => { e.target.style.color = ''; }}
+            className={`${icon.className} text-4xl md:text-5xl transition-all duration-300 cursor-pointer`}
+            // Triggers hover effect based on icons defined hover color
+            onMouseEnter={(e) => {
+              e.target.style.color = icon.hoverColor;
+            }}
+            // Resets color after hover
+            onMouseLeave={(e) => {
+              e.target.style.color = '';
+            }}
           />
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
