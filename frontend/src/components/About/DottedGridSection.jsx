@@ -14,7 +14,9 @@ import personalHighlights from "../../data/personalHighlights";
 const DottedGridSection = () => {
 
   return (
+
     <section className="w-full mb-16 px-4">
+
       <motion.div
         className="w-full max-w-6xl mx-auto p-6 md:p-10 border rounded-2xl shadow-[0_0_30px_rgba(120,119,198,0.15)] bg-gradient-to-br from-slate-900/90 to-slate-800/90 backdrop-blur-sm border-slate-700/50 relative overflow-hidden"
         initial={{ opacity: 0, y: 50 }}
@@ -100,6 +102,19 @@ const DottedGridSection = () => {
           </div>
 
         </div>
+
+        {/* Decoration at bottom of component*/}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 1.2 }}
+          className="text-center mt-8"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800/50 border border-slate-600/50 rounded-full">
+            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+            <span className="text-sm text-gray-400">Always growing, always learning</span>
+          </div>
+        </motion.div>
 
       </motion.div>
 
