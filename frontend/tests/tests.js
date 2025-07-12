@@ -51,9 +51,29 @@ import firefox from 'selenium-webdriver/firefox.js';
         console.log(`Header text: ${headerText}`);
 
         // Validate test
-        if (headerText.includes("Brendan Dileo")) {
+        if (headerText.includes("Brendan Dileo")) 
             console.log("PASSED: Header text is correct.");
-        }
+        
+        // Wait for subheader element to be present
+        // and locate by css selector
+        const subHeaderElement = await driver.wait(
+            until.elementLocated(By.css('h3.text-lg')),
+            10000
+        );
+
+        // Wait until the text in the subheader is fully rendered
+        await driver.wait(async () => {
+            const text = await subHeaderElement.getText();
+            return text.trim().length > 0;
+        }, 10000);
+
+        // Retrieve the text content of the subheader element
+        const subHeaderText = await subHeaderElement.getText();
+        console.log(`Subheader text: ${subHeaderText}`);
+
+        // Validate test
+        if (subHeaderText.includes("Software Developer | Backend | Tech Enthusiast")) 
+            console.log("PASSED: Subheader text is correct.");
 
     } catch (error) {
         console.error("Error navigating to the development URL:", error);
