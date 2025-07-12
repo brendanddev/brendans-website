@@ -8,7 +8,7 @@
  */
 
 
-import { Builder, By, until } from 'selenium-webdriver';
+import { Builder, By, until, Key } from 'selenium-webdriver';
 import firefox from 'selenium-webdriver/firefox.js';
 
 (async() => {
@@ -122,7 +122,7 @@ import firefox from 'selenium-webdriver/firefox.js';
         );
 
         // Types 'help' into the terminal input field
-        await terminalInput.sendKeys('help\n');
+        await terminalInput.sendKeys('help', Key.ENTER);
 
         // Wait for the terminal output to be present
         const terminalOutput = await driver.wait(
