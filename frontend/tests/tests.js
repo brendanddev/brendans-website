@@ -72,8 +72,31 @@ import firefox from 'selenium-webdriver/firefox.js';
         console.log(`Subheader text: ${subHeaderText}`);
 
         // Validate test
-        if (subHeaderText.includes("Software Developer | Backend | Tech Enthusiast")) 
+        if (subHeaderText.includes("Software Developer | Tech Enthusiast")) 
             console.log("PASSED: Subheader text is correct.");
+
+        // Wait for the terminal element to be present
+        const terminalHeader = await driver.wait(
+            until.elementLocated(By.css('span.text-center')),
+            10000
+        );
+
+        // Wait until the text in the terminal header is fully rendered
+        await driver.wait(async () => {
+            const text = await terminalHeader.getText();
+            return text.trim().length > 0;
+        }, 10000);
+
+        // Retrieve the text content of the terminal header
+        const terminalHeaderText = await terminalHeader.getText();
+        console.log(`Terminal header text: ${terminalHeaderText}`);
+
+        // Validate test
+        if (terminalHeaderText.includes("brendans@website-terminal: ~")) 
+            console.log("PASSED: Terminal header text is correct.");
+
+        // span.text-green-400
+        // brendan@portfolio:~$
 
     } catch (error) {
         console.error("Error navigating to the development URL:", error);
