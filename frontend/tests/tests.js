@@ -95,8 +95,25 @@ import firefox from 'selenium-webdriver/firefox.js';
         if (terminalHeaderText.includes("brendans@website-terminal: ~")) 
             console.log("PASSED: Terminal header text is correct.");
 
-        // span.text-green-400
-        // brendan@portfolio:~$
+        // Wait for the terminal prompt to be present
+        const terminalPrompt = await driver.wait(
+            until.elementLocated(By.css('span.text-green-400')),
+            10000
+        );
+
+        // Wait until the text in the terminal prompt is fully rendered
+        await driver.wait(async () => {
+            const text = await terminalPrompt.getText();
+            return text.trim().length > 0;
+        }, 10000);
+
+        // Retrieve the text content of the terminal prompt
+        const terminalPromptText = await terminalPrompt.getText();
+        console.log(`Terminal prompt text: ${terminalPromptText}`);
+
+        // Validate test
+        if (terminalPromptText.includes("brendan@portfolio")) 
+            console.log("PASSED: Terminal prompt text is correct.");
 
     } catch (error) {
         console.error("Error navigating to the development URL:", error);
