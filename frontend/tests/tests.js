@@ -115,6 +115,36 @@ import firefox from 'selenium-webdriver/firefox.js';
         if (terminalPromptText.includes("brendan@portfolio")) 
             console.log("PASSED: Terminal prompt text is correct.");
 
+         // Wait for the terminal input to be visible
+        const terminalInput = await driver.wait(
+            until.elementLocated(By.css('input.flex-1')),
+            10000
+        );
+
+        // Types 'help' into the terminal input field
+        await terminalInput.sendKeys('help\n');
+
+        // Wait for the terminal output to be present
+        const terminalOutput = await driver.wait(
+            until.elementLocated(By.css('p.mb-2')),
+            10000
+        );
+
+        // Wait until the text in the terminal output is fully rendered
+        // and expected text is present
+        await driver.wait(async () => {
+            const text = await terminalOutput.getText();
+            return text.includes("Here is a list of supported commands:");
+        }, 10000);
+
+        // Retrieve the text content of the terminal output
+        const terminalOutputText = await terminalOutput.getText();
+        console.log(`Terminal output text: ${terminalOutputText}`);
+
+        // Validate test
+        if (terminalOutputText.includes("Here is a list of supported commands:")) 
+            console.log("PASSED: Terminal output text is correct.");
+
     } catch (error) {
         console.error("Error navigating to the development URL:", error);
     } finally {
