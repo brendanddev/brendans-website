@@ -3,28 +3,19 @@
  * @file tests.js
  * @author Brendan Dileo, July 2025
  * 
- * Defines the test cases for the frontend components and utilities
- * to ensure functionality and correctness
+ * The main tests file that runs each of the tests
  */
 
 
-import { Builder, By, until, Key } from 'selenium-webdriver';
-import firefox from 'selenium-webdriver/firefox.js';
+import { createDriver } from './driver.js';
+import { runNavTests } from './nav.test.js';
+import { runHomeTests } from './home.test.js';
 
 (async() => {
-    
-    // Create config object for firefox
-    let options = new firefox.Options();
-    // options.headless();
 
-    // Creates a new driver which acts as the browser to test on
-    let driver = await new Builder()
-        .forBrowser('firefox')
-        .setFirefoxOptions(options)
-        .build();
+    // Create a new selenium webdriver instance
+    const driver = await createDriver();
     
-    console.log("Starting Selenium test...");
-
     try {
         // Instructs driver to navigate to url
         await driver.get('http://localhost:5173/');
@@ -33,149 +24,11 @@ import firefox from 'selenium-webdriver/firefox.js';
         const pageTitle = await driver.getTitle();
         console.log(`Page title is: ${pageTitle}`);
 
-        /** Navbar tests */
-        
-        // Wait for the navbar to be present
-        const navbar = await driver.wait(
-            until.elementLocated(By.css('div.max-w-7xl.mx-auto')),
-            10000
-        );
+        // Run navigation tests
+        await runNavTests(driver);
 
-        // Validate that the navbar is displayed
-        const isNavbarDisplayed = await navbar.isDisplayed();
-        console.log(`Navbar is displayed: ${isNavbarDisplayed}`);
-
-        // Check if the navbar contains the expected links
-        const navLinks = await driver.findElements(By.css('ul li a'));
-        const expectedLinks = ["home", "about", "projects", "contact"];
-
-        // Extract text from all links
-        const linkTexts = await Promise.all(navLinks.map(async (link) => {
-            return (await link.getText()).trim().toLowerCase();
-        }));
-
-        // Compare links against expected links
-        for (const expected of expectedLinks) {
-            if (!linkTexts.includes(expected)) {
-                throw new Error(`Missing expected nav link: ${expected}`);
-            }
-        }
-
-        console.log("PASSED: All expected nav links are present.");
-
-        /** Home page tests */
-
-        // Wait for the header element to be present
-        // and locate by css selector
-        const headerElement = await driver.wait(
-            until.elementLocated(By.css('h2.text-4xl')),            
-            10000
-        );
-
-        // Wait until the text in the header is fully rendered
-        await driver.wait(async () => {
-            const text = await headerElement.getText();
-            return text.trim().length > 0;
-        }, 10000);
-
-        // Retrieve the text content of the header element
-        const headerText = await headerElement.getText();
-        console.log(`Header text: ${headerText}`);
-
-        // Validate test
-        if (headerText.includes("Brendan Dileo")) 
-            console.log("PASSED: Header text is correct.");
-        
-        // Wait for subheader element to be present
-        // and locate by css selector
-        const subHeaderElement = await driver.wait(
-            until.elementLocated(By.css('h3.text-lg')),
-            10000
-        );
-
-        // Wait until the text in the subheader is fully rendered
-        await driver.wait(async () => {
-            const text = await subHeaderElement.getText();
-            return text.trim().length > 0;
-        }, 10000);
-
-        // Retrieve the text content of the subheader element
-        const subHeaderText = await subHeaderElement.getText();
-        console.log(`Subheader text: ${subHeaderText}`);
-
-        // Validate test
-        if (subHeaderText.includes("Software Developer | Tech Enthusiast")) 
-            console.log("PASSED: Subheader text is correct.");
-
-        // Wait for the terminal element to be present
-        const terminalHeader = await driver.wait(
-            until.elementLocated(By.css('span.text-center')),
-            10000
-        );
-
-        // Wait until the text in the terminal header is fully rendered
-        await driver.wait(async () => {
-            const text = await terminalHeader.getText();
-            return text.trim().length > 0;
-        }, 10000);
-
-        // Retrieve the text content of the terminal header
-        const terminalHeaderText = await terminalHeader.getText();
-        console.log(`Terminal header text: ${terminalHeaderText}`);
-
-        // Validate test
-        if (terminalHeaderText.includes("brendans@website-terminal: ~")) 
-            console.log("PASSED: Terminal header text is correct.");
-
-        // Wait for the terminal prompt to be present
-        const terminalPrompt = await driver.wait(
-            until.elementLocated(By.css('span.text-green-400')),
-            10000
-        );
-
-        // Wait until the text in the terminal prompt is fully rendered
-        await driver.wait(async () => {
-            const text = await terminalPrompt.getText();
-            return text.trim().length > 0;
-        }, 10000);
-
-        // Retrieve the text content of the terminal prompt
-        const terminalPromptText = await terminalPrompt.getText();
-        console.log(`Terminal prompt text: ${terminalPromptText}`);
-
-        // Validate test
-        if (terminalPromptText.includes("brendan@portfolio")) 
-            console.log("PASSED: Terminal prompt text is correct.");
-
-         // Wait for the terminal input to be visible
-        const terminalInput = await driver.wait(
-            until.elementLocated(By.css('input.flex-1')),
-            10000
-        );
-
-        // Types 'help' into the terminal input field
-        await terminalInput.sendKeys('help', Key.ENTER);
-
-        // Wait for the terminal output to be present
-        const terminalOutput = await driver.wait(
-            until.elementLocated(By.css('p.mb-2')),
-            10000
-        );
-
-        // Wait until the text in the terminal output is fully rendered
-        // and expected text is present
-        await driver.wait(async () => {
-            const text = await terminalOutput.getText();
-            return text.includes("Here is a list of supported commands:");
-        }, 10000);
-
-        // Retrieve the text content of the terminal output
-        const terminalOutputText = await terminalOutput.getText();
-        console.log(`Terminal output text: ${terminalOutputText}`);
-
-        // Validate test
-        if (terminalOutputText.includes("Here is a list of supported commands:")) 
-            console.log("PASSED: Terminal output text is correct.");
+        // Run home page tests
+        await runHomeTests(driver);
 
     } catch (error) {
         console.error("Error navigating to the development URL:", error);
