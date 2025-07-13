@@ -57,18 +57,18 @@ const Terminal = () => {
             initial={{ opacity: 0, y: 20, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="w-[95%] md:w-4/5 lg:w-3/5 h-[450px] bg-slate-900/80 backdrop-blur-sm rounded-lg shadow-[0_0_20px_rgba(120,119,198,0.25)] flex flex-col border border-slate-700 overflow-hidden font-mono mx-auto"
+            className="w-[95%] md:w-4/5 lg:w-3/5 h-[350px] sm:h-[400px] md:h-[450px] bg-slate-900/80 backdrop-blur-sm rounded-lg shadow-[0_0_20px_rgba(120,119,198,0.25)] flex flex-col border border-slate-700 overflow-hidden font-mono mx-auto"
         >
-            <div className="h-8 bg-slate-800 flex items-center justify-center relative text-white text-sm font-bold">
-                <div className="absolute left-4 flex gap-2">
-                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+            <div className="h-8 sm:h-10 bg-slate-800 flex items-center justify-center relative text-white text-xs sm:text-sm font-bold px-2">
+                <div className="absolute left-2 sm:left-4 flex gap-1 sm:gap-2">
+                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full"></div>
+                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-yellow-500 rounded-full"></div>
+                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full"></div>
                 </div>
-                <span className="text-center w-full">brendans@website-terminal: ~</span>
+                <span className="text-center w-full text-xs sm:text-sm truncate">brendans@website-terminal: ~</span>
             </div>
 
-            <div className="flex-1 p-3 text-white overflow-y-auto">{output}</div>
+            <div className="flex-1 p-2 sm:p-3 text-white overflow-y-auto text-sm sm:text-base">{output}</div>
 
             {/* Command input prompt that handles user input */}
             <CommandPrompt
