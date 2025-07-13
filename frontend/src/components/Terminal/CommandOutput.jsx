@@ -7,11 +7,11 @@
  */
 
 const CommandOutput = ({ text, isCommand = false }) => (
-    <div className="flex">
+    <div className="flex text-sm sm:text-base">
         
         {/* If the line represents a user entered command show the terminal prompt prefix */}
         {isCommand && (
-            <span className="mr-2">
+            <span className="mr-1 sm:mr-2 text-xs sm:text-sm">
                 <span className="text-green-400">brendan@portfolio</span>
                 <span className="text-white">:</span>
                 <span className="text-blue-400">~</span>
