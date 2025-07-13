@@ -82,8 +82,7 @@ const skillCategories = [
       icon: Wrench,
       color: "text-orange-400",
       bgColor: "bg-orange-400/10",
-      borderColor: "border-orange-400/20",
-      className: "col-span-1 sm:col-span-2 lg:col-span-3"
+      borderColor: "border-orange-400/20"
     }
 ];
 
