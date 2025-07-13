@@ -11,7 +11,7 @@ import Sidebar from "../Sidebar/Sidebar";
 
 
 const PageWrapper = ({ children }) => (
-  <div className="relative w-full min-h-screen bg-slate-900 text-white flex flex-col items-center p-4 overflow-hidden">
+  <div className="relative w-full min-h-screen bg-slate-900 text-white flex flex-col items-center p-2 sm:p-4 overflow-hidden">
     
     
     {/* Main gradient background */}
