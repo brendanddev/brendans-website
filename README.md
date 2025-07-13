@@ -1,4 +1,5 @@
 # Brendans Portfolio Website
+## By Brendan Dileo - v1.5.1
 This is the source code for my personal portfolio website. The site showcases my work, projects, skills, and background as a developer/designer. It serves as a central place for visitors to learn more about me and view examples of what I’ve built.
 
 
