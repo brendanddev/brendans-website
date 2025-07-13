@@ -11,13 +11,13 @@ import { motion } from "framer-motion";
 
 const Header = ({ title, subtitle, typedTexts }) => {
     return (
-        <div className="flex flex-col items-center justify-center text-center mt-10 mb-0">
+        <div className="flex flex-col items-center justify-center text-center mt-6 sm:mt-10 mb-0 px-2">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
             >
-                <h2 className="text-4xl sm:text-5xl md:text-6xl text-center font-bold text-white px-4">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center font-bold text-white px-2 sm:px-4">
                     {title}
                 </h2>
             </motion.div>
@@ -27,7 +27,7 @@ const Header = ({ title, subtitle, typedTexts }) => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
             >
-                <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium text-gray-400 px-4 mt-2">
+                <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-medium text-gray-400 px-2 sm:px-4 mt-2 sm:mt-3">
                     {subtitle}
                 </h3>
             </motion.div>
@@ -39,7 +39,7 @@ const Header = ({ title, subtitle, typedTexts }) => {
                     transition={{ delay: 0.4 }}
                     className="w-full"
                 >
-                    <p className="text-green-400 max-w-2xl mx-auto mt-6 px-4 text-sm sm:text-base md:text-lg">
+                    <p className="text-green-400 max-w-2xl mx-auto mt-4 sm:mt-6 px-2 sm:px-4 text-xs sm:text-sm md:text-base lg:text-lg">
                         <ReactTyped
                             strings={typedTexts}
                             typeSpeed={30}

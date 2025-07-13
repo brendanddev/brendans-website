@@ -28,13 +28,13 @@ const About = () => {
 
   return (
     <PageWrapper>
-      <div className="relative z-10 w-full max-w-7xl mx-auto text-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto text-center px-2 sm:px-4">
         
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-12"
+          className="mb-8 sm:mb-12"
         >
           <Header
             title="About Me"
@@ -46,7 +46,7 @@ const About = () => {
         <IntroActions onReadStory={() => setModalOpen(true)} />
 
         {/* Content sections */}
-        <div className="space-y-16">
+        <div className="space-y-12 sm:space-y-16">
 
           {/* Education section */}
           <EducationCard />
