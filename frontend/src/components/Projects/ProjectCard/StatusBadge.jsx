@@ -20,6 +20,11 @@ const StatusBadge = ({ status }) => {
             border border-white/10
             backdrop-blur-sm
         `}>
+            {statusInfo.icon && (
+                <span className="mr-1 flex items-center">
+                    <statusInfo.icon size={14} className="mr-1" />
+                </span>
+            )}
             {statusInfo.name}
         </div>
     );

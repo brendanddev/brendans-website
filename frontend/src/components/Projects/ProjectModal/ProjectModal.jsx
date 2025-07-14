@@ -126,11 +126,13 @@ const ProjectModal = ({
                                             whileTap={{ scale: 0.95 }}
                                             className="
                                                 flex items-center gap-2 px-6 py-3
-                                                bg-gradient-to-r from-[#00ff00] to-emerald-500
-                                                text-slate-900 font-bold rounded-xl
-                                                hover:from-emerald-400 hover:to-[#00ff00]
+                                                bg-gradient-to-r from-sky-400 to-indigo-500
+                                                text-white font-bold rounded-xl
+                                                hover:from-indigo-400 hover:to-sky-500
                                                 transition-all duration-300
                                                 shadow-lg hover:shadow-xl
+                                                focus:outline-none focus:ring-2 focus:ring-sky-400/50 focus:ring-offset-2 focus:ring-offset-slate-800
+                                                border border-white/20
                                             "
                                         >
                                             <FaGithub />

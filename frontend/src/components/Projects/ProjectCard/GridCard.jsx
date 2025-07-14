@@ -75,8 +75,11 @@ const GridCard = ({ project, onClick }) => {
                 {/* Header section */}
                 <div className="flex items-start justify-between mb-6">
                     <div className="flex-1 min-w-0">
+                        
                         {/* Project title */}
-                        <h3 className="text-xl font-bold tracking-tight text-[#00ff00] group-hover:text-emerald-300 transition-colors duration-300 mb-3 line-clamp-2">
+                        <h3 className="text-xl font-bold tracking-tight group-hover:text-emerald-300 transition-colors duration-300 mb-3 line-clamp-2"
+                            style={{ color: project.titleColor || "#00ff00" }}
+                        >
                             {project.title}
                         </h3>
                         
