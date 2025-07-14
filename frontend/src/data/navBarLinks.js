@@ -10,6 +10,7 @@
 export const navBarLinks = [
     { to: "/", label: "home" },
     { to: "/about", label: "about" },
+    { to: "/highlights", label: "highlights" },
     { to: "/projects", label: "projects" },
     { to: "/contact", label: "contact" },
 ];
