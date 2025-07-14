@@ -12,7 +12,6 @@ import ProjectsMenu from "./ProjectsMenu/ProjectsMenu.jsx";
 import useProjectHandlers from "../../hooks/useProjectHandlers.js";
 import projectData from "../../data/projectData";
 import { useState, useMemo } from "react";
-
 import { projectGridVariants, projectCardItemVariants } from "../../utils/variants/cards.js";
 import { motion } from "framer-motion";
 
@@ -22,8 +21,8 @@ const ProjectsGrid = () => {
 
   // Generate unique technology options from all projects
   const techOptions = useMemo(() => {
-    const allTechs = projectData.flatMap(p =>
-      p.techBreakdown ? p.techBreakdown.map(t => t.name) : []
+    const allTechs = projectData.flatMap(project =>
+      project.techBreakdown ? project.techBreakdown.map(t => t.name) : []
     );
     return Array.from(new Set(allTechs)).sort();
   }, []);
@@ -31,8 +30,8 @@ const ProjectsGrid = () => {
   // Filter projects by selected technology
   const filteredProjects = useMemo(() => {
     if (!selectedTech) return projectData;
-    return projectData.filter(p =>
-      p.techBreakdown && p.techBreakdown.some(t => t.name === selectedTech)
+    return projectData.filter(project =>
+      project.techBreakdown && project.techBreakdown.some(t => t.name === selectedTech)
     );
   }, [selectedTech]);
 
@@ -57,6 +56,16 @@ const ProjectsGrid = () => {
     handleSearchChange
   } = useProjectHandlers(filteredProjects);
 
+  // Helper for grid container class based on view mode
+  function getGridClass() {
+    return [
+      "relative z-10 w-full max-w-7xl mx-auto",
+      viewMode === "grid"
+        ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-4 md:p-6"
+        : "space-y-4 p-4 md:p-6"
+    ].join(" ");
+  }
+
   return (
     <>
       {/* Main Projects Menu */}
@@ -75,21 +84,15 @@ const ProjectsGrid = () => {
         />
       </div>
 
-      {/* Projects cards grid */}
-      <motion.div 
-        className={`
-          relative z-10 w-full max-w-7xl mx-auto
-          ${viewMode === "grid" 
-            ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-4 md:p-6" 
-            : "space-y-4 p-4 md:p-6"
-          }
-        `}
+      {/* Projects grid */}
+      <motion.div
+        className={getGridClass()}
         variants={projectGridVariants}
         initial="hidden"
         animate="visible"
-        style={{
-          willChange: "transform, opacity"
-        }}
+        style={{ willChange: "transform, opacity" }}
+        aria-label="Projects list"
+        role="list"
       >
 
         {/* Maps each project to a card component */}
@@ -97,12 +100,11 @@ const ProjectsGrid = () => {
           <motion.div
             key={project.title}
             variants={projectCardItemVariants}
-            style={{
-              willChange: "transform, opacity"
-            }}
+            style={{ willChange: "transform, opacity" }}
+            role="listitem"
           >
-            <ProjectCard 
-              project={project} 
+            <ProjectCard
+              project={project}
               index={index}
               onClick={handleProjectClick}
               viewMode={viewMode}
