@@ -14,7 +14,6 @@ import SkillsCard from "../components/About/SkillsCard";
 import StoryModal from "../components/About/StoryModal";
 import LoadingSpinner from '../components/Spinner/LoadingSpinner';
 
-import DottedGridSection from "../components/About/DottedGridSection";
 
 import { useState } from "react";
 import useLoading from '../hooks/useLoading';
@@ -52,8 +51,6 @@ const About = () => {
           <EducationCard />
           {/* Skills section */}
           <SkillsCard />
-          {/* Dotted grid section for personal highlights */}
-          <DottedGridSection />
           
         </div>
 

@@ -10,7 +10,7 @@
 import { GraduationCap, School, Calendar, Award } from "lucide-react";
 import { motion } from "framer-motion";
 import { achievements, honors } from "../../data/educationData";
-import AwardBox from "../About/AwardBox";
+import AwardBox from "./AwardBox";
 
 import { cardVariants, gridVariants, awardBoxVariants } from "../../utils/variants/educationCard";
 
