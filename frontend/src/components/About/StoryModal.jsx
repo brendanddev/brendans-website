@@ -91,7 +91,7 @@ const StoryModal = ({ isOpen, onClose }) => {
                     <Icon className={`w-4 h-4 sm:w-6 sm:h-6 ${textColor}`} />
                   </div>
                   <div>
-                    <h3 className="text-base sm:text-lg font-semibold text-white mb-1 sm:mb-2">{section.title}</h3>
+                    <h3 className={`text-base sm:text-lg font-semibold ${textColor} mb-1 sm:mb-2`}>{section.title}</h3>
                     <p className="text-sm sm:text-base text-gray-300 leading-relaxed">{section.content}</p>
                   </div>
                 </motion.div>
