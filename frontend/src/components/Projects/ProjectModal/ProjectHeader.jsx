@@ -13,6 +13,7 @@ import { projectStatus } from "../../../data/projectMeta";
 import projectData from "../../../data/projectData";
 import StatusBadge from "../ProjectCard/StatusBadge";
 
+
 const ProjectHeader = ({ 
     project, 
     isAutoPlaying, 
@@ -45,6 +46,7 @@ const ProjectHeader = ({
                             }
                         `}
                         title="Previous Project"
+                        aria-label="Previous Project"
                     >
                         <FaChevronLeft size={16} />
                     </motion.button>
@@ -67,20 +69,20 @@ const ProjectHeader = ({
 
                 {/* Control buttons */}
                 <div className="flex items-center gap-2">
-                    
                     {/* Auto-play toggle button */}
                     <button
                         onClick={onToggleAutoPlay}
                         className="p-2 hover:bg-slate-700 rounded-lg transition-colors text-gray-300 hover:text-[#00ff00]"
                         title={isAutoPlaying ? "Pause Auto-play" : "Start Auto-play"}
+                        aria-label={isAutoPlaying ? "Pause Auto-play" : "Start Auto-play"}
                     >
                         {isAutoPlaying ? <FaPause size={16} /> : <FaPlay size={16} />}
                     </button>
-
                     {/* Close modal button */}
                     <button
                         onClick={onClose}
                         className="p-2 hover:bg-slate-700 rounded-lg transition-colors"
+                        aria-label="Close Modal"
                     >
                         <X size={24} />
                     </button>
@@ -99,6 +101,7 @@ const ProjectHeader = ({
                             }
                         `}
                         title="Next Project"
+                        aria-label="Next Project"
                     >
                         <FaChevronRight size={16} />
                     </motion.button>
