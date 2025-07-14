@@ -30,7 +30,7 @@ const ProjectsMenu = ({
     return (
         // Responsive menu container
         <div
-            className="relative z-50 flex flex-nowrap sm:flex-row items-center gap-3 sm:gap-4 overflow-x-auto scrollbar-thin scrollbar-thumb-slate-700/50 scrollbar-track-transparent bg-slate-800/40 backdrop-blur-xl border border-slate-600/20 rounded-2xl p-2 sm:p-4 shadow-lg"
+            className="relative z-20 flex flex-nowrap sm:flex-row items-center gap-3 sm:gap-4 overflow-x-auto scrollbar-thin scrollbar-thumb-slate-700/50 scrollbar-track-transparent bg-slate-800/40 backdrop-blur-xl border border-slate-600/20 rounded-2xl p-2 sm:p-4 shadow-lg"
             style={{ WebkitOverflowScrolling: 'touch' }}
             tabIndex={0}
             aria-label="Projects menu"
