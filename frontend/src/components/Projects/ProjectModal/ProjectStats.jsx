@@ -7,6 +7,7 @@
  */
 
 import { projectStatus } from "../../../data/projectMeta";
+import StatusBadge from "../ProjectCard/StatusBadge";
 
 const ProjectStats = ({ project }) => {
     const status = projectStatus[project.status];
@@ -42,9 +43,7 @@ const ProjectStats = ({ project }) => {
 
                 {/* Display the projects status */}
                 <div className="text-center">
-                    <div className="text-2xl font-bold text-[#00ff00]">
-                        {status.name}
-                    </div>
+                    <StatusBadge status={project.status} />
                     <div className="text-sm text-gray-400">Status</div>
                 </div>
             </div>

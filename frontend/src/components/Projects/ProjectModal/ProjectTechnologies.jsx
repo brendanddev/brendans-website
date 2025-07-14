@@ -23,9 +23,12 @@ const ProjectTechnologies = ({ project }) => {
                         custom={i}
                         variants={techVariants}
                         whileHover="hover"
-                        className="p-3 bg-slate-700/50 rounded-xl text-[#00ff00] hover:bg-slate-600/50 transition-colors"
+                        className="p-3 bg-slate-700/50 rounded-xl hover:bg-slate-600/50 transition-colors"
                     >
-                        <i className={`${icon} text-2xl`}></i>
+                        <i 
+                            className={`${icon.className} text-2xl`}
+                            style={{ color: icon.color || "#00ff00" }}
+                        ></i>
                     </motion.div>
                 ))}
 

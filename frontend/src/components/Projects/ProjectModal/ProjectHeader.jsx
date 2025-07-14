@@ -11,6 +11,7 @@ import { X } from "lucide-react";
 import { motion } from "framer-motion";
 import { projectStatus } from "../../../data/projectMeta";
 import projectData from "../../../data/projectData";
+import StatusBadge from "../ProjectCard/StatusBadge";
 
 const ProjectHeader = ({ 
     project, 
@@ -56,9 +57,7 @@ const ProjectHeader = ({
                             {project.title}
                         </h2>
                         <div className="flex items-center justify-center gap-2 mt-1">
-                            <div className={`px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r ${status.color} text-white`}>
-                                {status.name}
-                            </div>
+                            <StatusBadge status={project.status} />
                             <div className="text-xs text-gray-400">
                                 {currentIndex + 1} of {projectData.length}
                             </div>
