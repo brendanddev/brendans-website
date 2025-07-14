@@ -38,7 +38,6 @@ export const projectData = [
             "Password hashing for security",
             "CRUD operations for user data"
         ],
-        extraIcon: <Database size={28} />,
         link: "https://github.com/brendanddev/Full-Stack-Mock-User-Management-System",
         techBreakdown: [
             { name: "PHP", value: 45, color: "#777BB4" },
@@ -59,10 +58,6 @@ export const projectData = [
             "Gameplay customization options",
             "Written in GSC for Black Ops 3",
             "Designed for private lobbies"
-        ],
-        extraIcon: [
-            <PiTerminalWindowDuotone size={30} />,
-            <MdOutlineGamepad size={28} />
         ],
         link: "https://github.com/brendanddev/Black-Ops-3-GSC-Mod-Menu",
         techBreakdown: [
@@ -102,7 +97,6 @@ export const projectData = [
             "Game asset extraction and repackaging",
             "Visual enhancements for Black Ops 1"
         ],
-        extraIcon: <FaPaintBrush size={28}/>,
         link: "https://github.com/brendanddev/Black-Ops-1-Camo-Pack",
         techBreakdown: [
             { name: "Photoshop", value: 60, color: "#31A8FF" },
@@ -122,10 +116,6 @@ export const projectData = [
             "Fuzzy string matching",
             "Heuristic query interpretation",
             "Extensible command handling"
-        ],
-        extraIcon: [
-            <PiFilePyThin size={28} />,
-            <FaRobot size={28} />
         ],
         link: "https://github.com/brendanddev/FAQ-Bot",
         techBreakdown: [
@@ -147,7 +137,6 @@ export const projectData = [
             "Unique weapon mechanics",
             "JSON asset configuration"
         ],
-        extraIcon: <Boxes size={28} />,
         link: "_blank",
         techBreakdown: [
             { name: "Java", value: 70, color: "#ED8B00" },

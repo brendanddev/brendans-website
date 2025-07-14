@@ -41,15 +41,7 @@ const ListCard = ({ project, onClick }) => {
                             {project.title}
                         </h3>
 
-                        <div className="flex items-center gap-2 flex-shrink-0">
-                            {/* GitHub stars display if any */}
-                            {project.githubStars && (
-                                <div className="flex items-center gap-1 text-yellow-400 bg-yellow-400/10 px-2 py-1 rounded-full">
-                                    <FaStar size={12} />
-                                    <span className="text-xs font-medium">{project.githubStars}</span>
-                                </div>
-                            )}
-                            
+                        <div className="flex items-center gap-2 flex-shrink-0">               
                             {/* Project status badge */}
                             <StatusBadge status={project.status} />
                         </div>

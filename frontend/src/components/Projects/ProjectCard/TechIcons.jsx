@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 import { FaCode } from "react-icons/fa";
 import { techContainerVariants, techItemVariants } from "../../../utils/variants/projects.js";
 
-const TechIcons = ({ icons, extraIcon }) => {
+const TechIcons = ({ icons }) => {
     return (
         <div>
             {/* Section title with tech icon */}
@@ -46,25 +46,6 @@ const TechIcons = ({ icons, extraIcon }) => {
                         <i className={`${icon} text-lg`}></i>
                     </motion.div>                                
                 ))}
-                
-                {/* Extra icon, if any */}
-                {extraIcon && (
-                    <motion.div 
-                        variants={techItemVariants}
-                        whileHover="hover"
-                        className="
-                            p-2.5 rounded-xl bg-slate-700/30 
-                            text-[#00ff00] hover:text-emerald-300 
-                            transition-all duration-300 ease-out
-                            group-hover:bg-slate-600/40
-                            shadow-sm hover:shadow-md
-                            border border-slate-600/20 hover:border-slate-500/40
-                            backdrop-blur-sm
-                        "
-                    >
-                        {extraIcon}
-                    </motion.div>
-                )}
             </motion.div>
         </div>
     );
