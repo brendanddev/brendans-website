@@ -58,7 +58,7 @@ const NavBar = () => {
                     {/* Logo that brings back to home page */}
                     <NavLogo />
                     {/* Desktop NavLinks */}
-                    <ul className="hidden md:flex gap-5 text-lg">
+                    <ul className="hidden md:flex items-center gap-5 text-lg">
                         <NavLinks />
                     </ul>
                     {/* Mobile Toggle Button */}

@@ -1,6 +1,6 @@
 
 /**
- * @file navLinks.js
+ * @file navBarLinks.js
  * @author Brendan Dileo, June 2025
  * 
  * Defines and exports an array links used in the nav component.
@@ -10,7 +10,14 @@
 export const navBarLinks = [
     { to: "/", label: "home" },
     { to: "/about", label: "about" },
-    { to: "/highlights", label: "highlights" },
     { to: "/projects", label: "projects" },
     { to: "/contact", label: "contact" },
+    
+    // More dropdown
+    {
+        label: "more",
+        dropdown: [
+            { to: "/highlights", label: "highlights" },
+        ]
+    }
 ];
