@@ -10,16 +10,18 @@ import { projectStatus } from "../../../data/projectMeta";
 
 const StatusBadge = ({ status }) => {
     const statusInfo = projectStatus[status];
-    
     return (
-        <div className={`
-            inline-flex items-center px-3 py-1.5 rounded-full 
-            text-xs font-semibold tracking-wide
-            bg-gradient-to-r ${statusInfo.color} 
-            text-white shadow-sm
-            border border-white/10
-            backdrop-blur-sm
-        `}>
+        <div
+            className={`
+                inline-flex items-center px-3 py-1.5 rounded-full 
+                text-xs font-semibold tracking-wide
+                bg-gradient-to-r ${statusInfo.color} 
+                text-white shadow-sm
+                border border-white/10
+                backdrop-blur-sm
+            `}
+            aria-label={`Project status: ${statusInfo.name}`}
+        >
             {statusInfo.icon && (
                 <span className="mr-1 flex items-center">
                     <statusInfo.icon size={14} className="mr-1" />
