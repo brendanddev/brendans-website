@@ -7,7 +7,7 @@
  */
 
 import { motion } from "framer-motion";
-import { FaStar, FaCalendar, FaCode } from "react-icons/fa";
+import { FaCalendar, FaCode } from "react-icons/fa";
 import { hoverVariants } from "../../../utils/variants/projects.js";
 import StatusBadge from "./StatusBadge";
 import ActionButtons from "./ActionButtons";
@@ -26,6 +26,14 @@ const ListCard = ({ project, onClick }) => {
                 hover:border-slate-500/40 hover:bg-gradient-to-r hover:from-slate-800/60 hover:to-slate-900/60
             "
             onClick={() => onClick(project)}
+            role="button"
+            tabIndex={0}
+            aria-label={`View details for ${project.title}`}
+            onKeyDown={e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    onClick(project);
+                }
+            }}
         >
             {/* Subtle gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#00ff00]/5 via-transparent to-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-2xl"></div>
