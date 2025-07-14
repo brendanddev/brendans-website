@@ -70,13 +70,14 @@ const FilterMenu = ({ techOptions, selectedTech, onTechChange }) => {
                         absolute top-full mt-2 right-0 z-50
                         bg-slate-800/95 backdrop-blur-sm 
                         border border-slate-600/50 rounded-xl
-                        shadow-2xl min-w-[180px]"
+                        shadow-2xl min-w-[180px]
+                        max-h-72 overflow-y-auto"
                         role="listbox"
                     >
                         {/* Defines the dropdown content */}
                         <div className="p-2">
                             <button
-                                onClick={() => onTechChange("")}
+                                onClick={() => { onTechChange(""); setIsOpen(false); }}
                                 className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                                 !selectedTech
                                     ? "bg-[#00ff00]/20 text-[#00ff00]"
@@ -86,14 +87,14 @@ const FilterMenu = ({ techOptions, selectedTech, onTechChange }) => {
                                 aria-selected={!selectedTech}
                             >
                                 <FaTimes size={12} />
-                                <span>All Technologies</span>
+                                <span>All</span>
                             </button>
                         
                             {/* Map through tech option */}
                             {techOptions.map((tech) => (
                                 <button
                                     key={tech}
-                                    onClick={() => onTechChange(tech)}
+                                    onClick={() => { onTechChange(tech); setIsOpen(false); }}
                                     className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                                         selectedTech === tech
                                         ? "bg-[#00ff00]/20 text-[#00ff00]"

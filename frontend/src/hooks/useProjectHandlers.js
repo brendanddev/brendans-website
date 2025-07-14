@@ -10,7 +10,7 @@ import { useState, useEffect, useMemo } from "react";
 import projectData from "../data/projectData";
 import { sortProjects } from "../utils/sortProjects.js";
 
-const useProjectHandlers = () => {
+const useProjectHandlers = (projects = projectData) => {
     const [selectedProject, setSelectedProject] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -21,12 +21,12 @@ const useProjectHandlers = () => {
     
     // Filter and sort projects based on current criteria
     const sortedProjects = useMemo(() => {
-        let filteredProjects = projectData;
+        let filteredProjects = projects;
         
         // Apply search filter
         if (searchQuery.trim()) {
             const query = searchQuery.toLowerCase().trim();
-            filteredProjects = projectData.filter(project => 
+            filteredProjects = projects.filter(project => 
                 project.title.toLowerCase().includes(query) ||
                 project.desc.toLowerCase().includes(query) ||
                 project.technologies?.some(tech => tech.toLowerCase().includes(query)) ||
@@ -36,13 +36,13 @@ const useProjectHandlers = () => {
         
         // Apply sorting
         return sortProjects(filteredProjects, sortBy);
-    }, [sortBy, searchQuery]);
+    }, [projects, sortBy, searchQuery]);
     
     // Open handler
     const handleProjectClick = (project) => {
         // Find the index of the clicked project
         // This allows for the setting of the current index for nav
-        const index = projectData.findIndex(p => p.title === project.title);
+        const index = projects.findIndex(p => p.title === project.title);
         setCurrentIndex(index);
         setSelectedProject(project);
         setIsModalOpen(true);
@@ -57,17 +57,17 @@ const useProjectHandlers = () => {
 
     // Project selection handler for related projects
     const handleProjectSelect = (project) => {
-        const index = projectData.findIndex(p => p.title === project.title);
+        const index = projects.findIndex(p => p.title === project.title);
         setCurrentIndex(index);
         setSelectedProject(project);
     };
 
     // Navigation handlers
     const handleNext = () => {
-        if (currentIndex < projectData.length - 1) {
+        if (currentIndex < projects.length - 1) {
         const nextIndex = currentIndex + 1;
         setCurrentIndex(nextIndex);
-        setSelectedProject(projectData[nextIndex]);
+        setSelectedProject(projects[nextIndex]);
         }
     };
 
@@ -76,7 +76,7 @@ const useProjectHandlers = () => {
         if (currentIndex > 0) {
         const prevIndex = currentIndex - 1;
         setCurrentIndex(prevIndex);
-        setSelectedProject(projectData[prevIndex]);
+        setSelectedProject(projects[prevIndex]);
         }
     };
 
@@ -99,19 +99,19 @@ const useProjectHandlers = () => {
     useEffect(() => {
         if (isAutoPlaying && isModalOpen) {
             const interval = setInterval(() => {
-                if (currentIndex < projectData.length - 1) {
+                if (currentIndex < projects.length - 1) {
                 const nextIndex = currentIndex + 1;
                 setCurrentIndex(nextIndex);
-                setSelectedProject(projectData[nextIndex]);
+                setSelectedProject(projects[nextIndex]);
                 } else {
                 setCurrentIndex(0);
-                setSelectedProject(projectData[0]);
+                setSelectedProject(projects[0]);
                 }
             }, 3000);
 
             return () => clearInterval(interval);
         }
-    }, [isAutoPlaying, currentIndex, isModalOpen]);
+    }, [isAutoPlaying, currentIndex, isModalOpen, projects]);
 
     // Handles the change of the selected sort option
     const handleSortChange = (value) => {
