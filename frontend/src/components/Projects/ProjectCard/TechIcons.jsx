@@ -18,17 +18,18 @@ const TechIcons = ({ icons }) => {
                 <FaCode size={12} className="text-slate-500" />
                 Technologies
             </h4>
-            
             {/* Technology icons container with staggered animations */}
-            <motion.div 
+            <motion.div
                 variants={techContainerVariants}
                 initial="hidden"
                 animate="visible"
                 className="flex items-center flex-wrap gap-2"
+                aria-label="Technology stack"
+                role="list"
             >
                 {/* Map through technology icons */}
                 {icons.map((icon, i) => (
-                    <motion.div 
+                    <motion.div
                         key={i}
                         variants={techItemVariants}
                         whileHover="hover"
@@ -40,15 +41,16 @@ const TechIcons = ({ icons }) => {
                             border border-slate-600/20 hover:border-slate-500/40
                             backdrop-blur-sm
                         "
-                        title={`Technology ${i + 1}`}
+                        title={icon.label || `Technology ${i + 1}`}
+                        role="listitem"
+                        aria-label={icon.label || icon.className}
                     >
                         {/* Render icon with dynamic color */}
-                        <i 
+                        <i
                             className={`${icon.className} text-lg`}
                             style={{ color: icon.color || "#00ff00" }}
                         ></i>
-                        
-                    </motion.div>                                
+                    </motion.div>
                 ))}
             </motion.div>
         </div>
