@@ -65,7 +65,7 @@ const FilterMenu = ({ techOptions, selectedTech, onTechChange }) => {
             <div className="p-2">
                 <button
                     onClick={() => { onTechChange(""); setIsOpen(false); }}
-                    className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                    className={`w-full flex items-center justify-start gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                         !selectedTech
                             ? "bg-[#00ff00]/20 text-[#00ff00]"
                             : "text-gray-300 hover:text-white hover:bg-slate-700/50"
@@ -74,13 +74,14 @@ const FilterMenu = ({ techOptions, selectedTech, onTechChange }) => {
                     aria-selected={!selectedTech}
                 >
                     <FaTimes size={12} />
-                    <span>All</span>
+                    {/* Ensures text is left-aligned and fills available space */}
+                    <span className="flex-1 text-left">All</span>
                 </button>
                 {techOptions.map((tech) => (
                     <button
                         key={tech}
                         onClick={() => { onTechChange(tech); setIsOpen(false); }}
-                        className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                        className={`w-full flex items-center justify-start gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                             selectedTech === tech
                                 ? "bg-[#00ff00]/20 text-[#00ff00]"
                                 : "text-gray-300 hover:text-white hover:bg-slate-700/50"
@@ -88,7 +89,7 @@ const FilterMenu = ({ techOptions, selectedTech, onTechChange }) => {
                         role="option"
                         aria-selected={selectedTech === tech}
                     >
-                        <span>{tech}</span>
+                        <span className="flex-1 text-left">{tech}</span>
                     </button>
                 ))}
             </div>
