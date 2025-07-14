@@ -12,6 +12,7 @@ import ViewModeToggle from './ViewModeToggle';
 import ProjectCount from './ProjectCount';
 import SearchBar from './SearchBar';
 import SortMenu from './SortMenu';
+import FilterMenu from './FilterMenu';
 
 
 const ProjectsMenu = ({
@@ -21,7 +22,10 @@ const ProjectsMenu = ({
     sortBy,
     onSortChange,
     searchQuery,
-    onSearch
+    onSearch,
+    techOptions,
+    selectedTech,
+    onTechChange
 }) => {
     return (
         // Main menu container
@@ -33,6 +37,7 @@ const ProjectsMenu = ({
             <ViewModeToggle viewMode={viewMode} onViewModeChange={onViewModeChange} />
             <ProjectCount projectCount={projectCount} />
             <SearchBar searchQuery={searchQuery} onSearch={onSearch} />
+            <FilterMenu techOptions={techOptions} selectedTech={selectedTech} onTechChange={onTechChange} />
             <SortMenu sortBy={sortBy} onSortChange={onSortChange} />
         </div>
     );

@@ -10,11 +10,31 @@ import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
 import ProjectsMenu from "./ProjectsMenu/ProjectsMenu.jsx";
 import useProjectHandlers from "../../hooks/useProjectHandlers.js";
+import projectData from "../../data/projectData";
+import { useState, useMemo } from "react";
 
 import { projectGridVariants, projectCardItemVariants } from "../../utils/variants/cards.js";
 import { motion } from "framer-motion";
 
 const ProjectsGrid = () => {
+  // Technology filter state
+  const [selectedTech, setSelectedTech] = useState("");
+
+  // Generate unique technology options from all projects
+  const techOptions = useMemo(() => {
+    const allTechs = projectData.flatMap(p =>
+      p.techBreakdown ? p.techBreakdown.map(t => t.name) : []
+    );
+    return Array.from(new Set(allTechs)).sort();
+  }, []);
+
+  // Filter projects by selected technology
+  const filteredProjects = useMemo(() => {
+    if (!selectedTech) return projectData;
+    return projectData.filter(p =>
+      p.techBreakdown && p.techBreakdown.some(t => t.name === selectedTech)
+    );
+  }, [selectedTech]);
 
   // Custom hook to manage project modal state and handlers
   const {
@@ -35,7 +55,7 @@ const ProjectsGrid = () => {
     handleViewModeChange,
     handleSortChange,
     handleSearchChange
-  } = useProjectHandlers();
+  } = useProjectHandlers(filteredProjects);
 
   return (
     <>
@@ -49,6 +69,9 @@ const ProjectsGrid = () => {
           onSortChange={handleSortChange}
           searchQuery={searchQuery}
           onSearch={handleSearchChange}
+          techOptions={techOptions}
+          selectedTech={selectedTech}
+          onTechChange={setSelectedTech}
         />
       </div>
 
