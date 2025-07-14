@@ -34,7 +34,6 @@ const TechIcons = ({ icons }) => {
                         whileHover="hover"
                         className="
                             p-2.5 rounded-xl bg-slate-700/30 
-                            text-[#00ff00] hover:text-emerald-300 
                             transition-all duration-300 ease-out
                             group-hover:bg-slate-600/40
                             shadow-sm hover:shadow-md
@@ -43,7 +42,12 @@ const TechIcons = ({ icons }) => {
                         "
                         title={`Technology ${i + 1}`}
                     >
-                        <i className={`${icon} text-lg`}></i>
+                        {/* Render icon with dynamic color */}
+                        <i 
+                            className={`${icon.className} text-lg`}
+                            style={{ color: icon.color || "#00ff00" }}
+                        ></i>
+                        
                     </motion.div>                                
                 ))}
             </motion.div>
