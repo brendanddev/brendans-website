@@ -6,12 +6,14 @@
  * Defines the text content to be displayed inside of the about story modal
  */
 
-
+// Top section content for the about story
 export const intro = {
   role: "Software Development Student",
   description: `Hi, I'm Brendan Dileo, a passionate software development student with a drive to create meaningful solutions through code. I believe in the power of technology to solve real-world problems and am committed to continuous learning and growth in this ever-evolving field.`,
 };
 
+// The actual content of the about story modal
+// split into sections
 export const journeySections = [
   {
     icon: "TrendingUp",
@@ -33,4 +35,5 @@ export const journeySections = [
   },
 ];
 
+// Bottom call to action section content
 export const callToAction = `Ready to bring my passion for development to your team. Let's build something amazing together.`;

@@ -11,6 +11,19 @@ import { FaPaintBrush, FaRobot } from "react-icons/fa";
 import { PiTerminalWindowDuotone,  PiFilePyThin } from "react-icons/pi";
 import { MdOutlineGamepad } from "react-icons/md";
 
+//  {
+//         title: "To Do List App",
+//         desc: "",
+//         longDesc: "",
+//         status: "Complete",
+//         completionDate: "",
+//         icons: [],
+//         features: [],
+//         extraIcon: null,
+//         link: "",
+//         techBreakdown: []
+
+//     },
 export const projectData = [
     {
         title: "User Management System",

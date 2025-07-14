@@ -80,7 +80,7 @@ const DottedGridSection = () => {
                   
                   {/* Icon */}
                   <div className={`w-8 h-8 sm:w-12 sm:h-12 ${item.bgColor} rounded-xl flex items-center justify-center mb-3 sm:mb-4 mx-auto group-hover:scale-110 transition-transform duration-300`}>
-                    <item.icon size={16} className="sm:w-6 sm:h-6 ${item.color}" />
+                    <item.icon size={16} className={`sm:w-6 sm:h-6 ${item.color}`} />
                   </div>
                   
                   {/* Content */}

@@ -75,7 +75,7 @@ const StoryModal = ({ isOpen, onClose }) => {
               // Determine section specific properties
               const Icon = icons[section.icon];
               const delay = 0.2 + idx * 0.1;
-              const bgColor = `${section.color}-400/20`;
+              const bgColor = `bg-${section.color}-400/20`;
               const textColor = `text-${section.color}-400`;
               
               // Render the section with animations
@@ -87,7 +87,7 @@ const StoryModal = ({ isOpen, onClose }) => {
                   transition={{ delay }}
                   className="flex gap-3 sm:gap-4 p-3 sm:p-4 bg-slate-800/50 rounded-xl border border-slate-700"
                 >
-                  <div className={`flex-shrink-0 w-8 h-8 sm:w-12 sm:h-12 bg-${bgColor} rounded-lg flex items-center justify-center`}>
+                  <div className={`flex-shrink-0 w-8 h-8 sm:w-12 sm:h-12 ${bgColor} rounded-lg flex items-center justify-center`}>
                     <Icon className={`w-4 h-4 sm:w-6 sm:h-6 ${textColor}`} />
                   </div>
                   <div>
