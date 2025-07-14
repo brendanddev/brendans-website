@@ -34,11 +34,10 @@ const ProjectModal = ({
 }) => {
     if (!project) return null;
 
-    // Keyboard navigation
+    // Keyboard navigation for modal
     useEffect(() => {
         const handleKeyDown = (event) => {
             if (!isOpen) return;
-            
             switch (event.key) {
                 case 'ArrowLeft':
                     event.preventDefault();
@@ -64,9 +63,8 @@ const ProjectModal = ({
 
     return (
         <AnimatePresence>
-            {/* Conditionally render the modal based on if user chooses to open */}
+            {/* Conditionally render the modal based on open state */}
             {isOpen && (
-
                 // Modal overlay
                 <motion.div
                     initial={{ opacity: 0 }}
@@ -74,8 +72,9 @@ const ProjectModal = ({
                     exit={{ opacity: 0 }}
                     className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
                     onClick={onClose}
-                >   
-
+                    aria-modal="true"
+                    role="dialog"
+                >
                     {/* Modal container */}
                     <motion.div
                         variants={modalVariants}
@@ -84,8 +83,8 @@ const ProjectModal = ({
                         exit="exit"
                         className="relative w-full max-w-6xl max-h-[95vh] overflow-y-auto bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl border border-slate-600/50 shadow-2xl"
                         onClick={(e) => e.stopPropagation()}
+                        tabIndex={-1}
                     >
-
                         {/* Modal Header */}
                         <ProjectHeader 
                             project={project}
@@ -96,7 +95,6 @@ const ProjectModal = ({
                             onPrev={onPrev}
                             currentIndex={currentIndex}
                         />
-
                         {/* Modal Content */}
                         <motion.div 
                             variants={contentVariants}
@@ -134,6 +132,7 @@ const ProjectModal = ({
                                                 focus:outline-none focus:ring-2 focus:ring-sky-400/50 focus:ring-offset-2 focus:ring-offset-slate-800
                                                 border border-white/20
                                             "
+                                            aria-label="View on GitHub"
                                         >
                                             <FaGithub />
                                             View on GitHub

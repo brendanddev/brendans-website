@@ -8,9 +8,12 @@
 
 import { FaCode } from "react-icons/fa";
 
+
 const ProjectPreview = ({ project }) => {
     return (
         <div className="relative">
+            
+            {/* Preview container with placeholder visuals */}
             <div className="bg-slate-700/50 rounded-xl p-8 h-64 flex items-center justify-center border border-slate-600/30">
                 <div className="text-center">
                     <div className="w-24 h-24 bg-gradient-to-br from-[#00ff00]/20 to-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">

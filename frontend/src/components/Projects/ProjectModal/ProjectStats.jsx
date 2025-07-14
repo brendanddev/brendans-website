@@ -14,19 +14,22 @@ const ProjectStats = ({ project }) => {
 
     return (
         <div className="bg-slate-700/30 rounded-xl p-6 border border-slate-600/30">
+            
+            {/* Section title */}
             <h4 className="text-lg font-semibold text-white mb-4">Project Statistics</h4>
-            <div className="grid grid-cols-2 gap-4">
-                <div className="text-center">
-
-                    {/* Display the count of technology icons used in the project */}
+            {/* Responsive grid for stats */}
+            <div className="grid grid-cols-2 gap-4" aria-label="Project statistics" role="list">
+                
+                {/* Technology count */}
+                <div className="text-center" role="listitem">
                     <div className="text-2xl font-bold text-[#00ff00]">
                         {project.icons?.length || 0}
                     </div>
                     <div className="text-sm text-gray-400">Technologies</div>
                 </div>
-
-                {/* Display the number of features used in the project */}
-                <div className="text-center">
+                
+                {/* Features count */}
+                <div className="text-center" role="listitem">
                     <div className="text-2xl font-bold text-[#00ff00]">
                         {project.features?.length || 0}
                     </div>
@@ -40,9 +43,8 @@ const ProjectStats = ({ project }) => {
                     </div>
                     <div className="text-sm text-gray-400">Github Stars</div>
                 </div>
-
-                {/* Display the projects status */}
-                <div className="text-center">
+                {/* Project status */}
+                <div className="text-center" role="listitem">
                     <StatusBadge status={project.status} />
                     <div className="text-sm text-gray-400">Status</div>
                 </div>
