@@ -8,7 +8,7 @@
 
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
-import FilterMenu from "./ProjectsMenu/FilterMenu.jsx";
+import ProjectsMenu from "./ProjectsMenu/ProjectsMenu.jsx";
 import useProjectHandlers from "../../hooks/useProjectHandlers.js";
 
 import { projectGridVariants, projectCardItemVariants } from "../../utils/variants/cards.js";
@@ -39,9 +39,9 @@ const ProjectsGrid = () => {
 
   return (
     <>
-      {/* Filter Menu */}
+      {/* Main Projects Menu */}
       <div className="mb-8 px-4 md:px-6">
-        <FilterMenu 
+        <ProjectsMenu
           viewMode={viewMode}
           onViewModeChange={handleViewModeChange}
           projectCount={sortedProjects.length}
@@ -52,6 +52,7 @@ const ProjectsGrid = () => {
         />
       </div>
 
+      {/* Projects cards grid */}
       <motion.div 
         className={`
           relative z-10 w-full max-w-7xl mx-auto
@@ -87,6 +88,7 @@ const ProjectsGrid = () => {
         ))}
       </motion.div>
       
+      {/* Conditionally show project modal */}
       <ProjectModal 
         isOpen={isModalOpen}
         onClose={handleCloseModal}
