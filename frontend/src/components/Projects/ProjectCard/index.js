@@ -6,4 +6,5 @@
  * Export file for the ProjectCard module
  */
 
+// Re exports default for cleaner imports
 export { default } from './ProjectCard'; 
