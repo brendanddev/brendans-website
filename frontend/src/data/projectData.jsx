@@ -7,10 +7,22 @@
  */
 
 
+//  {
+//         title: "",
+//         titleColor: "",
+//         desc: "",
+//         longDesc: "",
+//         status: "",
+//         completionDate: "",
+//         icons: [],
+//         features: [],
+//         link: "",
+//         techBreakdown: []
+//     },
 export const projectData = [
     {
         title: "Collectible Finder 2.0",
-        titleColor: "",
+        titleColor: "#f8bf7dfa",
         desc: "React Native app to find collectible shops and manage your virtual collection.",
         longDesc: "Collectible-Finder began as a passion project built using React Native and Expo SDK. It helps users locate nearby collectible shops, manage their own virtual collection of items, and includes features like account management, image capture, and location-based filtering.",
         status: "Complete",
@@ -35,12 +47,55 @@ export const projectData = [
             { name: "React Native", value: 10, color: "#61DAFB" }
         ]
     },
+    {
+        title: "Multimodal Bot",
+        titleColor: "#f87deefa",
+        desc: "An advanced multimodal chatbot with NLP, image processing, and XP system backend.",
+        longDesc: "Originally a simple rule-based bot, Multimodal Bot evolved into a highly capable NLP-driven chatbot with multimodal support. It leverages custom prompts, OpenAI integration, web scraping, and even a gamified XP system backed by Node.js.",
+        status: "Complete",
+        completionDate: "May 2025",
+        icons: [
+            { className: "devicon-python-plain", color: "#3776AB" },
+            { className: "devicon-nodejs-plain-wordmark", color: "#339933" },
+            { className: "devicon-openai-plain", color: "#F7DF1E" }
+        ],
+        features: [
+            "Pattern matching (regex, fuzzy, heuristic)",
+            "Named Entity Recognition",
+            "Sentiment Analysis and Speech Act Classification",
+            "TF-IDF similarity and fallback dialog management",
+            "OpenAI integration for responses and images",
+            "XP system server via Node.js",
+            "Web scraping and data visualization"
+        ],
+        link: "https://github.com/brendanddev/Multimodal-Bot",
+        techBreakdown: [
+            { name: "Python", value: 60, color: "#3776AB" },
+            { name: "Node.js", value: 30, color: "#339933" },
+            { name: "OpenAI API", value: 10, color: "#F7DF1E" },
+        ]
+    },
+
+    {
+        title: "",
+        titleColor: "",
+        desc: "",
+        longDesc: "",
+        status: "",
+        completionDate: "",
+        icons: [],
+        features: [],
+        link: "",
+        techBreakdown: []
+    },
 
 
 
 
 
-    
+
+
+
     {
         title: "User Management System",
         titleColor: "#f7df1e",
