@@ -12,12 +12,4 @@ export const navBarLinks = [
     { to: "/about", label: "about" },
     { to: "/projects", label: "projects" },
     { to: "/contact", label: "contact" },
-    
-    // More dropdown
-    {
-        label: "more",
-        dropdown: [
-            { to: "/highlights", label: "highlights" },
-        ]
-    }
 ];

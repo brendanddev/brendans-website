@@ -3,7 +3,7 @@
  * @file About.jsx
  * @author Brendan Dileo
  * 
- * Enhanced About page with modern design, improved UX, and visual storytelling
+ * The about page for my website
 */
 
 import Header from "../components/Header/Header";
@@ -49,6 +49,7 @@ const About = () => {
 
           {/* Education section */}
           <EducationCard />
+          
           {/* Skills section */}
           <SkillsCard />
           
