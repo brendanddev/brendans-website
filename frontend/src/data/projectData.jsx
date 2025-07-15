@@ -9,6 +9,39 @@
 
 export const projectData = [
     {
+        title: "Collectible Finder 2.0",
+        titleColor: "",
+        desc: "React Native app to find collectible shops and manage your virtual collection.",
+        longDesc: "Collectible-Finder began as a passion project built using React Native and Expo SDK. It helps users locate nearby collectible shops, manage their own virtual collection of items, and includes features like account management, image capture, and location-based filtering.",
+        status: "Complete",
+        completionDate: "May 2025",
+        icons: [
+            { className: "devicon-typescript-plain", color: "#3178C6" },
+            { className: "devicon-prisma-plain", color: "#1f5ecaff" },
+            { className: "devicon-nodejs-plain-wordmark", color: "#43853D" }
+        ],
+        features: [
+            "Locate collectible shops and filter by preference",
+            "Mark shops as favorites or visited",
+            "Manage a virtual collection with image capture and upload",
+            "Create an account, sign in/out",
+            "Upload custom profile pictures"
+        ],
+        link: "https://github.com/brendanddev/Collectible-Finder",
+        techBreakdown: [
+            { name: "TypeScript", value: 40, color: "#3178C6" },
+            { name: "Node.js", value: 30, color: "#339933" },
+            { name: "Prisma", value: 20, color: "#2D3748" },
+            { name: "React Native", value: 10, color: "#61DAFB" }
+        ]
+    },
+
+
+
+
+
+    
+    {
         title: "User Management System",
         titleColor: "#f7df1e",
         desc: "A mock user management system featuring authentication and role-based access control. Built with PHP, JavaScript, and MySQL.",
