@@ -7,10 +7,10 @@
 */
 
 import Button from "../common/Button";
+import LinkButton from "../common/LinkButton";
 import { Download, BookOpen, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
-// onReadStory: Property function to handle opening the story modal
 const IntroActions = ({ onReadStory }) => {
   
   return (
@@ -29,6 +29,7 @@ const IntroActions = ({ onReadStory }) => {
         transition={{ type: "spring", stiffness: 400, damping: 17 }}
         className="w-full sm:w-auto"
       >
+
         {/* Story Button */}
         <Button
           onClick={onReadStory}
@@ -36,7 +37,6 @@ const IntroActions = ({ onReadStory }) => {
         >
           {/* Background gradient */}
           <div className="absolute inset-0 bg-gradient-to-r from-green-400/20 to-emerald-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          
           <div className="relative flex items-center justify-center sm:justify-start gap-2 sm:gap-3">
             {/* Icons to add effects */}
             <BookOpen size={18} className="sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform duration-300" />
@@ -54,8 +54,7 @@ const IntroActions = ({ onReadStory }) => {
         className="w-full sm:w-auto"
       >
         {/* Triggers a download */}
-        <Button
-          as="a"
+        <LinkButton
           href="/BrendanDileo_Resume.pdf"
           download="BrendanDileo_Resume.pdf"
           className="group relative w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold bg-slate-800 hover:bg-slate-700 text-white border border-slate-600 hover:border-slate-500 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
@@ -66,9 +65,30 @@ const IntroActions = ({ onReadStory }) => {
             <Download size={18} className="sm:w-5 sm:h-5 group-hover:animate-bounce transition-all duration-300" />
             <span>Download Resume</span>
           </div>
-        </Button>
-
+        </LinkButton>
       </motion.div>
+
+      {/* Highlights Button */}
+      <motion.div
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        transition={{ type: "spring", stiffness: 400, damping: 17 }}
+        className="w-full sm:w-auto"
+      >
+        <LinkButton
+          to="/highlights"
+          className="group relative w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold bg-gradient-to-r from-purple-600 to-violet-700 hover:from-purple-700 hover:to-violet-800 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-0 overflow-hidden"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-400/20 to-violet-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          
+          <div className="relative flex items-center justify-center sm:justify-start gap-2 sm:gap-3">
+            <Sparkles size={18} className="sm:w-5 sm:h-5 group-hover:rotate-6 transition-transform duration-300" />
+            <span>View Highlights</span>
+          </div>
+        </LinkButton>
+      </motion.div>
+
+
     </motion.div>
   );
 };
