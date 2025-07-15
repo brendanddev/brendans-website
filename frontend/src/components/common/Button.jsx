@@ -6,15 +6,33 @@
  * A reusable buttom component providing a consistent and styled button interface
  */
 
-const Button = ({ children, onClick, type = "button", className = "", ...props }) => (
-    <button
+
+const Button = ({ children, onClick, type = "button", className = "", as: Component = "button", ...props }) => {
+  
+  // Check if the component is a button
+  if (Component === "button") {
+    return (
+      <button
         type={type}
         onClick={onClick}
-        className={`bg-green-400 text-slate-900 font-bold px-6 py-2 rounded-lg hover:bg-green-500 transition-all duration-300 transform hover:scale-105 shadow-[0_0_15px_rgba(50,205,50,0.5)] active:scale-95 ${className}`}
+        className={className}
         {...props}
-  >
-    {children}
-  </button>
-);
+      >
+        {children}
+      </button>
+    );
+  }
+
+  // For other components
+  return (
+    <Component
+      onClick={onClick}
+      className={className}
+      {...props}
+    >
+      {children}
+    </Component>
+  );
+};
 
 export default Button;
