@@ -7,18 +7,6 @@
  */
 
 
-//  {
-//         title: "",
-//         titleColor: "",
-//         desc: "",
-//         longDesc: "",
-//         status: "",
-//         completionDate: "",
-//         icons: [],
-//         features: [],
-//         link: "",
-//         techBreakdown: []
-//     },
 export const projectData = [
     {
         title: "Collectible Finder 2.0",
@@ -158,15 +146,6 @@ export const projectData = [
             { name: "Redis", value: 10, color: "#DC382D" }
         ]
     },
-    
-
-
-
-
-
-
-
-
     {
         title: "User Management System",
         titleColor: "#f7df1e",
@@ -176,7 +155,8 @@ export const projectData = [
         completionDate: "2024-12-15",
         icons: [
             { className: "devicon-php-plain", color: "#777BB4" },
-            { className: "devicon-javascript-plain", color: "#F7DF1E" }
+            { className: "devicon-javascript-plain", color: "#F7DF1E" },
+            { className: "devicon-mysql-plain", color: "#4479A1" }
         ],
         features: [
             "User registration and login",
@@ -260,53 +240,6 @@ export const projectData = [
             { name: "Photoshop", value: 60, color: "#31A8FF" },
             { name: "GIMP", value: 25, color: "#5C5543" },
             { name: "Asset Tools", value: 15, color: "#FF6B35" }
-        ]
-    },
-    {
-        title: "FAQ Discord Chat Bot",
-        titleColor: "#3776AB",
-        desc: "An intelligent FAQ Discord bot that responds to user queries using fuzzy matching and heuristic techniques.",
-        longDesc: "A Discord bot designed to answer frequently asked questions in real time. Utilizes Python and fuzzy string matching to interpret user queries and provide relevant responses. Features include command handling, heuristic matching, and easy extensibility for new FAQs.",
-        status: "Complete",
-        completionDate: "2024-11-05",
-        icons: [
-            { className: "devicon-python-plain", color: "#3776AB" }
-        ],
-        features: [
-            "Real-time FAQ responses",
-            "Fuzzy string matching",
-            "Heuristic query interpretation",
-            "Extensible command handling"
-        ],
-        link: "https://github.com/brendanddev/FAQ-Bot",
-        techBreakdown: [
-            { name: "Python", value: 80, color: "#3776AB" },
-            { name: "Discord API", value: 15, color: "#5865F2" },
-            { name: "Fuzzy Logic", value: 5, color: "#FFD700" }
-        ]
-    },
-    {
-        title: "Minecraft Sword Mod",
-        titleColor: "#ED8B00",
-        desc: "A custom Minecraft mod in Java using the Forge Modding API. Adds a unique sword with abilities, new weapon mechanics, and item registration.",
-        longDesc: "A Minecraft Forge mod that introduces a new sword with special abilities, custom item registration, and unique weapon mechanics. Developed in Java, this mod demonstrates advanced use of the Forge API and JSON asset configuration.",
-        status: "In Progress",
-        completionDate: "2025-02-01",
-        icons: [
-            { className: "devicon-java-plain", color: "#ED8B00" },
-            { className: "devicon-json-plain", color: "#000000" }
-        ],
-        features: [
-            "Custom sword with special abilities",
-            "Advanced Forge API usage",
-            "Unique weapon mechanics",
-            "JSON asset configuration"
-        ],
-        link: "_blank",
-        techBreakdown: [
-            { name: "Java", value: 70, color: "#ED8B00" },
-            { name: "Forge API", value: 20, color: "#E04E14" },
-            { name: "JSON", value: 10, color: "#000000" }
         ]
     }
 ];
