@@ -6,7 +6,7 @@
  * The about page for my website
 */
 
-import Header from "../components/Header/Header";
+import Header from '../components/common/Header';
 import PageWrapper from "../components/common/PageWrapper";
 import IntroActions from "../components/About/IntroActions";
 import EducationCard from "../components/About/EducationCard";

@@ -8,7 +8,7 @@
  */
 
 import { useState } from "react";
-import Header from "../components/Header/Header";
+import Header from '../components/common/Header';
 import PageWrapper from "../components/common/PageWrapper";
 import Button from "../components/common/Button";
 import ProjectsGrid from "../components/Projects/ProjectsGrid";

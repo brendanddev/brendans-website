@@ -6,8 +6,7 @@
  * The Contact page for the portfolio website, allowing users to contact me.
 */
 
-import Header from '../components/Header/Header';
-import Sidebar from "../components/Sidebar/Sidebar";
+import Header from '../components/common/Header';
 import ContactForm from '../components/Contact/ContactForm';
 
 import LoadingSpinner from '../components/Spinner/LoadingSpinner';

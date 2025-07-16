@@ -7,8 +7,7 @@
 */
 
 import Terminal from '../components/Terminal/Terminal';
-import Header from "../components/Header/Header";
-import Sidebar from "../components/Sidebar/Sidebar";
+import Header from '../components/common/Header';
 import PageWrapper from "../components/common/PageWrapper";
 
 import LoadingSpinner from '../components/Spinner/LoadingSpinner';
