@@ -77,17 +77,62 @@ export const projectData = [
     },
 
     {
-        title: "",
-        titleColor: "",
-        desc: "",
-        longDesc: "",
-        status: "",
-        completionDate: "",
-        icons: [],
-        features: [],
-        link: "",
-        techBreakdown: []
+        title: "Kollectbin",
+        titleColor: "#5ecee2fa",
+        desc: "Backend API for managing personal comic book collections with CLI support.",
+        longDesc: "KollectBin is a backend system built for managing personal comic collections with future plans for multi-category support. It features user authentication, API docs, CLI tools, and testing setup. Built using Node.js and Express, with MongoDB for persistence.",
+        status: "In Progress",
+        completionDate: "July 2025",
+        icons: [
+            { className: "devicon-express-original", color: "#000000" },
+            { className: "devicon-mongodb-plain-wordmark", color: "#47A248" },
+            { className: "devicon-java-plain-wordmark", color: "#007396" }
+        ],
+        features: [
+            "Manage personal comic book collection",
+            "Track collectible shop data",
+            "User registration and authentication",
+            "SwaggerJS API documentation",
+            "CLI for collection management (Java-based)",
+            "Custom logging with timestamps",
+            "Test suite with Jest and Supertest"
+        ],
+        link: "https://github.com/brendanddev/kollectbin",
+        techBreakdown: [
+            { name: "Node.js", value: 40, color: "#339933" },
+            { name: "Express", value: 30, color: "#000000" },
+            { name: "MongoDB", value: 20, color: "#47A248" },
+            { name: "Java", value: 10, color: "#007396" }
+        ]
     },
+    {
+        title: "GameLog",
+        titleColor: "#c90054ff",
+        desc: "Mobile-first app to manage your personal video game collection.",
+        longDesc: "GameLog is a full-stack application that allows users to manage video game collections, track progress, and view stats like hours played and completion status. Built with React Native and a Node.js + SQLite backend, it provides real-time updates and a modern mobile UI.",
+        status: "Complete",
+        completionDate: "",
+        icons: [
+            { className: "devicon-express-original", color: "#a10808ff" },
+            { className: "devicon-sqlite-plain", color: "#5eabcfff" },
+            { className: "devicon-react-plain", color: "#61DAFB" },
+        ],
+        features: [
+            "Track game title, platform, genre, hours played, and more",
+            "Mobile-first design with real-time sync",
+            "Local SQLite DB for persistence",
+            "RESTful API with full CRUD support",
+            "Modern UI with intuitive controls"
+        ],
+        link: "https://github.com/brendanddev/GameLog",
+        techBreakdown: [
+            { name: "React Native", value: 35, color: "#61DAFB" },
+            { name: "Node.js", value: 30, color: "#43853D" },
+            { name: "SQLite", value: 20, color: "#81cef1ff" },
+            { name: "Express", value: 15, color: "#000000" }
+        ]
+    },
+    
 
 
 
