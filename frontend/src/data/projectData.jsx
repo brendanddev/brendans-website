@@ -132,6 +132,32 @@ export const projectData = [
             { name: "Express", value: 15, color: "#000000" }
         ]
     },
+    {
+        title: "To Do List App",
+        titleColor: "#f7df1e",
+        desc: "A full-stack To Do List app with Redis persistence.",
+        longDesc: "Built as an assignment, this full-stack app allows users to manage a task list with save, load, and clear functionalities. It uses a React Native frontend and a Node.js + Express backend with Redis for persistent storage.",
+        status: "Complete",
+        completionDate: "2025-05-10",
+        icons: [
+            { className: "devicon-react-plain", color: "#61DAFB" },
+            { className: "devicon-express-original", color: "#000000" },
+            { className: "devicon-redis-plain", color: "#DC382D" }
+        ],
+        features: [
+            "Add, save, load, and clear tasks",
+            "React Native client",
+            "Backend with RESTful routes",
+            "Redis database for persistent task storage"
+        ],
+        link: "https://github.com/brendanddev/To-Do-List-App",
+        techBreakdown: [
+            { name: "React Native", value: 40, color: "#61DAFB" },
+            { name: "Node.js", value: 30, color: "#43853D" },
+            { name: "Express", value: 20, color: "#000000" },
+            { name: "Redis", value: 10, color: "#DC382D" }
+        ]
+    },
     
 
 
