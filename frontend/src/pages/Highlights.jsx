@@ -25,6 +25,9 @@ const Highlights = () => {
                 
                 {/* Dotted grid section showcasing key highlights */}
                 <DottedGridSection />
+
+                {/* Skill proficiency section */}
+                <SkillProficiencySection />
             </div>
         </PageWrapper>
     );
