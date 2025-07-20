@@ -11,7 +11,7 @@ export const projectData = [
     {
         title: "Collectible Finder 2.0",
         titleColor: "#f8bf7dfa",
-        desc: "React Native app to find collectible shops and manage your virtual collection.",
+        desc: "A React Native app to discover collectible shops, track visits, and build a digital collection on the go.",        
         longDesc: "Collectible-Finder began as a passion project built using React Native and Expo SDK. It helps users locate nearby collectible shops, manage their own virtual collection of items, and includes features like account management, image capture, and location-based filtering.",
         status: "Complete",
         completionDate: "May 2025",
@@ -38,7 +38,7 @@ export const projectData = [
     {
         title: "Multimodal Bot",
         titleColor: "#f87deefa",
-        desc: "An advanced multimodal chatbot with NLP, image processing, and XP system backend.",
+        desc: "A cutting-edge multimodal chatbot that combines natural language, image processing, discord interacitons, and gamified interactions.",
         longDesc: "Originally a simple rule-based bot, Multimodal Bot evolved into a highly capable NLP-driven chatbot with multimodal support. It leverages custom prompts, OpenAI integration, web scraping, and even a gamified XP system backed by Node.js.",
         status: "Complete",
         completionDate: "May 2025",
@@ -67,7 +67,7 @@ export const projectData = [
     {
         title: "Kollectbin",
         titleColor: "#5ecee2fa",
-        desc: "Backend API for managing personal comic book collections with CLI support.",
+        desc: "A backend API system for comic book collectors, offering secure APIs, CLI tools, and logging features.",
         longDesc: "KollectBin is a backend system built for managing personal comic collections with future plans for multi-category support. It features user authentication, API docs, CLI tools, and testing setup. Built using Node.js and Express, with MongoDB for persistence.",
         status: "In Progress",
         completionDate: "July 2025",
@@ -96,7 +96,7 @@ export const projectData = [
     {
         title: "GameLog",
         titleColor: "#c90054ff",
-        desc: "Mobile-first app to manage your personal video game collection.",
+        desc: "A sleek, mobile-first app to track your gaming progress, hours played, and collection stats.",
         longDesc: "GameLog is a full-stack application that allows users to manage video game collections, track progress, and view stats like hours played and completion status. Built with React Native and a Node.js + SQLite backend, it provides real-time updates and a modern mobile UI.",
         status: "Complete",
         completionDate: "",
@@ -123,7 +123,7 @@ export const projectData = [
     {
         title: "To Do List App",
         titleColor: "#f7df1e",
-        desc: "A full-stack To Do List app with Redis persistence.",
+        desc: "A fast and reliable full-stack task manager app using Redis for real-time data persistence.",
         longDesc: "Built as an assignment, this full-stack app allows users to manage a task list with save, load, and clear functionalities. It uses a React Native frontend and a Node.js + Express backend with Redis for persistent storage.",
         status: "Complete",
         completionDate: "2025-05-10",
@@ -149,7 +149,7 @@ export const projectData = [
     {
         title: "User Management System",
         titleColor: "#f7df1e",
-        desc: "A mock user management system featuring authentication and role-based access control. Built with PHP, JavaScript, and MySQL.",
+        desc: "A secure full-stack system for managing users with roles, permissions, and hashed credentials.",
         longDesc: "This project simulates a full-stack user management system, including user registration, login, and role-based access control. It demonstrates secure authentication flows, password hashing, and CRUD operations for user data. Built with PHP for the backend, MySQL for data storage, and JavaScript for the frontend.",
         status: "Complete",
         completionDate: "2024-12-15",
@@ -175,7 +175,7 @@ export const projectData = [
     {
         title: "Black Ops 3 Mod Menu",
         titleColor: "#00bfff",
-        desc: "A mod menu for Call of Duty: Black Ops 3, built in GSC (Game Script Code). Allows various gameplay customizations.",
+        desc: "A private GSC-based mod menu for Black Ops 3, featuring in-game tweaks and visual hacks.",
         longDesc: "A custom mod menu for Black Ops 3, written in GSC, enabling players to access a variety of in-game modifications such as weapon changes, player abilities, and visual tweaks. Designed for private lobbies and educational purposes.",
         status: "Prototype",
         completionDate: "2024-10-20",
