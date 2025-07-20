@@ -50,6 +50,14 @@ const toolsAndSoftware = [
     { className: "devicon-linux-plain", hoverColor: "#fcc624" }
 ];
 
+const devOpsTools = [
+    { className: "devicon-docker-plain", hoverColor: "#2496ed" },
+    { className: "devicon-kubernetes-plain", hoverColor: "#326ce5" },
+    { className: "devicon-jenkins-plain", hoverColor: "#d24939" },
+    { className: "devicon-jira-plain", hoverColor: "#2684ff" },
+    { className: "devicon-azure-plain", hoverColor: "#0089d6" }
+];
+
 // Defines the different skill categories
 const skillCategories = [
     {
@@ -87,3 +95,81 @@ const skillCategories = [
 ];
 
 export { skillCategories };
+
+
+const skillCategories = [
+    {
+      title: "Programming Languages",
+      icon: Code,
+      color: "text-blue-400",
+      bgColor: "bg-blue-400/10",
+      borderColor: "border-blue-400/20",
+      skills: [
+        { name: "Java", proficiency: 95, level: "Expert" },
+        { name: "JavaScript", proficiency: 90, level: "Advanced" },
+        { name: "Python", proficiency: 85, level: "Advanced" },
+        { name: "C#", proficiency: 80, level: "Intermediate" },
+        { name: "PHP", proficiency: 75, level: "Intermediate" },
+        { name: "Swift", proficiency: 70, level: "Intermediate" }
+      ]
+    },
+    {
+      title: "Web Development",
+      icon: Globe,
+      color: "text-green-400",
+      bgColor: "bg-green-400/10",
+      borderColor: "border-green-400/20",
+      skills: [
+        { name: "React", proficiency: 88, level: "Advanced" },
+        { name: "HTML/CSS", proficiency: 92, level: "Expert" },
+        { name: "Node.js", proficiency: 75, level: "Intermediate" },
+        { name: "Tailwind CSS", proficiency: 85, level: "Advanced" },
+        { name: "Bootstrap", proficiency: 80, level: "Intermediate" }
+      ]
+    },
+    {
+      title: "Databases & Tools",
+      icon: Database,
+      color: "text-purple-400",
+      bgColor: "bg-purple-400/10",
+      borderColor: "border-purple-400/20",
+      skills: [
+        { name: "MySQL", proficiency: 82, level: "Advanced" },
+        { name: "SQL Server", proficiency: 78, level: "Intermediate" },
+        { name: "Git", proficiency: 85, level: "Advanced" },
+        { name: "VS Code", proficiency: 90, level: "Expert" },
+        { name: "Unity", proficiency: 70, level: "Intermediate" }
+      ]
+    },
+    {
+      title: "Development Tools",
+      icon: Wrench,
+      color: "text-orange-400",
+      bgColor: "bg-orange-400/10",
+      borderColor: "border-orange-400/20",
+      skills: [
+        { name: "IntelliJ IDEA", proficiency: 88, level: "Advanced" },
+        { name: "PyCharm", proficiency: 80, level: "Intermediate" },
+        { name: "Xcode", proficiency: 75, level: "Intermediate" },
+        { name: "Linux", proficiency: 70, level: "Intermediate" },
+        { name: "GIMP", proficiency: 65, level: "Intermediate" }
+      ]
+    }
+  ];
+
+  const getLevelColor = (level) => {
+    switch (level) {
+      case "Expert": return "text-green-400";
+      case "Advanced": return "text-blue-400";
+      case "Intermediate": return "text-yellow-400";
+      case "Beginner": return "text-gray-400";
+      default: return "text-gray-400";
+    }
+  };
+
+  const getProficiencyColor = (proficiency) => {
+    if (proficiency >= 90) return "bg-green-400";
+    if (proficiency >= 80) return "bg-blue-400";
+    if (proficiency >= 70) return "bg-yellow-400";
+    return "bg-gray-400";
+  };
