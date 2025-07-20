@@ -91,6 +91,14 @@ const skillCategories = [
       color: "text-orange-400",
       bgColor: "bg-orange-400/10",
       borderColor: "border-orange-400/20"
+    },
+    {
+      title: "DevOps & CI/CD",
+      icons: devOpsTools,
+      icon: Wrench,
+      color: "text-red-400",
+      bgColor: "bg-red-400/10",
+      borderColor: "border-red-400/20"
     }
 ];
 
