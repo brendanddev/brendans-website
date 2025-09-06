@@ -1,0 +1,9 @@
+
+/**
+ * @file index.css
+ * @author Brendan Dileo
+ * 
+ * Imports the TailwindCSS library using Vite's @tailwindcss/vite plugin.
+ */
+
+@import "tailwindcss";
