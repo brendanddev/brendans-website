@@ -2,57 +2,77 @@
 /**
  * @file Header.jsx
  * @author Brendan Dileo
- * 
- * The Header Component for my portfolio-website
  */
 
 import { ReactTyped } from "react-typed";
 import { motion } from "framer-motion";
 
-// Takes title to be displayed, a subtitle, and an array of strings to be typed out 
-// with typing effect in header
 const Header = ({ title, subtitle, typedTexts }) => {
     return (
-            <div className="flex flex-col items-center justify-center text-center mt-4 sm:mt-6 md:mt-10 mb-0">            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
+        <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-center mb-8 p-6"
+        >
+            {/* Main Title */}
+            <motion.h1
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+                className="text-4xl md:text-5xl lg:text-6xl font-mono font-bold text-[#00ff00] mb-4 tracking-wider"
+                style={{
+                    textShadow: "0 0 10px rgba(0, 255, 0, 0.3), 0 0 20px rgba(0, 255, 0, 0.1)"
+                }}
             >
-                <h2 className="text-4xl sm:text-5xl md:text-6xl text-center font-bold text-white px-4">
-                    {title}
-                </h2>
-            </motion.div>
+                {title}
+            </motion.h1>
 
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-            >
-                <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium text-gray-400 px-4 mt-2">
+            {/* Subtitle */}
+            {subtitle && (
+                <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.4, duration: 0.5 }}
+                    className="text-lg md:text-xl text-[#00ff00]/80 font-mono mb-6"
+                >
                     {subtitle}
-                </h3>
-            </motion.div>
+                </motion.p>
+            )}
 
+            {/* Typed Text Section */}
             {typedTexts && typedTexts.length > 0 && (
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4 }}
-                    className="w-full"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.6, duration: 0.5 }}
+                    className="text-[#00ff00] font-mono text-base md:text-lg"
                 >
-                    <p className="text-green-400 max-w-2xl mx-auto mt-6 px-4 text-sm sm:text-base md:text-lg">
-                        {/* Uses react typed for typing effect */}
-                        <ReactTyped
-                            strings={typedTexts}
-                            typeSpeed={30}
-                            backSpeed={20}
-                            backDelay={3000}
-                            loop
-                        />
-                    </p>
+                    <span className="text-[#00ff00]/60">$ </span>
+                    <ReactTyped
+                        strings={typedTexts}
+                        typeSpeed={50}
+                        backSpeed={30}
+                        backDelay={2000}
+                        loop
+                        showCursor
+                        cursorChar="█"
+                        className="text-[#00ff00]"
+                        style={{
+                            textShadow: "0 0 5px rgba(0, 255, 0, 0.2)"
+                        }}
+                    />
                 </motion.div>
             )}
-        </div>
+
+            {/* Decorative Line */}
+            <motion.div
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
+                className="mt-6 h-px bg-gradient-to-r from-transparent via-[#00ff00]/50 to-transparent"
+            />
+        </motion.div>
     );
 };
 

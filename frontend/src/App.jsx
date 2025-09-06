@@ -13,8 +13,6 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
-import './App.css'
-import "devicon/devicon.min.css";
 
 /**
  * Sets up the routing of the portfolio-website.

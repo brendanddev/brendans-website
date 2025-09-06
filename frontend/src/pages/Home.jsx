@@ -7,19 +7,29 @@
 */
 
 import Terminal from '../components/Terminal';
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
+import Header from '../components/Header';
 
 const Home = () => {
+    const typedTexts = [
+        "Welcome to Brendan's Portfolio",
+        "Full Stack Developer",
+        "Technology Enthusiast",
+        "Problem Solver",
+        "Creative Thinker"
+    ];
+
     return (
-        <div className="flex">
-            <div className="flex-grow p-4">
-                <Header />
-                  <div className="w-full flex justify-center mt-8">
+        <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">
+            <div className="container mx-auto px-4 py-8">
+                <Header 
+                    title="BRENDAN DILEO"
+                    subtitle="Portfolio Terminal"
+                    typedTexts={typedTexts}
+                />
+                <div className="flex justify-center">
                     <Terminal />
                 </div>
             </div>
-            <Sidebar />
         </div>
     );
 };

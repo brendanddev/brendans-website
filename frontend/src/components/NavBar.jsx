@@ -24,13 +24,11 @@ const NavBar = () => {
   ];
 
   // Closes mobile menu when route changes
-  // Prevents mobile menu from staying open when navigating to a new page
   useEffect(() => {
     setIsOpen(false);
   }, [location.pathname]);
 
   // Close mobile menu on escape key
-  // Allows them menu to be closed with escape key
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === 'Escape' && isOpen) {
