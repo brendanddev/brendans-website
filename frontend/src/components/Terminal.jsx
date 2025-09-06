@@ -154,8 +154,8 @@ const Terminal = () => {
                     <div className="w-3 h-3 bg-green-500 rounded-full shadow-[0_0_5px_rgba(34,197,94,0.5)]"></div>
                 </div>
                 <span className="text-center w-full">
-                    <span className="hidden sm:inline">brendans@website-terminal: ~</span>
-                    <span className="inline sm:hidden">b-terminal ~</span>
+                    <span className="hidden sm:inline text-white">brendans@website-terminal: ~</span>
+                    <span className="inline sm:hidden text-white">b-terminal ~</span>
                 </span>
             </div>
             <div className={`flex-1 p-3 text-[${TERMINAL_COLOR}] overflow-y-auto`}>{output}</div>
@@ -172,7 +172,6 @@ const Terminal = () => {
                     value={command}
                     onChange={(event) => setCommand(event.target.value)}
                     onKeyDown={handleKeyDown}
-                    placeholder="Enter command..."
                 />
             </form>
         </motion.div>

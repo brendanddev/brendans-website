@@ -23,7 +23,7 @@ const Home = () => {
             <div className="container mx-auto px-4 py-8">
                 <Header 
                     title="BRENDAN DILEO"
-                    subtitle="Portfolio Terminal"
+                    subtitle="Software Developer | Tech Enthusiast"
                     typedTexts={typedTexts}
                 />
                 <div className="flex justify-center">

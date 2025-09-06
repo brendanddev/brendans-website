@@ -20,7 +20,7 @@ const About = () => {
         <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">
             <div className="container mx-auto px-4 py-8">
                 <Header 
-                    title="ABOUT"
+                    title="ABOUT ME"
                     subtitle="Get to know me"
                     typedTexts={typedTexts}
                 />
