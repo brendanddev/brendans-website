@@ -7,7 +7,7 @@
 */
 
 import Header from '../components/Header';
-import ContactTerminal from '../components/ContactTerminal';
+import ContactTerminal from '../components/Contact/ContactTerminal';
 
 const Contact = () => {
     const typedTexts = [

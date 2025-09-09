@@ -9,7 +9,7 @@
 
 
 import { useState } from "react";
-import TerminalFrame from "./TerminalFrame";
+import TerminalFrame from "../TerminalFrame";
 
 const ContactTerminal = () => {
     const ACCENT = "#38bdf8";
