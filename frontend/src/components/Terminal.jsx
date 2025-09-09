@@ -8,6 +8,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import TerminalFrame from "./TerminalFrame";
 
 const Terminal = () => {
 
@@ -141,24 +142,13 @@ const Terminal = () => {
     };
 
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.9 }} 
-            animate={{ opacity: 1, y: 0, scale: 1 }}  
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="w-[95%] md:w-4/5 lg:w-3/5 h-[450px] bg-gradient-to-br from-black via-gray-900 to-black backdrop-blur-sm rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.5)] flex flex-col border border-gray-700 overflow-hidden font-mono mx-auto"
+        <TerminalFrame
+            title="brendans@website-terminal: ~"
+            color={TERMINAL_COLOR}
+            className="h-[450px]"
+            contentClassName={`p-3 text-[${TERMINAL_COLOR}] overflow-y-auto`}
         >
-            <div className={`h-8 bg-gradient-to-r from-gray-800 to-gray-900 flex items-center justify-center relative text-[${TERMINAL_COLOR}] text-sm font-bold border-b border-gray-700`}>
-                <div className="absolute left-4 flex gap-2">
-                    <div className="w-3 h-3 bg-red-500 rounded-full shadow-[0_0_5px_rgba(239,68,68,0.5)]"></div>
-                    <div className="w-3 h-3 bg-yellow-500 rounded-full shadow-[0_0_5px_rgba(234,179,8,0.5)]"></div>
-                    <div className="w-3 h-3 bg-green-500 rounded-full shadow-[0_0_5px_rgba(34,197,94,0.5)]"></div>
-                </div>
-                <span className="text-center w-full">
-                    <span className="hidden sm:inline text-white">brendans@website-terminal: ~</span>
-                    <span className="inline sm:hidden text-white">b-terminal ~</span>
-                </span>
-            </div>
-            <div className={`flex-1 p-3 text-[${TERMINAL_COLOR}] overflow-y-auto`}>{output}</div>
+            <div className={`flex-1 p-0 text-[${TERMINAL_COLOR}] overflow-y-auto`}>{output}</div>
             <form className={`flex p-3 border-t border-gray-700`} onSubmit={handleCommandSubmission}>
                 <span className="mr-2">
                     <span className={`text-[${TERMINAL_COLOR}]`}>{PROMPT_PREFIX}</span>
@@ -174,7 +164,7 @@ const Terminal = () => {
                     onKeyDown={handleKeyDown}
                 />
             </form>
-        </motion.div>
+        </TerminalFrame>
     );
 };
 
