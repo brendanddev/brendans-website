@@ -6,24 +6,22 @@
  * The About page for my portfolio website
 */
 
+
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { educationData, skillsData } from '../data/aboutData';
+import { containerVariants, itemVariants } from '../animations/aboutVariants';
+
 import Header from '../components/Header';
 import EducationSection from '../components/About/EducationSection';
 import SkillsSection from '../components/About/SkillsSection';
 import ResumeSection from '../components/About/ResumeSection';
 import AboutMeSection from '../components/About/AboutSection';
 import AboutModal from '../components/About/AboutModal';
-import { educationData, skillsData } from '../data/aboutData';
+
 
 const About = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
-  };
-
-  const itemVariants = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">

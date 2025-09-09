@@ -6,34 +6,67 @@
  * The projects page for my portfolio-website
  */
 
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { projectsData, categories } from '../data/projectsData';
+import { containerVariants, itemVariants, projectCardVariants } from '../animations/projectsVariants';
+
 import Header from '../components/Header';
+import CategoryFilter from '../components/Projects/CategoryFilter';
+import ProjectModal from '../components/Projects/ProjectModal';
+import ProjectsGrid from '../components/Projects/ProjectsGrid';
+
 
 const Projects = () => {
-    const typedTexts = [
-        "My Portfolio Projects",
-        "Web Applications",
-        "Full Stack Solutions",
-        "Innovation & Creativity"
-    ];
+    const [selectedCategory, setSelectedCategory] = useState('all');
+    const [selectedProject, setSelectedProject] = useState(null);
 
+    const filteredProjects = selectedCategory === 'all' 
+        ? projectsData 
+        : projectsData.filter(project => project.category === selectedCategory);
+
+    
     return (
-        <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">
-            <div className="container mx-auto px-4 py-8">
-                <Header 
-                    title="MY PROJECTS"
-                    subtitle="Explore my work"
-                    typedTexts={typedTexts}
-                />
-                <div className="max-w-6xl mx-auto">
-                    <div className="bg-black/50 border border-gray-700 rounded-lg p-8">
-                        <p className="text-[#00ff00] font-mono text-lg leading-relaxed">
-                            Projects page content coming soon...
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">
+      <div className="container mx-auto px-4 py-8">
+        
+        {/* Page Header */}
+        <Header 
+          title="MY PROJECTS"
+          subtitle="Explore my work"
+        />
+
+        <motion.div 
+          className="max-w-7xl mx-auto"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {/* Category Filter */}
+          <motion.div variants={itemVariants} className="mb-8">
+            <CategoryFilter
+              categories={categories}
+              selectedCategory={selectedCategory}
+              onSelectCategory={setSelectedCategory}
+            />
+          </motion.div>
+
+          {/* Projects Grid */}
+          <ProjectsGrid
+            projects={filteredProjects}
+            onSelectProject={setSelectedProject}
+            projectCardVariants={projectCardVariants}
+          />
+        </motion.div>
+
+        {/* Project Detail Modal */}
+        <ProjectModal 
+          project={selectedProject} 
+          onClose={() => setSelectedProject(null)} 
+        />
+      </div>
+    </div>
+  );
 };
 
 export default Projects;

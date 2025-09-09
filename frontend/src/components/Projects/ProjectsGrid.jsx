@@ -8,8 +8,9 @@
 
 
 import { motion, AnimatePresence } from 'framer-motion';
-import ProjectCard from './ProjectCard';
-import { containerVariants } from './motionVariants';
+import { containerVariants } from '../../animations/projectsVariants';
+
+import ProjectCard from './ProjectsCard';
 
 
 const ProjectsGrid = ({ projects, onSelectProject, projectCardVariants }) => {
