@@ -7,6 +7,7 @@
 */
 
 import Header from '../components/Header';
+import ContactTerminal from '../components/ContactTerminal';
 
 const Contact = () => {
     const typedTexts = [
@@ -25,11 +26,7 @@ const Contact = () => {
                     typedTexts={typedTexts}
                 />
                 <div className="max-w-4xl mx-auto">
-                    <div className="bg-black/50 border border-gray-700 rounded-lg p-8">
-                        <p className="text-[#00ff00] font-mono text-lg leading-relaxed">
-                            Contact page content coming soon...
-                        </p>
-                    </div>
+                    <ContactTerminal />
                 </div>
             </div>
         </div>
