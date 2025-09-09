@@ -11,10 +11,10 @@ import ContactTerminal from '../components/ContactTerminal';
 
 const Contact = () => {
     const typedTexts = [
-        "Get in Touch",
-        "Let's Connect",
-        "Start a Conversation",
-        "Build Something Together"
+        "Send me a message and I'll get back to you!",
+        "Questions? Ideas? Collaboration?",
+        "Feel free to reach out!",
+        "I'm always open to new opportunities."
     ];
 
     return (
