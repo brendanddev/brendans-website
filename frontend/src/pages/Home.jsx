@@ -9,6 +9,14 @@
 import Terminal from '../components/Terminal';
 import Header from '../components/Header';
 
+// Welcome to my portfolio website!
+// Want to know more about me? Enter a command into the terminal!
+// I am passionate about technology, coding, and solving complex problems.|
+
+// Send me a message and I'll get back to you!
+// Feel free to reach out!
+// I'm always open to collaboration and new opportunities.
+
 const Home = () => {
     const typedTexts = [
         "Welcome to Brendan's Portfolio",

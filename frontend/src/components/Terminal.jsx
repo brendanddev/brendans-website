@@ -148,22 +148,24 @@ const Terminal = () => {
             className="h-[450px]"
             contentClassName={`p-3 text-[${TERMINAL_COLOR}] overflow-y-auto`}
         >
-            <div className={`flex-1 p-0 text-[${TERMINAL_COLOR}] overflow-y-auto`}>{output}</div>
-            <form className={`flex p-3 border-t border-gray-700`} onSubmit={handleCommandSubmission}>
-                <span className="mr-2">
-                    <span className={`text-[${TERMINAL_COLOR}]`}>{PROMPT_PREFIX}</span>
-                    <span className={`text-[${TERMINAL_COLOR}]`}>:</span>
-                    <span className={`text-[${TERMINAL_COLOR}]`}>~</span>
-                    <span className={`text-[${TERMINAL_COLOR}]`}>$</span>
-                </span>
-                <input
-                    className={`flex-1 bg-transparent border-none text-[${TERMINAL_COLOR}] text-lg focus:outline-none placeholder-[${TERMINAL_COLOR}]/50`}
-                    type="text"
-                    value={command}
-                    onChange={(event) => setCommand(event.target.value)}
-                    onKeyDown={handleKeyDown}
-                />
-            </form>
+            <div className="flex flex-col h-full">
+                <div className="flex-1 overflow-y-auto">{output}</div>
+                <form className={`flex p-3 border-t border-gray-700`} onSubmit={handleCommandSubmission}>
+                    <span className="mr-2">
+                        <span className={`text-[${TERMINAL_COLOR}]`}>{PROMPT_PREFIX}</span>
+                        <span className={`text-[${TERMINAL_COLOR}]`}>:</span>
+                        <span className={`text-[${TERMINAL_COLOR}]`}>~</span>
+                        <span className={`text-[${TERMINAL_COLOR}]`}>$</span>
+                    </span>
+                    <input
+                        className={`flex-1 bg-transparent border-none text-[${TERMINAL_COLOR}] text-lg focus:outline-none placeholder-[${TERMINAL_COLOR}]/50`}
+                        type="text"
+                        value={command}
+                        onChange={(event) => setCommand(event.target.value)}
+                        onKeyDown={handleKeyDown}
+                    />
+                </form>
+            </div>
         </TerminalFrame>
     );
 };

@@ -40,41 +40,50 @@ const ContactTerminal = () => {
             contentClassName={`p-4 text-[${ACCENT}]`}
         >
             <form className="flex flex-col gap-4 p-2" onSubmit={onSubmit}>
-                <label className={`text-sm text-[${ACCENT}]`}>Name</label>
+                <div className="flex items-center gap-2">
+                    <span className={`text-[${ACCENT}]`}>$</span>
+                    <label className={`text-sm text-[${ACCENT}]`}>&lt;name&gt;</label>
+                </div>
                 <input
-                    className={`bg-transparent border border-gray-700 rounded px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-sky-500/40`}
+                    className={`bg-transparent border border-gray-700 rounded px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-sky-500/40 font-mono`}
                     type="text"
-                    placeholder="John Doe"
+                    placeholder="developer@portfolio.com"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                 />
 
-                <label className={`text-sm text-[${ACCENT}]`}>Email</label>
+                <div className="flex items-center gap-2">
+                    <span className={`text-[${ACCENT}]`}>$</span>
+                    <label className={`text-sm text-[${ACCENT}]`}>&lt;email&gt;</label>
+                </div>
                 <input
-                    className={`bg-transparent border border-gray-700 rounded px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-sky-500/40`}
+                    className={`bg-transparent border border-gray-700 rounded px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-sky-500/40 font-mono`}
                     type="email"
-                    placeholder="john@example.com"
+                    placeholder="user@domain.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
 
-                <label className={`text-sm text-[${ACCENT}]`}>Message</label>
+                <div className="flex items-center gap-2">
+                    <span className={`text-[${ACCENT}]`}>$</span>
+                    <label className={`text-sm text-[${ACCENT}]`}>&lt;message&gt;</label>
+                </div>
                 <textarea
-                    className={`bg-transparent border border-gray-700 rounded px-3 py-2 text-white min-h-[140px] resize-none focus:outline-none focus:ring-2 focus:ring-sky-500/40`}
-                    placeholder="How can I help?"
+                    className={`bg-transparent border border-gray-700 rounded px-3 py-2 text-white min-h-[140px] resize-none focus:outline-none focus:ring-2 focus:ring-sky-500/40 font-mono`}
+                    placeholder="// Let's build something amazing together..."
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                 />
 
                 <div className="flex items-center justify-between mt-2">
-                    <span className={`text-xs ${status?.type === "error" ? "text-red-400" : "text-green-400"}`}>
-                        {status?.text}
+                    <span className={`text-xs font-mono ${status?.type === "error" ? "text-red-400" : "text-green-400"}`}>
+                        {status?.text && `> ${status.text}`}
                     </span>
                     <button
                         type="submit"
-                        className="px-4 py-2 rounded border border-sky-500/60 text-sky-300 hover:bg-sky-500/10 transition-colors"
+                        className="px-4 py-2 rounded border border-sky-500/60 text-sky-300 hover:bg-sky-500/10 transition-colors font-mono"
                     >
-                        Send
+                        ./submit.sh
                     </button>
                 </div>
             </form>
