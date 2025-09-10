@@ -11,19 +11,18 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { socialLinks } from '../data/socialLinks';
 import { sidebarVariants, overlayVariants } from '../animations/sidebarVariants';
 
-const Sidebar = () => {
-    const [isOpen, setIsOpen] = useState(false);
+const Sidebar = ({ isOpen, onClose }) => {
 
     useEffect(() => {
         const handleEscape = (e) => {
             if (e.key === 'Escape' && isOpen) {
-                setIsOpen(false);
+                onClose();
             }
         };
 
         document.addEventListener('keydown', handleEscape);
         return () => document.removeEventListener('keydown', handleEscape);
-    }, [isOpen]);
+    }, [isOpen, onClose]);
 
     useEffect(() => {
         if (isOpen) {
@@ -39,42 +38,6 @@ const Sidebar = () => {
 
     return (
         <>
-            {/* Toggle Button */}
-            <motion.button
-                className="fixed top-6 left-6 z-50 p-2 bg-black/70 border border-gray-600 rounded text-[#00ff00] hover:bg-[#00ff00] hover:text-black transition-colors duration-200 font-mono text-sm"
-                onClick={() => setIsOpen(!isOpen)}
-                aria-label={isOpen ? 'Close sidebar' : 'Open sidebar'}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-            >
-                <motion.div
-                    className="w-5 h-5 flex flex-col justify-center items-center"
-                    animate={isOpen ? 'open' : 'closed'}
-                >
-                    <motion.span
-                        className="block w-4 h-0.5 bg-current mb-1"
-                        variants={{
-                            closed: { rotate: 0, y: 0 },
-                            open: { rotate: 45, y: 5 }
-                        }}
-                    />
-                    <motion.span
-                        className="block w-4 h-0.5 bg-current mb-1"
-                        variants={{
-                            closed: { opacity: 1 },
-                            open: { opacity: 0 }
-                        }}
-                    />
-                    <motion.span
-                        className="block w-4 h-0.5 bg-current"
-                        variants={{
-                            closed: { rotate: 0, y: 0 },
-                            open: { rotate: -45, y: -5 }
-                        }}
-                    />
-                </motion.div>
-            </motion.button>
-
             {/* Overlay */}
             <AnimatePresence>
                 {isOpen && (
@@ -84,7 +47,7 @@ const Sidebar = () => {
                         initial="closed"
                         animate="open"
                         exit="closed"
-                        onClick={() => setIsOpen(false)}
+                        onClick={onClose}
                     />
                 )}
             </AnimatePresence>
