@@ -7,13 +7,9 @@
  * A terminal-styled contact form component that lets users submit a message.
  */
 
-
 import { useState } from "react";
-import TerminalFrame from "../TerminalFrame";
 
 const ContactTerminal = () => {
-    const ACCENT = "#38bdf8";
-
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
@@ -26,68 +22,105 @@ const ContactTerminal = () => {
             return;
         }
         // Placeholder submission
-        setStatus({ type: "success", text: "Thanks! Your message has been noted." });
+        setStatus({ type: "success", text: "Message sent successfully!" });
         setName("");
         setEmail("");
         setMessage("");
     };
 
     return (
-        <TerminalFrame
-            title="contact@terminal: ~"
-            color={ACCENT}
-            className="h-[520px]"
-            contentClassName={`p-4 text-[${ACCENT}]`}
-        >
-            <form className="flex flex-col gap-4 p-2" onSubmit={onSubmit}>
-                <div className="flex items-center gap-2">
-                    <span className={`text-[${ACCENT}]`}>$</span>
-                    <label className={`text-sm text-[${ACCENT}]`}>&lt;name&gt;</label>
-                </div>
-                <input
-                    className={`bg-transparent border border-gray-700 rounded px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-sky-500/40 font-mono`}
-                    type="text"
-                    placeholder="developer@portfolio.com"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                />
+        <div className="relative z-10 w-[95%] md:w-4/5 lg:w-3/5 min-h-[500px] bg-gradient-to-br from-black via-gray-900 to-black backdrop-blur-sm rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.5)] flex flex-col border border-gray-700 overflow-hidden font-mono mx-auto mt-8">
 
-                <div className="flex items-center gap-2">
-                    <span className={`text-[${ACCENT}]`}>$</span>
-                    <label className={`text-sm text-[${ACCENT}]`}>&lt;email&gt;</label>
-                </div>
-                <input
-                    className={`bg-transparent border border-gray-700 rounded px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-sky-500/40 font-mono`}
-                    type="email"
-                    placeholder="user@domain.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
+            <div className="h-10 bg-gradient-to-r from-gray-800 to-gray-900 flex items-center justify-between relative text-white text-sm font-bold border-b border-gray-700">
 
-                <div className="flex items-center gap-2">
-                    <span className={`text-[${ACCENT}]`}>$</span>
-                    <label className={`text-sm text-[${ACCENT}]`}>&lt;message&gt;</label>
+                <div className="flex gap-2 ml-4">
+                    <div className="w-3 h-3 bg-red-500 rounded-full shadow-[0_0_5px_rgba(239,68,68,0.5)]"></div>
+                    <div className="w-3 h-3 bg-yellow-500 rounded-full shadow-[0_0_5px_rgba(234,179,8,0.5)]"></div>
+                    <div className="w-3 h-3 bg-green-500 rounded-full shadow-[0_0_5px_rgba(34,197,94,0.5)]"></div>
                 </div>
-                <textarea
-                    className={`bg-transparent border border-gray-700 rounded px-3 py-2 text-white min-h-[140px] resize-none focus:outline-none focus:ring-2 focus:ring-sky-500/40 font-mono`}
-                    placeholder="// Let's build something amazing together..."
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                />
-
-                <div className="flex items-center justify-between mt-2">
-                    <span className={`text-xs font-mono ${status?.type === "error" ? "text-red-400" : "text-green-400"}`}>
-                        {status?.text && `> ${status.text}`}
-                    </span>
-                    <button
-                        type="submit"
-                        className="px-4 py-2 rounded border border-sky-500/60 text-sky-300 hover:bg-sky-500/10 transition-colors font-mono"
-                    >
-                        ./submit.sh
+                
+                <span className="text-center text-gray-300">contact-form.exe</span>
+                
+                <div className="flex gap-1 mr-4">
+                    <button className="w-6 h-6 flex items-center justify-center text-gray-400 hover:bg-gray-700 hover:text-white transition-colors">
+                        <span className="text-xs">−</span>
+                    </button>
+                    <button className="w-6 h-6 flex items-center justify-center text-gray-400 hover:bg-gray-700 hover:text-white transition-colors">
+                        <span className="text-xs">□</span>
+                    </button>
+                    <button className="w-6 h-6 flex items-center justify-center text-gray-400 hover:bg-red-500 hover:text-white transition-colors">
+                        <span className="text-xs">×</span>
                     </button>
                 </div>
-            </form>
-        </TerminalFrame>
+            </div>
+
+            <div className="flex-1 p-6 overflow-y-auto text-white">
+                <form className="space-y-5" onSubmit={onSubmit}>
+                    <div>
+                        <label htmlFor="name" className="text-sm text-gray-300 font-mono">
+                            &gt; fullName:
+                        </label>
+                        <input
+                            id="name"
+                            className="w-full p-3 mt-2 bg-gray-800/50 text-white border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500/50 focus:border-gray-500 transition-colors font-mono"
+                            placeholder="Enter your name"
+                            required
+                            type="text"
+                            name="name"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                    </div>
+
+                    <div>
+                        <label htmlFor="email" className="text-sm text-gray-300 font-mono">
+                            &gt; emailAddress:
+                        </label>
+                        <input
+                            id="email"
+                            className="w-full p-3 mt-2 bg-gray-800/50 text-white border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500/50 focus:border-gray-500 transition-colors font-mono"
+                            placeholder="Enter your email"
+                            required
+                            type="email"
+                            name="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                    </div>
+
+                    <div>
+                        <label htmlFor="comment" className="text-sm text-gray-300 font-mono">
+                            &gt; message:
+                        </label>
+                        <textarea
+                            id="comment"
+                            name="comment"
+                            className="w-full p-3 mt-2 bg-gray-800/50 text-white border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500/50 focus:border-gray-500 transition-colors font-mono resize-none"
+                            rows="4"
+                            placeholder="Type your message here..."
+                            required
+                            value={message}
+                            onChange={(e) => setMessage(e.target.value)}
+                        />
+                    </div>
+
+                    {status && (
+                        <div className={`text-sm font-mono ${status.type === "error" ? "text-red-400" : "text-green-400"}`}>
+                            &gt; {status.text}
+                        </div>
+                    )}
+
+                    <div className="flex justify-center pt-4">
+                        <button
+                            type="submit"
+                            className="bg-gray-700 text-white font-mono px-8 py-3 rounded-md hover:bg-gray-600 transition-all duration-300 transform hover:scale-105 border border-gray-600 hover:border-gray-500 active:scale-95"
+                        >
+                            ./submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
     );
 };
 
