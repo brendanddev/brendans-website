@@ -10,6 +10,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Share2 } from "lucide-react";
+import { mobileMenuVariants } from "../animations/navBarVariants";
 
 const NavBar = ({ onSocialToggle }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,9 +46,9 @@ const NavBar = ({ onSocialToggle }) => {
   const renderLinks = (closeMenu = false, isMobile = false) =>
     links.map(({ to, label }, index) => {
       const isActive = location.pathname === to;
-      
+
       return (
-        <motion.li 
+        <motion.li
           key={label}
           initial={isMobile ? { opacity: 0, x: -20 } : false}
           animate={isMobile ? { opacity: 1, x: 0 } : false}
@@ -82,44 +83,16 @@ const NavBar = ({ onSocialToggle }) => {
       );
     });
 
-  // Different animation variants for mobile menu
-  const mobileMenuVariants = {
-    hidden: { 
-      opacity: 0,
-      height: 0,
-      scale: 0.95
-    },
-    visible: { 
-      opacity: 1,
-      height: "auto",
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 20,
-        staggerChildren: 0.1
-      }
-    },
-    exit: {
-      opacity: 0,
-      height: 0,
-      scale: 0.95,
-      transition: {
-        duration: 0.2
-      }
-    }
-  };
-
   return (
-    <nav 
+    <nav
       className="w-full bg-black border-b border-gray-700 p-4 font-mono text-[#00ff00] relative z-40"
       role="navigation"
       aria-label="Main navigation"
     >
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between">
-          
-          <motion.div 
+
+          <motion.div
             className="font-semibold text-xl tracking-tight text-[#00ff00]"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -152,7 +125,7 @@ const NavBar = ({ onSocialToggle }) => {
                 <span className="text-gray-500">$</span>
                 <span>social</span>
               </motion.button>
-              
+
               {/* Tooltip */}
               <AnimatePresence>
                 {showSocialHint && (
