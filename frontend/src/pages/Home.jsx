@@ -6,8 +6,8 @@
  * The home page to my portfolio-website
 */
 
-import Terminal from '../components/Terminal';
-import Header from '../components/Header';
+import Terminal from '../components/Terminal/Terminal';
+import Header from '../components/Core/Header';
 
 const Home = () => {
     const typedTexts = [

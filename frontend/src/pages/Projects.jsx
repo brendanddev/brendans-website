@@ -11,7 +11,7 @@ import { motion } from 'framer-motion';
 import { projectsData, categories } from '../data/projectsData';
 import { containerVariants, itemVariants, projectCardVariants } from '../animations/projectsVariants';
 
-import Header from '../components/Header';
+import Header from '../components/Core/Header';
 import CategoryFilter from '../components/Projects/CategoryFilter';
 import ProjectModal from '../components/Projects/ProjectModal';
 import ProjectsGrid from '../components/Projects/ProjectsGrid';

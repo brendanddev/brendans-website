@@ -6,7 +6,7 @@
  * The Contact page for my portfolio website.
 */
 
-import Header from '../components/Header';
+import Header from '../components/Core/Header';
 import ContactTerminal from '../components/Contact/ContactTerminal';
 
 const Contact = () => {

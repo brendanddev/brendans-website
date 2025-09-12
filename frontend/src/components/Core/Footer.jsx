@@ -10,9 +10,9 @@
 import { memo } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { FileText, Share2 } from 'lucide-react';
-import { socialLinks } from '../data/socialLinks';
-import { footerIconsByName as iconByName, footerIconColors } from '../data/footerIcons';
-import { hoverGlow, containerVariants, itemVariants } from '../animations/footerVariants';
+import { socialLinks } from '../../data/socialLinks';
+import { footerIconsByName as iconByName, footerIconColors } from '../../data/footerIcons';
+import { hoverGlow, containerVariants, itemVariants } from '../../animations/footerVariants';
 
 
 function Footer() {

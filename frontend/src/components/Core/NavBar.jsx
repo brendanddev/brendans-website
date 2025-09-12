@@ -10,7 +10,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { mobileMenuVariants } from "../animations/navBarVariants";
+import { mobileMenuVariants } from "../../animations/navBarVariants";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);

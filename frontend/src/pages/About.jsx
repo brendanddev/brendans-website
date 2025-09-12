@@ -12,7 +12,7 @@ import { motion } from 'framer-motion';
 import { educationData, skillsData } from '../data/aboutData';
 import { containerVariants, itemVariants } from '../animations/aboutVariants';
 
-import Header from '../components/Header';
+import Header from '../components/Core/Header';
 import EducationSection from '../components/About/EducationSection';
 import SkillsSection from '../components/About/SkillsSection';
 import ResumeSection from '../components/About/ResumeSection';
