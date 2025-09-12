@@ -31,15 +31,15 @@ function Footer() {
   return (
     <footer
       role="contentinfo"
-      className="w-full text-[#00ff00] font-mono"
+      className="w-full text-[#00ff00] font-mono bg-black"
       aria-label="Social links footer"
     >
+      <div className="h-px w-full bg-[#00ff00]/30 shadow-[0_0_14px_#00ff00]" />
       <div className="max-w-5xl mx-auto px-4">
         <div
           className="
             flex flex-wrap items-center justify-center gap-4 sm:gap-6
-            border-t border-[#00ff00]/30 bg-black/70 backdrop-blur-[2px]
-            py-3 sm:py-4
+            py-4 sm:py-5
           "
         >
           <div className="flex items-center gap-2 select-none">
@@ -55,7 +55,7 @@ function Footer() {
             </motion.span>
           </div>
 
-          <nav aria-label="Social icons" className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+          <nav aria-label="Social icons" className="flex flex-wrap items-center justify-center gap-4 sm:gap-5">
             {socialLinks.map((item) => {
               const Icon = iconByName[item.name] || FileText;
               return (
@@ -66,7 +66,7 @@ function Footer() {
                   rel={item.url.startsWith('http') ? 'noopener noreferrer' : undefined}
                   aria-label={item.name}
                   className="
-                    group inline-flex items-center justify-center
+                    group relative inline-flex items-center justify-center
                     h-11 w-11 sm:h-10 sm:w-10 rounded-md
                     text-[#00ff00] hover:text-[#b3ffb3]
                     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00ff00]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black
@@ -78,6 +78,15 @@ function Footer() {
                     size={22}
                     strokeWidth={1.75}
                     className="drop-shadow-[0_0_6px_rgba(0,255,0,0.35)] group-hover:drop-shadow-[0_0_10px_rgba(0,255,0,0.65)] transition-[filter]"
+                  />
+                  <span
+                    aria-hidden
+                    className="
+                      pointer-events-none absolute -bottom-1 left-2 right-2 h-[2px]
+                      scale-x-0 origin-left bg-[#00ff00]/80
+                      shadow-[0_0_8px_#00ff00] group-hover:scale-x-100 group-hover:opacity-100
+                      opacity-0 transition-all duration-200 ease-out
+                    "
                   />
                 </motion.a>
               );
