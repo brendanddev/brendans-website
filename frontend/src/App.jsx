@@ -8,9 +8,7 @@
 */
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { useState } from 'react';
 import NavBar from './components/NavBar';
-import Sidebar from './components/Sidebar';
 import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
@@ -21,12 +19,10 @@ import Footer from './components/Footer';
  * Sets up the routing of the portfolio-website.
  */
 function App() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
     <Router>
-      <NavBar onSocialToggle={() => setIsSidebarOpen(!isSidebarOpen)} />
-      <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
+      <NavBar/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

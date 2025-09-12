@@ -9,12 +9,11 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Share2 } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { mobileMenuVariants } from "../animations/navBarVariants";
 
-const NavBar = ({ onSocialToggle }) => {
+const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [showSocialHint, setShowSocialHint] = useState(false);
   const location = useLocation();
 
   // List of links for the nav bar
@@ -106,41 +105,6 @@ const NavBar = ({ onSocialToggle }) => {
           <ul className="hidden md:flex gap-5 text-lg">
             {renderLinks()}
           </ul>
-
-          {/* Social Toggle for Desktop */}
-          <div className="hidden md:flex items-center gap-4">
-            <motion.div
-              className="relative"
-              onMouseEnter={() => setShowSocialHint(true)}
-              onMouseLeave={() => setShowSocialHint(false)}
-            >
-              <motion.button
-                className="flex items-center gap-2 px-3 py-2 bg-black/50 border border-gray-600 rounded text-[#00ff00] font-mono text-sm hover:border-[#00ff00] transition-colors duration-200"
-                onClick={onSocialToggle}
-                aria-label="Toggle social links"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <Share2 size={16} />
-                <span className="text-gray-500">$</span>
-                <span>social</span>
-              </motion.button>
-
-              {/* Tooltip */}
-              <AnimatePresence>
-                {showSocialHint && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full right-0 mt-2 bg-black/90 border border-gray-600 rounded px-3 py-2 text-gray-400 font-mono text-xs whitespace-nowrap z-50"
-                  >
-                    <span className="text-gray-500">&gt;</span> View social links
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          </div>
 
           {/* Mobile menu button */}
           <motion.button
