@@ -11,7 +11,7 @@ import { memo } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { FileText, Share2 } from 'lucide-react';
 import { socialLinks } from '../data/socialLinks';
-import { footerIconsByName as iconByName } from '../data/footerIcons';
+import { footerIconsByName as iconByName, footerIconColors } from '../data/footerIcons';
 import { hoverGlow, containerVariants, itemVariants } from '../animations/footerVariants';
 
 
@@ -81,6 +81,8 @@ function Footer() {
                     transition-colors
                   "
                   {...hoverGlow}
+                  whileHover={{ color: footerIconColors[item.name] || '#00ff00', scale: 1.12 }}
+                  whileTap={{ scale: 0.96 }}
                 >
                   <Icon
                     size={22}

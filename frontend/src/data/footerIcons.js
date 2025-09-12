@@ -3,7 +3,7 @@
  * @file footerIcons.js
  * @author Brendan Dileo, September 2025
  * 
- * Defines and exports social icon components for use in the footer.
+ * Defines and exports social icon components and colors for use in the footer.
  */
 
 
@@ -18,3 +18,12 @@ export const footerIconsByName = {
     Discord: FaDiscord,
     Email: FaEnvelope
 };
+
+export const footerIconColors = {
+    GitHub: '#181717',
+    LinkedIn: '#0A66C2',
+    LeetCode: '#FFA116',
+    StackOverflow: '#F58025',
+    Discord: '#5865F2',
+    Email: '#D44638'
+}
