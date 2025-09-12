@@ -4,7 +4,7 @@
  * @file TerminalFrame.jsx
  * @author Brendan Dileo, September 2025
  *
- * A reusable, animated terminal-like frame component that wraps content in a styled window with a top bar and buttons.
+ * A reusable frame component that mimics a terminal window with animated entrance.
  */
 
 import { motion } from "framer-motion";
