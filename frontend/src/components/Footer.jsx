@@ -9,7 +9,7 @@
 
 import { memo } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { Github, Linkedin, Mail, Twitter, FileText } from 'lucide-react';
+import { Github, Linkedin, Mail, Twitter, FileText, Share2 } from 'lucide-react';
 import { socialLinks } from '../data/socialLinks';
 
 const iconByName = {
@@ -61,7 +61,13 @@ function Footer() {
           "
         >
           <div className="flex items-center gap-2 select-none">
-            <span className="text-[#00ff00] opacity-80">$</span>
+            <motion.span
+              aria-hidden
+              whileHover={{ scale: 1.08 }}
+              className="inline-flex items-center justify-center h-5 w-5 -ml-1 mr-1 text-[#00ff00]/80"
+            >
+              <Share2 size={16} strokeWidth={1.75} className="drop-shadow-[0_0_6px_rgba(0,255,0,0.25)]" />
+            </motion.span>
             <motion.span
               variants={itemVariants}
               className="tracking-tight overflow-hidden inline-block"
