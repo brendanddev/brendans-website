@@ -56,6 +56,50 @@ const Terminal = () => {
     const [output, setOutput] = useState(defaultOutput);
     const [command, setCommand] = useState("");
 
+    // Command responses configuration
+    const commandResponses = {
+        help: (
+            <div className={`text-[${TERMINAL_COLOR}]`}>
+                <p className="mb-2">Here is a list of supported commands:</p>
+                <ul className="list-inside list-disc pl-2">
+                    <li><span className={`font-bold text-[${TERMINAL_COLOR}] w-20 inline-block`}>help</span> - Ask for help</li>
+                    <li><span className={`font-bold text-[${TERMINAL_COLOR}] w-20 inline-block`}>home</span> - Are you home?</li>
+                    <li><span className={`font-bold text-[${TERMINAL_COLOR}] w-20 inline-block`}>about</span> - About the creator</li>
+                    <li><span className={`font-bold text-[${TERMINAL_COLOR}] w-20 inline-block`}>projects</span> - About the creators projects</li>
+                    <li><span className={`font-bold text-[${TERMINAL_COLOR}] w-20 inline-block`}>contact</span> - Can you contact the creator?</li>
+                    <li><span className={`font-bold text-[${TERMINAL_COLOR}] w-20 inline-block`}>clear</span> - Clear the terminal</li>
+                </ul>
+            </div>
+        ),
+        home: <div className="flex"><span className={`text-[${TERMINAL_COLOR}]`}>You are Home!</span></div>,
+        about: (
+            <div className="flex">
+                <span className={`text-[${TERMINAL_COLOR}]`}>
+                    Hey! My name is Brendan and I'm an aspiring Full Stack Software Developer passionate about technology and creating!
+                    If you'd like to know even more about me, click the '[about]' in the top right corner of the page.
+                </span>
+            </div>
+        ),
+        projects: (
+            <div className="flex">
+                <span className={`text-[${TERMINAL_COLOR}]`}>
+                    I have worked on various types of projects, whether it be academically or for my own personal benefit.
+                    I have used a variety of languages, on front end, back end, and database development. 
+                    If you want to know more about projects I have worked on, checkout the projects page!
+                </span>
+            </div>
+        ),
+        contact: (
+            <div className="flex">
+                <span className={`text-[${TERMINAL_COLOR}]`}>
+                    Email: brendan.dileo@mohawkcollege.ca
+                    See the 'Contact' page to contact me.
+                </span>
+            </div>
+        ),
+        greet: <div className="flex"><span className={`text-[${TERMINAL_COLOR}]`}>Hello, welcome to Brendan's Portfolio Website!</span></div>
+    };
+
     const handleCommandSubmission = (event) => {
         event.preventDefault();
         const newCommandOutput = createPromptLine(command, Date.now());
