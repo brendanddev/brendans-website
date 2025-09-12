@@ -15,7 +15,6 @@ import { footerIconsByName as iconByName } from '../data/footerIcons';
 import { hoverGlow, containerVariants, itemVariants } from '../animations/footerVariants';
 
 
-
 function Footer() {
   const reduceMotion = useReducedMotion();
 
