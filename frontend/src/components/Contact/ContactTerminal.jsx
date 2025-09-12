@@ -32,7 +32,7 @@ const ContactTerminal = () => {
             initial={{ opacity: 0, y: 40, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="relative z-10 w-[95%] md:w-4/5 lg:w-3/5 min-h-[520px] bg-gradient-to-br from-black via-gray-900 to-black backdrop-blur-md rounded-xl shadow-[0_0_15px_rgba(0,255,150,0.25)] border border-green-600 flex flex-col overflow-hidden font-mono mx-auto mt-8"
+            className="relative z-10 w-[95%] md:w-4/5 lg:w-3/5 min-h-[400px] bg-gradient-to-br from-black via-gray-900 to-black backdrop-blur-md rounded-xl shadow-[0_0_15px_rgba(0,255,150,0.25)] border border-green-600 flex flex-col overflow-hidden font-mono mx-auto mt-8"
         >
             <div className="h-12 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 flex items-center justify-between relative text-white text-sm font-bold border-b border-green-700 shadow-[0_0_10px_rgba(0,255,0,0.2)]">
                 <span className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-green-300 text-lg font-bold tracking-wider">

@@ -20,7 +20,7 @@ export const footerIconsByName = {
 };
 
 export const footerIconColors = {
-    GitHub: '#181717',
+    GitHub: '#ffffffff',
     LinkedIn: '#0A66C2',
     LeetCode: '#FFA116',
     StackOverflow: '#F58025',

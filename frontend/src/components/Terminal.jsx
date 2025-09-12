@@ -13,6 +13,13 @@ const Terminal = () => {
 
     // Constants for styling
     const TERMINAL_COLOR = "#00ff00";
+    const COLOR_WHITE = "#ffffff";
+    const COLOR_BLUE  = "#5179ff";
+    const COLOR_YELLOW = "#ffff00";
+    const COLOR_RED = "#ff5555";
+
+
+
     const PROMPT_PREFIX = "brendan@portfolio";
     
     // Helper function to create prompt line
@@ -20,24 +27,23 @@ const Terminal = () => {
         <div key={key} className="flex">
             <span className="mr-2">
                 <span className={`text-[${TERMINAL_COLOR}]`}>{PROMPT_PREFIX}</span>
-                <span className={`text-[${TERMINAL_COLOR}]`}>:</span>
-                <span className={`text-[${TERMINAL_COLOR}]`}>~</span>
-                <span className={`text-[${TERMINAL_COLOR}]`}>$</span>
+                <span style={{ color: COLOR_WHITE }}>:</span>
+                <span style={{ color: COLOR_BLUE }}>~</span>
+                <span style={{ color: COLOR_WHITE }}>$</span>
             </span>
-            <span className={`text-[${TERMINAL_COLOR}]`}>{content}</span>
+            <span style={{ color: COLOR_WHITE }}>{content}</span>
         </div>
     );
-    
     // Default output when terminal is loaded
     const defaultOutput = [
         <div key="1" className="flex">
             <span className="mr-2">
                 <span className={`text-[${TERMINAL_COLOR}]`}>{PROMPT_PREFIX}</span>
-                <span className={`text-[${TERMINAL_COLOR}]`}>:</span>
-                <span className={`text-[${TERMINAL_COLOR}]`}>~</span>
-                <span className={`text-[${TERMINAL_COLOR}]`}>$</span>
+                <span style={{ color: COLOR_WHITE }}>:</span>
+                <span style={{ color: COLOR_BLUE }}>~</span>
+                <span style={{ color: COLOR_WHITE }}>$</span>
             </span>
-            <span className={`text-[${TERMINAL_COLOR}] inline-block overflow-x-auto max-w-full matrix-text`}>
+            <span style={{ color: COLOR_WHITE }} className={`inline-block overflow-x-auto max-w-full matrix-text`}>
                 Welcome to Brendan's Terminal!
             </span>
         </div>,
@@ -108,7 +114,7 @@ const Terminal = () => {
         // Get response or default error message
         const response = commandResponses[command.toLowerCase()] || 
             <div className="flex">
-                <span className={`text-[${TERMINAL_COLOR}]`}>
+                <span style={{ color: COLOR_WHITE }}>
                     Uhhh... I don't know how to respond to that. Try 'help'.
                 </span>
             </div>;
@@ -152,12 +158,13 @@ const Terminal = () => {
                 <form className={`flex p-3 border-t border-gray-700`} onSubmit={handleCommandSubmission}>
                     <span className="mr-2">
                         <span className={`text-[${TERMINAL_COLOR}]`}>{PROMPT_PREFIX}</span>
-                        <span className={`text-[${TERMINAL_COLOR}]`}>:</span>
-                        <span className={`text-[${TERMINAL_COLOR}]`}>~</span>
-                        <span className={`text-[${TERMINAL_COLOR}]`}>$</span>
+                        <span style={{ color: COLOR_WHITE }}>:</span>
+                        <span style={{ color: COLOR_BLUE }}>~</span>
+                        <span style={{ color: COLOR_WHITE }}>$</span>
                     </span>
                     <input
-                        className={`flex-1 bg-transparent border-none text-[${TERMINAL_COLOR}] text-lg focus:outline-none placeholder-[${TERMINAL_COLOR}]/50`}
+                        style={{ color: COLOR_WHITE }}
+                        className={`flex-1 bg-transparent border-none text-lg focus:outline-none placeholder-[${TERMINAL_COLOR}]/50`}
                         type="text"
                         value={command}
                         onChange={(event) => setCommand(event.target.value)}
