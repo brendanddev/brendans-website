@@ -8,6 +8,7 @@
  */
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const ContactTerminal = () => {
     const [name, setName] = useState("");
@@ -29,8 +30,12 @@ const ContactTerminal = () => {
     };
 
     return (
-        <div className="relative z-10 w-[95%] md:w-4/5 lg:w-3/5 min-h-[500px] bg-gradient-to-br from-black via-gray-900 to-black backdrop-blur-sm rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.5)] flex flex-col border border-gray-700 overflow-hidden font-mono mx-auto mt-8">
-
+        <motion.div 
+            initial={{ opacity: 0, y: 40, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="relative z-10 w-[95%] md:w-4/5 lg:w-3/5 min-h-[500px] bg-gradient-to-br from-black via-gray-900 to-black backdrop-blur-sm rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.5)] flex flex-col border border-gray-700 overflow-hidden font-mono mx-auto mt-8"
+        >
             <div className="h-10 bg-gradient-to-r from-gray-800 to-gray-900 flex items-center justify-between relative text-white text-sm font-bold border-b border-gray-700">
 
                 <div className="flex gap-2 ml-4">
@@ -120,7 +125,7 @@ const ContactTerminal = () => {
                     </div>
                 </form>
             </div>
-        </div>
+        </motion.div>
     );
 };
 
