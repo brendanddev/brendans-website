@@ -6,12 +6,15 @@
  * Defines and exports social icon components for use in the footer.
  */
 
-import { Github, Linkedin, Mail, Twitter, FileText } from 'lucide-react';
+
+import { FaGithub, FaLinkedin, FaStackOverflow, FaDiscord, FaEnvelope } from 'react-icons/fa';
+import { SiLeetcode } from 'react-icons/si';
 
 export const footerIconsByName = {
-    GitHub: Github,
-    LinkedIn: Linkedin,
-    Email: Mail,
-    Twitter: Twitter,
-    Resume: FileText,
+    GitHub: FaGithub,
+    LinkedIn: FaLinkedin,
+    LeetCode: SiLeetcode,
+    StackOverflow: FaStackOverflow,
+    Discord: FaDiscord,
+    Email: FaEnvelope
 };
