@@ -8,7 +8,7 @@
 
 
 import { memo } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Github, Linkedin, Mail, Twitter, FileText } from 'lucide-react';
 import { socialLinks } from '../data/socialLinks';
 
@@ -28,6 +28,21 @@ const hoverGlow = {
 
 
 function Footer() {
+  const reduceMotion = useReducedMotion();
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.05, delayChildren: 0.05 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 4 },
+    show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 400, damping: 28 } },
+  };
+
   return (
     <footer
       role="contentinfo"
@@ -36,7 +51,10 @@ function Footer() {
     >
       <div className="h-px w-full bg-[#00ff00]/30 shadow-[0_0_14px_#00ff00]" />
       <div className="max-w-5xl mx-auto px-4">
-        <div
+        <motion.div
+          variants={containerVariants}
+          initial={reduceMotion ? undefined : 'hidden'}
+          animate={reduceMotion ? undefined : 'show'}
           className="
             flex flex-wrap items-center justify-center gap-4 sm:gap-6
             py-4 sm:py-5
@@ -44,12 +62,20 @@ function Footer() {
         >
           <div className="flex items-center gap-2 select-none">
             <span className="text-[#00ff00] opacity-80">$</span>
-            <span className="tracking-tight">socials:</span>
+            <motion.span
+              variants={itemVariants}
+              className="tracking-tight overflow-hidden inline-block"
+              style={{ width: reduceMotion ? 'auto' : '8ch', whiteSpace: 'nowrap' }}
+              animate={reduceMotion ? undefined : { width: ['0ch', '8ch'] }}
+              transition={reduceMotion ? undefined : { duration: 0.8, ease: 'easeOut' }}
+            >
+              socials:
+            </motion.span>
             <motion.span
               aria-hidden
               className="ml-1 inline-block w-[0.6ch] text-[#00ff00]"
-              animate={{ opacity: [1, 0, 1] }}
-              transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+              animate={reduceMotion ? undefined : { opacity: [1, 0, 1] }}
+              transition={reduceMotion ? undefined : { duration: 1, repeat: Infinity, ease: 'linear' }}
             >
               |
             </motion.span>
@@ -60,6 +86,7 @@ function Footer() {
               const Icon = iconByName[item.name] || FileText;
               return (
                 <motion.a
+                  variants={itemVariants}
                   key={item.name}
                   href={item.url}
                   target={item.url.startsWith('http') ? '_blank' : undefined}
@@ -92,7 +119,13 @@ function Footer() {
               );
             })}
           </nav>
-        </div>
+
+          <div aria-hidden className="w-full text-center select-none">
+            <span className="text-xs tracking-wider text-[#00ff00]/60 drop-shadow-[0_0_6px_rgba(0,255,0,0.25)]">
+              ──────────────── $ end · socials ────────────────
+            </span>
+          </div>
+        </motion.div>
       </div>
     </footer>
   );
