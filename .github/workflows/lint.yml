@@ -9,7 +9,7 @@ on:
 jobs:
     lint:
         runs-on: ubuntu-latest
-        if: ${{ contains(github.event.head_commit.message, 'lint') }}
+        if: ${{ contains(github.event.head_commit.message, '[lint]') }}
 
         steps: 
             - uses: actions/checkout@4
@@ -30,4 +30,3 @@ jobs:
             - name: Run Format Check
               run: npm run format:check
               working-directory: ./frontend
-
