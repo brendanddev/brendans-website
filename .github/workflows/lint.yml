@@ -1,0 +1,33 @@
+
+# This workflow lints and checks formatting for my portfolio website
+
+name: Lint and Format
+
+on: 
+    push:
+
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+        if: ${{ contains(github.event.head_commit.message, 'lint') }}
+
+        steps: 
+            - uses: actions/checkout@v3
+            
+            - name: Set up Node.js
+              uses: actions/setup-node@v3
+              with:
+                node-version: 20
+            
+            - name: Install dependencies
+              run: npm ci
+              working-directory: ./frontend
+            
+            - name: Run ESLint
+              run: npm run lint
+              working-directory: ./frontend
+            
+            - name: Run Format Check
+              run: npm run format:check
+              working-directory: ./frontend
+
