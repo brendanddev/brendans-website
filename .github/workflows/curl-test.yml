@@ -21,4 +21,3 @@ jobs:
                     echo "Website check failed"
                     exit 1
                 fi
-
