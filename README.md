@@ -1,5 +1,5 @@
 # Brendans Portfolio Website
-## By Brendan Dileo - v2.4.0
+## By Brendan Dileo - v2.5.0
 
 This is the source code for my personal portfolio website.
 
