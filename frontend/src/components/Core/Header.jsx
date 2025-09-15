@@ -34,7 +34,7 @@ const Header = ({ title, subtitle, typedTexts }) => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.4, duration: 0.5 }}
-                    className="text-lg md:text-xl text-[#00ff00]/80 font-mono mb-6"
+                    className="text-lg md:text-xl text-gray-400 font-mono mb-6"
                 >
                     {subtitle}
                 </motion.p>
