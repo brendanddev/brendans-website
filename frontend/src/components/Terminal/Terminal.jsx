@@ -168,7 +168,7 @@ const Terminal = () => {
                     <input
                         id="terminal-input"
                         style={{ color: COLOR_WHITE }}
-                        className={`flex-1 bg-transparent border-none text-base sm:text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[${TERMINAL_COLOR}]/60 rounded-sm placeholder-[${TERMINAL_COLOR}]/50`}
+                        className="flex-1 bg-transparent border-none text-base sm:text-lg focus:outline-none placeholder-green-500/50"
                         type="text"
                         value={command}
                         onChange={(event) => setCommand(event.target.value)}
