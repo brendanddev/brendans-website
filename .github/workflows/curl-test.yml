@@ -1,0 +1,17 @@
+
+# Basic workflow to test website availability with cURL
+
+name: Test Website Availability with cURL
+
+on: 
+    push:
+
+jobs:
+    curl-test:
+        runs-on: ubuntu-latest
+        if: ${{ contains(github.event.head_commit.message, '[test]') }}
+        steps: 
+            - name: Test Page Availability
+              run: curl -X GET "https://brendans-website.vercel.app/"
+
+
