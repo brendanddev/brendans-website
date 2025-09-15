@@ -150,25 +150,32 @@ const Terminal = () => {
         <TerminalFrame
             title="brendans@website-terminal: ~"
             color={TERMINAL_COLOR}
-            className="min-h-[300px] md:min-h-[360px] lg:min-h-[400px] max-h-[70vh]"
-            contentClassName={`p-3 text-[${TERMINAL_COLOR}] overflow-y-auto`}
+            className="min-h-[280px] sm:min-h-[320px] md:min-h-[360px] lg:min-h-[420px] max-h-[70vh]"
+            contentClassName={`p-2 sm:p-3 text-[${TERMINAL_COLOR}] overflow-y-auto`}
         >
-            <div className="flex flex-col h-full">
-                <div className="flex-1 overflow-y-auto">{output}</div>
-                <form className={`flex p-3 border-t border-gray-700`} onSubmit={handleCommandSubmission}>
-                    <span className="mr-2">
+            <div className="flex flex-col h-full" role="region" aria-label="Terminal output and input">
+                <div className="flex-1 overflow-y-auto" role="log" aria-live="polite" aria-relevant="additions">
+                    {output}
+                </div>
+                <form className={`flex p-2 sm:p-3 border-t border-gray-700`} onSubmit={handleCommandSubmission} aria-labelledby="terminal-input-label">
+                    <label id="terminal-input-label" htmlFor="terminal-input" className="sr-only">Terminal command input</label>
+                    <span className="mr-2" aria-hidden="true">
                         <span className={`text-[${TERMINAL_COLOR}]`}>{PROMPT_PREFIX}</span>
                         <span style={{ color: COLOR_WHITE }}>:</span>
                         <span style={{ color: COLOR_BLUE }}>~</span>
                         <span style={{ color: COLOR_WHITE }}>$</span>
                     </span>
                     <input
+                        id="terminal-input"
                         style={{ color: COLOR_WHITE }}
-                        className={`flex-1 bg-transparent border-none text-lg focus:outline-none placeholder-[${TERMINAL_COLOR}]/50`}
+                        className={`flex-1 bg-transparent border-none text-base sm:text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[${TERMINAL_COLOR}]/60 rounded-sm placeholder-[${TERMINAL_COLOR}]/50`}
                         type="text"
                         value={command}
                         onChange={(event) => setCommand(event.target.value)}
                         onKeyDown={handleKeyDown}
+                        autoComplete="off"
+                        spellCheck={false}
+                        aria-label="Enter terminal command"
                     />
                 </form>
             </div>
