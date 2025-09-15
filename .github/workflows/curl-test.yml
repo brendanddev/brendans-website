@@ -13,12 +13,12 @@ jobs:
         steps: 
             - name: Test Page Availability
               run: |
-                STATUS=$(curl -s "%{http_code}" -f "https://brendans-website.vercel.app/" || echo "000")
+                STATUS=$(curl -s -o /dev/null -w "%{http_code}" -f "https://brendans-website.vercel.app/" || echo "000")
                 echo "HTTP Status: $STATUS"
                 if [ "$STATUS" -ge 200 ] && [ "$STATUS" -lt 400 ]; then
                     echo "Website is available"
                 else
                     echo "Website check failed"
-                exit 1
+                    exit 1
                 fi
 
