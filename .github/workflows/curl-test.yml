@@ -12,6 +12,13 @@ jobs:
         if: ${{ contains(github.event.head_commit.message, '[test]') }}
         steps: 
             - name: Test Page Availability
-              run: curl -X GET "https://brendans-website.vercel.app/"
-
+              run: |
+                STATUS=$(curl -s "%{http_code}" -f "https://brendans-website.vercel.app/" || echo "000")
+                echo "HTTP Status: $STATUS"
+                if [ "$STATUS" -ge 200 ] && [ "$STATUS" -lt 400 ]; then
+                    echo "Website is available"
+                else
+                    echo "Website check failed"
+                exit 1
+                fi
 
