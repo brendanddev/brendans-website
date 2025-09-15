@@ -3,10 +3,12 @@
  * @file AboutModal.jsx
  * @author Brendan Dileo, September 2025
  * 
- * A modal component displaying information about me in a pop-up terminal style modal.
+ * A modal component displaying information about me in a terminal style modal.
  */
 
+
 import { motion } from 'framer-motion';
+import { aboutText } from '../../data/aboutData';
 
 const AboutModal = ({ isOpen, closeModal }) => {
   if (!isOpen) return null;
@@ -39,10 +41,9 @@ const AboutModal = ({ isOpen, closeModal }) => {
           </button>
         </div>
         <div className="text-[#00ff00] font-mono space-y-4">
-          <p><span className="text-gray-400">&gt;</span> Hello! I'm Brendan Dileo, a passionate software developer with a love for creating innovative solutions and solving complex problems.</p>
-          <p><span className="text-gray-400">&gt;</span> My journey in technology began during my studies at Mohawk College, where I discovered my passion for full-stack development. I enjoy working with modern frameworks and technologies to build applications that make a difference.</p>
-          <p><span className="text-gray-400">&gt;</span> When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or working on personal projects that challenge my skills and creativity.</p>
-          <p><span className="text-gray-400">&gt;</span> I believe in continuous learning and staying up-to-date with the latest industry trends. My goal is to create software that not only meets requirements but exceeds expectations.</p>
+          {aboutText.map((line, index) => (
+            <p key={index}><span className="text-gray-400">&gt;</span> {line}</p>
+          ))}
         </div>
       </motion.div>
     </motion.div>
