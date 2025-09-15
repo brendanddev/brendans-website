@@ -47,7 +47,7 @@ const Terminal = () => {
                 Welcome to Brendan's Terminal!
             </span>
         </div>,
-        createPromptLine("Type a command to start. Ex: 'help' or 'home'", "2")
+        createPromptLine("Type a command to start.", "2")
     ];
 
     // Tracks history of commands entered, output, and current command
@@ -150,7 +150,7 @@ const Terminal = () => {
         <TerminalFrame
             title="brendans@website-terminal: ~"
             color={TERMINAL_COLOR}
-            className="h-[450px]"
+            className="min-h-[300px] md:min-h-[360px] lg:min-h-[400px] max-h-[70vh]"
             contentClassName={`p-3 text-[${TERMINAL_COLOR}] overflow-y-auto`}
         >
             <div className="flex flex-col h-full">
