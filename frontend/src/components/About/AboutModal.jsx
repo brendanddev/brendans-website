@@ -44,36 +44,56 @@ const AboutModal = ({ isOpen, closeModal }) => {
         <div className="text-[#00ff00] font-mono space-y-4">
 
           {aboutText.map((line, index) => {
-            const parts = line.split(/(`.*?`)/g);
+            const parts = line.split(/(`.*?`|~.*?~|_.*?_|\*.*?\*)/g);
             return (
               <p key={index}>
                 <span className="text-gray-400">&gt;</span>{" "}
-                {parts.map((part, i) =>
-                  part.startsWith("`") && part.endsWith("`") ? (
-                    <code
-                      key={i}
-                      className="bg-gray-800 text-cyan-400 px-1 py-0.5 rounded font-mono"
-                    >
-                      {part.slice(1, -1)}
-                    </code>
-                  ) : (
-                    part
-                  )
-                )}
+                {parts.map((part, i) => {
+                  if (part.startsWith("`") && part.endsWith("`")) {
+                    return (
+                      <code
+                        key={i}
+                        className="bg-gray-800 text-cyan-400 px-1 py-0.5 rounded font-mono"
+                      >
+                        {part.slice(1, -1)}
+                      </code>
+                    );
+                  }
+                  if (part.startsWith("~") && part.endsWith("~")) {
+                    return (
+                      <code
+                        key={i}
+                        className="bg-gray-800 text-green-400 px-1 py-0.5 rounded font-mono"
+                      >
+                        {part.slice(1, -1)}
+                      </code>
+                    );
+                  }
+                  if (part.startsWith("_") && part.endsWith("_")) {
+                    return (
+                      <code
+                        key={i}
+                        className="bg-gray-800 text-yellow-400 px-1 py-0.5 rounded font-mono"
+                      >
+                        {part.slice(1, -1)}
+                      </code>
+                    );
+                  }
+                  if (part.startsWith("*") && part.endsWith("*")) {
+                    return (
+                      <code
+                        key={i}
+                        className="bg-gray-800 text-purple-400 px-1 py-0.5 rounded font-mono"
+                      >
+                        {part.slice(1, -1)}
+                      </code>
+                    );
+                  }
+                  return part;
+                })}
               </p>
             );
           })}
-
-
-
-
-
-          {/* {aboutText.map((line, index) => (
-            <p key={index}><span className="text-gray-400">&gt;</span> {line}</p>
-          ))} */}
-
-
-
 
         </div>
       </motion.div>
