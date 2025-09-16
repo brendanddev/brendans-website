@@ -5,73 +5,72 @@
  * 
  * Data related to the Projects page.
  * 
- * THIS IS ALL PLACEHOLDER DATA FOR THE TIME BEING...
  */
 
 export const projectsData = [
     {
         id: 1,
-        title: "Portfolio Website",
-        category: "web",
-        description: "A modern, responsive portfolio website built with React and Vite, featuring a unique terminal aesthetic and smooth animations.",
-        techStack: ["React", "Vite", "Tailwind CSS", "Framer Motion", "JavaScript"],
+        title: "Simulated Heap",
+        category: "backend",
+        description: "A project that simulates manual memory management, similar to how low-level languages like C handle heap memory. Demonstrates how a heap could be built and managed by hand.",
+        techStack: ["Java"],
         status: "completed",
-        github: "https://github.com/brendan/portfolio",
-        live: "https://brendan-dileo.dev",
+        github: "https://github.com/brendanddev/simulated-heap",
+        live: null,
         image: "/api/placeholder/400/300"
     },
     {
         id: 2,
-        title: "Task Management CLI",
-        category: "cli",
-        description: "A command-line task management tool built with Node.js, featuring file-based storage and interactive prompts.",
-        techStack: ["Node.js", "JavaScript", "Inquirer.js", "Chalk", "FS"],
+        title: "Collectible Finder",
+        category: "web",
+        description: "A full-stack mobile and web application that lets collectors find local shops, store images into their virtual collection, create an account, and much more.",
+        techStack: ["React", "React Native", "Node.js", "TypeScript", "Node-TS"],
         status: "completed",
-        github: "https://github.com/brendan/task-cli",
+        github: "https://github.com/brendanddev/collectible-finder",
         live: null,
         image: "/api/placeholder/400/300"
     },
     {
         id: 3,
-        title: "E-Commerce API",
-        category: "backend",
-        description: "RESTful API for an e-commerce platform with user authentication, product management, and order processing.",
-        techStack: ["Node.js", "Express", "MongoDB", "JWT", "Stripe API"],
-        status: "in-progress",
-        github: "https://github.com/brendan/ecommerce-api",
+        title: "Black-Ops-3 GSC Mod Menu",
+        category: "tools",
+        description: "First mod menu using GSC for Black Ops 3. Allows gameplay manipulation like god mode, noclip, zombie speed changes, and more.",
+        techStack: ["GSC", "Modding Tools", "Game Script Code"],
+        status: "completed",
+        github: "https://github.com/brendanddev/Black-Ops-3-GSC-Mod-Menu",
         live: null,
         image: "/api/placeholder/400/300"
     },
     {
         id: 4,
-        title: "Weather Dashboard",
-        category: "web",
-        description: "Real-time weather dashboard with location-based forecasts and interactive charts using external APIs.",
-        techStack: ["React", "Chart.js", "OpenWeather API", "Geolocation API"],
+        title: "VSCode Readme Previewer",
+        category: "tools",
+        description: "A Visual Studio Code extension to preview README.md files inline directly within VS Code.",
+        techStack: ["TypeScript", "JavaScript", "VSCode Extension"],
         status: "completed",
-        github: "https://github.com/brendan/weather-dashboard",
-        live: "https://weather-dashboard.brendan-dileo.dev",
+        github: "https://github.com/brendanddev/vscode-readme-previewer",
+        live: null,
         image: "/api/placeholder/400/300"
     },
     {
         id: 5,
-        title: "Database Migration Tool",
-        category: "tools",
-        description: "Automated database migration tool with rollback capabilities and schema versioning for PostgreSQL.",
-        techStack: ["Python", "PostgreSQL", "SQLAlchemy", "Click", "Alembic"],
+        title: "Fantasy Analyzer",
+        category: "ai",
+        description: "An unofficial Python wrapper for the Sleeper fantasy football API.",
+        techStack: ["Python"],
         status: "completed",
-        github: "https://github.com/brendan/db-migrator",
+        github: "https://github.com/brendanddev/fantasy-analyzer",
         live: null,
         image: "/api/placeholder/400/300"
     },
     {
         id: 6,
-        title: "AI Chat Assistant",
+        title: "Multimodal Bot",
         category: "ai",
-        description: "Intelligent chat assistant with natural language processing capabilities and context awareness.",
-        techStack: ["Python", "OpenAI API", "FastAPI", "WebSocket", "Redis"],
-        status: "in-progress",
-        github: "https://github.com/brendan/ai-chat",
+        description: "A versatile multi-modal all-purpose bot leveraging NLP, pattern matching, and fuzzy logic.",
+        techStack: ["Python", "spaCy NLP", "ML", "Fuzzy Matching", "Pattern Matching"],
+        status: "completed",
+        github: "https://github.com/brendanddev/Multimodal-Bot",
         live: null,
         image: "/api/placeholder/400/300"
     }

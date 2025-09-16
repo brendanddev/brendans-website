@@ -21,6 +21,7 @@ export const educationData = {
         courses: [
             { course: "Programming in Java", grade: "99%" },
             { course: "Systems Analysis & Design", grade: "100%" },
+            { course: "Data Structures & Algorithms", grade: "94%" },
             { course: "Programming in C#.NET", grade: "96%" }
         ]
     }
@@ -28,9 +29,9 @@ export const educationData = {
 
 export const skillsData = {
     languages: ["Java", "C", "Python", "JavaScript", "PHP", "Groovy", "C#", "SQL", "HTML/CSS"],
-    frameworks: ["React", "Node.js", "Express", ".NET", "Vite", "Tailwind CSS"],
-    databases: ["SQL Server", "MySQL", "MongoDB", "PostgreSQL", "SQLite"],
-    tools: ["Git", "VS Code", "Docker", "Postman", "Figma", "Linux"]
+    frameworks: ["React", "Node.js", "Express", "Spring Boot", ".NET", "Vite", "Tailwind CSS", "Bootstrap"],
+    databases: ["SQL Server", "MySQL", "MongoDB", "PostgreSQL", "SQLite", "Redis", "Supabase"],
+    tools: ["Linux", "Git", "Docker", "Kubernetes", "Jenkins", "Nginx", "VS Code", "Postman"]
 };
 
 export const aboutText = [
