@@ -34,7 +34,7 @@ const EducationSection = ({ data, itemVariants }) => {
           {data.achievements.honors && data.achievements.honors.length > 0 && (
             <div className="mb-3">
               <p className="mb-2">
-                <span className="text-gray-500">└─</span> Honors:
+                <span className="text-gray-500">└─</span><span className="text-gray-400"> Honors:</span>
               </p>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-1 ml-4">
                 {data.achievements.honors.map((honor, index) => (
@@ -49,7 +49,7 @@ const EducationSection = ({ data, itemVariants }) => {
           {data.achievements.courses && data.achievements.courses.length > 0 && (
             <div>
               <p className="mb-2">
-                <span className="text-gray-500">└─</span> Courses:
+                <span className="text-gray-500">└─</span><span className="text-gray-400"> Courses:</span>
               </p>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-1 ml-4">
                 {data.achievements.courses.map((courseObj, index) => (
