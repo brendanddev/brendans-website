@@ -31,8 +31,8 @@ const About = () => {
         <motion.div className="max-w-6xl mx-auto space-y-8" variants={containerVariants} initial="hidden" animate="visible">
           <EducationSection data={educationData} itemVariants={itemVariants} />
           <SkillsSection data={skillsData} itemVariants={itemVariants} />
-          <ResumeSection itemVariants={itemVariants} />
           <AboutMeSection itemVariants={itemVariants} openModal={() => setIsModalOpen(true)} />
+          <ResumeSection itemVariants={itemVariants} />
         </motion.div>
 
         <AboutModal isOpen={isModalOpen} closeModal={() => setIsModalOpen(false)} />
