@@ -51,7 +51,7 @@ test('User can type help command and see correct output', async ({ page }) => {
 
 // Nav and footer tests
 test('Navigation bar and footer are visible', async ({ page }) => {
-    const nav = page.locator('nav');
+    const nav = page.getByRole('navigation', { name: 'Main navigation' });
     const footer = page.locator('footer');
 
     await expect(nav).toBeVisible();
