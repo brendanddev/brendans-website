@@ -5,3 +5,9 @@
  * 
  * Defines tests for the homepage of the website.
  */
+
+import { test } from '@playwright/test';
+
+test('Homepage loads correctly', async ({ page }) => {
+    await page.goto('https://brendans-website.vercel.app/');
+});
