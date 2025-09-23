@@ -1,0 +1,26 @@
+
+
+name: Website Health Check
+
+# Run daily at 5PM or manually
+on:
+    schedule:
+        - cron: "0 17 * * *"
+    workflow_dispatch:
+
+
+jobs:
+    site-health:
+        runs-on: ubuntu-latest
+
+        steps: 
+            - name: Test Page Availability
+              run: |
+                STATUS=$(curl -s -o /dev/null -w "%{http_code}" -f "https://brendans-website.vercel.app/" || echo "000")
+                echo "HTTP Status: $STATUS"
+                if [ "$STATUS" -ge 200 ] && [ "$STATUS" -lt 400 ]; then
+                    echo "Website is available"
+                else
+                    echo "Website check failed"
+                    exit 1
+                fi
