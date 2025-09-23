@@ -48,3 +48,14 @@ test('User can type help command and see correct output', async ({ page }) => {
     const output = page.locator('div[role="log"]');
     await expect(output).toContainText('Here is a list of supported commands:');
 });
+
+// Nav and footer tests
+test('Navigation bar and footer are visible', async ({ page }) => {
+    const nav = page.locator('nav');
+    const footer = page.locator('footer');
+
+    await expect(nav).toBeVisible();
+    await expect(footer).toBeVisible();
+    await expect(nav).toContainText('home');
+    await expect(footer).toContainText('socials:');
+});
