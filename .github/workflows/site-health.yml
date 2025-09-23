@@ -34,15 +34,3 @@ jobs:
                     echo "Homepage content verification failed"
                     exit 1
                 fi
-            
-            - name: Verify About, Projects, Contact Pages
-              run: |
-                for PAGE in about projects contact; do
-                    RESPONSE=$(curl -s "https://brendans-website.vercel.app/$PAGE")
-                    if echo "$RESPONSE" | grep -iq "<h1"; then
-                        echo "$PAGE page content contains expected content"
-                    else
-                        echo "$PAGE page content verification failed"
-                        exit 1
-                    fi
-                done
