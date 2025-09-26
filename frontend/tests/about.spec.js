@@ -24,7 +24,21 @@ test('About page subtitle loads correctly', async ({ page }) => {
     await expect(subtitle).toHaveText('Get to know me');
 });
 
-test('About page education section is visible', async ({ page }) => {
-    const header = page.getByRole('heading', { name: 'education' });
-    await expect(header).toBeVisible();
+test('About page section headings are visible', async ({ page }) => {
+    await expect(page.getByRole('heading', { name: 'education' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'about_me' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'resume' })).toBeVisible();
+
+    await expect(page.getByRole('heading', { name: 'languages' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'frameworks' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'databases' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'tools' })).toBeVisible();
+});
+
+test('Read more button opens modal', async ({ page }) => {
+    await page.click('button:has-text("./read_more.sh")');
+    const modalHeader = page.getByRole('heading', { name: 'about_brendan.txt' });
+    await expect(modalHeader).toBeVisible();
+    await page.click('button:has-text("×")');
+    await expect(modalHeader).not.toBeVisible();
 });
