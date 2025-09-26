@@ -13,7 +13,10 @@ jobs:
     site-health:
         runs-on: ubuntu-latest
 
-        steps: 
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v4
+            
             - name: Test Page Availability
               run: |
                 STATUS=$(curl -s -o /dev/null -w "%{http_code}" -f "https://brendans-website.vercel.app/" || echo "000")
