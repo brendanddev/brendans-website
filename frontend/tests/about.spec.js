@@ -42,3 +42,11 @@ test('Read more button opens modal', async ({ page }) => {
     await page.click('button:has-text("×")');
     await expect(modalHeader).not.toBeVisible();
 });
+
+test('View resume button triggers download', async ({ page }) => {
+    const downloadPromise = page.waitForEvent('download');
+    await page.click('a:has-text("./download_resume.sh")');
+
+    const download = await downloadPromise;
+    expect(download.suggestedFilename()).toBe('BrendanDileo_Resume.pdf');
+});
