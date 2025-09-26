@@ -7,8 +7,6 @@
  */
 
 
-// npx playwright test
-
 import { test, expect } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {
@@ -46,7 +44,7 @@ test('Form inputs are visible and required', async ({ page }) => {
 });
 
 test('Submit button exists and has correct label', async ({ page }) => {
-    const button = page.getByRole('button', { name: './submit' });
+    const button = page.getByRole('button', { name: 'Submit contact form' });
     await expect(button).toBeVisible();
     await expect(button).toHaveText('./submit');
 });
@@ -56,7 +54,7 @@ test('User can fill the form and click submit', async ({ page }) => {
     await page.fill('#email', 'brendan@example.com');
     await page.fill('#message', 'This is a test message.');
 
-    const button = page.getByRole('button', { name: './submit' });
+    const button = page.getByRole('button', { name: 'Submit contact form' });
     await button.click();
 
     const status = page.locator('#form-status');
