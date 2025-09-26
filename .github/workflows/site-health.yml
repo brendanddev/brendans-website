@@ -34,3 +34,10 @@ jobs:
                     echo "Homepage content verification failed"
                     exit 1
                 fi
+            
+            - name: Run Playwright Tests
+              working-directory: ./frontend
+              run: |
+                npm install
+                npx playwright install --with-deps
+                npx playwright test
